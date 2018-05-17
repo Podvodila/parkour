@@ -1,0 +1,56 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', 'HomeController@index')->name('site.index');
+
+Route::get('/find', 'MapController@find')->name('site.mapFind');
+
+Route::get('/spot/{id}', 'SpotController@show')->name('site.spot');
+
+
+
+Route::get('/profile/{id}', 'ProfileController@showPage')->name('site.profile');
+Route::middleware('auth')->group(function() {
+	Route::get('/spot-edit/{id}', 'SpotController@edit')->name('site.spotEdit');
+	Route::post('/spot-edit/{id}', 'SpotController@editPost')->name('site.spotEditPost');
+	Route::get('/spot-add', 'SpotController@add')->name('site.spotAdd');
+	Route::post('/spot-add', 'SpotController@addPost')->name('site.spotAddPost');
+
+	
+	Route::get('/profile', 'ProfileController@showEditPage')->name('site.profileEdit');
+	Route::post('/profile', 'ProfileController@editPost')->name('site.profileEditPost');
+
+	//Profile editing
+	Route::post('/useravatar/upload', 'ProfileController@addAvatar')->name('profile.uploadImg');
+	// Route::get('/useravatar/{filename}', 'ProfileController@getAvatar')->name('profile.avatar');
+	Route::post('/useravatar/delete', 'ProfileController@removeAvatar')->name('profile.removeImg');
+	Route::post('/moves/add', 'ProfileController@addMove')->name('profile.addMove');
+	Route::post('/moves/remove', 'ProfileController@removeMove')->name('profile.removeMove');
+	Route::post('/videos/add-move', 'ProfileController@addMoveVideo')->name('profile.addMoveVideo');
+	Route::post('/videos/remove-move', 'ProfileController@removeMoveVideo')->name('profile.removeMoveVideo');
+});
+
+
+
+Route::get('/register', 'LoginController@register')->name('site.register');
+Route::post('/register', 'LoginController@registerPost')->name('site.registerPost');
+Route::get('/login', 'LoginController@login')->name('site.login');
+Route::post('/login', 'LoginController@loginPost')->name('site.loginPost');
+
+
+// Examples
+// Route::get('/', 'ArticleController@showAll')->name('site.index')->middleware('auth');
+// Route::get('/article/{id}', 'ArticleController@showOne')->name('site.article')->where('id', '[0-9]+');
+Auth::routes();
+
+
