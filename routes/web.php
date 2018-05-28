@@ -21,8 +21,17 @@ Route::get('/spot/{id}', 'SpotController@show')->name('site.spot');
 
 Route::get('/profile/{id}', 'ProfileController@showPage')->name('site.profile');
 Route::middleware('auth')->group(function() {
-	Route::get('/spot-edit/{id}', 'SpotController@edit')->name('site.spotEdit');
-	Route::post('/spot-edit/{id}', 'SpotController@editPost')->name('site.spotEditPost');
+	Route::middleware('user.check')->group(function() {
+		Route::get('/spot-edit/{id}', 'SpotController@edit')->name('site.spotEdit');
+		Route::post('/spot-edit/{id}/remove', 'SpotController@remove')->name('spot.remove');
+		Route::post('/spot-edit/{id}/remove-image', 'SpotController@removeImage')->name('spot.removeImage');
+		Route::post('/spot-edit/{id}/add-images', 'SpotController@addImages')->name('spot.addImages');
+		Route::post('/spot-edit/{id}/edit-location', 'SpotController@editLocation')->name('spot.editLocation');
+		Route::post('/spot-edit/{id}/edit-description', 'SpotController@editDescription')->name('spot.editDescription');
+		Route::post('/spot-edit/{id}/remove-move', 'SpotController@removeMove')->name('spot.removeMove');
+		Route::post('/spot-edit/{id}/add-move', 'SpotController@addMove')->name('spot.addMove');
+	});
+	
 	Route::get('/spot-add', 'SpotController@add')->name('site.spotAdd');
 	Route::post('/spot-add', 'SpotController@addPost')->name('site.spotAddPost');
 
@@ -30,9 +39,14 @@ Route::middleware('auth')->group(function() {
 	Route::get('/profile', 'ProfileController@showEditPage')->name('site.profileEdit');
 	Route::post('/profile', 'ProfileController@editPost')->name('site.profileEditPost');
 
+	Route::post('/profile/user', 'ProfileController@getUser')->name('ajax.getUser');
+	Route::post('/profile/user-tricks', 'ProfileController@getUserTricks')->name('ajax.getUserTricks');
+	Route::post('/profile/user-videos', 'ProfileController@getUserVideos')->name('ajax.getUserVideos');
+	Route::post('/useravatar', 'ProfileController@getAvatar')->name('ajax.getAvatar');
+
 	//Profile editing
 	Route::post('/useravatar/upload', 'ProfileController@addAvatar')->name('profile.uploadImg');
-	// Route::get('/useravatar/{filename}', 'ProfileController@getAvatar')->name('profile.avatar');
+	
 	Route::post('/useravatar/delete', 'ProfileController@removeAvatar')->name('profile.removeImg');
 	Route::post('/moves/add', 'ProfileController@addMove')->name('profile.addMove');
 	Route::post('/moves/remove', 'ProfileController@removeMove')->name('profile.removeMove');

@@ -1,65 +1,40 @@
+@if (count(Storage::disk('local')->files('spots/' . $spot->id . '/images/')) > 0)
+	<div>
+		@foreach (Storage::disk('local')->files('spots/' . $spot->id . '/images/') as $image)
+			<img src="{{ Storage::disk('local')->url($image) }}" alt="" class="pic">
+		@endforeach
+	</div>
+@endif
 
-	<form action="{{ route('site.spotAddPost') }}" method="POST" enctype="multipart/form-data">
-		{{ csrf_field() }}
-		<div>
-			<h4>Местонахождение локации</h4>
-			<div id="map"></div>
-			<input type="hidden" name="location" id="location">
-		</div>
+<div>
+	<h4>Местонахождение локации</h4>
+	<div id="map"></div>
+</div>
 
-		<div>
-			<h4>Добавить изображения локации</h4>
-			<input type="file" name="image[]" multiple>
-		</div>
+<div>
+	<h4>Описание локации</h4>
+	<div>{{ $spot->description }}</div>
+</div>
 
-		<div>
-			<h4>Описание локации</h4>
-			<textarea name="description" cols="30" rows="10"></textarea>
-		</div>
-		
-		<div>
-			<h4>Элементы, которые можно выполнять на этой локации</h4>
-			<select name="move[]" id="move" multiple>
-	            @foreach ($tricks as $trick)
-	                <option value="{{ $trick->id }}">{{ $trick->name }}</option>
-	            @endforeach
-        	</select>
-		</div>
-		
-
-
-		<input type="submit" value="Send">
-	</form>
-
-	@if ($errors)
-        @foreach ($errors->all() as $message)
-            <p>{{ $message }}</p>
-        @endforeach
-    @endif
-
+<div>
+	<h4>Элементы, которые можно выполнять на этой локации</h4>
+	@foreach ($spot->tricks as $trick)
+		<h5>{{$trick->name}}</h5>
+	@endforeach
+</div>
 
 <script>
 	function initMap() {
 		var map = new google.maps.Map(document.querySelector("#map"), {
-			zoom: 3,
-			center: {lat: 33.13798974, lng: 18.63074565 }
+			zoom: 12,
+			center: {lat: {{$spot->lat}}, lng: {{$spot->lng}} }
 		});
 
 		var marker = new google.maps.Marker({
-		  position: { lat: 33.13798974, lng: 18.63074565 },
+		  position: {lat: {{$spot->lat}}, lng: {{$spot->lng}} },
+		  map: map,
 		});
-
-		map.addListener('click', function(e) {
-          placeMarker(e.latLng, map, marker);
-        });
     }
-
-	function placeMarker(latLng, map, marker) {
-		marker.position = latLng;
-		marker.setMap(map);
-		var location = document.querySelector("#location");
-		location.value = `${latLng.lat()} ${latLng.lng()}`;
-	}
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM7zVJIpwF35JDbkg0oS4awX4pBzZoMac&callback=initMap"></script>
 
@@ -67,5 +42,9 @@
 	#map {
 		height: 500px;
 		width: 100%;
+	}
+
+	.pic {
+		max-width: 300px;
 	}
 </style>

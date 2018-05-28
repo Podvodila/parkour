@@ -1,24 +1,20 @@
-@extends('layouts.app')
+@extends('main')
 
 @section('content')
-	<div>
-		<img src="{{ Storage::disk('local')->url($user->id . '/avatar.jpg') }}" alt="avatar" id="avatar">
-		<div>{{ $user->first_name . ' ' . $user->last_name }}</div>
-	</div>
-	<div>
-		<h3>Move list</h3>
-		@foreach ($user->tricks as $trick)
-			<h5>{{ $trick->name }}</h5>
-	        @foreach ($videos->where('trick_id', $trick->id)->sortByDesc('created_at') as $video)
-	        	<h6>Video of your move</h6>
-	            <video src="{{ Storage::disk('local')->url($video->path) }}" controls width="300px"></video>
-	        @endforeach
-		@endforeach
+@php
+	$routes = ['getUser' => route('ajax.getUser'), 'getUserTricks' => route('ajax.getUserTricks'), 'getUserVideos' => route('ajax.getUserVideos'), 'getAvatar' => route('ajax.getAvatar')];
+@endphp
+	<div id="app">
+		<Profile 
+		:routes="{{json_encode($routes)}}"
+		:user="{{$user}}"
+		:tricks="{{$tricks}}"
+		:videos="{{$videos}}"
+		avatar="{{$avatar}}"
+		></Profile>
 	</div>
 @endsection
 
-<style>
-    #avatar {
-        max-width: 400px;
-    }
-</style>
+@section('scripts')
+	<script src="{{ asset('js/app.js') }}" defer></script>
+@endsection

@@ -15,7 +15,7 @@ class CreateSpotTrickTable extends Migration
     {
         Schema::create('spot_trick', function (Blueprint $table) {
             $table->integer('spot_id')->unsigned();
-            $table->foreign('spot_id')->references('id')->on('spots');
+            $table->foreign('spot_id')->references('id')->on('spots')->onDelete('cascade');
             $table->integer('trick_id')->unsigned();
             $table->foreign('trick_id')->references('id')->on('tricks');
             $table->timestamps();

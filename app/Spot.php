@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Spot extends Model
 {
     protected $fillable = [
-        'lat', 'lng', 'description',
+        'lat', 'lng', 'description', 'user_id'
     ];
 
     public function videos()
@@ -18,5 +18,10 @@ class Spot extends Model
     public function tricks()
     {
     	return $this->belongsToMany('App\Trick')->withTimestamps();
+    }
+
+    public function user()
+    {
+        return $this->hasOne('App\User');
     }
 }

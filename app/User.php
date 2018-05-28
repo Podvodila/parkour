@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'login', 'password',
+        'first_name', 'last_name', 'login', 'password', 'facebook', 'instagram'
     ];
 
     /**
@@ -35,5 +35,10 @@ class User extends Authenticatable
     public function tricks()
     {
         return $this->belongsToMany('App\Trick')->withTimestamps();
+    }
+
+    public function spots()
+    {
+        return $this->belongsToMany('App\Spot');
     }
 }

@@ -14,7 +14,6 @@ use App\Rules\NoVideo;
 
 class ProfileController extends Controller
 {
-	// EDIT
 
 	public function showEditPage()
     {
@@ -81,7 +80,7 @@ class ProfileController extends Controller
     		Video::create([
     			'user_id' => Auth::id(),
     			'trick_id' => $request->input('move'),
-    			'path' => $filename,
+    			'path' => Storage::disk('local')->url($filename),
     		]);
     	}
 
@@ -114,29 +113,29 @@ class ProfileController extends Controller
 
     public function showPage($user)
     {
-    	return view('profile', ['user' => User::find($user), 'videos' => User::find($user)->videos()->get()]);
+    	return view('profile', ['user' => $this->getUser($user), 'videos' => $this->getUserVideos($user), 'tricks' => $this->getUserTricks($user), 'avatar' => $this->getAvatar($user)]);
     }
 
-    // private functions
 
-    public function getAvatar($filename)
+    public function getAvatar($user_id) 
     {
-    	$file = Storage::disk('local')->url($filename);
-    	return new Response($file, 200);
+    	$avatar = Storage::disk('local')->url('users/' . $user_id . '/avatar.jpg');
+    	return $avatar;
     }
 
-    private function getMoves()
+    public function getUser($user_id)
     {
-
+        // return response()->json(User::find($user_id));
+        return User::find($user_id);
     }
 
-    private function getMoveVideos()
+    public function getUserTricks($user_id)
     {
-
+        return User::find($user_id)->tricks()->latest()->get();
     }
 
-    private function getTrainingVideos()
+    public function getUserVideos($user_id)
     {
-
+        return User::findOrFail($user_id)->videos()->latest()->get();
     }
 }

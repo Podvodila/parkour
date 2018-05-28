@@ -48,7 +48,7 @@
         @endforeach
         <form action="{{ route('profile.addMoveVideo') }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
-            <h6>Add move</h6>
+            <h6>Add video</h6>
             <input type="hidden" value="{{ $trick->id }}" name="move">
             <input type="file" name="video">
             @if ($errors)
