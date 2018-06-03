@@ -2,8 +2,11 @@
 	<div class="profile-content">
 		<div class="profile-info">
 			<div class="avatar-wrap">
-				<div class="avatar-container">
-					<img :src="avatar" alt="avatar" id="avatar" ref="avatar">
+				<div class="avatar-container" id="avatar-container">
+					<img :src="avatar" alt="avatar" id="avatar" ref="avatar" @click="switchAvatar">
+					<svg @click="switchAvatar" class="downsize-btn" v-if="avatarOpened" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" width="64px" height="64px">
+						<path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+					</svg>
 				</div>
 			</div>
 			<div class="profile-contacts">
@@ -21,7 +24,7 @@
 							     	<path fill="#FAEFDE" d="M 46 35 L 39 35 L 39 31.058594 L 41 28 L 47 29 L 47 21 L 38 22 L 32 27 L 32 35 L 25 35 L 25 42 L 32 42 L 32 57 L 39 57 L 39 42 L 46 42 Z "></path>
 							     	<path fill="#80A6DD" d="M 11 7 L 53 7 C 55.210938 7 57 8.789063 57 11 C 57 12.65625 55.65625 14 54 14 L 10 14 C 8.34375 14 7 12.65625 7 11 C 7 8.789063 8.789063 7 11 7 Z "></path>
 							     </g>
-							     <g id="facebook-svg-comon"
+							     <g id="facebook-svg-comon">
 							     	<path class="svg-basic" d="M 51 6 L 13 6 C 9.132813 6 6 9.132813 6 13 L 6 51 C 6 54.867188 9.132813 58 13 58 L 51 58 C 54.867188 58 58 54.867188 58 51 L 58 13 C 58 9.132813 54.867188 6 51 6 Z M 33 56 L 33 41 L 26 41 L 26 36 L 33 36 L 33 31.289063 C 33 25.46875 36.210938 22 41.601563 22 C 43.175781 22 44.753906 22.089844 46.320313 22.269531 L 46.320313 27.660156 L 42.628906 27.660156 C 38.390625 27.660156 37.898438 30.371094 37.898438 32.410156 L 37.898438 36 L 45.769531 36 L 45 41 L 37.898438 41 L 37.898438 56 Z M 56 51 C 56 53.761719 53.761719 56 51 56 L 39.898438 56 L 39.898438 43 L 45.808594 43 C 46.304688 43.007813 46.730469 42.648438 46.808594 42.160156 L 47.949219 35.160156 C 47.996094 34.867188 47.914063 34.570313 47.71875 34.347656 C 47.527344 34.125 47.246094 33.996094 46.949219 34 L 39.949219 34 L 39.949219 32.398438 C 39.949219 30.5 40.339844 29.648438 42.679688 29.648438 L 47.328125 29.648438 C 47.882813 29.648438 48.328125 29.203125 48.328125 28.648438 L 48.328125 21.410156 C 48.332031 20.894531 47.941406 20.460938 47.429688 20.410156 C 45.941406 20.261719 42.988281 19.988281 41.609375 19.988281 C 35.121094 20 31 24.429688 31 31.289063 L 31 34 L 25 34 C 24.449219 34 24 34.449219 24 35 L 24 42 C 24 42.550781 24.449219 43 25 43 L 31 43 L 31 56 L 13 56 C 10.238281 56 8 53.761719 8 51 L 8 13 C 8 10.238281 10.238281 8 13 8 L 51 8 C 53.761719 8 56 10.238281 56 13 Z "></path><path class="svg-basic" d="M 17 12 C 16.449219 12 16 12.449219 16 13 L 16 15 C 16 15.550781 16.449219 16 17 16 C 17.550781 16 18 15.550781 18 15 L 18 13 C 18 12.449219 17.550781 12 17 12 Z "></path><path class="svg-basic" d="M 12 12 C 11.449219 12 11 12.449219 11 13 L 11 15 C 11 15.550781 11.449219 16 12 16 C 12.550781 16 13 15.550781 13 15 L 13 13 C 13 12.449219 12.550781 12 12 12 Z "></path><path class="svg-basic" d="M 32 12 C 31.449219 12 31 12.449219 31 13 L 31 15 C 31 15.550781 31.449219 16 32 16 C 32.550781 16 33 15.550781 33 15 L 33 13 C 33 12.449219 32.550781 12 32 12 Z "></path><path class="svg-basic" d="M 37 12 C 36.449219 12 36 12.449219 36 13 L 36 15 C 36 15.550781 36.449219 16 37 16 C 37.550781 16 38 15.550781 38 15 L 38 13 C 38 12.449219 37.550781 12 37 12 Z "></path><path class="svg-basic" d="M 42 12 C 41.449219 12 41 12.449219 41 13 L 41 15 C 41 15.550781 41.449219 16 42 16 C 42.550781 16 43 15.550781 43 15 L 43 13 C 43 12.449219 42.550781 12 42 12 Z "></path><path class="svg-basic" d="M 47 12 C 46.449219 12 46 12.449219 46 13 L 46 15 C 46 15.550781 46.449219 16 47 16 C 47.550781 16 48 15.550781 48 15 L 48 13 C 48 12.449219 47.550781 12 47 12 Z "></path><path class="svg-basic" d="M 52 12 C 51.449219 12 51 12.449219 51 13 L 51 15 C 51 15.550781 51.449219 16 52 16 C 52.550781 16 53 15.550781 53 15 L 53 13 C 53 12.449219 52.550781 12 52 12 Z "></path><path class="svg-basic" d="M 22 12 C 21.449219 12 21 12.449219 21 13 L 21 15 C 21 15.550781 21.449219 16 22 16 C 22.550781 16 23 15.550781 23 15 L 23 13 C 23 12.449219 22.550781 12 22 12 Z "></path><path class="svg-basic" d="M 27 12 C 26.449219 12 26 12.449219 26 13 L 26 15 C 26 15.550781 26.449219 16 27 16 C 27.550781 16 28 15.550781 28 15 L 28 13 C 28 12.449219 27.550781 12 27 12 Z "></path>
 							     </g>
 							 </svg>
@@ -73,72 +76,145 @@
 				</div>
 			</div>
 		</div>
-		<div>
-			<h3>Move list</h3>
-			<template v-for="(trick, key) in tricks">
-				<h5>{{ trick.name }}</h5>
-				<template v-for="(video, nkey) in currentVideo(trick.id)">
-		        	<h6>Video of your move</h6>
-		            <video :src="video.path" controls width="300px"></video>
-		        </template>
-			</template>
+		<div class="tricks-container">
+			<div v-for="(trick, key) in tricksToShow" :key="key" class="trick-container card">
+				<h3 class="card-header custom-card-header">
+					{{trick.name}}
+				</h3>
+				<div class="card-body custom-card-body">
+					<template v-if="currentVideos(trick.id).length > 0">
+						<app-video :src="currentVideos(trick.id)[0].path"></app-video>
+					</template>
+				</div>
+			</div>
+			<!-- example -->
+				<!-- <h3>Move list</h3>
+				<template v-for="(trick, key) in tricks">
+					<h5>{{ trick.name }}</h5>
+					<template v-for="(video, nkey) in currentVideos(trick.id)">
+			        	<h6>Video of your move</h6>
+			            <video :src="video.path" controls width="300px"></video>
+			        </template>
+				</template> -->
+			<!-- example -->
 		</div>
 	</div>
 </template>
 
 <script>
+	import appVideo from './Video.vue';
+
 	export default {
 		props: ['user', 'tricks', 'videos', 'avatar', 'routes'],
 		data() {
 			return {
-				
+				avatarOpened: false,
+				avatarLeft: null,
+				avatarWide: false,
+				avatarHigh: false,
 			}
 		},
 		created() {
-			this.avatarClass();
-			this.marginAvatar();
+			var self = this;
+			$(function() {
+				$("#avatar").on("load", function() {
+					self.avatarClass();
+					self.marginAvatar();
+				});
+			});
+			
 		},
 		computed: {
 			fullName() {
 				return this.user.first_name + ' ' + this.user.last_name;
 			},
+			tricksWithVideo() {
+				var pushedTricks = [];
+				var tricksAfterSort = [];
+				for(var i = 0; i < this.videos.length; i++) {
+					if(pushedTricks.includes(this.videos[i].trick_id)) continue;
+					pushedTricks.push(this.videos[i].trick_id);
+					this.tricks.forEach((trick) => {
+						if(trick.id == this.videos[i].trick_id) {
+							tricksAfterSort.push(trick);
+						}
+					});
+				}
+				return tricksAfterSort;
+			},
+			tricksWithoutVideo() {
+				return this.tricks.filter((trick) => {
+					var result = true;
+					this.videos.forEach((video) => {
+						if(video.trick_id == trick.id) {
+							result = false;
+						}
+					});
+					return result;
+				});
+			},
+			tricksToShow() {
+				return this.tricksWithVideo.concat(this.tricksWithoutVideo);
+			},
 		},
 		methods: {
-			currentVideo(trick_id) {
+			currentVideos(trick_id) {
 				return this.videos.filter(function(video) {
 					return video.trick_id == trick_id;
 				});
 			},
 			avatarClass() {
-				var self = this;
-				$(function() {
-					var customClass;
-					if(self.$refs.avatar.width > self.$refs.avatar.height) {
-						customClass = 'wide';
-					} else {
-						customClass = 'high';
-					}
-					self.$refs.avatar.classList.add(customClass);
-				});
+				var customClass;
+				console.log(this.$refs.avatar.width);
+				console.log(this.$refs.avatar.height);
+				if(this.$refs.avatar.width > this.$refs.avatar.height) {
+					customClass = 'wide';
+				} else {
+					customClass = 'high';
+				}
+				this.$refs.avatar.classList.add(customClass);
 			},
 			marginAvatar() {
-				var self = this;
-				$(function () { 
-					var avatar = self.$refs.avatar;
-					var width = avatar.width;
-					var height = avatar.height;
-					console.log(self.$refs);
-					if(width > height) {
-						var result = '-' + width/2 + 'px';
-						avatar.style.left = result;
-					} else {
-						var result = '-' + height/2 + 'px';
-						avatar.style.top = result;
+				var avatar = this.$refs.avatar;
+				var width = avatar.width;
+				var height = avatar.height;
+				if(width > height) {
+					var result = '-' + width/2 + 'px';
+					avatar.style.left = result;
+				} else {
+					var result = '-' + height/2 + 'px';
+					avatar.style.top = result;
+				}
+			},
+			switchAvatar(e) {
+				if(!this.avatarOpened) {
+					this.avatarOpened = true;
+					if(this.avatarLeft == null) {
+						this.avatarLeft = e.target.style.left;
 					}
 					
-				});
+					if(e.target.classList.contains('wide')) {
+						this.avatarWide = true;
+						e.target.classList.remove('wide');
+					} else {
+						this.avatarHigh = true;
+						e.target.classList.remove('high');
+					}
+					e.target.classList.add('full-size-avatar');
+					e.target.style.left = (document.documentElement.clientWidth - this.$refs.avatar.width)/2 + 'px';
+					e.target.parentNode.classList.add('full-size-avatar-container');
+				} else {
+					this.avatarOpened = false;
+					this.$refs.avatar.style.left = this.avatarLeft;
+					this.$refs.avatar.classList.remove('full-size-avatar');
+					this.$refs.avatar.parentNode.classList.remove('full-size-avatar-container');
+					if(this.avatarWide) {
+						this.$refs.avatar.classList.add('wide');
+					} else {
+						this.$refs.avatar.classList.add('high');
+					}
+				}
 			},
-
 			/*getUserInfo() {
 				var self = this;
 				$.ajax({
@@ -220,6 +296,9 @@
                   }
 				});
 			},*/
+		},
+		components: {
+			appVideo,
 		}
 	}
 </script>
@@ -231,6 +310,7 @@
 
 	.profile-info {
 		display: flex;
+		margin-bottom: 44px;
 	}
 
 	.avatar-container {
@@ -239,16 +319,16 @@
 		border-radius: 50%;
 		overflow: hidden;
 		margin: 0 auto;
-		transition: .2s;
 	}
 
-	.avatar-container:hover {
+	.avatar-container img:hover {
 		cursor: pointer;
-		transform: scale(1.05);
+		/*transform: scale(1.05);*/
 	}
 
 	.avatar-container img {
 		position: relative;
+		/*transition: .2s;*/
 	}
 
 	.high {
@@ -314,5 +394,85 @@
 
 	#svg-instagram:hover #svg-instagram-common path {
 		fill: #8D6C9F;
+	}
+
+	.avatar-container .full-size-avatar {
+		position: fixed;
+		z-index: 90;
+		top: 10% !important;
+		cursor: pointer;
+		animation: avatarUp .4s;
+		max-width: 90vw;
+		max-height: 80vh;
+	}
+
+	.avatar-container.full-size-avatar-container {
+		position: fixed;
+		z-index: 89;
+		width: 100vw;
+		height: 100vh;
+		left: 0px;
+		top: 0px;
+		border-radius: 0;
+		background-color: rgba(0, 0, 0, 0.3);
+		cursor: default;
+		animation: avatarUp .2s;
+	}
+
+	.avatar-container.full-size-avatar-container .full-size-avatar:hover {
+		transform: none;
+	}
+
+	.downsize-btn {
+		top: 15px;
+		right: 30px;
+		position: absolute;
+		fill: #f1f1f1;
+		cursor: pointer;
+		transition: .2s;
+	}
+
+	.downsize-btn:hover {
+		transform: scale(1.2) rotate(90deg);
+		fill: #c54646;
+	}
+
+	.downsize-btn:active {
+		transform: scale(0.9) rotate(90deg);
+	}
+
+	@keyframes avatarUp {
+		from {
+			transform: scale(0.1);
+			opacity: 0;
+		}
+		to {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+	.tricks-container {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+
+	.trick-container {
+		width: 500px;
+		margin-bottom: 48px;
+	}
+
+	.custom-card-header {
+		font-size: 24px;
+		font-family: 'Nunito';
+		font-weight: normal;
+		background-color: #f2f2f4;
+	}
+
+	.custom-card-body {
+		background-color: #efefef;
 	}
 </style>

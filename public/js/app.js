@@ -48012,7 +48012,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.register-container {\n        max-width: 600px;\n        margin: 10px auto;\n        margin-top: 100px;\n}\n.register-form {\n        background-color: #fff;\n        border: 1px solid #e6e6e6;\n        padding: 30px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        font-family: 'Nunito';\n        margin-bottom: 20px;\n}\n.register-form>div {\n        margin-bottom: 10px;\n}\n.register-form>div:last-child {\n        margin-bottom: 0px;\n}\n.register-btn-container {\n    \tposition: relative;\n    \theight: 34px;\n}\n.register-btn {\n    \tposition: absolute;\n    \tbackground-color: transparent;\n    \tz-index: 100;\n    \twidth: 100%;\n}\n.input-container {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.alert-svg {\n    \theight: 17px;\n    \tmargin-left: 10px;\n}\n.fill-red {\n    \tfill: #c00;\n}\n.fill-green {\n    \tfill: green;\n}\n.login-alert {\n        position: absolute;\n        right: 42%;\n        top: 10px;\n}\n.alert-enter-active {\n        -webkit-animation: alertUp .5s;\n                animation: alertUp .5s;\n}\n.alert-leave-active {\n        -webkit-animation: alertAway .5s;\n                animation: alertAway .5s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
+exports.push([module.i, "\n.register-container {\n        max-width: 600px;\n        margin: 10px auto;\n        margin-top: 100px;\n}\n.register-form {\n        background-color: #fff;\n        border: 1px solid #e6e6e6;\n        padding: 30px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        font-family: 'Nunito';\n        margin-bottom: 20px;\n}\n.register-form>div {\n        margin-bottom: 10px;\n}\n.register-form>div:last-child {\n        margin-bottom: 0px;\n}\n.register-btn-container {\n    \tposition: relative;\n    \theight: 34px;\n}\n.register-btn {\n    \tposition: absolute;\n    \tbackground-color: transparent;\n    \tz-index: 100;\n    \twidth: 100%;\n    \tcursor: pointer;\n}\n.input-container {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.alert-svg {\n    \theight: 17px;\n    \tmargin-left: 10px;\n}\n.fill-red {\n    \tfill: #c00;\n}\n.fill-green {\n    \tfill: green;\n}\n.login-alert {\n        position: absolute;\n        right: 42%;\n        top: 10px;\n}\n.alert-enter-active {\n        -webkit-animation: alertUp .5s;\n                animation: alertUp .5s;\n}\n.alert-leave-active {\n        -webkit-animation: alertAway .5s;\n                animation: alertAway .5s;\n}\n.custom-progress-bar {\n    \theight: 100%;\n    \t-webkit-transition: .4s;\n    \ttransition: .4s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
 
 // exports
 
@@ -48405,7 +48405,7 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", {
-              staticClass: "progress-bar",
+              staticClass: "progress-bar custom-progress-bar",
               style: { width: _vm.progressbar + "%" }
             })
           ])
@@ -48512,7 +48512,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.profile-content {\n\tpadding: 60px 20px 0;\n}\n.profile-info {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n.avatar-container {\n\twidth: 200px;\n\theight: 200px;\n\tborder-radius: 50%;\n\toverflow: hidden;\n\tmargin: 0 auto;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.avatar-container:hover {\n\tcursor: pointer;\n\t-webkit-transform: scale(1.05);\n\t        transform: scale(1.05);\n}\n.avatar-container img {\n\tposition: relative;\n}\n.high {\n\twidth: 100%;\n\tmargin: 50% 0 0 0;\n}\n.wide {\n\theight: 100%;\n\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\twidth: 400px;\n\tmargin-right: 30px;\n}\n.contacts-name {\n\tfont-size: 32px;\n\tfont-family: 'Nunito';\n\tfont-weight: normal;\n}\n.contacts-social {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n#facebook-svg path {\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.svg-basic {\n\tfill: #555;\n}\n#facebook-svg-color {\n\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\topacity: 0;\n}\n#svg-instagram path {\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\topacity: 1;\n}\n#svg-instagram-common path {\n\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\tfill: #8D6C9F;\n}\n", ""]);
+exports.push([module.i, "\n.profile-content {\n\tpadding: 60px 20px 0;\n}\n.profile-info {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\tmargin-bottom: 44px;\n}\n.avatar-container {\n\twidth: 200px;\n\theight: 200px;\n\tborder-radius: 50%;\n\toverflow: hidden;\n\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\tcursor: pointer;\n\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\tposition: relative;\n\t/*transition: .2s;*/\n}\n.high {\n\twidth: 100%;\n\tmargin: 50% 0 0 0;\n}\n.wide {\n\theight: 100%;\n\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\twidth: 400px;\n\tmargin-right: 30px;\n}\n.contacts-name {\n\tfont-size: 32px;\n\tfont-family: 'Nunito';\n\tfont-weight: normal;\n}\n.contacts-social {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n#facebook-svg path {\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.svg-basic {\n\tfill: #555;\n}\n#facebook-svg-color {\n\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\topacity: 0;\n}\n#svg-instagram path {\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\topacity: 1;\n}\n#svg-instagram-common path {\n\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\tposition: fixed;\n\tz-index: 90;\n\ttop: 10% !important;\n\tcursor: pointer;\n\t-webkit-animation: avatarUp .4s;\n\t        animation: avatarUp .4s;\n\tmax-width: 90vw;\n\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\tposition: fixed;\n\tz-index: 89;\n\twidth: 100vw;\n\theight: 100vh;\n\tleft: 0px;\n\ttop: 0px;\n\tborder-radius: 0;\n\tbackground-color: rgba(0, 0, 0, 0.3);\n\tcursor: default;\n\t-webkit-animation: avatarUp .2s;\n\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t-webkit-transform: none;\n\t        transform: none;\n}\n.downsize-btn {\n\ttop: 15px;\n\tright: 30px;\n\tposition: absolute;\n\tfill: #f1f1f1;\n\tcursor: pointer;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t-webkit-transform: scale(1.2) rotate(90deg);\n\t        transform: scale(1.2) rotate(90deg);\n\tfill: #c54646;\n}\n.downsize-btn:active {\n\t-webkit-transform: scale(0.9) rotate(90deg);\n\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t-webkit-transform: scale(0.1);\n\t\t        transform: scale(0.1);\n\t\topacity: 0;\n}\nto {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t-webkit-transform: scale(0.1);\n\t\t        transform: scale(0.1);\n\t\topacity: 0;\n}\nto {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n\t\topacity: 1;\n}\n}\n.tricks-container {\n\twidth: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-ms-flex-wrap: wrap;\n\t    flex-wrap: wrap;\n\t-webkit-box-pack: justify;\n\t    -ms-flex-pack: justify;\n\t        justify-content: space-between;\n\t-webkit-box-align: start;\n\t    -ms-flex-align: start;\n\t        align-items: flex-start;\n}\n.trick-container {\n\twidth: 500px;\n\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\tfont-size: 24px;\n\tfont-family: 'Nunito';\n\tfont-weight: normal;\n\tbackground-color: #f2f2f4;\n}\n.custom-card-body {\n\tbackground-color: #efefef;\n}\n", ""]);
 
 // exports
 
@@ -48523,6 +48523,23 @@ exports.push([module.i, "\n.profile-content {\n\tpadding: 60px 20px 0;\n}\n.prof
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Video_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -48612,55 +48629,126 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['user', 'tricks', 'videos', 'avatar', 'routes'],
 	data: function data() {
-		return {};
+		return {
+			avatarOpened: false,
+			avatarLeft: null,
+			avatarWide: false,
+			avatarHigh: false
+		};
 	},
 	created: function created() {
-		this.avatarClass();
-		this.marginAvatar();
+		var self = this;
+		$(function () {
+			$("#avatar").on("load", function () {
+				self.avatarClass();
+				self.marginAvatar();
+			});
+		});
 	},
 
 	computed: {
 		fullName: function fullName() {
 			return this.user.first_name + ' ' + this.user.last_name;
+		},
+		tricksWithVideo: function tricksWithVideo() {
+			var _this = this;
+
+			var pushedTricks = [];
+			var tricksAfterSort = [];
+			for (var i = 0; i < this.videos.length; i++) {
+				if (pushedTricks.includes(this.videos[i].trick_id)) continue;
+				pushedTricks.push(this.videos[i].trick_id);
+				this.tricks.forEach(function (trick) {
+					if (trick.id == _this.videos[i].trick_id) {
+						tricksAfterSort.push(trick);
+					}
+				});
+			}
+			return tricksAfterSort;
+		},
+		tricksWithoutVideo: function tricksWithoutVideo() {
+			var _this2 = this;
+
+			return this.tricks.filter(function (trick) {
+				var result = true;
+				_this2.videos.forEach(function (video) {
+					if (video.trick_id == trick.id) {
+						result = false;
+					}
+				});
+				return result;
+			});
+		},
+		tricksToShow: function tricksToShow() {
+			return this.tricksWithVideo.concat(this.tricksWithoutVideo);
 		}
 	},
 	methods: {
-		currentVideo: function currentVideo(trick_id) {
+		currentVideos: function currentVideos(trick_id) {
 			return this.videos.filter(function (video) {
 				return video.trick_id == trick_id;
 			});
 		},
 		avatarClass: function avatarClass() {
-			var self = this;
-			$(function () {
-				var customClass;
-				if (self.$refs.avatar.width > self.$refs.avatar.height) {
-					customClass = 'wide';
-				} else {
-					customClass = 'high';
-				}
-				self.$refs.avatar.classList.add(customClass);
-			});
+			var customClass;
+			console.log(this.$refs.avatar.width);
+			console.log(this.$refs.avatar.height);
+			if (this.$refs.avatar.width > this.$refs.avatar.height) {
+				customClass = 'wide';
+			} else {
+				customClass = 'high';
+			}
+			this.$refs.avatar.classList.add(customClass);
 		},
 		marginAvatar: function marginAvatar() {
-			var self = this;
-			$(function () {
-				var avatar = self.$refs.avatar;
-				var width = avatar.width;
-				var height = avatar.height;
-				console.log(self.$refs);
-				if (width > height) {
-					var result = '-' + width / 2 + 'px';
-					avatar.style.left = result;
-				} else {
-					var result = '-' + height / 2 + 'px';
-					avatar.style.top = result;
+			var avatar = this.$refs.avatar;
+			var width = avatar.width;
+			var height = avatar.height;
+			if (width > height) {
+				var result = '-' + width / 2 + 'px';
+				avatar.style.left = result;
+			} else {
+				var result = '-' + height / 2 + 'px';
+				avatar.style.top = result;
+			}
+		},
+		switchAvatar: function switchAvatar(e) {
+			if (!this.avatarOpened) {
+				this.avatarOpened = true;
+				if (this.avatarLeft == null) {
+					this.avatarLeft = e.target.style.left;
 				}
-			});
+
+				if (e.target.classList.contains('wide')) {
+					this.avatarWide = true;
+					e.target.classList.remove('wide');
+				} else {
+					this.avatarHigh = true;
+					e.target.classList.remove('high');
+				}
+				e.target.classList.add('full-size-avatar');
+				e.target.style.left = (document.documentElement.clientWidth - this.$refs.avatar.width) / 2 + 'px';
+				e.target.parentNode.classList.add('full-size-avatar-container');
+			} else {
+				this.avatarOpened = false;
+				this.$refs.avatar.style.left = this.avatarLeft;
+				this.$refs.avatar.classList.remove('full-size-avatar');
+				this.$refs.avatar.parentNode.classList.remove('full-size-avatar-container');
+				if (this.avatarWide) {
+					this.$refs.avatar.classList.add('wide');
+				} else {
+					this.$refs.avatar.classList.add('high');
+				}
+			}
 		}
+	},
+	components: {
+		appVideo: __WEBPACK_IMPORTED_MODULE_0__Video_vue___default.a
 	}
 });
 
@@ -48675,12 +48763,44 @@ var render = function() {
   return _c("div", { staticClass: "profile-content" }, [
     _c("div", { staticClass: "profile-info" }, [
       _c("div", { staticClass: "avatar-wrap" }, [
-        _c("div", { staticClass: "avatar-container" }, [
-          _c("img", {
-            ref: "avatar",
-            attrs: { src: _vm.avatar, alt: "avatar", id: "avatar" }
-          })
-        ])
+        _c(
+          "div",
+          {
+            staticClass: "avatar-container",
+            attrs: { id: "avatar-container" }
+          },
+          [
+            _c("img", {
+              ref: "avatar",
+              attrs: { src: _vm.avatar, alt: "avatar", id: "avatar" },
+              on: { click: _vm.switchAvatar }
+            }),
+            _vm._v(" "),
+            _vm.avatarOpened
+              ? _c(
+                  "svg",
+                  {
+                    staticClass: "downsize-btn",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 352 512",
+                      width: "64px",
+                      height: "64px"
+                    },
+                    on: { click: _vm.switchAvatar }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                      }
+                    })
+                  ]
+                )
+              : _vm._e()
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "profile-contacts" }, [
@@ -48736,76 +48856,78 @@ var render = function() {
                           })
                         ]),
                         _vm._v(" "),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 51 6 L 13 6 C 9.132813 6 6 9.132813 6 13 L 6 51 C 6 54.867188 9.132813 58 13 58 L 51 58 C 54.867188 58 58 54.867188 58 51 L 58 13 C 58 9.132813 54.867188 6 51 6 Z M 33 56 L 33 41 L 26 41 L 26 36 L 33 36 L 33 31.289063 C 33 25.46875 36.210938 22 41.601563 22 C 43.175781 22 44.753906 22.089844 46.320313 22.269531 L 46.320313 27.660156 L 42.628906 27.660156 C 38.390625 27.660156 37.898438 30.371094 37.898438 32.410156 L 37.898438 36 L 45.769531 36 L 45 41 L 37.898438 41 L 37.898438 56 Z M 56 51 C 56 53.761719 53.761719 56 51 56 L 39.898438 56 L 39.898438 43 L 45.808594 43 C 46.304688 43.007813 46.730469 42.648438 46.808594 42.160156 L 47.949219 35.160156 C 47.996094 34.867188 47.914063 34.570313 47.71875 34.347656 C 47.527344 34.125 47.246094 33.996094 46.949219 34 L 39.949219 34 L 39.949219 32.398438 C 39.949219 30.5 40.339844 29.648438 42.679688 29.648438 L 47.328125 29.648438 C 47.882813 29.648438 48.328125 29.203125 48.328125 28.648438 L 48.328125 21.410156 C 48.332031 20.894531 47.941406 20.460938 47.429688 20.410156 C 45.941406 20.261719 42.988281 19.988281 41.609375 19.988281 C 35.121094 20 31 24.429688 31 31.289063 L 31 34 L 25 34 C 24.449219 34 24 34.449219 24 35 L 24 42 C 24 42.550781 24.449219 43 25 43 L 31 43 L 31 56 L 13 56 C 10.238281 56 8 53.761719 8 51 L 8 13 C 8 10.238281 10.238281 8 13 8 L 51 8 C 53.761719 8 56 10.238281 56 13 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 17 12 C 16.449219 12 16 12.449219 16 13 L 16 15 C 16 15.550781 16.449219 16 17 16 C 17.550781 16 18 15.550781 18 15 L 18 13 C 18 12.449219 17.550781 12 17 12 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 12 12 C 11.449219 12 11 12.449219 11 13 L 11 15 C 11 15.550781 11.449219 16 12 16 C 12.550781 16 13 15.550781 13 15 L 13 13 C 13 12.449219 12.550781 12 12 12 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 32 12 C 31.449219 12 31 12.449219 31 13 L 31 15 C 31 15.550781 31.449219 16 32 16 C 32.550781 16 33 15.550781 33 15 L 33 13 C 33 12.449219 32.550781 12 32 12 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 37 12 C 36.449219 12 36 12.449219 36 13 L 36 15 C 36 15.550781 36.449219 16 37 16 C 37.550781 16 38 15.550781 38 15 L 38 13 C 38 12.449219 37.550781 12 37 12 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 42 12 C 41.449219 12 41 12.449219 41 13 L 41 15 C 41 15.550781 41.449219 16 42 16 C 42.550781 16 43 15.550781 43 15 L 43 13 C 43 12.449219 42.550781 12 42 12 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 47 12 C 46.449219 12 46 12.449219 46 13 L 46 15 C 46 15.550781 46.449219 16 47 16 C 47.550781 16 48 15.550781 48 15 L 48 13 C 48 12.449219 47.550781 12 47 12 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 52 12 C 51.449219 12 51 12.449219 51 13 L 51 15 C 51 15.550781 51.449219 16 52 16 C 52.550781 16 53 15.550781 53 15 L 53 13 C 53 12.449219 52.550781 12 52 12 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 22 12 C 21.449219 12 21 12.449219 21 13 L 21 15 C 21 15.550781 21.449219 16 22 16 C 22.550781 16 23 15.550781 23 15 L 23 13 C 23 12.449219 22.550781 12 22 12 Z "
-                          }
-                        }),
-                        _c("path", {
-                          staticClass: "svg-basic",
-                          attrs: {
-                            d:
-                              "M 27 12 C 26.449219 12 26 12.449219 26 13 L 26 15 C 26 15.550781 26.449219 16 27 16 C 27.550781 16 28 15.550781 28 15 L 28 13 C 28 12.449219 27.550781 12 27 12 Z "
-                          }
-                        })
+                        _c("g", { attrs: { id: "facebook-svg-comon" } }, [
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 51 6 L 13 6 C 9.132813 6 6 9.132813 6 13 L 6 51 C 6 54.867188 9.132813 58 13 58 L 51 58 C 54.867188 58 58 54.867188 58 51 L 58 13 C 58 9.132813 54.867188 6 51 6 Z M 33 56 L 33 41 L 26 41 L 26 36 L 33 36 L 33 31.289063 C 33 25.46875 36.210938 22 41.601563 22 C 43.175781 22 44.753906 22.089844 46.320313 22.269531 L 46.320313 27.660156 L 42.628906 27.660156 C 38.390625 27.660156 37.898438 30.371094 37.898438 32.410156 L 37.898438 36 L 45.769531 36 L 45 41 L 37.898438 41 L 37.898438 56 Z M 56 51 C 56 53.761719 53.761719 56 51 56 L 39.898438 56 L 39.898438 43 L 45.808594 43 C 46.304688 43.007813 46.730469 42.648438 46.808594 42.160156 L 47.949219 35.160156 C 47.996094 34.867188 47.914063 34.570313 47.71875 34.347656 C 47.527344 34.125 47.246094 33.996094 46.949219 34 L 39.949219 34 L 39.949219 32.398438 C 39.949219 30.5 40.339844 29.648438 42.679688 29.648438 L 47.328125 29.648438 C 47.882813 29.648438 48.328125 29.203125 48.328125 28.648438 L 48.328125 21.410156 C 48.332031 20.894531 47.941406 20.460938 47.429688 20.410156 C 45.941406 20.261719 42.988281 19.988281 41.609375 19.988281 C 35.121094 20 31 24.429688 31 31.289063 L 31 34 L 25 34 C 24.449219 34 24 34.449219 24 35 L 24 42 C 24 42.550781 24.449219 43 25 43 L 31 43 L 31 56 L 13 56 C 10.238281 56 8 53.761719 8 51 L 8 13 C 8 10.238281 10.238281 8 13 8 L 51 8 C 53.761719 8 56 10.238281 56 13 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 17 12 C 16.449219 12 16 12.449219 16 13 L 16 15 C 16 15.550781 16.449219 16 17 16 C 17.550781 16 18 15.550781 18 15 L 18 13 C 18 12.449219 17.550781 12 17 12 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 12 12 C 11.449219 12 11 12.449219 11 13 L 11 15 C 11 15.550781 11.449219 16 12 16 C 12.550781 16 13 15.550781 13 15 L 13 13 C 13 12.449219 12.550781 12 12 12 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 32 12 C 31.449219 12 31 12.449219 31 13 L 31 15 C 31 15.550781 31.449219 16 32 16 C 32.550781 16 33 15.550781 33 15 L 33 13 C 33 12.449219 32.550781 12 32 12 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 37 12 C 36.449219 12 36 12.449219 36 13 L 36 15 C 36 15.550781 36.449219 16 37 16 C 37.550781 16 38 15.550781 38 15 L 38 13 C 38 12.449219 37.550781 12 37 12 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 42 12 C 41.449219 12 41 12.449219 41 13 L 41 15 C 41 15.550781 41.449219 16 42 16 C 42.550781 16 43 15.550781 43 15 L 43 13 C 43 12.449219 42.550781 12 42 12 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 47 12 C 46.449219 12 46 12.449219 46 13 L 46 15 C 46 15.550781 46.449219 16 47 16 C 47.550781 16 48 15.550781 48 15 L 48 13 C 48 12.449219 47.550781 12 47 12 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 52 12 C 51.449219 12 51 12.449219 51 13 L 51 15 C 51 15.550781 51.449219 16 52 16 C 52.550781 16 53 15.550781 53 15 L 53 13 C 53 12.449219 52.550781 12 52 12 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 22 12 C 21.449219 12 21 12.449219 21 13 L 21 15 C 21 15.550781 21.449219 16 22 16 C 22.550781 16 23 15.550781 23 15 L 23 13 C 23 12.449219 22.550781 12 22 12 Z "
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "svg-basic",
+                            attrs: {
+                              d:
+                                "M 27 12 C 26.449219 12 26 12.449219 26 13 L 26 15 C 26 15.550781 26.449219 16 27 16 C 27.550781 16 28 15.550781 28 15 L 28 13 C 28 12.449219 27.550781 12 27 12 Z "
+                            }
+                          })
+                        ])
                       ]
                     )
                   ]
@@ -49081,26 +49203,29 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      [
-        _c("h3", [_vm._v("Move list")]),
-        _vm._v(" "),
-        _vm._l(_vm.tricks, function(trick, key) {
-          return [
-            _c("h5", [_vm._v(_vm._s(trick.name))]),
-            _vm._v(" "),
-            _vm._l(_vm.currentVideo(trick.id), function(video, nkey) {
-              return [
-                _c("h6", [_vm._v("Video of your move")]),
-                _vm._v(" "),
-                _c("video", {
-                  attrs: { src: video.path, controls: "", width: "300px" }
-                })
-              ]
-            })
-          ]
-        })
-      ],
-      2
+      { staticClass: "tricks-container" },
+      _vm._l(_vm.tricksToShow, function(trick, key) {
+        return _c("div", { key: key, staticClass: "trick-container card" }, [
+          _c("h3", { staticClass: "card-header custom-card-header" }, [
+            _vm._v("\n\t\t\t\t" + _vm._s(trick.name) + "\n\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body custom-card-body" },
+            [
+              _vm.currentVideos(trick.id).length > 0
+                ? [
+                    _c("app-video", {
+                      attrs: { src: _vm.currentVideos(trick.id)[0].path }
+                    })
+                  ]
+                : _vm._e()
+            ],
+            2
+          )
+        ])
+      })
     )
   ])
 }
@@ -49119,6 +49244,390 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(65)
+}
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(63)
+/* template */
+var __vue_template__ = __webpack_require__(64)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Video.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-90557bd8", Component.options)
+  } else {
+    hotAPI.reload("data-v-90557bd8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['src'],
+	data: function data() {
+		return {
+			videoPlaying: false
+		};
+	},
+	created: function created() {
+		this.videoOnEnd();
+	},
+
+	methods: {
+		playVideo: function playVideo() {
+			var self = this;
+			$(function () {
+				self.$refs.video.play();
+				self.videoPlaying = true;
+			});
+		},
+		switchVideo: function switchVideo() {
+			if (this.videoPlaying) {
+				this.$refs.video.pause();
+				this.videoPlaying = false;
+			} else {
+				this.$refs.video.play();
+				this.videoPlaying = true;
+			}
+		},
+		videoOnEnd: function videoOnEnd() {
+			var self = this;
+			$(function () {
+				self.$refs.video.onended = function () {
+					self.videoPlaying = false;
+				};
+			});
+		}
+	},
+	watch: {
+		videoPlaying: function videoPlaying() {
+			this.$refs.anime.beginElement();
+		}
+	}
+});
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "custom-video-container" }, [
+    _c("video", {
+      ref: "video",
+      staticClass: "custom-video",
+      attrs: { src: _vm.src }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        ref: "play",
+        staticClass: "video-play-button",
+        class: { removed: _vm.videoPlaying }
+      },
+      [
+        _c(
+          "svg",
+          {
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              viewBox: "0 0 448 512"
+            },
+            on: { click: _vm.playVideo }
+          },
+          [
+            _c("path", {
+              attrs: {
+                d:
+                  "M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"
+              }
+            })
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { ref: "menu", staticClass: "bot-menu" }, [
+      _c(
+        "svg",
+        {
+          staticClass: "svg",
+          attrs: { version: "1.1", viewBox: "0 0 36 36" },
+          on: { click: _vm.switchVideo }
+        },
+        [
+          _vm.videoPlaying
+            ? _c(
+                "path",
+                {
+                  staticClass: "ytp-svg-fill",
+                  attrs: {
+                    d: "M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z"
+                  }
+                },
+                [
+                  _c("animate", {
+                    ref: "anime",
+                    staticClass: "but-play",
+                    attrs: {
+                      attributeName: "d",
+                      attributeType: "XML",
+                      dur: ".2s",
+                      begin: "none",
+                      fill: "freeze",
+                      from:
+                        "M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z",
+                      to:
+                        "M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z"
+                    }
+                  })
+                ]
+              )
+            : _c(
+                "path",
+                {
+                  staticClass: "ytp-svg-fill",
+                  attrs: {
+                    d:
+                      "M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z"
+                  }
+                },
+                [
+                  _c("animate", {
+                    ref: "anime",
+                    staticClass: "but-play",
+                    attrs: {
+                      attributeName: "d",
+                      attributeType: "XML",
+                      dur: ".2s",
+                      begin: "none",
+                      fill: "freeze",
+                      from:
+                        "M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z",
+                      to:
+                        "M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z"
+                    }
+                  })
+                ]
+              )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "bot-menu-icon-wrap" }, [
+        _c(
+          "svg",
+          {
+            staticClass: "svg svg-map",
+            staticStyle: { "enable-background": "new 0 0 100 100" },
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              "xmlns:xlink": "http://www.w3.org/1999/xlink",
+              version: "1.1",
+              viewBox: "0 0 100 100",
+              "xml:space": "preserve"
+            }
+          },
+          [
+            _c("path", {
+              attrs: {
+                d:
+                  "M60.6,30c0-5.5-4.5-10-10.1-10c-5.6,0-10.1,4.5-10.1,10s4.5,10,10.1,10C56.1,40,60.6,35.5,60.6,30z M44.4,30  c0-3.3,2.7-6,6.1-6s6.1,2.7,6.1,6s-2.7,6-6.1,6S44.4,33.3,44.4,30z M50,64.8l1.4-1.4C67.9,47.1,69.2,35.2,69.2,32v-2  c0-10.5-8.6-19-19.2-19s-19.2,8.5-19.2,19v2c0,3.2,1.3,15.1,17.8,31.4L50,64.8z M34.8,30c0-8.3,6.8-15,15.2-15  c8.4,0,15.2,6.7,15.2,15v2c0,2-0.8,12.3-15.2,27.1C35.6,44.3,34.8,33.9,34.8,32V30z M94.8,75.7L72.7,89l-22.4-7.4  c-0.2-0.1-0.4-0.2-0.5-0.3c-0.2,0.1-0.3,0.2-0.5,0.3L26.9,89L4.8,75.7l11.9-42.9L29,40.2c1,0.6,1.3,1.8,0.7,2.7  c-0.6,0.9-1.8,1.2-2.8,0.7L19.2,39L9.5,73.8L26,83.8l3.8-33c0.1-1.1,1.1-1.9,2.2-1.8c1.1,0.1,1.9,1.1,1.8,2.2l-3.8,32.5L48,77.8  c0,0,0,0,0,0v-6.9c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2v7c0,0,0,0,0,0L70,83.9l-3.8-32.7c-0.1-1.1,0.7-2.1,1.8-2.2  c1.1-0.1,2.1,0.7,2.2,1.8L74,83.5l16.1-9.7L80.4,39l-7.7,4.6c-1,0.6-2.2,0.3-2.8-0.7c-0.6-0.9-0.3-2.2,0.7-2.7l12.3-7.4L94.8,75.7z"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "svg",
+          {
+            staticClass: "svg svg-expand",
+            attrs: { version: "1.1", viewBox: "0 0 36 36" }
+          },
+          [
+            _c("g", { staticClass: "ytp-fullscreen-button-corner-0" }, [
+              _c("path", {
+                staticClass: "ytp-svg-fill",
+                attrs: {
+                  d: "m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z",
+                  id: "ytp-id-23"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", { staticClass: "ytp-fullscreen-button-corner-1" }, [
+              _c("path", {
+                staticClass: "ytp-svg-fill",
+                attrs: {
+                  d: "m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z",
+                  id: "ytp-id-24"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", { staticClass: "ytp-fullscreen-button-corner-2" }, [
+              _c("path", {
+                staticClass: "ytp-svg-fill",
+                attrs: {
+                  d: "m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z",
+                  id: "ytp-id-25"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("g", { staticClass: "ytp-fullscreen-button-corner-3" }, [
+              _c("path", {
+                staticClass: "ytp-svg-fill",
+                attrs: {
+                  d: "M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z",
+                  id: "ytp-id-26"
+                }
+              })
+            ])
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-90557bd8", module.exports)
+  }
+}
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(66);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("5cf376a6", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-90557bd8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Video.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-90557bd8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Video.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.custom-video-container {\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n}\n.custom-video {\n\twidth: 100%;\n\tmax-height: 400px;\n}\n.video-play-button {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.video-play-button svg {\n\twidth: 64px;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\topacity: 0;\n\tcursor: pointer;\n}\n.custom-video-container:hover .video-play-button svg {\n\topacity: 1;\n}\n.removed {\n\tdisplay: none;\n}\n.bot-menu {\n\tposition: absolute;\n\tbottom: 1%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 36px;\n\tbackground-color: rgba(0, 0, 0, 0.5);\n\t-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t    -ms-flex-pack: justify;\n\t        justify-content: space-between;\n}\n.svg {\n\theight: 100%;\n\tfill: #fff;\n\tcursor: pointer;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.bot-menu-icon-wrap {\n\t/*width: 100%;*/\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.bot-menu-icon-wrap svg {\n\tmargin-left: 10px;\n}\n.svg-map {\n\theight: 28px;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

@@ -19,7 +19,7 @@
 			</div>
 			<div class="register-btn-container progress">
 				<button type="submit"  class="btn register-btn" :disabled="progressbar != 100" :style="{color: progressbar > 45 ? '#fff' : ''}">{{JSON.parse(this.localization)['register']}}</button>
-				<div class="progress-bar" :style="{width: progressbar + '%'}"></div>
+				<div class="progress-bar custom-progress-bar" :style="{width: progressbar + '%'}"></div>
 			</div>
 		</form>
 	</div>
@@ -187,6 +187,7 @@
     	background-color: transparent;
     	z-index: 100;
     	width: 100%;
+    	cursor: pointer;
     }
 
     .input-container {
@@ -219,6 +220,11 @@
 
     .alert-leave-active {
         animation: alertAway .5s;
+    }
+
+    .custom-progress-bar {
+    	height: 100%;
+    	transition: .4s;
     }
 
     @keyframes alertUp {
