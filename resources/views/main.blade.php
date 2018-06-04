@@ -66,4 +66,20 @@
         max-width: 1100px;
         margin: 0px auto;
     }
+    
+    video::-webkit-media-controls {
+      display: none !important;
+    }
+
+    video::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
+
+    video::-webkit-media-controls-overlay-enclosure {
+      display: none !important;
+    }
+
+    video:-webkit-full-screen {
+        z-index: 1 !important;
+    }
 </style>

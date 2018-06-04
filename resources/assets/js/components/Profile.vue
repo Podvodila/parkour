@@ -77,16 +77,37 @@
 			</div>
 		</div>
 		<div class="tricks-container">
-			<div v-for="(trick, key) in tricksToShow" :key="key" class="trick-container card">
-				<h3 class="card-header custom-card-header">
-					{{trick.name}}
-				</h3>
-				<div class="card-body custom-card-body">
-					<template v-if="currentVideos(trick.id).length > 0">
-						<app-video :src="currentVideos(trick.id)[0].path"></app-video>
-					</template>
+			<transition :name="animeName" mode="out-in">
+				<div class="tricks-container" v-if="fullVideoList.show == false" key="1">
+					<div  v-for="(trick, key) in tricksToShow" :key="key" class="trick-container card">
+						<h3 class="card-header custom-card-header" :class="currentVideos(trick.id).length > 1 ? '' : 'custom-card-header-mute'" @click="currentVideos(trick.id).length > 1 ? showAllVideos(trick.id) : ''">
+							<span>{{trick.name}}</span>
+							<span v-if="currentVideos(trick.id).length > 1">{{currentVideos(trick.id).length}}</span>
+						</h3>
+						<div class="card-body custom-card-body">
+							<template v-if="currentVideos(trick.id).length > 0">
+								<app-video :src="currentVideos(trick.id)[0].path"></app-video>
+							</template>
+						</div>
+					</div>
 				</div>
+				<div class="tricks-container" v-if="fullVideoList.show" key="2">
+					<div v-for="(video, key) in currentVideos(fullVideoList.trick_id)" :key="key" class="trick-container card">
+						<h3 class="card-header custom-card-header custom-card-header-full-videos custom-card-header-mute">
+							<span>{{getDate(video.created_at, 'year')}}</span>
+							<span title="day and month">{{getDate(video.created_at, 'dm')}}</span>
+						</h3>
+						<div class="card-body custom-card-body">
+							<app-video :src="video.path"></app-video>
+						</div>
+						<div class="card-footer text-muted custom-card-footer" title="element">{{fullVideoListTrickName}}</div>
+					</div>
+				</div>
+			</transition>
+			<div v-if="fullVideoList.show" class="back-to-tricks" @click="backToTricks">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><path d="M93,43.7H26.3l19.3-19.3c2.5-2.5,2.5-6.5,0-8.9c-1.2-1.2-2.8-1.8-4.5-1.8c-1.7,0-3.3,0.7-4.5,1.9l-30,30.1  c-2.5,2.5-2.5,6.5,0,8.9l30,30.1c1.2,1.2,2.8,1.8,4.5,1.8c1.7,0,3.3-0.6,4.5-1.8c1.2-1.2,1.9-2.8,1.9-4.5c0-1.7-0.7-3.3-1.8-4.5  L26.3,56.3H93c3.5,0,6.3-2.8,6.3-6.3C99.3,46.5,96.5,43.7,93,43.7z"/></svg>
 			</div>
+			
 			<!-- example -->
 				<!-- <h3>Move list</h3>
 				<template v-for="(trick, key) in tricks">
@@ -112,14 +133,21 @@
 				avatarLeft: null,
 				avatarWide: false,
 				avatarHigh: false,
+				fullVideoList: {
+					show: false,
+					trick_id: null,
+				}
 			}
 		},
 		created() {
+			console.log('created work');
 			var self = this;
 			$(function() {
 				$("#avatar").on("load", function() {
 					self.avatarClass();
 					self.marginAvatar();
+				}).each(function() {
+				  if(this.complete) $(this).trigger('load');
 				});
 			});
 			
@@ -156,6 +184,15 @@
 			tricksToShow() {
 				return this.tricksWithVideo.concat(this.tricksWithoutVideo);
 			},
+			fullVideoListTrickName() {
+				var self = this;
+				return this.tricks.filter(function(trick) {
+					return trick.id == self.fullVideoList.trick_id;
+				})[0].name;
+			},
+			animeName() {
+				return this.fullVideoList.show ? 'trick-list' : 'video-list';
+			}
 		},
 		methods: {
 			currentVideos(trick_id) {
@@ -165,8 +202,6 @@
 			},
 			avatarClass() {
 				var customClass;
-				console.log(this.$refs.avatar.width);
-				console.log(this.$refs.avatar.height);
 				if(this.$refs.avatar.width > this.$refs.avatar.height) {
 					customClass = 'wide';
 				} else {
@@ -214,6 +249,21 @@
 						this.$refs.avatar.classList.add('high');
 					}
 				}
+			},
+			showAllVideos(trick_id) {
+				this.fullVideoList.trick_id = trick_id;
+				this.fullVideoList.show = true;
+			},
+			getDate(date, type) {
+				var arr = date.split(' ')[0].split('-');
+				if(type == 'year') {
+					return arr[0];
+				} else if(type == 'dm') {
+					return arr[2] + '-' + arr[1];
+				}
+			},
+			backToTricks() {
+				this.fullVideoList.show = false;
 			},
 			/*getUserInfo() {
 				var self = this;
@@ -299,6 +349,9 @@
 		},
 		components: {
 			appVideo,
+		},
+		watch: {
+			
 		}
 	}
 </script>
@@ -470,9 +523,146 @@
 		font-family: 'Nunito';
 		font-weight: normal;
 		background-color: #f2f2f4;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.custom-card-header:hover {
+		background-color: #eaeaec;
 	}
 
 	.custom-card-body {
 		background-color: #efefef;
 	}
+
+	.full-video-list {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.full-video-list-wrap {
+		height: 100%;
+		overflow-y: scroll;
+	}
+
+	.over-hidden {
+		overflow: hidden;
+	}
+
+	.full-video-list-container {
+		max-width: 1100px;
+		display: flex;
+	    flex-wrap: wrap;
+	    justify-content: space-between;
+	    align-items: flex-start;
+	    margin: 0 auto;
+	}
+
+	.custom-card {
+		width: 300px;
+	}
+
+	.custom-card-footer {
+		background-color: #e8e8e8;
+		cursor: default;
+	    font-family: 'Nunito';
+    	font-weight: normal;
+    	font-size: 14px;
+	}
+
+	.custom-card-header-full-videos {
+		font-size: 20px;
+	}
+
+	.back-to-tricks {
+		position: fixed;
+		top: 60px;
+		right: 37px;
+	}
+
+	.back-to-tricks svg {
+		width: 60px;
+		fill: #c77;
+		cursor: pointer;
+		transition: .2s;
+	}
+
+	.back-to-tricks:hover svg {
+		fill: #c55;
+		transform: scale(1.1);
+	}
+
+	.back-to-tricks:active svg {
+		transform: scale(1);
+	}
+
+	.trick-list-enter-active {
+        animation: trickShow .5s;
+        transition: .5s;
+    }
+
+    .trick-list-leave-active {
+        animation: trickHide .5s;
+        transition: .5s;
+    }
+
+    .video-list-enter-active {
+        animation: videoShow .5s;
+        transition: .5s;
+    }
+
+    .video-list-leave-active {
+        animation: videoHide .5s;
+        transition: .5s;
+    }
+
+    @keyframes trickShow {
+    	from {
+			transform: translateX(120%);
+    	}
+
+    	to {
+			transform: translateX(0%);
+    	}
+    }
+
+    @keyframes trickHide {
+    	from {
+			transform: translateX(0%);
+    	}
+
+    	to {
+			transform: translateX(-120%);
+    	}
+    }
+
+    @keyframes videoShow {
+    	from {
+			transform: translateX(-120%);
+    	}
+
+    	to {
+			transform: translateX(0%);
+    	}
+    }
+
+    @keyframes videoHide {
+    	from {
+			transform: translateX(0%);
+    	}
+
+    	to {
+			transform: translateX(120%);
+    	}
+    }
+
+    .custom-card-header-mute:hover {
+    	cursor: default;
+    	background-color: #f2f2f4;
+    }
 </style>

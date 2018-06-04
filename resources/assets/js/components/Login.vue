@@ -6,7 +6,7 @@
             <div>
                 <input id="login" type="text" class="form-control" name="login" :placeholder="local['login']" required autofocus>
                 <transition name="alert">
-                    <div class="alert alert-danger login-alert" role="alert" v-if="error">  
+                    <div class="alert alert-danger login-alert" role="alert" v-show="error" ref="error">  
                         {{ error }}
                     </div>
                 </transition>
@@ -78,8 +78,17 @@
                     }, 5000);
                   }
 				});
-			}
-		}
+			},
+		},
+        watch: {
+            error: function(er) {
+                if(er) {
+                    setTimeout(()=> {
+                        this.$refs.error.style.left = (document.querySelector("#app").getBoundingClientRect().width - this.$refs.error.getBoundingClientRect().width)/2 + 'px';
+                    }, 0);
+                }
+            }
+        }
 	}
 </script>
 
@@ -134,7 +143,7 @@
 
     .login-alert {
         position: absolute;
-        right: 42%;
+        /*right: 42%;*/
         top: 10px;
     }
 
