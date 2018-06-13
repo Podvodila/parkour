@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use App\User;
 use App\Trick;
 use App\Video;
+use App\Spot;
 use App\Rules\NoVideo;
 
 class ProfileController extends Controller
@@ -17,7 +18,15 @@ class ProfileController extends Controller
 
 	public function showEditPage()
     {
-    	return view('profileEdit', ['user' => Auth::user(), 'allTricks' => Trick::all(), 'videos' => User::find(Auth::id())->videos()->get()]);
+        $user = Auth::user();
+    	return view('profileEdit', [
+            'user' => $user, 
+            'allTricks' => Trick::all(), 
+            'videos' => $this->getUserVideos($user->id), 
+            'tricks' => $this->getUserTricks($user->id), 
+            'avatar' => $this->getAvatar($user->id),
+            'spots' => Spot::all(),
+        ]);
     }
 
     public function addAvatar(Request $request)
@@ -32,7 +41,7 @@ class ProfileController extends Controller
     		Storage::disk('local')->put($filename, File::get($avatar));
     	}
 
-    	return redirect()->route('site.profileEdit');
+    	return response()->json('success');
     }
 
     public function removeAvatar()
@@ -42,7 +51,7 @@ class ProfileController extends Controller
     		Storage::disk('local')->delete($filename);
     	}
 
-    	return redirect()->route('site.profileEdit');
+    	return response()->json('delete success');
     }
 
     public function addMove(Request $request)
@@ -50,11 +59,11 @@ class ProfileController extends Controller
     	$user = User::find(Auth::id());
     	foreach ($user->tricks as $trick) {
     		if($trick->id == $request->input('move')) {
-    			return redirect()->back();
+    			return response()->json('Move already added');
     		}
     	}
     	$user->tricks()->attach($request->input('move'));
-    	return redirect()->back();
+    	return response()->json('successfully added');
     }
 
     public function removeMove(Request $request)
@@ -64,7 +73,7 @@ class ProfileController extends Controller
     	]);
     	$user = User::find(Auth::id());
     	$user->tricks()->detach($request->input('move'));
-    	return redirect()->back();
+    	return response()->json('successfully deleted');
     }
 
     public function addMoveVideo(Request $request)
@@ -84,7 +93,7 @@ class ProfileController extends Controller
     		]);
     	}
 
-    	return redirect()->back();
+    	return response()->json($this->getUserVideos(Auth::id()));
     }
 
     public function removeMoveVideo(Request $request)
@@ -96,7 +105,7 @@ class ProfileController extends Controller
     		Storage::disk('local')->delete($video->path);
     	}
 
-    	return redirect()->back();
+    	return response()->json($this->getUserVideos(Auth::id()));
     }
 
     public function addTrainingVideo() // from youtube
@@ -109,6 +118,55 @@ class ProfileController extends Controller
     	
     }
 
+    public function setSocial(Request $request)
+    {
+        $this->validate($request, [
+            'facebook' => 'string|max:190',
+            'instagram' => 'string|max:190',
+        ]);
+
+        $user = User::findOrFail(Auth::id());
+
+        if($request->input('facebook')) {
+            $input = $request->input('facebook');
+            $facebook = 'https://facebook.com/' . $input;
+            $response = 'Saved';
+            if($input == 'remove') {
+                $facebook = '';
+                $response = 'removed';
+            }
+            $user->facebook = $facebook;
+            $user->save();
+        }
+
+        if($request->input('instagram')) {
+            $input = $request->input('instagram');
+            $instagram = 'https://instagram.com/' . $input;
+            $response = 'Saved';
+            if($input == 'remove') {
+                $instagram = '';
+                $response = 'removed';
+            }
+            $user->instagram = $instagram;
+            $user->save();
+        }
+
+        return response()->json($response);
+    }
+
+    public function addSpotToVideo(Request $request)
+    {
+        $this->validate($request, [
+            'video_id' => 'integer',
+            'spot_id' => 'integer',
+        ]);
+        $video = Video::findOrFail($request->input('video_id'));
+        $video->spot_id = $request->input('spot_id');
+        $video->save();
+
+        return response()->json($this->getUserVideos(Auth::id()));
+    }
+
     // SHOW
 
     public function showPage($user)
@@ -119,8 +177,9 @@ class ProfileController extends Controller
 
     public function getAvatar($user_id) 
     {
+        $exist = Storage::disk('local')->exists('users/' . $user_id . '/avatar.jpg');
     	$avatar = Storage::disk('local')->url('users/' . $user_id . '/avatar.jpg');
-    	return $avatar;
+    	return ['url' => $avatar, 'exist' => $exist];
     }
 
     public function getUser($user_id)

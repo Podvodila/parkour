@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function() {
 	Route::post('/profile/user-tricks', 'ProfileController@getUserTricks')->name('ajax.getUserTricks');
 	Route::post('/profile/user-videos', 'ProfileController@getUserVideos')->name('ajax.getUserVideos');
 	Route::post('/useravatar', 'ProfileController@getAvatar')->name('ajax.getAvatar');
+	Route::post('/social/save', 'ProfileController@setSocial')->name('ajax.setSocial');
 
 	//Profile editing
 	Route::post('/useravatar/upload', 'ProfileController@addAvatar')->name('profile.uploadImg');
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function() {
 	Route::post('/moves/remove', 'ProfileController@removeMove')->name('profile.removeMove');
 	Route::post('/videos/add-move', 'ProfileController@addMoveVideo')->name('profile.addMoveVideo');
 	Route::post('/videos/remove-move', 'ProfileController@removeMoveVideo')->name('profile.removeMoveVideo');
+	Route::post('/videos/add-spot', 'ProfileController@addSpotToVideo')->name('profile.addSpotToVideo');
 });
 
 

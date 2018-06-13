@@ -10,7 +10,7 @@
 		:user="{{$user}}"
 		:tricks="{{$tricks}}"
 		:videos="{{$videos}}"
-		avatar="{{$avatar}}"
+		:avatar="{{json_encode($avatar)}}"
 		></Profile>
 	</div>
 @endsection

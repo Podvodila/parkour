@@ -18,6 +18,8 @@ window.Vue = require('vue');
 Vue.component('Login', require('./components/Login.vue'));
 Vue.component('Register', require('./components/Register.vue'));
 Vue.component('Profile', require('./components/Profile.vue'));
+Vue.component('Profileedit', require('./components/ProfileEdit.vue'));
+Vue.component('Mapall', require('./components/MapAll.vue'));
 
 const app = new Vue({
     el: '#app'

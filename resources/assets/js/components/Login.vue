@@ -5,11 +5,7 @@
 			<input type="hidden" name="_token" :value="csrf">
             <div>
                 <input id="login" type="text" class="form-control" name="login" :placeholder="local['login']" required autofocus>
-                <transition name="alert">
-                    <div class="alert alert-danger login-alert" role="alert" v-show="error" ref="error">  
-                        {{ error }}
-                    </div>
-                </transition>
+                <Alert :msg="error" :error="true" v-if="error"></Alert>
             </div>
 
             <div>
@@ -41,6 +37,8 @@
 </template>
 
 <script>
+    import Alert from './Alert.vue';
+
 	export default {
 		props: ['localization', 'routes'],
 		data() {
@@ -80,15 +78,9 @@
 				});
 			},
 		},
-        watch: {
-            error: function(er) {
-                if(er) {
-                    setTimeout(()=> {
-                        this.$refs.error.style.left = (document.querySelector("#app").getBoundingClientRect().width - this.$refs.error.getBoundingClientRect().width)/2 + 'px';
-                    }, 0);
-                }
-            }
-        }
+        components: {
+            Alert,
+        },
 	}
 </script>
 
