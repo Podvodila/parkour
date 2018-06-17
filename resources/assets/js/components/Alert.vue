@@ -1,9 +1,9 @@
 <template>
-	<transition name="alert">
+	<!-- <transition name="alert"> -->
         <div class="alert custom-alert" role="alert" ref="message" :class="this.error ? 'alert-danger' : 'alert-success'">  
             {{ message }}
         </div>
-    </transition>
+    <!-- </transition> -->
 </template>
 
 <script>
@@ -25,6 +25,9 @@
 <style>
 	.custom-alert {
         z-index: 200;
+        display: inline-block;
+        transition: all 1s;
+        white-space: nowrap;
 	}
 
 	.alert-enter-active {

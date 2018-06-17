@@ -41,4 +41,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Spot');
     }
+
+    public function image()
+    {
+        return $this->hasOne('App\Image')->withTimestamps();
+    }
+
+    public function images()
+    {
+        return $this->hasMany('App\Image')->withTimestamps();
+    }
 }

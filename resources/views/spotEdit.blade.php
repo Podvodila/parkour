@@ -2,7 +2,7 @@
 	@foreach (Storage::disk('local')->files('spots/' . $spot->id . '/images/') as $image)
 		<form action="{{ route('spot.removeImage', ['id' => $spot->id]) }}" method="POST">
 			{{ csrf_field() }}
-			<input type="hidden" name="path" value="{{ $image }}">
+			<input type="hidden" name="path" value="{{ Storage::disk('local')->url($image) }}">
 			<img src="{{ Storage::disk('local')->url($image) }}" alt="" class="pic">
 			<input type="submit" value="remove image">
 		</form>

@@ -80,11 +80,11 @@
 				        <button class="btn btn-secondary custom-btn" type="button" @click="saveSocial('instagram')">Save</button>
 				      </span>
 					</div>
-					<div class="custom-alert-container">
+					<transition-group name="alerts" tag="div" class="custom-alert-container">
 						<template v-for="(response, key) in responses">
 								<Alert :msg="response.msg" :error="response.error" v-if="response.show" :key="response.key"></Alert>
 						</template>
-					</div>
+					</transition-group>
 				</div>
 			</div>
 		</div>
@@ -93,12 +93,12 @@
 				<button class="btn custom-all-tricks-button" :class="allTricksShow ? 'btn-danger' : 'btn-primary'" @click="switchAllTricks">{{allTricksShow ? 'Close' : 'Add elements'}}</button>
 				<template v-if="allTricksShow">
 						<div class="all-tricks-container">
-							<ul class="list-group custom-list-group">
-							  <li class="list-group-item custom-list-group-item" v-for="trick in notAddedTricks">
+							<transition-group tag="ul" class="list-group custom-list-group" name="new-tricks">
+							  <li class="list-group-item custom-list-group-item" v-for="trick in notAddedTricks" :key="trick.id">
 							  	<span>{{trick.name}}</span>
 							  	<span class="add-element" @click="addElement(trick.id)">Add element</span>
 							  </li>
-							</ul>
+							</transition-group>
 						</div>
 				</template>
 			</template>
@@ -116,7 +116,12 @@
 					<div  v-for="(trick, key) in tricksToShow" :key="key" class="trick-container card">
 						<h3 class="card-header custom-card-header" @click="showAllVideos(trick.id)">
 							<span>{{trick.name}}</span>
-							<span @click.stop="removeElement(trick.id)" class="remove-trick">
+							<span 
+								@click.stop="removeElement(trick.id)" 
+								class="remove-trick"
+								@mouseover="tip.msg='Remove element'; tip.show=true;"
+								@mouseout="tip.show=false"
+								>
 								<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 26.458333 26.458333" version="1.1" x="0px" y="0px">
 									<g>
 										<circle cx="13.229166" cy="13.22916" r="9.260417" style="opacity: 0.959; vector-effect: none; fill: none; fill-opacity: 1; fill-rule: evenodd; stroke: rgb(0, 0, 0); stroke-width: 2; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none; stroke-dashoffset: 0; stroke-opacity: 1; paint-order: normal;"></circle>
@@ -134,17 +139,42 @@
 					</div>
 				</div>
 				<div class="tricks-container" v-if="fullVideoList.show" key="2">
-					<div v-for="(video, key) in currentVideos(fullVideoList.trick_id)" :key="key" class="trick-container card">
+					<div v-for="(video, key) in currentVideos(fullVideoList.trick_id)" :key="video.id" class="trick-container card">
 						<h3 class="card-header custom-card-header custom-card-header-full-videos custom-card-header-mute">
 							<span class="video-date">
 								<span class="video-date-year">{{getDate(video.created_at, 'year')}}</span>
-								<span title="day and month" class="video-date-dm">{{getDate(video.created_at, 'dm')}}</span>
+								<span 
+									class="video-date-dm"
+									@mouseover="tip.msg='Day and month'; tip.show=true;"
+									@mouseout="tip.show=false"
+								>
+									{{getDate(video.created_at, 'dm')}}
+								</span>
 							</span>
 							<span class="video-edit-buttons">
-								<svg class="video-add-spot" @click="showSpotAdding(video.id)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+								<svg 
+									v-if="video.spot_id"
+									@mouseover="tip.msg='Detach from spot'; tip.show=true;"
+									@mouseout="tip.show=false"
+									@click="removeSpotFromVideo(video.id)"
+									class="video-remove-spot" 
+									xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 144.083 144.083" enable-background="new 0 0 144.083 144" xml:space="preserve">
+									<path d="M64.759,44.479c-10.203,0-18.504,8.301-18.504,18.504c0,10.202,8.301,18.503,18.504,18.503  c10.203,0,18.503-8.301,18.503-18.503C83.262,52.78,74.961,44.479,64.759,44.479z M64.759,78.486  c-8.549,0-15.504-6.955-15.504-15.503c0-8.549,6.955-15.504,15.504-15.504c8.548,0,15.503,6.955,15.503,15.504  C80.262,71.532,73.307,78.486,64.759,78.486z"/>
+									<path d="M95.856,78.513c2.975-5.458,4.941-10.823,4.941-15.518c0-19.872-16.166-36.039-36.039-36.039  c-19.872,0-36.039,16.167-36.039,36.039c0,19.51,33.595,50.587,35.024,51.901l1.015,0.932l1.015-0.932  c0.49-0.451,4.769-4.41,10.172-10.195c2.545,8.294,10.271,14.343,19.389,14.343c11.182,0,20.279-9.097,20.279-20.278  C115.614,87.76,106.795,78.793,95.856,78.513z M75.194,101.049c-4.623,5.053-8.631,8.964-10.435,10.682  C59.096,106.336,31.72,79.4,31.72,62.995c0-18.218,14.821-33.039,33.039-33.039c18.218,0,33.039,14.821,33.039,33.039  c0,4.644-2.199,10.134-5.477,15.74c-9.754,1.464-17.266,9.875-17.266,20.03C75.055,99.539,75.108,100.299,75.194,101.049z   M95.334,116.044c-9.527,0-17.279-7.751-17.279-17.278s7.752-17.279,17.279-17.279c9.529,0,17.279,7.752,17.279,17.279  S104.864,116.044,95.334,116.044z"/>
+									<rect x="86.545" y="97.286" width="17.576" height="3"/>
+								</svg>
+								<svg 
+									v-else
+									@mouseover="tip.msg='Attach to spot'; tip.show=true;"
+									@mouseout="tip.show=false"
+									class="video-add-spot" @click="showSpotAdding(video.id)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
 									<path d="M50,24c-11,0-20,9-20,20c0,19.3,18.7,31.3,19.5,31.8c0.2,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2C51.3,75.3,70,63.3,70,44  C70,33,61,24,50,24z M50,73.8C47,71.7,32,60.4,32,44c0-9.9,8.1-18,18-18s18,8.1,18,18C68,60.4,53,71.7,50,73.8z M56,43  c0,0.6-0.4,1-1,1h-4v4c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4h-4c-0.6,0-1-0.4-1-1s0.4-1,1-1h4v-4c0-0.6,0.4-1,1-1s1,0.4,1,1v4h4  C55.6,42,56,42.4,56,43z M50,31c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S56.6,31,50,31z M50,53c-5.5,0-10-4.5-10-10  s4.5-10,10-10s10,4.5,10,10S55.5,53,50,53z"/>
 								</svg>
-								<svg class="remove-video" @click="removeVideo(video)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24" x="0px" y="0px">
+
+								<svg 
+									@mouseover="tip.msg='Delete video'; tip.show=true;"
+									@mouseout="tip.show=false"
+									class="remove-video" @click="removeVideo(video)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24" x="0px" y="0px">
 									<path d="M18,19C18,20.66 16.66,22 15,22H8C6.34,22 5,20.66 5,19V7H4V4H8.5L9.5,3H13.5L14.5,4H19V7H18V19M6,7V19C6,20.1 6.9,21 8,21H15C16.1,21 17,20.1 17,19V7H6M18,6V5H14L13,4H10L9,5H5V6H18M8,9H9V19H8V9M14,9H15V19H14V9Z"/>
 								</svg>
 							</span>
@@ -152,11 +182,20 @@
 						<div class="card-body custom-card-body">
 							<app-video :video="video"></app-video>
 						</div>
-						<div class="card-footer text-muted custom-card-footer" title="element">{{fullVideoListTrickName}}</div>
+						<div class="card-footer text-muted custom-card-footer"
+							@mouseover="tip.msg='Element name'; tip.show=true;"
+							@mouseout="tip.show=false"
+						>{{fullVideoListTrickName}}</div>
 					</div>
 				</div>
 			</transition>
-			<div v-if="fullVideoList.show" class="back-to-tricks" @click="backToTricks">
+			<div 
+				v-if="fullVideoList.show" 
+				class="back-to-tricks" 
+				@click="backToTricks"
+				@mouseover="tip.msg='Back to tricks'; tip.show=true;"
+				@mouseout="tip.show=false"
+				>
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve">
 					<path d="M93,43.7H26.3l19.3-19.3c2.5-2.5,2.5-6.5,0-8.9c-1.2-1.2-2.8-1.8-4.5-1.8c-1.7,0-3.3,0.7-4.5,1.9l-30,30.1  c-2.5,2.5-2.5,6.5,0,8.9l30,30.1c1.2,1.2,2.8,1.8,4.5,1.8c1.7,0,3.3-0.6,4.5-1.8c1.2-1.2,1.9-2.8,1.9-4.5c0-1.7-0.7-3.3-1.8-4.5  L26.3,56.3H93c3.5,0,6.3-2.8,6.3-6.3C99.3,46.5,96.5,43.7,93,43.7z"/>
 				</svg>
@@ -170,6 +209,7 @@
 				<path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
 			</svg>
 		</div>
+		<tip :msg="tip.msg" v-if="tip.show"></tip>
 	</div>
 </template>
 
@@ -177,6 +217,7 @@
 	import appVideo from './Video.vue';
 	import Alert from './Alert.vue';
 	import MapAll from './MapAll.vue';
+	import Tip from './Tip.vue';
 
 	export default {
 		props: ['user', 'user_tricks', 'prop_videos', 'avatar', 'routes', 'all_tricks', 'spots'],
@@ -200,7 +241,11 @@
 				map: {
 					show: false,
 					video: null,
-				}
+				},
+				tip: {
+					show: false,
+					msg: '',
+				},
 			}
 		},
 		created() {
@@ -421,13 +466,8 @@
     			     _token : $('meta[name="csrf-token"]').attr('content'),
     			  },
     			  success: function(data) {
-    			  	console.log(data);
-    			  	for (var i = 0; i <= self.tricks.length; i++) {
-    			  		if(self.tricks[i].id == id) {
-    			  			self.tricks.splice(i, i);
-    			  			break;
-    			  		}
-    			  	}
+    			  	self.tricks = data;
+    			  	self.tip.show = false;
     			  },
                   error: function(data) {
                   	var response = {};
@@ -484,6 +524,7 @@
     			  },
     			  success: function(data) { 
     			  	self.videos = data;
+    			  	self.tip.show = false;
     			  },
                   error: function(data) {
                     var response = {};
@@ -521,6 +562,36 @@
     			  	self.videos = data;
     			  	var response = {};
                     response.msg = "Spot successfuly added to your video";
+    			  	response.error = false;
+    			  	response.show = true;
+    			  	response.key = self.customKey++;
+    			  	self.responses.push(response);
+    			  	setTimeout(()=> {
+                        self.responses.shift();
+                    }, 5000);
+    			  },
+                  error: function(data) {
+                    console.log(data);
+                  }
+				});
+			},
+			removeSpotFromVideo(video_id) {
+				var self = this;
+				$.ajax({
+    			  method: "post",
+    			  url: self.routes.removeSpotFromVideo,
+    			  dataType: "json",
+    			  headers: {
+				    'X-CSRF-TOKEN': self.token,
+				  },
+    			  data: {
+    			  	video_id: video_id,
+    			  	_token: self.token,
+    			  },
+    			  success: function(data) { 
+    			  	self.videos = data;
+    			  	var response = {};
+                    response.msg = "Spot successfuly removed from your video";
     			  	response.error = false;
     			  	response.show = true;
     			  	response.key = self.customKey++;
@@ -620,16 +691,23 @@
 			appVideo,
 			Alert,
 			MapAll,
+			Tip,
 		},
 		watch: {
-			
-		}
+			'fullVideoList.show': function(val) {
+				if(val == false) {
+					this.tip.show = false;
+				}
+			}
+		},
 	}
 </script>
 
 <style>
 	.profile-content {
 		padding: 60px 20px 0;
+		width: 1100px;
+    	margin: 0 auto;
 	}
 
 	.profile-info {
@@ -935,6 +1013,14 @@
     	}
     }
 
+    .alerts-enter, .alerts-leave-to {
+	  opacity: 0;
+	  transform: translateY(30px);
+	}
+	.alerts-leave-active {
+	  position: absolute;
+	}
+
     .custom-card-header-mute:hover {
     	cursor: default;
     	background-color: #f2f2f4;
@@ -948,6 +1034,7 @@
     	flex-direction: column;
     	width: 100%;
     	height: 100%;
+	    border-radius: 50%;
     }
 
     .change-image, .remove-image {
@@ -1061,7 +1148,16 @@
 		width: 33%;
 		display: flex;
 		justify-content: space-between;
+		transition: all .5s ease;
     }
+
+    .new-tricks-enter, .new-tricks-leave-to {
+	  opacity: 0;
+	  transform: translateY(30px);
+	}
+	.new-tricks-leave-active {
+	  position: absolute;
+	}
 
     .add-element {
     	color: #5cb85c;
@@ -1163,10 +1259,18 @@
     	font-size: 18px;
     }
 
-    .video-add-spot {
-    	width: 34px;
+    .video-add-spot, .video-remove-spot {
+    	width: 36px;
     	transition: .2s;
     	cursor: pointer;
+    }
+
+    .video-remove-spot {
+		width: 30px;
+    }
+
+    .video-remove-spot:hover {
+    	fill: #a00;
     }
 
     .video-add-spot:hover {

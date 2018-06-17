@@ -20,6 +20,7 @@ Vue.component('Register', require('./components/Register.vue'));
 Vue.component('Profile', require('./components/Profile.vue'));
 Vue.component('Profileedit', require('./components/ProfileEdit.vue'));
 Vue.component('Mapall', require('./components/MapAll.vue'));
+Vue.component('Spot', require('./components/Spot.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -20,6 +20,11 @@ class Spot extends Model
     	return $this->belongsToMany('App\Trick')->withTimestamps();
     }
 
+    public function images()
+    {
+        return $this->hasMany('App\Image')->withTimestamps();
+    }
+
     public function user()
     {
         return $this->hasOne('App\User');

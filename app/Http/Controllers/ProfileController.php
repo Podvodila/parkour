@@ -39,6 +39,9 @@ class ProfileController extends Controller
     	$filename = 'users/' . Auth::id() . '/' . 'avatar.jpg';
     	if($avatar) {
     		Storage::disk('local')->put($filename, File::get($avatar));
+            $user = User::find(Auth::id());
+            $user->avatar = Storage::disk('local')->url($filename);
+            $user->save();
     	}
 
     	return response()->json('success');
@@ -49,6 +52,9 @@ class ProfileController extends Controller
     	$filename = 'users/' . Auth::id() . '/avatar.jpg';
     	if(Storage::disk('local')->has($filename)) {
     		Storage::disk('local')->delete($filename);
+            $user = User::find(Auth::id());
+            $user->avatar = null;
+            $user->save();
     	}
 
     	return response()->json('delete success');
@@ -73,7 +79,7 @@ class ProfileController extends Controller
     	]);
     	$user = User::find(Auth::id());
     	$user->tricks()->detach($request->input('move'));
-    	return response()->json('successfully deleted');
+    	return response()->json($this->getUserTricks(Auth::id()));
     }
 
     public function addMoveVideo(Request $request)
@@ -163,6 +169,19 @@ class ProfileController extends Controller
         $video = Video::findOrFail($request->input('video_id'));
         $video->spot_id = $request->input('spot_id');
         $video->save();
+        $spot = Spot::findOrFail($request->input('spot_id'));
+        if(!count($spot->tricks()->where('id', $video->trick_id)->get())) {
+            $spot->tricks()->attach($video->trick_id);
+        }
+        
+        return response()->json($this->getUserVideos(Auth::id()));
+    }
+
+    public function removeSpotFromVideo(Request $request)
+    {
+        $video = Video::findOrFail($request->input('video_id'));
+        $video->spot_id = null;
+        $video->save();
 
         return response()->json($this->getUserVideos(Auth::id()));
     }
@@ -178,8 +197,7 @@ class ProfileController extends Controller
     public function getAvatar($user_id) 
     {
         $exist = Storage::disk('local')->exists('users/' . $user_id . '/avatar.jpg');
-    	$avatar = Storage::disk('local')->url('users/' . $user_id . '/avatar.jpg');
-    	return ['url' => $avatar, 'exist' => $exist];
+    	return ['url' => User::find($user_id)->avatar, 'exist' => $exist];
     }
 
     public function getUser($user_id)

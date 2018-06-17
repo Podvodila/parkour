@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function() {
 	Route::post('/videos/add-move', 'ProfileController@addMoveVideo')->name('profile.addMoveVideo');
 	Route::post('/videos/remove-move', 'ProfileController@removeMoveVideo')->name('profile.removeMoveVideo');
 	Route::post('/videos/add-spot', 'ProfileController@addSpotToVideo')->name('profile.addSpotToVideo');
+	Route::post('/videos/remove-spot', 'ProfileController@removeSpotFromVideo')->name('profile.removeSpotFromVideo');
 });
 
 

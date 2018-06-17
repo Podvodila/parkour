@@ -109,7 +109,10 @@
 					<div  v-for="(trick, key) in tricksToShow" :key="key" class="trick-container card">
 						<h3 class="card-header custom-card-header" :class="currentVideos(trick.id).length > 1 ? '' : 'custom-card-header-mute'" @click="currentVideos(trick.id).length > 1 ? showAllVideos(trick.id) : ''">
 							<span>{{trick.name}}</span>
-							<span v-if="currentVideos(trick.id).length > 1">{{currentVideos(trick.id).length}}</span>
+							<span v-if="currentVideos(trick.id).length > 1" class="video-numbers"
+								@mouseover="tip.msg='Number of videos'; tip.show=true;"
+								@mouseout="tip.show=false"
+							>{{currentVideos(trick.id).length}}</span>
 						</h3>
 						<div class="card-body custom-card-body">
 							<template v-if="currentVideos(trick.id).length > 0">
@@ -122,24 +125,38 @@
 					<div v-for="(video, key) in currentVideos(fullVideoList.trick_id)" :key="key" class="trick-container card">
 						<h3 class="card-header custom-card-header custom-card-header-full-videos custom-card-header-mute">
 							<span>{{getDate(video.created_at, 'year')}}</span>
-							<span title="day and month">{{getDate(video.created_at, 'dm')}}</span>
+							<span 
+								@mouseover="tip.msg='Day and month'; tip.show=true;"
+								@mouseout="tip.show=false"
+							>{{getDate(video.created_at, 'dm')}}</span>
 						</h3>
 						<div class="card-body custom-card-body">
 							<app-video :video="video"></app-video>
 						</div>
-						<div class="card-footer text-muted custom-card-footer" title="element">{{fullVideoListTrickName}}</div>
+						<div class="card-footer text-muted custom-card-footer"
+							@mouseover="tip.msg='Element name'; tip.show=true;"
+							@mouseout="tip.show=false"
+						>{{fullVideoListTrickName}}</div>
 					</div>
 				</div>
 			</transition>
-			<div v-if="fullVideoList.show" class="back-to-tricks" @click="backToTricks">
+			<div 
+				v-if="fullVideoList.show" 
+				class="back-to-tricks" 
+				@click="backToTricks"
+				@mouseover="tip.msg='Back to tricks'; tip.show=true;"
+				@mouseout="tip.show=false"
+			>
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><path d="M93,43.7H26.3l19.3-19.3c2.5-2.5,2.5-6.5,0-8.9c-1.2-1.2-2.8-1.8-4.5-1.8c-1.7,0-3.3,0.7-4.5,1.9l-30,30.1  c-2.5,2.5-2.5,6.5,0,8.9l30,30.1c1.2,1.2,2.8,1.8,4.5,1.8c1.7,0,3.3-0.6,4.5-1.8c1.2-1.2,1.9-2.8,1.9-4.5c0-1.7-0.7-3.3-1.8-4.5  L26.3,56.3H93c3.5,0,6.3-2.8,6.3-6.3C99.3,46.5,96.5,43.7,93,43.7z"/></svg>
 			</div>
 		</div>
+		<tip :msg="tip.msg" v-if="tip.show"></tip>
 	</div>
 </template>
 
 <script>
 	import appVideo from './Video.vue';
+	import Tip from './Tip.vue';
 
 	export default {
 		props: ['user', 'tricks', 'videos', 'avatar', 'routes'],
@@ -152,11 +169,14 @@
 				fullVideoList: {
 					show: false,
 					trick_id: null,
-				}
+				},
+				tip: {
+					show: false,
+					msg: '',
+				},
 			}
 		},
 		created() {
-			console.log('created work');
 			var self = this;
 			$(function() {
 				$("#avatar").on("load", function() {
@@ -281,100 +301,24 @@
 			backToTricks() {
 				this.fullVideoList.show = false;
 			},
-			/*getUserInfo() {
-				var self = this;
-				$.ajax({
-    			  method: "post",
-    			  url: this.routes.getUser,
-    			  dataType: "json",
-    			  data: {
-    			     user_id: this.user_id,
-    			     _token : $('meta[name="csrf-token"]').attr('content'),
-    			  },
-    			  success: function(user) { 
-    			  	self.user.firstName = user.first_name;
-    			  	self.user.lastName = user.last_name;
-    			  },
-                  error: function(data) {
-                    console.log(data);
-                  }
-				});
-			},
-			getUserTricks() {
-				var self = this;
-				$.ajax({
-    			  method: "post",
-    			  url: this.routes.getUserTricks,
-    			  dataType: "json",
-    			  data: {
-    			     user_id: this.user_id,
-    			     _token : $('meta[name="csrf-token"]').attr('content'),
-    			  },
-    			  success: function(tricks) { 
-    			  	tricks.forEach(function(trick) {
-    			  		self.tricks.push(trick);
-    			  	});
-    			  },
-                  error: function(data) {
-                    console.log(data);
-                  }
-				});
-			},
-			getUserVideos() {
-				var self = this;
-				$.ajax({
-    			  method: "post",
-    			  url: this.routes.getUserVideos,
-    			  dataType: "json",
-    			  data: {
-    			     user_id: this.user_id,
-    			     _token : $('meta[name="csrf-token"]').attr('content'),
-    			  },
-    			  success: function(videos) { 
-    			  	videos.forEach(function(video) {
-    			  		self.videos.push(video);
-    			  	});
-    			  },
-                  error: function(data) {
-                    console.log(data);
-                  }
-				});
-			},
-			getAvatar() {
-				var self = this;
-				$.ajax({
-    			  method: "post",
-    			  url: this.routes.getAvatar,
-    			  headers: {
-    			  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    			  },
-    			  dataType: "json",
-    			  data: {
-    			     user_id: this.user_id,
-    			     _token : $('meta[name="csrf-token"]').attr('content'),
-    			  },
-    			  success: function(avatar) { 
-    			  	self.user.avatar = avatar;
-    			  	console.log(self.user.avatar);
-    			  },
-                  error: function(data) {
-                    console.log(data);
-                  }
-				});
-			},*/
 		},
 		components: {
 			appVideo,
+			Tip,
 		},
 		watch: {
-			
-		}
+			'fullVideoList.show': function(val) {
+				this.tip.show = false;
+			}
+		},
 	}
 </script>
 
 <style>
 	.profile-content {
 		padding: 60px 20px 0;
+		width: 1100px;
+    	margin: 0 auto;
 	}
 
 	.profile-info {
@@ -539,6 +483,7 @@
 		cursor: pointer;
 		display: flex;
 		justify-content: space-between;
+		position: relative;
 	}
 
 	.custom-card-header:hover {
@@ -678,5 +623,19 @@
 
     .default-avatar {
     	transform: scale(-1, 1);
+    }
+
+    .video-numbers {
+    	position: absolute;
+	    right: 0;
+	    height: 100%;
+	    display: flex;
+	    justify-content: center;
+	    width: 45px;
+	    align-items: center;
+	    top: 0;
+	    border-left: 1px solid #aaa;
+	    transition: .2s;
+	    background-color: rgba(0, 0, 0, 0.05);
     }
 </style>

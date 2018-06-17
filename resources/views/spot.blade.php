@@ -1,50 +1,32 @@
+@extends('main')
+
+@section('content')
 @if (count(Storage::disk('local')->files('spots/' . $spot->id . '/images/')) > 0)
-	<div>
 		@foreach (Storage::disk('local')->files('spots/' . $spot->id . '/images/') as $image)
-			<img src="{{ Storage::disk('local')->url($image) }}" alt="" class="pic">
+			@php
+				$images[] = Storage::disk('local')->url($image);
+			@endphp
 		@endforeach
-	</div>
+@else
+	@php
+		$images = [];
+	@endphp
 @endif
+@php
+	$routes = ['user' => route('site.profile', $id = 0)];
+@endphp
+	<div id="app">
+		<Spot 
+		:routes="{{json_encode($routes)}}"
+		:images="{{json_encode($images)}}"
+		:spot="{{$spot}}"
+		:tricks_src="{{$spot->tricks}}"
+		:videos="{{$videos}}"
+		></Spot>
+	</div>
+@endsection
 
-<div>
-	<h4>Местонахождение локации</h4>
-	<div id="map"></div>
-</div>
-
-<div>
-	<h4>Описание локации</h4>
-	<div>{{ $spot->description }}</div>
-</div>
-
-<div>
-	<h4>Элементы, которые можно выполнять на этой локации</h4>
-	@foreach ($spot->tricks as $trick)
-		<h5>{{$trick->name}}</h5>
-	@endforeach
-</div>
-
-<script>
-	function initMap() {
-		var map = new google.maps.Map(document.querySelector("#map"), {
-			zoom: 12,
-			center: {lat: {{$spot->lat}}, lng: {{$spot->lng}} }
-		});
-
-		var marker = new google.maps.Marker({
-		  position: {lat: {{$spot->lat}}, lng: {{$spot->lng}} },
-		  map: map,
-		});
-    }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM7zVJIpwF35JDbkg0oS4awX4pBzZoMac&callback=initMap"></script>
-
-<style>
-	#map {
-		height: 500px;
-		width: 100%;
-	}
-
-	.pic {
-		max-width: 300px;
-	}
-</style>
+@section('scripts')
+	<script src="{{ asset('js/app.js') }}" defer></script>
+  	<script id="googleMap" onload="window.mapLoaded = true;" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM7zVJIpwF35JDbkg0oS4awX4pBzZoMac"></script>
+@endsection

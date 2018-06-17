@@ -2,7 +2,8 @@
 
 @section('content')
 @php
-	$routes = ['updateAvatar' => route('profile.uploadImg'), 'removeAvatar' => route('profile.removeImg'), 'getUserVideos' => route('ajax.getUserVideos'), 'getAvatar' => route('ajax.getAvatar'), 'setSocial' => route('ajax.setSocial'), 'addMove' => route('profile.addMove'), 'removeMove' => route('profile.removeMove'), 'addVideo' => route('profile.addMoveVideo'), 'removeVideo' => route('profile.removeMoveVideo'), 'addSpotToVideo' => route('profile.addSpotToVideo')];
+	$routes = ['updateAvatar' => route('profile.uploadImg'), 'removeAvatar' => route('profile.removeImg'), 'getUserVideos' => route('ajax.getUserVideos'), 'getAvatar' => route('ajax.getAvatar'), 'setSocial' => route('ajax.setSocial'), 'addMove' => route('profile.addMove'), 'removeMove' => route('profile.removeMove'), 'addVideo' => route('profile.addMoveVideo'), 'removeVideo' => route('profile.removeMoveVideo'), 'addSpotToVideo' => route('profile.addSpotToVideo'), 
+	'removeSpotFromVideo' => route('profile.removeSpotFromVideo')];
 @endphp
 	<div id="app">
 		<ProfileEdit 

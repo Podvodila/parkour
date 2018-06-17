@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Trick;
 use App\Spot;
+use App\Image;
 
 class SpotController extends Controller
 {
 	public function show($id)
 	{
-		return view('spot', ['spot' => Spot::find($id), 'tricks' => Trick::all()]);
+		return view('spot', ['spot' => Spot::find($id), 'videos' => $this->getSpotVideos($id)]);
 	}
 
     public function add()
@@ -64,12 +65,23 @@ class SpotController extends Controller
     {
     	$filename = $request->input('path');
     	$checkName = explode('/', $filename);
-    	if($checkName[1] != $id) {
+    	if($checkName[3] != $id) {
     		abort(403);
     	}
 
-    	if(Storage::disk('local')->has($filename)) {
-    		Storage::disk('local')->delete($filename);
+        $shortName = "";
+
+        for($i = 2; $i < count($checkName); $i++) {
+            if($i != 2) {
+                $shortName .= "/";
+            }
+            $shortName .= $checkName[$i];
+        }
+        
+
+    	if(Storage::disk('local')->has($shortName)) {
+    		Storage::disk('local')->delete($shortName);
+            Image::where('path', $filename)->delete();
     	}
 
     	return redirect()->route('site.spotEdit', ['id' => $id]);
@@ -129,6 +141,11 @@ class SpotController extends Controller
     		foreach ($request->file('image') as $image) {
 	    		$filename = 'spots/' . $spot_id . '/images/' . $time++ . '.jpg';
 	    		Storage::disk('local')->put($filename, File::get($image));
+                Image::create([
+                    'path' => Storage::disk('local')->url($filename),
+                    'spot_id' => $spot_id,
+                    'user_id' => Auth::id(),
+                ]);
 	    	}
     	}
     }
@@ -155,5 +172,10 @@ class SpotController extends Controller
     private function getLng($location)
     {
     	return explode(' ', $location)[1];
+    }
+
+    public function getSpotVideos($spot_id)
+    {
+        return Spot::findOrFail($spot_id)->videos()->latest()->get();
     }
 }

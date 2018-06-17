@@ -18,8 +18,13 @@
 				</svg>
 			</div>
 			<div class="bot-menu-icon-wrap">
-				<div class="svg-container" v-if="video.spot_id">
-					<a :href="'/spot/' + video.spot_id" target="_blank"> <!-- Поменять ссылку, чтобы вела на страницу спота -->
+				<div 
+					class="svg-container" 
+					v-if="video.spot_id"
+					@mouseover="tip.msg='View on map'; tip.show=true;"
+					@mouseout="tip.show=false"
+					>
+					<a :href="'/spot/' + video.spot_id" target="_blank">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 100 100" 
 						style="enable-background:new 0 0 100 100;" xml:space="preserve" class="svg svg-map">
 							<path d="M60.6,30c0-5.5-4.5-10-10.1-10c-5.6,0-10.1,4.5-10.1,10s4.5,10,10.1,10C56.1,40,60.6,35.5,60.6,30z M44.4,30  c0-3.3,2.7-6,6.1-6s6.1,2.7,6.1,6s-2.7,6-6.1,6S44.4,33.3,44.4,30z M50,64.8l1.4-1.4C67.9,47.1,69.2,35.2,69.2,32v-2  c0-10.5-8.6-19-19.2-19s-19.2,8.5-19.2,19v2c0,3.2,1.3,15.1,17.8,31.4L50,64.8z M34.8,30c0-8.3,6.8-15,15.2-15  c8.4,0,15.2,6.7,15.2,15v2c0,2-0.8,12.3-15.2,27.1C35.6,44.3,34.8,33.9,34.8,32V30z M94.8,75.7L72.7,89l-22.4-7.4  c-0.2-0.1-0.4-0.2-0.5-0.3c-0.2,0.1-0.3,0.2-0.5,0.3L26.9,89L4.8,75.7l11.9-42.9L29,40.2c1,0.6,1.3,1.8,0.7,2.7  c-0.6,0.9-1.8,1.2-2.8,0.7L19.2,39L9.5,73.8L26,83.8l3.8-33c0.1-1.1,1.1-1.9,2.2-1.8c1.1,0.1,1.9,1.1,1.8,2.2l-3.8,32.5L48,77.8  c0,0,0,0,0,0v-6.9c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2v7c0,0,0,0,0,0L70,83.9l-3.8-32.7c-0.1-1.1,0.7-2.1,1.8-2.2  c1.1-0.1,2.1,0.7,2.2,1.8L74,83.5l16.1-9.7L80.4,39l-7.7,4.6c-1,0.6-2.2,0.3-2.8-0.7c-0.6-0.9-0.3-2.2,0.7-2.7l12.3-7.4L94.8,75.7z"/>
@@ -42,14 +47,15 @@
 						</g>
 					</svg>
 				</div>
-				<!-- <img src="/images/map.png" alt="map">
-				<img src="/images/expand.png" alt="expand" @click="switchFullscreen"> -->
 			</div>
 		</div>
+		<tip :msg="tip.msg" v-if="showTip"></tip>
 	</div>
 </template>
 
 <script>
+	import Tip from './Tip.vue';
+
 	export default {
 		props: ['video'],
 		data() {
@@ -57,6 +63,10 @@
 				videoPlaying: false,
 				videoOnPause: false,
 				src: this.video.path,
+				tip: {
+					show: false,
+					msg: '',
+				},
 			}
 		},
 		created() {
@@ -64,7 +74,10 @@
 		},
 		computed: {
 			videoStopped() {
-				return this.videoPlaying || this.videoOnPause;
+				return this.videoPlaying || this.videoOnPause || (document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen);
+			},
+			showTip() {
+				return this.tip.show && !(document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen);
 			},
 		},
 		methods: {
@@ -124,6 +137,9 @@
 			videoPlaying: function() {
 				this.$refs.anime.beginElement();
 			}
+		},
+		components: {
+			Tip,
 		}
 	}
 </script>
@@ -133,6 +149,7 @@
 		width: 100%;
 		position: relative;
 		overflow: hidden;
+		margin-bottom: -4px;
 	}
 
 	.custom-video {
@@ -145,7 +162,7 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100%;
+		height: 99%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -195,12 +212,6 @@
 		display: flex;
 		align-items: center;
 	}
-
-	/*.bot-menu-icon-wrap img {
-		height: 100%;
-		cursor: pointer;
-		margin-right: 5px;
-	}*/
 
 	.bot-menu-icon-wrap .svg-container {
 		margin-left: 10px;
