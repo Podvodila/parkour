@@ -3,18 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Trick;
 use App\Spot;
 use App\Image;
+use App\Video;
+use App\Comment;
 
 class SpotController extends Controller
 {
 	public function show($id)
 	{
-		return view('spot', ['spot' => Spot::find($id), 'videos' => $this->getSpotVideos($id)]);
+        $spot = Spot::find($id);
+        $user = Auth::id();
+		return view('spot', [
+            'spot' => $spot, 
+            'videos' => $this->getSpotVideos($id), 
+            'images' => $this->getImages($id), 
+            'user' => $user,
+            'new_tricks' => $this->getNewTricks($id),
+        ]);
 	}
 
     public function add()
@@ -63,7 +74,8 @@ class SpotController extends Controller
 
     public function removeImage($id, Request $request)
     {
-    	$filename = $request->input('path');
+        $image = Image::findOrFail($request->input('image_id'));
+    	$filename = $image->path;
     	$checkName = explode('/', $filename);
     	if($checkName[3] != $id) {
     		abort(403);
@@ -84,14 +96,16 @@ class SpotController extends Controller
             Image::where('path', $filename)->delete();
     	}
 
-    	return redirect()->route('site.spotEdit', ['id' => $id]);
+    	return response()->json($this->getImages($id));
     }
 
     public function addImages($id, Request $request)
     {
-    	$this->customAddImages($request, $id);
-
-    	return redirect()->back();
+        $this->validate($request, [
+            'image.*' => 'image|max:2048',
+        ]);
+    	$this->customAddImages($request);
+        return response()->json($this->getImages($request->input('spot_id')));
     }
 
     public function editLocation($id, Request $request)
@@ -111,31 +125,42 @@ class SpotController extends Controller
     public function editDescription($id, Request $request)
     {
     	$this->validate($request, [
-    		'description' => 'required|string',
+    		'description' => 'string|max:750|nullable',
     	]);
 
     	$spot = Spot::find($id);
     	$spot->description = $request->input('description');
     	$spot->save();
 
-    	return redirect()->back();
+    	return response()->json($spot->description);
     }
 
     public function removeMove($spot_id, Request $request)
     {
     	$spot = Spot::find($spot_id);
     	$spot->tricks()->detach($request->input('move'));
-    	return redirect()->back();
+    	return response()->json(['attached_tricks' => $spot->tricks, 'new_tricks' => $this->getNewTricks($spot_id)]);
     }
 
     public function addMove($spot_id, Request $request)
     {
     	$this->customAddMoves($request, Spot::find($spot_id));
-    	return redirect()->back();
+    	return response()->json(['attached_tricks' => Spot::find($spot_id)->tricks, 'new_tricks' => $this->getNewTricks($spot_id)]);
     }
 
-    private function customAddImages($request, $spot_id) 
+    public function removeSpotFromVideo($id, Request $request)
     {
+        $video = Video::findOrFail($request->input('video_id'));
+        if($video->user_id != Auth::id()) abort(403);
+        $video->spot_id = null;
+        $video->save();
+
+        return response()->json($this->getSpotVideos($id));
+    }
+
+    private function customAddImages($request, $custom_spot_id = null) 
+    {
+        $spot_id = $request->input('spot_id') ? $request->input('spot_id') : $custom_spot_id;
     	if ($request->hasFile('image')) {
     		$time = time();
     		foreach ($request->file('image') as $image) {
@@ -177,5 +202,20 @@ class SpotController extends Controller
     public function getSpotVideos($spot_id)
     {
         return Spot::findOrFail($spot_id)->videos()->latest()->get();
+    }
+
+    private function getImages($spot_id)
+    {
+        return Image::where('spot_id', $spot_id)->get();
+    }
+
+    private function getNewTricks($spot_id)
+    {
+        $attachedTricks = [];
+        $tricks = Spot::findOrFail($spot_id)->tricks;
+        foreach ($tricks as $trick) {
+            array_push($attachedTricks, $trick->id);
+        }
+        return Trick::whereNotIn('id', $attachedTricks)->get();
     }
 }

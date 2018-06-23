@@ -29,4 +29,9 @@ class Spot extends Model
     {
         return $this->hasOne('App\User');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment')->withTimestamps();
+    }
 }

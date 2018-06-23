@@ -546,13 +546,13 @@
 
 	.back-to-tricks svg {
 		width: 60px;
-		fill: #c77;
+		fill: rgb(91, 157, 232);
 		cursor: pointer;
 		transition: .2s;
 	}
 
 	.back-to-tricks:hover svg {
-		fill: #c55;
+		fill: rgb(11, 157, 255);
 		transform: scale(1.1);
 	}
 

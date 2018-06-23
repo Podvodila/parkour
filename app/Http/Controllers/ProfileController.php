@@ -44,7 +44,7 @@ class ProfileController extends Controller
             $user->save();
     	}
 
-    	return response()->json('success');
+    	return response()->json($this->getAvatar(Auth::id()));
     }
 
     public function removeAvatar()
@@ -180,6 +180,7 @@ class ProfileController extends Controller
     public function removeSpotFromVideo(Request $request)
     {
         $video = Video::findOrFail($request->input('video_id'));
+        if($video->user_id != Auth::id()) abort(403);
         $video->spot_id = null;
         $video->save();
 

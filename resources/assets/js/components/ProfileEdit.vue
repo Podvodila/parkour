@@ -90,17 +90,21 @@
 		</div>
 		<div class="tricks-wrap">
 			<template v-if="fullVideoList.show == false">
-				<button class="btn custom-all-tricks-button" :class="allTricksShow ? 'btn-danger' : 'btn-primary'" @click="switchAllTricks">{{allTricksShow ? 'Close' : 'Add elements'}}</button>
-				<template v-if="allTricksShow">
-						<div class="all-tricks-container">
-							<transition-group tag="ul" class="list-group custom-list-group" name="new-tricks">
-							  <li class="list-group-item custom-list-group-item" v-for="trick in notAddedTricks" :key="trick.id">
-							  	<span>{{trick.name}}</span>
-							  	<span class="add-element" @click="addElement(trick.id)">Add element</span>
-							  </li>
-							</transition-group>
-						</div>
-				</template>
+				<button 
+					class="btn custom-all-tricks-button" 
+					:class="allTricksShow ? 'btn-danger' : 'btn-primary'" 
+					@click="switchAllTricks"
+					data-toggle="collapse" data-target="#collapseMove" aria-expanded="false" aria-controls="collapseMove">
+					{{allTricksShow ? 'Close' : 'Add elements'}}
+				</button>
+				<div class="all-tricks-container collapse" id="collapseMove">
+					<transition-group tag="ul" class="list-group custom-list-group" name="new-tricks">
+					  <li class="list-group-item custom-list-group-item" v-for="trick in notAddedTricks" :key="trick.id">
+					  	<span>{{trick.name}}</span>
+					  	<span class="add-element" @click="addElement(trick.id)">Add element</span>
+					  </li>
+					</transition-group>
+				</div>
 			</template>
 			<template v-if="fullVideoList.show">
 				<form :action="routes.addVideo" method="POST" enctype="multipart/form-data" id="add-video" class="custom-add-video-button" @submit.prevent>
@@ -356,11 +360,12 @@
     			  processData: false,
     			  data: form,
     			  success: function(data) { 
-    			  	self.avatarSrc.url = self.avatarSrc.url + '?' + Date.now();
     			  	if(self.avatarSrc.exist) {
     			  		self.$refs.avatar.className = '';
     			  		self.$refs.avatar.removeAttribute('style');
+    			  		self.avatarSrc.url = data.url + '?' + Date.now();
     			  	} else {
+    			  		self.avatarSrc.url = data.url + '?' + Date.now();
     			  		self.avatarSrc.exist = true;
     			  	}
     			  },
@@ -605,87 +610,6 @@
                   }
 				});
 			},
-			/*getUserInfo() {
-				var self = this;
-				$.ajax({
-    			  method: "post",
-    			  url: this.routes.getUser,
-    			  dataType: "json",
-    			  data: {
-    			     user_id: this.user_id,
-    			     _token : $('meta[name="csrf-token"]').attr('content'),
-    			  },
-    			  success: function(user) { 
-    			  	self.user.firstName = user.first_name;
-    			  	self.user.lastName = user.last_name;
-    			  },
-                  error: function(data) {
-                    console.log(data);
-                  }
-				});
-			},
-			getUserTricks() {
-				var self = this;
-				$.ajax({
-    			  method: "post",
-    			  url: this.routes.getUserTricks,
-    			  dataType: "json",
-    			  data: {
-    			     user_id: this.user_id,
-    			     _token : $('meta[name="csrf-token"]').attr('content'),
-    			  },
-    			  success: function(tricks) { 
-    			  	tricks.forEach(function(trick) {
-    			  		self.tricks.push(trick);
-    			  	});
-    			  },
-                  error: function(data) {
-                    console.log(data);
-                  }
-				});
-			},
-			getUserVideos() {
-				var self = this;
-				$.ajax({
-    			  method: "post",
-    			  url: this.routes.getUserVideos,
-    			  dataType: "json",
-    			  data: {
-    			     user_id: this.user_id,
-    			     _token : $('meta[name="csrf-token"]').attr('content'),
-    			  },
-    			  success: function(videos) { 
-    			  	videos.forEach(function(video) {
-    			  		self.videos.push(video);
-    			  	});
-    			  },
-                  error: function(data) {
-                    console.log(data);
-                  }
-				});
-			},
-			getAvatar() {
-				var self = this;
-				$.ajax({
-    			  method: "post",
-    			  url: this.routes.getAvatar,
-    			  headers: {
-    			  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    			  },
-    			  dataType: "json",
-    			  data: {
-    			     user_id: this.user_id,
-    			     _token : $('meta[name="csrf-token"]').attr('content'),
-    			  },
-    			  success: function(avatar) { 
-    			  	self.user.avatar = avatar;
-    			  	console.log(self.user.avatar);
-    			  },
-                  error: function(data) {
-                    console.log(data);
-                  }
-				});
-			},*/
 		},
 		components: {
 			appVideo,
@@ -697,6 +621,8 @@
 			'fullVideoList.show': function(val) {
 				if(val == false) {
 					this.tip.show = false;
+				} else {
+					this.allTricksShow = false;
 				}
 			}
 		},
@@ -943,13 +869,13 @@
 
 	.back-to-tricks svg {
 		width: 60px;
-		fill: #c77;
+		fill: rgb(91, 157, 232);
 		cursor: pointer;
 		transition: .2s;
 	}
 
 	.back-to-tricks:hover svg {
-		fill: #c55;
+	    fill: rgb(11, 157, 255);
 		transform: scale(1.1);
 	}
 

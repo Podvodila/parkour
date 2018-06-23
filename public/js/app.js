@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(10);
+var bind = __webpack_require__(11);
 var isBuffer = __webpack_require__(26);
 
 /*global toString:true*/
@@ -823,6 +823,57 @@ module.exports = g;
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(68)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(70)
+/* template */
+var __vue_template__ = __webpack_require__(71)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Tip.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1acfeb18", Component.options)
+  } else {
+    hotAPI.reload("data-v-1acfeb18", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
@@ -843,10 +894,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(12);
+    adapter = __webpack_require__(13);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(12);
+    adapter = __webpack_require__(13);
   }
   return adapter;
 }
@@ -921,10 +972,61 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 6 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(51)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(53)
+/* template */
+var __vue_template__ = __webpack_require__(54)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Alert.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-11375e75", Component.options)
+  } else {
+    hotAPI.reload("data-v-11375e75", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -975,58 +1077,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(68)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(70)
-/* template */
-var __vue_template__ = __webpack_require__(71)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Tip.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1acfeb18", Component.options)
-  } else {
-    hotAPI.reload("data-v-1acfeb18", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3555,7 +3606,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(4)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13926,7 +13977,7 @@ return jQuery;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13944,7 +13995,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -14134,7 +14185,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14145,7 +14196,7 @@ var settle = __webpack_require__(29);
 var buildURL = __webpack_require__(31);
 var parseHeaders = __webpack_require__(32);
 var isURLSameOrigin = __webpack_require__(33);
-var createError = __webpack_require__(13);
+var createError = __webpack_require__(14);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(34);
 
 module.exports = function xhrAdapter(config) {
@@ -14321,7 +14372,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14346,7 +14397,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14358,7 +14409,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14381,57 +14432,6 @@ Cancel.prototype.toString = function toString() {
 Cancel.prototype.__CANCEL__ = true;
 
 module.exports = Cancel;
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(51)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(53)
-/* template */
-var __vue_template__ = __webpack_require__(54)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Alert.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-11375e75", Component.options)
-  } else {
-    hotAPI.reload("data-v-11375e75", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
 
 
 /***/ }),
@@ -14531,7 +14531,7 @@ var app = new Vue({
 
 
 window._ = __webpack_require__(21);
-window.Popper = __webpack_require__(8).default;
+window.Popper = __webpack_require__(9).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -14540,7 +14540,7 @@ window.Popper = __webpack_require__(8).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(9);
+  window.$ = window.jQuery = __webpack_require__(10);
 
   __webpack_require__(23);
 } catch (e) {}
@@ -31737,7 +31737,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(9), __webpack_require__(8)) :
+   true ? factory(exports, __webpack_require__(10), __webpack_require__(9)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (factory((global.bootstrap = {}),global.jQuery,global.Popper));
 }(this, (function (exports,$,Popper) { 'use strict';
@@ -35674,9 +35674,9 @@ module.exports = __webpack_require__(25);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(10);
+var bind = __webpack_require__(11);
 var Axios = __webpack_require__(27);
-var defaults = __webpack_require__(5);
+var defaults = __webpack_require__(6);
 
 /**
  * Create an instance of Axios
@@ -35709,9 +35709,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(15);
+axios.Cancel = __webpack_require__(16);
 axios.CancelToken = __webpack_require__(41);
-axios.isCancel = __webpack_require__(14);
+axios.isCancel = __webpack_require__(15);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -35759,7 +35759,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(5);
+var defaults = __webpack_require__(6);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(36);
 var dispatchRequest = __webpack_require__(37);
@@ -35864,7 +35864,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(13);
+var createError = __webpack_require__(14);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -36297,8 +36297,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(38);
-var isCancel = __webpack_require__(14);
-var defaults = __webpack_require__(5);
+var isCancel = __webpack_require__(15);
+var defaults = __webpack_require__(6);
 var isAbsoluteURL = __webpack_require__(39);
 var combineURLs = __webpack_require__(40);
 
@@ -36457,7 +36457,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(15);
+var Cancel = __webpack_require__(16);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -47775,7 +47775,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(12)))
 
 /***/ }),
 /* 46 */
@@ -47907,7 +47907,7 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Alert_vue__);
 //
 //
@@ -48049,8 +48049,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['msg', 'error'],
@@ -48084,7 +48082,7 @@ var render = function() {
       class: this.error ? "alert-danger" : "alert-success",
       attrs: { role: "alert" }
     },
-    [_vm._v("  \n            " + _vm._s(_vm.message) + "\n        ")]
+    [_vm._v("  \n    " + _vm._s(_vm.message) + "\n")]
   )
 }
 var staticRenderFns = []
@@ -48807,7 +48805,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 0 auto;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.downsize-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.downsize-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: #c77;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: #c55;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.video-numbers {\n    \tposition: absolute;\n\t    right: 0;\n\t    height: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    width: 45px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    top: 0;\n\t    border-left: 1px solid #aaa;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    background-color: rgba(0, 0, 0, 0.05);\n}\n", ""]);
+exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 0 auto;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.downsize-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.downsize-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.video-numbers {\n    \tposition: absolute;\n\t    right: 0;\n\t    height: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    width: 45px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    top: 0;\n\t    border-left: 1px solid #aaa;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    background-color: rgba(0, 0, 0, 0.05);\n}\n", ""]);
 
 // exports
 
@@ -48818,9 +48816,9 @@ exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twi
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Video_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Tip_vue__);
 //
 //
@@ -49187,7 +49185,7 @@ exports.push([module.i, "\n.custom-video-container {\n\twidth: 100%;\n\tposition
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Tip_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Tip_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Tip_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Tip_vue__);
 //
 //
@@ -49370,7 +49368,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.custom-tip {\n\t\tposition: fixed;\n\t\tcolor: #fff;\n\t    background: #5c626a;\n\t    padding: 0 9px;\n\t    border-radius: 2px;\n        white-space: nowrap;\n        font-family: 'Nunito';\n        font-weight: normal;\n        font-size: 10px;\n        line-height: 19px;\n        z-index: 2147483647;\n}\n", ""]);
+exports.push([module.i, "\n.custom-tip {\n\t\tposition: fixed;\n\t\tcolor: #fff;\n\t    background: #5c626a;\n\t    padding: 0 9px;\n\t    border-radius: 2px;\n        white-space: nowrap;\n        font-family: 'Nunito';\n        font-weight: normal;\n        font-size: 11px;\n        line-height: 19px;\n        z-index: 2147483647;\n        opacity: 0;\n        -webkit-user-select: none;\n           -moz-user-select: none;\n            -ms-user-select: none;\n                user-select: none;\n}\n", ""]);
 
 // exports
 
@@ -49389,9 +49387,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['msg'],
 	data: function data() {
-		return {};
+		return {
+			visible: false
+		};
 	},
-	created: function created() {
+	mounted: function mounted() {
 		document.querySelector("body").addEventListener('mousemove', this.changeCoordinates);
 	},
 	beforeDestroy: function beforeDestroy() {
@@ -49403,6 +49403,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var coordY = document.documentElement.clientHeight - e.clientY > 30 ? 10 : -15;
 			this.$refs.tip.style.top = e.clientY + coordY + 'px';
 			this.$refs.tip.style.left = e.clientX - parseInt(getComputedStyle(this.$refs.tip).width) - 10 + 'px';
+			if (this.visible == false) {
+				this.$refs.tip.style.opacity = 1;
+				this.visible = true;
+			}
 		}
 	}
 });
@@ -50624,7 +50628,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 0 auto;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n\t\tposition: relative;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tmargin-top: 10px;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\t-webkit-animation: avatarUp .4s;\n\t\t        animation: avatarUp .4s;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.close-map-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.close-map-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.close-map-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: #c77;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: #c55;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.image-buttons {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \twidth: 100%;\n    \theight: 100%;\n\t    border-radius: 50%;\n}\n.change-image, .remove-image {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-box-flex: 1;\n\t\t    -ms-flex: 1;\n\t\t        flex: 1;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\topacity: 0;\n\t\tcursor: pointer;\n}\n.change-image svg, .remove-image svg {\n\t\tfill: rgba(255, 255, 255, 0.9);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.change-image:hover svg {\n    \tfill: rgba(0, 204, 0, 0.7);\n}\n.remove-image:hover svg {\n    \tfill: rgba(204, 0, 0, 0.7);\n}\n.image-buttons:hover .change-image, .image-buttons:hover .remove-image {\n\t\topacity: 1;\n\t\t-webkit-transform: translateY(0);\n\t\t        transform: translateY(0);\n}\n.change-image {\n\t\t-webkit-transform: translateY(-100%);\n\t\t        transform: translateY(-100%);\n}\n.remove-image {\n\t\t-webkit-transform: translateY(100%);\n\t\t        transform: translateY(100%);\n}\n.hidden {\n    \tdisplay: none;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.add-image {\n    \tposition: absolute;\n    \twidth: 100%;\n    \theight: 100%;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tcursor: pointer;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tbackground-color: rgba(0, 0, 0, 0.3);\n    \tz-index: 100;\n}\n.add-image svg {\n    \tfill: rgba(0, 162, 0, 1);\n    \twidth: 64px;\n    \tcursor: pointer;\n}\n.avatar-container:hover .add-image {\n\t\topacity: 1;\n}\n.social-item {\n    \tmargin-bottom: 10px;\n}\n.social-default {\n    \tfont-size: 14px;\n}\n.custom-btn {\n    \tcursor: pointer;\n}\n.tricks-wrap {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.custom-all-tricks-button, .custom-add-video-button {\n\t\t-ms-flex-item-align: end;\n\t\t    align-self: flex-end;\n\t\tcursor: pointer;\n\t\tmargin-bottom: 20px;\n\t\tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.all-tricks-container {\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.custom-list-group {\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n}\n.custom-list-group .custom-list-group-item {\n\t\tmargin-bottom: 10px;\n\t\twidth: 33%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-transition: all .5s ease;\n\t\ttransition: all .5s ease;\n}\n.new-tricks-enter, .new-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.new-tricks-leave-active {\n\t  position: absolute;\n}\n.add-element {\n    \tcolor: #5cb85c;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.add-element:hover {\n    \tcolor: #449d44;\n}\n.custom-list-group-item:hover .add-element {\n    \topacity: 1;\n}\n.remove-trick {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n    \theight: 30px;\n}\n.remove-trick svg {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n\t\tfill: #333;\n\t\twidth: 30px;\n}\n.remove-trick svg path {\n\t\tfill: #333;\n\t\tstroke: #333;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform-origin: center center;\n\t\t        transform-origin: center center;\n}\n.remove-trick:hover svg path {\n    \tfill: #a00;\n    \tstroke: #a00;\n}\n.remove-trick svg circle {\n\t\tstroke: #333 !important;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-trick:hover svg circle {\n    \tstroke: #a00 !important;\n}\n.remove-trick:hover svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(90deg);\n    \t        transform: rotate(90deg);\n}\n.remove-trick:hover svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-90deg);\n    \t        transform: rotate(-90deg);\n}\n.remove-trick:active svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(135deg);\n    \t        transform: rotate(135deg);\n}\n.remove-trick:active svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-135deg);\n    \t        transform: rotate(-135deg);\n}\n.remove-video {\n    \tfill: #555;\n    \twidth: 24px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.remove-video:hover {\n    \tfill: #a00;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-add-spot, .video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot {\n\t\twidth: 30px;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.video-add-spot:hover {\n    \tfill: #080;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \theight: 24px;\n}\n.map-container {\n    \tposition: fixed;\n\t    z-index: 120;\n\t    width: 100vw;\n\t    height: 100vh;\n\t    left: 0px;\n\t    top: 0px;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    background-color: rgba(0, 0, 0, 0.5);\n}\n.map-wrap {\n\t\twidth: 90%;\n\t\theight: 80%;\n}\n", ""]);
+exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 0 auto;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n\t\tposition: relative;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tmargin-top: 10px;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\t-webkit-animation: avatarUp .4s;\n\t\t        animation: avatarUp .4s;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.close-map-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.close-map-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.close-map-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t    fill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.image-buttons {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \twidth: 100%;\n    \theight: 100%;\n\t    border-radius: 50%;\n}\n.change-image, .remove-image {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-box-flex: 1;\n\t\t    -ms-flex: 1;\n\t\t        flex: 1;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\topacity: 0;\n\t\tcursor: pointer;\n}\n.change-image svg, .remove-image svg {\n\t\tfill: rgba(255, 255, 255, 0.9);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.change-image:hover svg {\n    \tfill: rgba(0, 204, 0, 0.7);\n}\n.remove-image:hover svg {\n    \tfill: rgba(204, 0, 0, 0.7);\n}\n.image-buttons:hover .change-image, .image-buttons:hover .remove-image {\n\t\topacity: 1;\n\t\t-webkit-transform: translateY(0);\n\t\t        transform: translateY(0);\n}\n.change-image {\n\t\t-webkit-transform: translateY(-100%);\n\t\t        transform: translateY(-100%);\n}\n.remove-image {\n\t\t-webkit-transform: translateY(100%);\n\t\t        transform: translateY(100%);\n}\n.hidden {\n    \tdisplay: none;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.add-image {\n    \tposition: absolute;\n    \twidth: 100%;\n    \theight: 100%;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tcursor: pointer;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tbackground-color: rgba(0, 0, 0, 0.3);\n    \tz-index: 100;\n}\n.add-image svg {\n    \tfill: rgba(0, 162, 0, 1);\n    \twidth: 64px;\n    \tcursor: pointer;\n}\n.avatar-container:hover .add-image {\n\t\topacity: 1;\n}\n.social-item {\n    \tmargin-bottom: 10px;\n}\n.social-default {\n    \tfont-size: 14px;\n}\n.custom-btn {\n    \tcursor: pointer;\n}\n.tricks-wrap {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.custom-all-tricks-button, .custom-add-video-button {\n\t\t-ms-flex-item-align: end;\n\t\t    align-self: flex-end;\n\t\tcursor: pointer;\n\t\tmargin-bottom: 20px;\n\t\tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.all-tricks-container {\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.custom-list-group {\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n}\n.custom-list-group .custom-list-group-item {\n\t\tmargin-bottom: 10px;\n\t\twidth: 33%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-transition: all .5s ease;\n\t\ttransition: all .5s ease;\n}\n.new-tricks-enter, .new-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.new-tricks-leave-active {\n\t  position: absolute;\n}\n.add-element {\n    \tcolor: #5cb85c;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.add-element:hover {\n    \tcolor: #449d44;\n}\n.custom-list-group-item:hover .add-element {\n    \topacity: 1;\n}\n.remove-trick {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n    \theight: 30px;\n}\n.remove-trick svg {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n\t\tfill: #333;\n\t\twidth: 30px;\n}\n.remove-trick svg path {\n\t\tfill: #333;\n\t\tstroke: #333;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform-origin: center center;\n\t\t        transform-origin: center center;\n}\n.remove-trick:hover svg path {\n    \tfill: #a00;\n    \tstroke: #a00;\n}\n.remove-trick svg circle {\n\t\tstroke: #333 !important;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-trick:hover svg circle {\n    \tstroke: #a00 !important;\n}\n.remove-trick:hover svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(90deg);\n    \t        transform: rotate(90deg);\n}\n.remove-trick:hover svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-90deg);\n    \t        transform: rotate(-90deg);\n}\n.remove-trick:active svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(135deg);\n    \t        transform: rotate(135deg);\n}\n.remove-trick:active svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-135deg);\n    \t        transform: rotate(-135deg);\n}\n.remove-video {\n    \tfill: #555;\n    \twidth: 24px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.remove-video:hover {\n    \tfill: #a00;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-add-spot, .video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot {\n\t\twidth: 30px;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.video-add-spot:hover {\n    \tfill: #080;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \theight: 24px;\n}\n.map-container {\n    \tposition: fixed;\n\t    z-index: 120;\n\t    width: 100vw;\n\t    height: 100vh;\n\t    left: 0px;\n\t    top: 0px;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    background-color: rgba(0, 0, 0, 0.5);\n}\n.map-wrap {\n\t\twidth: 90%;\n\t\theight: 80%;\n}\n", ""]);
 
 // exports
 
@@ -50635,16 +50639,20 @@ exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twi
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Video_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Alert_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Alert_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Alert_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MapAll_vue__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MapAll_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__MapAll_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Tip_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Tip_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Tip_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Tip_vue__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -50867,410 +50875,413 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['user', 'user_tricks', 'prop_videos', 'avatar', 'routes', 'all_tricks', 'spots'],
-  data: function data() {
-    return {
-      videos: this.prop_videos,
-      fullVideoList: {
-        show: false,
-        trick_id: null
-      },
-      token: $('meta[name="csrf-token"]').attr('content'),
-      avatarSrc: this.avatar,
-      social: {
-        facebook: this.user.facebook ? this.user.facebook.split('facebook.com/')[1] : '',
-        instagram: this.user.instagram ? this.user.instagram.split('instagram.com/')[1] : ''
-      },
-      responses: [],
-      tricks: this.user_tricks,
-      allTricksShow: false,
-      customKey: 10,
-      map: {
-        show: false,
-        video: null
-      },
-      tip: {
-        show: false,
-        msg: ''
-      }
-    };
-  },
-  created: function created() {},
+	props: ['user', 'user_tricks', 'prop_videos', 'avatar', 'routes', 'all_tricks', 'spots'],
+	data: function data() {
+		return {
+			videos: this.prop_videos,
+			fullVideoList: {
+				show: false,
+				trick_id: null
+			},
+			token: $('meta[name="csrf-token"]').attr('content'),
+			avatarSrc: this.avatar,
+			social: {
+				facebook: this.user.facebook ? this.user.facebook.split('facebook.com/')[1] : '',
+				instagram: this.user.instagram ? this.user.instagram.split('instagram.com/')[1] : ''
+			},
+			responses: [],
+			tricks: this.user_tricks,
+			allTricksShow: false,
+			customKey: 10,
+			map: {
+				show: false,
+				video: null
+			},
+			tip: {
+				show: false,
+				msg: ''
+			}
+		};
+	},
+	created: function created() {},
 
-  computed: {
-    fullName: function fullName() {
-      return this.user.first_name + ' ' + this.user.last_name;
-    },
-    tricksWithVideo: function tricksWithVideo() {
-      var _this = this;
+	computed: {
+		fullName: function fullName() {
+			return this.user.first_name + ' ' + this.user.last_name;
+		},
+		tricksWithVideo: function tricksWithVideo() {
+			var _this = this;
 
-      var pushedTricks = [];
-      var tricksAfterSort = [];
-      for (var i = 0; i < this.videos.length; i++) {
-        if (pushedTricks.includes(this.videos[i].trick_id)) continue;
-        pushedTricks.push(this.videos[i].trick_id);
-        this.tricks.forEach(function (trick) {
-          if (trick.id == _this.videos[i].trick_id) {
-            tricksAfterSort.push(trick);
-          }
-        });
-      }
-      return tricksAfterSort;
-    },
-    tricksWithoutVideo: function tricksWithoutVideo() {
-      var _this2 = this;
+			var pushedTricks = [];
+			var tricksAfterSort = [];
+			for (var i = 0; i < this.videos.length; i++) {
+				if (pushedTricks.includes(this.videos[i].trick_id)) continue;
+				pushedTricks.push(this.videos[i].trick_id);
+				this.tricks.forEach(function (trick) {
+					if (trick.id == _this.videos[i].trick_id) {
+						tricksAfterSort.push(trick);
+					}
+				});
+			}
+			return tricksAfterSort;
+		},
+		tricksWithoutVideo: function tricksWithoutVideo() {
+			var _this2 = this;
 
-      return this.tricks.filter(function (trick) {
-        var result = true;
-        _this2.videos.forEach(function (video) {
-          if (video.trick_id == trick.id) {
-            result = false;
-          }
-        });
-        return result;
-      });
-    },
-    tricksToShow: function tricksToShow() {
-      return this.tricksWithVideo.concat(this.tricksWithoutVideo);
-    },
-    fullVideoListTrickName: function fullVideoListTrickName() {
-      var self = this;
-      return this.tricks.filter(function (trick) {
-        return trick.id == self.fullVideoList.trick_id;
-      })[0].name;
-    },
-    animeName: function animeName() {
-      return this.fullVideoList.show ? 'trick-list' : 'video-list';
-    },
-    notAddedTricks: function notAddedTricks() {
-      var _this3 = this;
+			return this.tricks.filter(function (trick) {
+				var result = true;
+				_this2.videos.forEach(function (video) {
+					if (video.trick_id == trick.id) {
+						result = false;
+					}
+				});
+				return result;
+			});
+		},
+		tricksToShow: function tricksToShow() {
+			return this.tricksWithVideo.concat(this.tricksWithoutVideo);
+		},
+		fullVideoListTrickName: function fullVideoListTrickName() {
+			var self = this;
+			return this.tricks.filter(function (trick) {
+				return trick.id == self.fullVideoList.trick_id;
+			})[0].name;
+		},
+		animeName: function animeName() {
+			return this.fullVideoList.show ? 'trick-list' : 'video-list';
+		},
+		notAddedTricks: function notAddedTricks() {
+			var _this3 = this;
 
-      return this.all_tricks.filter(function (trick) {
-        var result = true;
-        _this3.tricks.forEach(function (myTrick) {
-          if (myTrick.id == trick.id) {
-            result = false;
-          }
-        });
-        return result;
-      });
-    }
-  },
-  methods: {
-    currentVideos: function currentVideos(trick_id) {
-      return this.videos.filter(function (video) {
-        return video.trick_id == trick_id;
-      });
-    },
-    avatarClass: function avatarClass() {
-      var customClass;
-      if (this.$refs.avatar.width > this.$refs.avatar.height) {
-        customClass = 'wide';
-      } else {
-        customClass = 'high';
-      }
-      this.$refs.avatar.classList.add(customClass);
-    },
-    marginAvatar: function marginAvatar() {
-      var avatar = this.$refs.avatar;
-      var width = avatar.width;
-      var height = avatar.height;
-      if (width > height) {
-        var result = '-' + width / 2 + 'px';
-        avatar.style.left = result;
-      } else {
-        var result = '-' + height / 2 + 'px';
-        avatar.style.top = result;
-      }
-    },
-    showAllVideos: function showAllVideos(trick_id) {
-      this.fullVideoList.trick_id = trick_id;
-      this.fullVideoList.show = true;
-    },
-    getDate: function getDate(date, type) {
-      var arr = date.split(' ')[0].split('-');
-      if (type == 'year') {
-        return arr[0];
-      } else if (type == 'dm') {
-        return arr[2] + '-' + arr[1];
-      }
-    },
-    backToTricks: function backToTricks() {
-      this.fullVideoList.show = false;
-    },
-    updateImage: function updateImage() {
-      var self = this;
-      var form = new FormData(document.querySelector("#upload-img"));
-      $.ajax({
-        method: "post",
-        url: self.routes.updateAvatar,
-        dataType: "json",
-        contentType: false,
-        processData: false,
-        data: form,
-        success: function success(data) {
-          self.avatarSrc.url = self.avatarSrc.url + '?' + Date.now();
-          if (self.avatarSrc.exist) {
-            self.$refs.avatar.className = '';
-            self.$refs.avatar.removeAttribute('style');
-          } else {
-            self.avatarSrc.exist = true;
-          }
-        },
-        error: function error(data) {
-          console.log('error');
-        }
-      });
-    },
-    removeImage: function removeImage() {
-      var self = this;
-      var form = new FormData(document.querySelector("#remove-img"));
-      $.ajax({
-        method: "post",
-        url: self.routes.removeAvatar,
-        dataType: "json",
-        contentType: false,
-        processData: false,
-        data: form,
-        success: function success(data) {
-          self.avatarSrc.exist = false;
-          console.log('image has been removed');
-        },
-        error: function error(data) {
-          console.log(data);
-        }
-      });
-    },
-    imgLoaded: function imgLoaded() {
-      this.avatarClass();
-      this.marginAvatar();
-    },
-    saveSocial: function saveSocial(social) {
-      var _data;
+			return this.all_tricks.filter(function (trick) {
+				var result = true;
+				_this3.tricks.forEach(function (myTrick) {
+					if (myTrick.id == trick.id) {
+						result = false;
+					}
+				});
+				return result;
+			});
+		}
+	},
+	methods: {
+		currentVideos: function currentVideos(trick_id) {
+			return this.videos.filter(function (video) {
+				return video.trick_id == trick_id;
+			});
+		},
+		avatarClass: function avatarClass() {
+			var customClass;
+			if (this.$refs.avatar.width > this.$refs.avatar.height) {
+				customClass = 'wide';
+			} else {
+				customClass = 'high';
+			}
+			this.$refs.avatar.classList.add(customClass);
+		},
+		marginAvatar: function marginAvatar() {
+			var avatar = this.$refs.avatar;
+			var width = avatar.width;
+			var height = avatar.height;
+			if (width > height) {
+				var result = '-' + width / 2 + 'px';
+				avatar.style.left = result;
+			} else {
+				var result = '-' + height / 2 + 'px';
+				avatar.style.top = result;
+			}
+		},
+		showAllVideos: function showAllVideos(trick_id) {
+			this.fullVideoList.trick_id = trick_id;
+			this.fullVideoList.show = true;
+		},
+		getDate: function getDate(date, type) {
+			var arr = date.split(' ')[0].split('-');
+			if (type == 'year') {
+				return arr[0];
+			} else if (type == 'dm') {
+				return arr[2] + '-' + arr[1];
+			}
+		},
+		backToTricks: function backToTricks() {
+			this.fullVideoList.show = false;
+		},
+		updateImage: function updateImage() {
+			var self = this;
+			var form = new FormData(document.querySelector("#upload-img"));
+			$.ajax({
+				method: "post",
+				url: self.routes.updateAvatar,
+				dataType: "json",
+				contentType: false,
+				processData: false,
+				data: form,
+				success: function success(data) {
+					if (self.avatarSrc.exist) {
+						self.$refs.avatar.className = '';
+						self.$refs.avatar.removeAttribute('style');
+						self.avatarSrc.url = data.url + '?' + Date.now();
+					} else {
+						self.avatarSrc.url = data.url + '?' + Date.now();
+						self.avatarSrc.exist = true;
+					}
+				},
+				error: function error(data) {
+					console.log('error');
+				}
+			});
+		},
+		removeImage: function removeImage() {
+			var self = this;
+			var form = new FormData(document.querySelector("#remove-img"));
+			$.ajax({
+				method: "post",
+				url: self.routes.removeAvatar,
+				dataType: "json",
+				contentType: false,
+				processData: false,
+				data: form,
+				success: function success(data) {
+					self.avatarSrc.exist = false;
+					console.log('image has been removed');
+				},
+				error: function error(data) {
+					console.log(data);
+				}
+			});
+		},
+		imgLoaded: function imgLoaded() {
+			this.avatarClass();
+			this.marginAvatar();
+		},
+		saveSocial: function saveSocial(social) {
+			var _data;
 
-      var self = this;
-      var value = social == 'facebook' ? this.social.facebook : this.social.instagram;
-      var value = value == '' ? 'remove' : value;
-      $.ajax({
-        method: "post",
-        url: this.routes.setSocial,
-        dataType: "json",
-        data: (_data = {}, _defineProperty(_data, social, value), _defineProperty(_data, '_token', $('meta[name="csrf-token"]').attr('content')), _data),
-        success: function success(data) {
-          var response = {};
-          response.msg = data;
-          response.error = false;
-          response.show = true;
-          response.key = self.customKey++;
-          self.responses.push(response);
-          setTimeout(function () {
-            self.responses.shift();
-          }, 5000);
-        },
-        error: function error(data) {
-          var response = {};
-          response.msg = data;
-          response.error = true;
-          response.show = true;
-          response.key = self.customKey++;
-          self.responses.push(response);
-          setTimeout(function () {
-            self.responses.shift();
-          }, 5000);
-        }
-      });
-    },
-    switchAllTricks: function switchAllTricks() {
-      this.allTricksShow = !this.allTricksShow;
-    },
-    addElement: function addElement(id) {
-      var self = this;
+			var self = this;
+			var value = social == 'facebook' ? this.social.facebook : this.social.instagram;
+			var value = value == '' ? 'remove' : value;
+			$.ajax({
+				method: "post",
+				url: this.routes.setSocial,
+				dataType: "json",
+				data: (_data = {}, _defineProperty(_data, social, value), _defineProperty(_data, '_token', $('meta[name="csrf-token"]').attr('content')), _data),
+				success: function success(data) {
+					var response = {};
+					response.msg = data;
+					response.error = false;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				},
+				error: function error(data) {
+					var response = {};
+					response.msg = data;
+					response.error = true;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				}
+			});
+		},
+		switchAllTricks: function switchAllTricks() {
+			this.allTricksShow = !this.allTricksShow;
+		},
+		addElement: function addElement(id) {
+			var self = this;
 
-      $.ajax({
-        method: "post",
-        url: this.routes.addMove,
-        dataType: "json",
-        data: {
-          move: id,
-          _token: $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function success(data) {
-          console.log(data);
-          var element = self.all_tricks.filter(function (trick) {
-            return trick.id == id;
-          })[0];
-          self.tricks.push(element);
-        },
-        error: function error(data) {
-          console.log(data);
-        }
-      });
-    },
-    removeElement: function removeElement(id) {
-      var self = this;
+			$.ajax({
+				method: "post",
+				url: this.routes.addMove,
+				dataType: "json",
+				data: {
+					move: id,
+					_token: $('meta[name="csrf-token"]').attr('content')
+				},
+				success: function success(data) {
+					console.log(data);
+					var element = self.all_tricks.filter(function (trick) {
+						return trick.id == id;
+					})[0];
+					self.tricks.push(element);
+				},
+				error: function error(data) {
+					console.log(data);
+				}
+			});
+		},
+		removeElement: function removeElement(id) {
+			var self = this;
 
-      $.ajax({
-        method: "post",
-        url: this.routes.removeMove,
-        dataType: "json",
-        data: {
-          move: id,
-          _token: $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function success(data) {
-          self.tricks = data;
-          self.tip.show = false;
-        },
-        error: function error(data) {
-          var response = {};
-          response.msg = data.responseJSON.errors.move[0];
-          response.error = true;
-          response.show = true;
-          response.key = self.customKey++;
-          self.responses.push(response);
-          setTimeout(function () {
-            self.responses.shift();
-          }, 5000);
-        }
-      });
-    },
-    addVideo: function addVideo() {
-      var self = this;
-      var form = new FormData(document.querySelector("#add-video"));
-      form.append('move', this.fullVideoList.trick_id);
-      $.ajax({
-        method: "post",
-        url: self.routes.addVideo,
-        dataType: "json",
-        contentType: false,
-        processData: false,
-        data: form,
-        success: function success(data) {
-          self.videos = data;
-        },
-        error: function error(data) {
-          var response = {};
-          response.msg = data.responseJSON.errors.video[0];
-          response.error = true;
-          response.show = true;
-          response.key = self.customKey++;
-          self.responses.push(response);
-          setTimeout(function () {
-            self.responses.shift();
-          }, 5000);
-        }
-      });
-    },
-    removeVideo: function removeVideo(video) {
-      var self = this;
-      $.ajax({
-        method: "post",
-        url: self.routes.removeVideo,
-        dataType: "json",
-        headers: {
-          'X-CSRF-TOKEN': self.token
-        },
-        data: {
-          video: JSON.stringify(video),
-          _token: self.token
-        },
-        success: function success(data) {
-          self.videos = data;
-          self.tip.show = false;
-        },
-        error: function error(data) {
-          var response = {};
-          response.msg = data.responseJSON.errors.video[0];
-          response.error = true;
-          response.show = true;
-          response.key = self.customKey++;
-          self.responses.push(response);
-          setTimeout(function () {
-            self.responses.shift();
-          }, 5000);
-        }
-      });
-    },
-    showSpotAdding: function showSpotAdding(video_id) {
-      this.map.show = true;
-      this.map.video = video_id;
-    },
-    setSpotToVideo: function setSpotToVideo(spot_id) {
-      var self = this;
-      self.map.show = false;
-      $.ajax({
-        method: "post",
-        url: self.routes.addSpotToVideo,
-        dataType: "json",
-        headers: {
-          'X-CSRF-TOKEN': self.token
-        },
-        data: {
-          video_id: self.map.video,
-          spot_id: spot_id,
-          _token: self.token
-        },
-        success: function success(data) {
-          self.videos = data;
-          var response = {};
-          response.msg = "Spot successfuly added to your video";
-          response.error = false;
-          response.show = true;
-          response.key = self.customKey++;
-          self.responses.push(response);
-          setTimeout(function () {
-            self.responses.shift();
-          }, 5000);
-        },
-        error: function error(data) {
-          console.log(data);
-        }
-      });
-    },
-    removeSpotFromVideo: function removeSpotFromVideo(video_id) {
-      var self = this;
-      $.ajax({
-        method: "post",
-        url: self.routes.removeSpotFromVideo,
-        dataType: "json",
-        headers: {
-          'X-CSRF-TOKEN': self.token
-        },
-        data: {
-          video_id: video_id,
-          _token: self.token
-        },
-        success: function success(data) {
-          self.videos = data;
-          var response = {};
-          response.msg = "Spot successfuly removed from your video";
-          response.error = false;
-          response.show = true;
-          response.key = self.customKey++;
-          self.responses.push(response);
-          setTimeout(function () {
-            self.responses.shift();
-          }, 5000);
-        },
-        error: function error(data) {
-          console.log(data);
-        }
-      });
-    }
-  },
-  components: {
-    appVideo: __WEBPACK_IMPORTED_MODULE_0__Video_vue___default.a,
-    Alert: __WEBPACK_IMPORTED_MODULE_1__Alert_vue___default.a,
-    MapAll: __WEBPACK_IMPORTED_MODULE_2__MapAll_vue___default.a,
-    Tip: __WEBPACK_IMPORTED_MODULE_3__Tip_vue___default.a
-  },
-  watch: {
-    'fullVideoList.show': function fullVideoListShow(val) {
-      if (val == false) {
-        this.tip.show = false;
-      }
-    }
-  }
+			$.ajax({
+				method: "post",
+				url: this.routes.removeMove,
+				dataType: "json",
+				data: {
+					move: id,
+					_token: $('meta[name="csrf-token"]').attr('content')
+				},
+				success: function success(data) {
+					self.tricks = data;
+					self.tip.show = false;
+				},
+				error: function error(data) {
+					var response = {};
+					response.msg = data.responseJSON.errors.move[0];
+					response.error = true;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				}
+			});
+		},
+		addVideo: function addVideo() {
+			var self = this;
+			var form = new FormData(document.querySelector("#add-video"));
+			form.append('move', this.fullVideoList.trick_id);
+			$.ajax({
+				method: "post",
+				url: self.routes.addVideo,
+				dataType: "json",
+				contentType: false,
+				processData: false,
+				data: form,
+				success: function success(data) {
+					self.videos = data;
+				},
+				error: function error(data) {
+					var response = {};
+					response.msg = data.responseJSON.errors.video[0];
+					response.error = true;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				}
+			});
+		},
+		removeVideo: function removeVideo(video) {
+			var self = this;
+			$.ajax({
+				method: "post",
+				url: self.routes.removeVideo,
+				dataType: "json",
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					video: JSON.stringify(video),
+					_token: self.token
+				},
+				success: function success(data) {
+					self.videos = data;
+					self.tip.show = false;
+				},
+				error: function error(data) {
+					var response = {};
+					response.msg = data.responseJSON.errors.video[0];
+					response.error = true;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				}
+			});
+		},
+		showSpotAdding: function showSpotAdding(video_id) {
+			this.map.show = true;
+			this.map.video = video_id;
+		},
+		setSpotToVideo: function setSpotToVideo(spot_id) {
+			var self = this;
+			self.map.show = false;
+			$.ajax({
+				method: "post",
+				url: self.routes.addSpotToVideo,
+				dataType: "json",
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					video_id: self.map.video,
+					spot_id: spot_id,
+					_token: self.token
+				},
+				success: function success(data) {
+					self.videos = data;
+					var response = {};
+					response.msg = "Spot successfuly added to your video";
+					response.error = false;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				},
+				error: function error(data) {
+					console.log(data);
+				}
+			});
+		},
+		removeSpotFromVideo: function removeSpotFromVideo(video_id) {
+			var self = this;
+			$.ajax({
+				method: "post",
+				url: self.routes.removeSpotFromVideo,
+				dataType: "json",
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					video_id: video_id,
+					_token: self.token
+				},
+				success: function success(data) {
+					self.videos = data;
+					var response = {};
+					response.msg = "Spot successfuly removed from your video";
+					response.error = false;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				},
+				error: function error(data) {
+					console.log(data);
+				}
+			});
+		}
+	},
+	components: {
+		appVideo: __WEBPACK_IMPORTED_MODULE_0__Video_vue___default.a,
+		Alert: __WEBPACK_IMPORTED_MODULE_1__Alert_vue___default.a,
+		MapAll: __WEBPACK_IMPORTED_MODULE_2__MapAll_vue___default.a,
+		Tip: __WEBPACK_IMPORTED_MODULE_3__Tip_vue___default.a
+	},
+	watch: {
+		'fullVideoList.show': function fullVideoListShow(val) {
+			if (val == false) {
+				this.tip.show = false;
+			} else {
+				this.allTricksShow = false;
+			}
+		}
+	}
 });
 
 /***/ }),
@@ -51913,55 +51924,66 @@ var render = function() {
                   {
                     staticClass: "btn custom-all-tricks-button",
                     class: _vm.allTricksShow ? "btn-danger" : "btn-primary",
+                    attrs: {
+                      "data-toggle": "collapse",
+                      "data-target": "#collapseMove",
+                      "aria-expanded": "false",
+                      "aria-controls": "collapseMove"
+                    },
                     on: { click: _vm.switchAllTricks }
                   },
-                  [_vm._v(_vm._s(_vm.allTricksShow ? "Close" : "Add elements"))]
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t" +
+                        _vm._s(_vm.allTricksShow ? "Close" : "Add elements") +
+                        "\n\t\t\t"
+                    )
+                  ]
                 ),
                 _vm._v(" "),
-                _vm.allTricksShow
-                  ? [
-                      _c(
-                        "div",
-                        { staticClass: "all-tricks-container" },
-                        [
-                          _c(
-                            "transition-group",
-                            {
-                              staticClass: "list-group custom-list-group",
-                              attrs: { tag: "ul", name: "new-tricks" }
-                            },
-                            _vm._l(_vm.notAddedTricks, function(trick) {
-                              return _c(
-                                "li",
-                                {
-                                  key: trick.id,
-                                  staticClass:
-                                    "list-group-item custom-list-group-item"
-                                },
-                                [
-                                  _c("span", [_vm._v(_vm._s(trick.name))]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "add-element",
-                                      on: {
-                                        click: function($event) {
-                                          _vm.addElement(trick.id)
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Add element")]
-                                  )
-                                ]
-                              )
-                            })
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  : _vm._e()
+                _c(
+                  "div",
+                  {
+                    staticClass: "all-tricks-container collapse",
+                    attrs: { id: "collapseMove" }
+                  },
+                  [
+                    _c(
+                      "transition-group",
+                      {
+                        staticClass: "list-group custom-list-group",
+                        attrs: { tag: "ul", name: "new-tricks" }
+                      },
+                      _vm._l(_vm.notAddedTricks, function(trick) {
+                        return _c(
+                          "li",
+                          {
+                            key: trick.id,
+                            staticClass:
+                              "list-group-item custom-list-group-item"
+                          },
+                          [
+                            _c("span", [_vm._v(_vm._s(trick.name))]),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "add-element",
+                                on: {
+                                  click: function($event) {
+                                    _vm.addElement(trick.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("Add element")]
+                            )
+                          ]
+                        )
+                      })
+                    )
+                  ],
+                  1
+                )
               ]
             : _vm._e(),
           _vm._v(" "),
@@ -52575,7 +52597,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: 40px;\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 10px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item span {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tpointer-events: none;\n    \tfont-weight: bold;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover svg {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list-item-active:hover svg {\n    \t-webkit-transform: none;\n    \t        transform: none;\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n", ""]);
+exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: 40px;\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 10px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 100;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n}\n.comments-title {\n\t\tpadding: 20px 30px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tfont-size: 16px;\n\t\tcolor: #82889c;\n\t\t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n\t\t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n}\n", ""]);
 
 // exports
 
@@ -52586,8 +52608,14 @@ exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Video_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Tip_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Alert_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Alert_vue__);
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 //
 //
 //
@@ -52656,22 +52684,176 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['routes', 'images', 'spot', 'tricks_src', 'videos'],
+	props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks'],
 	data: function data() {
 		return {
+			videos: this.src_videos,
+			images: this.src_images,
+			spot: this.src_spot,
 			currentTrick: null,
-			tricks: null
+			tricks: null,
+			currentImage: 1,
+			sliderPosition: 0,
+			fullsizeSliderPosition: 0,
+			sliderOpened: false,
+			editMode: false,
+			tip: {
+				show: false,
+				msg: ''
+			},
+			token: $('meta[name="csrf-token"]').attr('content'),
+			newDescription: this.src_spot.description,
+			responses: [],
+			customKey: 10,
+			showMyMoves: true,
+			new_tricks: this.src_new_tricks,
+			owner: this.src_spot.user_id == this.user
 		};
 	},
 
-	computed: {},
+	computed: {
+		fullsizeSliderWidth: function fullsizeSliderWidth() {
+			return this.images.length * document.documentElement.clientWidth;
+		}
+	},
 	created: function created() {
-		console.log(this.images);
-		this.tricks = this.sortTricks();
+		this.tricks = this.sortTricks(this.tricks_src);
 		this.currentTrick = this.tricks[0].id;
 	},
 	mounted: function mounted() {
@@ -52681,6 +52863,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		} else {
 			this.initMap();
 		}
+
+		window.addEventListener('resize', this.onResize);
 	},
 
 	methods: {
@@ -52712,9 +52896,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				return arr[2] + '-' + arr[1];
 			}
 		},
-		sortTricks: function sortTricks() {
+		sortTricks: function sortTricks(tricks) {
 			var self = this;
-			return this.tricks_src.sort(function (a, b) {
+			return tricks.sort(function (a, b) {
 				if (self.currentVideos(a.id) > self.currentVideos(b.id)) {
 					return -1;
 				} else if (self.currentVideos(a.id) < self.currentVideos(b.id)) {
@@ -52722,10 +52906,241 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				}
 				return 0;
 			});
+		},
+		adjustImg: function adjustImg(e) {
+			var img = e.target;
+			var settings = getComputedStyle(img);
+			if (parseInt(settings.width) > parseInt(settings.height)) {
+				img.classList.add('wide');
+				img.style.left = '-' + parseInt(settings.width) / 2 + 'px';
+			} else {
+				img.classList.add('high');
+				img.style.top = '-' + parseInt(settings.height) / 2 + 'px';
+			}
+			img.parentNode.style.opacity = 1;
+		},
+		prevImg: function prevImg() {
+			var currentImage = this.currentImage - 1;
+			if (currentImage < 1) this.currentImage = this.images.length;else this.currentImage = currentImage;
+		},
+		nextImg: function nextImg() {
+			var currentImage = this.currentImage + 1;
+			if (currentImage > this.images.length) this.currentImage = 1;else this.currentImage = currentImage;
+		},
+		adjustFullsizeImg: function adjustFullsizeImg(e) {
+			var img = e.target || e;
+			var settings = getComputedStyle(img);
+			img.style.top = (document.documentElement.clientHeight - parseInt(settings.height)) / 2 + 'px';
+			img.style.left = (document.documentElement.clientWidth - parseInt(settings.width)) / 2 + 'px';
+		},
+		onResize: function onResize() {
+			if (this.sliderOpened) {
+				for (var i = 0; i < this.$refs.images.length; i++) {
+					this.adjustFullsizeImg(this.$refs.images[i]);
+				}
+			}
+		},
+		uploadImg: function uploadImg() {
+			var self = this;
+			var form = new FormData(document.querySelector("#upload-img"));
+			form.append('spot_id', this.spot.id);
+			$.ajax({
+				method: "post",
+				url: self.routes.addImages,
+				contentType: false,
+				processData: false,
+				data: form,
+				success: function success(data) {
+					self.images = data;
+					if (self.currentImage == 0) self.currentImage = 1;
+				},
+				error: function error(data, b, c) {
+					console.log(data);
+				}
+			});
+		},
+		removeImage: function removeImage(id) {
+			var self = this;
+			$.ajax({
+				method: "post",
+				url: self.routes.removeImage,
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					image_id: id,
+					_token: self.token
+				},
+				success: function success(data) {
+					self.images = data;
+					if (self.currentImage > self.images.length) self.currentImage = self.images.length;
+				},
+				error: function error(data, b, c) {
+					console.log(data);
+				}
+			});
+		},
+		changeDescription: function changeDescription() {
+			var self = this;
+			$.ajax({
+				method: "post",
+				url: self.routes.editDescription,
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					description: self.newDescription || null,
+					_token: self.token
+				},
+				success: function success(data) {
+					if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) == 'object') data = null;
+					console.log(self.spot.description);
+					self.spot.description = data;
+					console.log(self.spot.description);
+					var response = {};
+					response.msg = 'Description changed';
+					response.error = false;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				},
+				error: function error(data, b, c) {
+					var response = {};
+					response.msg = data.responseJSON.errors.description[0];
+					response.error = true;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				}
+			});
+		},
+		removeMove: function removeMove(trick_id) {
+			var self = this;
+
+			if (this.tricks.length <= 1) {
+				var response = {};
+				response.msg = 'Spot must have at least one move';
+				response.error = true;
+				response.show = true;
+				response.key = self.customKey++;
+				self.responses.push(response);
+				setTimeout(function () {
+					self.responses.shift();
+				}, 5000);
+				return;
+			}
+
+			$.ajax({
+				method: "post",
+				url: self.routes.removeMove,
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					move: trick_id,
+					_token: self.token
+				},
+				success: function success(data) {
+					self.tricks = self.sortTricks(data.attached_tricks);
+					if (self.currentTrick == trick_id) self.currentTrick = self.tricks[0].id;
+					self.new_tricks = data.new_tricks;
+				},
+				error: function error(data, b, c) {
+					console.log(data);
+				}
+			});
+		},
+		addMove: function addMove(trick_id) {
+			var self = this;
+
+			$.ajax({
+				method: "post",
+				url: self.routes.addMove,
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					move: [trick_id],
+					_token: self.token
+				},
+				success: function success(data) {
+					self.tricks = self.sortTricks(data.attached_tricks);
+					self.new_tricks = data.new_tricks;
+				},
+				error: function error(data, b, c) {
+					console.log(data);
+				}
+			});
+		},
+		removeSpotFromVideo: function removeSpotFromVideo(video_id) {
+			var self = this;
+			$.ajax({
+				method: "post",
+				url: self.routes.removeSpotFromVideo,
+				dataType: "json",
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					video_id: video_id,
+					_token: self.token
+				},
+				success: function success(data) {
+					self.videos = data;
+					self.tip.show = false;
+					var response = {};
+					response.msg = "Video successfuly detached from this spot";
+					response.error = false;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
+				},
+				error: function error(data) {
+					console.log(data);
+				}
+			});
+		},
+		inputDescription: function inputDescription(e) {
+			this.newDescription = e.target.innerText;
 		}
 	},
 	components: {
-		appVideo: __WEBPACK_IMPORTED_MODULE_0__Video_vue___default.a
+		appVideo: __WEBPACK_IMPORTED_MODULE_0__Video_vue___default.a,
+		Tip: __WEBPACK_IMPORTED_MODULE_1__Tip_vue___default.a,
+		Alert: __WEBPACK_IMPORTED_MODULE_2__Alert_vue___default.a
+	},
+	watch: {
+		currentImage: function currentImage(val) {
+			var val = val - 1;
+			this.sliderPosition = val * -330;
+			this.fullsizeSliderPosition = val * -parseInt(document.documentElement.clientWidth);
+		},
+		editMode: function editMode(val) {
+			if (val == false) {
+				if (this.showMyMoves == false) this.showMyMoves = true;
+			}
+		},
+		sliderOpened: function sliderOpened(val) {
+			if (val) {
+				document.querySelector('html').style.overflowY = 'hidden';
+			} else {
+				document.querySelector('html').style.overflowY = 'visible';
+			}
+		},
+		videos: function videos(val) {
+			if (this.currentVideos(this.currentTrick).length <= 0) {
+				this.currentTrick = this.tricks[0].id;
+			}
+		}
 	}
 });
 
@@ -52737,235 +53152,936 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-container" }, [
-    _c("div", { staticClass: "main-spot-content" }, [
-      _c("div", { staticClass: "spot-page-section" }, [
-        _c("div", { attrs: { id: "map" } }),
-        _vm._v(" "),
-        _c("div", { staticClass: "spot-description" }, [
-          _c("h4", { staticClass: "spot-description-title" }, [
-            _vm._v("Description")
+  return _c(
+    "div",
+    { staticClass: "content-container" },
+    [
+      _c("div", { staticClass: "main-spot-content" }, [
+        _c("div", { staticClass: "spot-page-section" }, [
+          _c("div", { attrs: { id: "map" } }),
+          _vm._v(" "),
+          _c("div", { staticClass: "spot-description" }, [
+            _c("h4", { staticClass: "spot-description-title" }, [
+              _vm._v("Description")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "spot-description-body" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "spot-description-text",
+                  attrs: { contenteditable: _vm.editMode },
+                  on: { input: _vm.inputDescription }
+                },
+                [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t" +
+                      _vm._s(
+                        _vm.spot.description != null
+                          ? _vm.spot.description
+                          : _vm.editMode
+                            ? ""
+                            : "This spot has no description"
+                      ) +
+                      " \n\t\t\t\t\t\t"
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm.editMode
+                ? _c(
+                    "button",
+                    {
+                      staticClass:
+                        "btn btn-secondary custom-btn-save-description",
+                      attrs: { type: "button" },
+                      on: { click: _vm.changeDescription }
+                    },
+                    [_vm._v("Save")]
+                  )
+                : _vm._e()
+            ])
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.spot.description))])
+          _c(
+            "div",
+            { staticClass: "spot-videos" },
+            [
+              _c(
+                "transition-group",
+                {
+                  staticClass: "tricks-container",
+                  attrs: { tag: "div", name: "videos", mode: "out-in" }
+                },
+                _vm._l(_vm.currentVideos(_vm.currentTrick), function(video) {
+                  return _c(
+                    "div",
+                    { key: video.id, staticClass: "trick-container card" },
+                    [
+                      _c(
+                        "h3",
+                        {
+                          staticClass:
+                            "card-header custom-card-header custom-card-header-full-videos custom-card-header-mute"
+                        },
+                        [
+                          !_vm.editMode || video.user_id != _vm.user
+                            ? [
+                                _c("span", [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.getDate(video.created_at, "year")
+                                    )
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  {
+                                    on: {
+                                      mouseover: function($event) {
+                                        _vm.tip.msg = "Day and month"
+                                        _vm.tip.show = true
+                                      },
+                                      mouseout: function($event) {
+                                        _vm.tip.show = false
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.getDate(video.created_at, "dm")
+                                      )
+                                    )
+                                  ]
+                                )
+                              ]
+                            : [
+                                _c("span", { staticClass: "video-date" }, [
+                                  _c(
+                                    "span",
+                                    { staticClass: "video-date-year" },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.getDate(video.created_at, "year")
+                                        )
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "video-date-dm",
+                                      on: {
+                                        mouseover: function($event) {
+                                          _vm.tip.msg = "Day and month"
+                                          _vm.tip.show = true
+                                        },
+                                        mouseout: function($event) {
+                                          _vm.tip.show = false
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t" +
+                                          _vm._s(
+                                            _vm.getDate(video.created_at, "dm")
+                                          ) +
+                                          "\n\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticClass: "video-edit-buttons" },
+                                  [
+                                    video.spot_id
+                                      ? _c(
+                                          "svg",
+                                          {
+                                            staticClass: "video-remove-spot",
+                                            attrs: {
+                                              xmlns:
+                                                "http://www.w3.org/2000/svg",
+                                              "xmlns:xlink":
+                                                "http://www.w3.org/1999/xlink",
+                                              version: "1.1",
+                                              x: "0px",
+                                              y: "0px",
+                                              viewBox: "0 0 144.083 144.083",
+                                              "enable-background":
+                                                "new 0 0 144.083 144",
+                                              "xml:space": "preserve"
+                                            },
+                                            on: {
+                                              mouseover: function($event) {
+                                                _vm.tip.msg = "Detach from spot"
+                                                _vm.tip.show = true
+                                              },
+                                              mouseout: function($event) {
+                                                _vm.tip.show = false
+                                              },
+                                              click: function($event) {
+                                                _vm.removeSpotFromVideo(
+                                                  video.id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M64.759,44.479c-10.203,0-18.504,8.301-18.504,18.504c0,10.202,8.301,18.503,18.504,18.503  c10.203,0,18.503-8.301,18.503-18.503C83.262,52.78,74.961,44.479,64.759,44.479z M64.759,78.486  c-8.549,0-15.504-6.955-15.504-15.503c0-8.549,6.955-15.504,15.504-15.504c8.548,0,15.503,6.955,15.503,15.504  C80.262,71.532,73.307,78.486,64.759,78.486z"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M95.856,78.513c2.975-5.458,4.941-10.823,4.941-15.518c0-19.872-16.166-36.039-36.039-36.039  c-19.872,0-36.039,16.167-36.039,36.039c0,19.51,33.595,50.587,35.024,51.901l1.015,0.932l1.015-0.932  c0.49-0.451,4.769-4.41,10.172-10.195c2.545,8.294,10.271,14.343,19.389,14.343c11.182,0,20.279-9.097,20.279-20.278  C115.614,87.76,106.795,78.793,95.856,78.513z M75.194,101.049c-4.623,5.053-8.631,8.964-10.435,10.682  C59.096,106.336,31.72,79.4,31.72,62.995c0-18.218,14.821-33.039,33.039-33.039c18.218,0,33.039,14.821,33.039,33.039  c0,4.644-2.199,10.134-5.477,15.74c-9.754,1.464-17.266,9.875-17.266,20.03C75.055,99.539,75.108,100.299,75.194,101.049z   M95.334,116.044c-9.527,0-17.279-7.751-17.279-17.278s7.752-17.279,17.279-17.279c9.529,0,17.279,7.752,17.279,17.279  S104.864,116.044,95.334,116.044z"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("rect", {
+                                              attrs: {
+                                                x: "86.545",
+                                                y: "97.286",
+                                                width: "17.576",
+                                                height: "3"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ]
+                                )
+                              ]
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "card-body custom-card-body" },
+                        [_c("app-video", { attrs: { video: video } })],
+                        1
+                      )
+                    ]
+                  )
+                })
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "spot-comments" })
         ]),
         _vm._v(" "),
+        _vm._m(0)
+      ]),
+      _vm._v(" "),
+      _c("aside", { staticClass: "aside-content" }, [
         _c(
           "div",
-          { staticClass: "spot-videos" },
+          { staticClass: "images-block-container spot-page-section" },
           [
             _c(
-              "transition-group",
-              {
-                staticClass: "tricks-container",
-                attrs: { tag: "div", name: "videos", mode: "out-in" }
-              },
-              _vm._l(_vm.currentVideos(_vm.currentTrick), function(video) {
-                return _c(
-                  "div",
-                  { key: video.id, staticClass: "trick-container card" },
-                  [
-                    _c(
-                      "h3",
+              "div",
+              { staticClass: "images-container" },
+              [
+                _c(
+                  "transition-group",
+                  {
+                    staticClass: "images-wrap",
+                    style: {
+                      width: _vm.images.length * 330 + "px",
+                      transform: "translateX(" + _vm.sliderPosition + "px)"
+                    },
+                    attrs: { tag: "div", name: "images-slider" }
+                  },
+                  _vm._l(_vm.images, function(image) {
+                    return _c(
+                      "div",
                       {
-                        staticClass:
-                          "card-header custom-card-header custom-card-header-full-videos custom-card-header-mute"
+                        key: image.path,
+                        staticClass: "image-wrap",
+                        staticStyle: { opacity: "0" },
+                        on: {
+                          click: function($event) {
+                            _vm.sliderOpened = true
+                          }
+                        }
                       },
                       [
-                        _c("span", [
-                          _vm._v(_vm._s(_vm.getDate(video.created_at, "year")))
-                        ]),
+                        _c("img", {
+                          attrs: { src: image.path },
+                          on: { load: _vm.adjustImg }
+                        }),
                         _vm._v(" "),
-                        _c("span", [
-                          _vm._v(_vm._s(_vm.getDate(video.created_at, "dm")))
+                        _c("transition", { attrs: { name: "remove-image" } }, [
+                          _vm.editMode
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass: "remove-image",
+                                  on: {
+                                    click: function($event) {
+                                      $event.stopPropagation()
+                                      _vm.removeImage(image.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "downsize-btn",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 352 512",
+                                        width: "64px",
+                                        height: "64px"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
                         ])
+                      ],
+                      1
+                    )
+                  })
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("transition", { attrs: { name: "slider" } }, [
+              _vm.sliderOpened
+                ? _c("div", { staticClass: "slider-fullsize" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "images-wrap-fullsize",
+                        style: {
+                          width: _vm.fullsizeSliderWidth + "px",
+                          transform:
+                            "translateX(" + _vm.fullsizeSliderPosition + "px)"
+                        }
+                      },
+                      _vm._l(_vm.images, function(image) {
+                        return _c(
+                          "div",
+                          {
+                            key: image.path,
+                            staticClass: "image-wrap-fullsize",
+                            on: {
+                              click: function($event) {
+                                _vm.sliderOpened = false
+                              }
+                            }
+                          },
+                          [
+                            _c("img", {
+                              ref: "images",
+                              refInFor: true,
+                              attrs: { src: image.path },
+                              on: {
+                                load: _vm.adjustFullsizeImg,
+                                resize: _vm.adjustFullsizeImg,
+                                click: function($event) {
+                                  $event.stopPropagation()
+                                }
+                              }
+                            })
+                          ]
+                        )
+                      })
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "fullsize-button-left button-left",
+                        attrs: {
+                          "xmlns:x": "http://ns.adobe.com/Extensibility/1.0/",
+                          "xmlns:i":
+                            "http://ns.adobe.com/AdobeIllustrator/10.0/",
+                          "xmlns:graph": "http://ns.adobe.com/Graphs/1.0/",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                          version: "1.1",
+                          x: "0px",
+                          y: "0px",
+                          viewBox: "0 0 100 100",
+                          "enable-background": "new 0 0 100 100",
+                          "xml:space": "preserve"
+                        },
+                        on: {
+                          click: function($event) {
+                            $event.stopPropagation()
+                            return _vm.prevImg($event)
+                          }
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M74.7,31.1L55.8,50l18.9,18.9c5.1,5.1,5.1,13.4,0,18.5h0c-5.1,5.1-13.4,5.1-18.5,0L37.3,68.5L23.4,54.6  c-2.6-2.6-2.6-6.7,0-9.3l13.9-13.9l18.9-18.9c5.1-5.1,13.4-5.1,18.5,0h0C79.8,17.7,79.8,26,74.7,31.1z"
+                          }
+                        })
                       ]
                     ),
                     _vm._v(" "),
                     _c(
-                      "div",
-                      { staticClass: "card-body custom-card-body" },
-                      [_c("app-video", { attrs: { video: video } })],
-                      1
+                      "svg",
+                      {
+                        staticClass: "fullsize-button-right button-right",
+                        attrs: {
+                          "xmlns:x": "http://ns.adobe.com/Extensibility/1.0/",
+                          "xmlns:i":
+                            "http://ns.adobe.com/AdobeIllustrator/10.0/",
+                          "xmlns:graph": "http://ns.adobe.com/Graphs/1.0/",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                          version: "1.1",
+                          x: "0px",
+                          y: "0px",
+                          viewBox: "0 0 100 100",
+                          "enable-background": "new 0 0 100 100",
+                          "xml:space": "preserve"
+                        },
+                        on: {
+                          click: function($event) {
+                            $event.stopPropagation()
+                            return _vm.nextImg($event)
+                          }
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M74.7,31.1L55.8,50l18.9,18.9c5.1,5.1,5.1,13.4,0,18.5h0c-5.1,5.1-13.4,5.1-18.5,0L37.3,68.5L23.4,54.6  c-2.6-2.6-2.6-6.7,0-9.3l13.9-13.9l18.9-18.9c5.1-5.1,13.4-5.1,18.5,0h0C79.8,17.7,79.8,26,74.7,31.1z"
+                          }
+                        })
+                      ]
                     )
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "images-control" }, [
+              _c("div", { staticClass: "images-control-info" }, [
+                _vm.editMode
+                  ? _c(
+                      "form",
+                      {
+                        attrs: {
+                          method: "POST",
+                          enctype: "multipart/form-data",
+                          id: "upload-img"
+                        }
+                      },
+                      [
+                        _c("input", {
+                          attrs: { type: "hidden", name: "_token" },
+                          domProps: { value: _vm.token }
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          ref: "crap",
+                          staticClass: "hidden",
+                          attrs: {
+                            type: "file",
+                            name: "image[]",
+                            multiple: ""
+                          },
+                          on: { change: _vm.uploadImg }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-secondary",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.$refs.crap.click()
+                              }
+                            }
+                          },
+                          [_vm._v("Add images")]
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v(
+                    _vm._s(_vm.currentImage) +
+                      " of " +
+                      _vm._s(_vm.images.length)
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "images-control-buttons" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "button-left",
+                    attrs: {
+                      "xmlns:x": "http://ns.adobe.com/Extensibility/1.0/",
+                      "xmlns:i": "http://ns.adobe.com/AdobeIllustrator/10.0/",
+                      "xmlns:graph": "http://ns.adobe.com/Graphs/1.0/",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                      version: "1.1",
+                      x: "0px",
+                      y: "0px",
+                      viewBox: "0 0 100 100",
+                      "enable-background": "new 0 0 100 100",
+                      "xml:space": "preserve"
+                    },
+                    on: { click: _vm.prevImg }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M74.7,31.1L55.8,50l18.9,18.9c5.1,5.1,5.1,13.4,0,18.5h0c-5.1,5.1-13.4,5.1-18.5,0L37.3,68.5L23.4,54.6  c-2.6-2.6-2.6-6.7,0-9.3l13.9-13.9l18.9-18.9c5.1-5.1,13.4-5.1,18.5,0h0C79.8,17.7,79.8,26,74.7,31.1z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "svg",
+                  {
+                    staticClass: "button-right",
+                    attrs: {
+                      "xmlns:x": "http://ns.adobe.com/Extensibility/1.0/",
+                      "xmlns:i": "http://ns.adobe.com/AdobeIllustrator/10.0/",
+                      "xmlns:graph": "http://ns.adobe.com/Graphs/1.0/",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                      version: "1.1",
+                      x: "0px",
+                      y: "0px",
+                      viewBox: "0 0 100 100",
+                      "enable-background": "new 0 0 100 100",
+                      "xml:space": "preserve"
+                    },
+                    on: { click: _vm.nextImg }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M74.7,31.1L55.8,50l18.9,18.9c5.1,5.1,5.1,13.4,0,18.5h0c-5.1,5.1-13.4,5.1-18.5,0L37.3,68.5L23.4,54.6  c-2.6-2.6-2.6-6.7,0-9.3l13.9-13.9l18.9-18.9c5.1-5.1,13.4-5.1,18.5,0h0C79.8,17.7,79.8,26,74.7,31.1z"
+                      }
+                    })
                   ]
                 )
-              })
-            )
+              ])
+            ])
           ],
           1
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "spot-comments" })
-      ])
-    ]),
-    _vm._v(" "),
-    _c("aside", { staticClass: "aside-content" }, [
-      _c("div", { staticClass: "images-container spot-page-section" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "spot-elements spot-page-section" }, [
-        _c("h3", { staticClass: "spot-elements-title" }, [
-          _vm._v("List of elements")
-        ]),
-        _vm._v(" "),
         _c(
-          "ul",
-          { staticClass: "spot-elements-list" },
-          _vm._l(_vm.tricks, function(trick) {
-            return _c(
-              "li",
+          "div",
+          { staticClass: "spot-elements spot-page-section" },
+          [
+            _vm.editMode
+              ? _c("ul", { staticClass: "nav nav-tabs nav-tricks" }, [
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        class: { active: _vm.showMyMoves },
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.showMyMoves = true
+                          }
+                        }
+                      },
+                      [_vm._v("\n\t\t\t\t    My Moves\n\t\t\t\t")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        class: { active: !_vm.showMyMoves },
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.showMyMoves = false
+                          }
+                        }
+                      },
+                      [_vm._v("\n\t\t\t\t\tAdd Moves\n\t\t\t\t")]
+                    )
+                  ])
+                ])
+              : _c("h3", { staticClass: "spot-elements-title" }, [
+                  _vm._v("List of elements")
+                ]),
+            _vm._v(" "),
+            _c(
+              "transition-group",
               {
-                staticClass: "spot-elements-list-item",
-                class: {
-                  "spot-elements-list-item-active":
-                    _vm.currentTrick == trick.id,
-                  "with-video": _vm.currentVideos(trick.id).length > 0
-                },
-                on: {
-                  click: function($event) {
-                    _vm.currentVideos(trick.id).length > 0
-                      ? (_vm.currentTrick = trick.id)
-                      : ""
-                  }
-                }
+                staticClass: "spot-elements-list",
+                attrs: { name: "side-tricks", tag: "ul" }
               },
               [
-                _c("span", [_vm._v(_vm._s(trick.name))]),
+                _vm._l(_vm.tricks, function(trick) {
+                  return _vm.showMyMoves
+                    ? _c(
+                        "li",
+                        {
+                          key: trick.id,
+                          staticClass: "spot-elements-list-item",
+                          class: {
+                            "spot-elements-list-item-active":
+                              _vm.currentTrick == trick.id,
+                            "with-video": _vm.currentVideos(trick.id).length > 0
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.currentVideos(trick.id).length > 0
+                                ? (_vm.currentTrick = trick.id)
+                                : ""
+                            }
+                          }
+                        },
+                        [
+                          _c("span", [
+                            _vm.editMode
+                              ? _c(
+                                  "svg",
+                                  {
+                                    staticClass: "remove-move",
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      viewBox: "0 0 352 512",
+                                      width: "64px",
+                                      height: "64px"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        $event.stopPropagation()
+                                        _vm.removeMove(trick.id)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(
+                              "\n\t\t\t\t\t\t" +
+                                _vm._s(trick.name) +
+                                "\n\t\t\t\t\t"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _vm.currentVideos(trick.id).length > 0
+                            ? [
+                                _vm.currentTrick != trick.id
+                                  ? _c(
+                                      "svg",
+                                      {
+                                        staticClass: "svg-with-video",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          "xmlns:xlink":
+                                            "http://www.w3.org/1999/xlink",
+                                          version: "1.1",
+                                          x: "0px",
+                                          y: "0px",
+                                          viewBox: "0 0 100 100",
+                                          "enable-background":
+                                            "new 0 0 100 100",
+                                          "xml:space": "preserve"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M80.478,41.123c-3.61-0.95-8,4.17-10.83,4.38c-0.41-4.94,0.16-3.6-2.01-6.05c2.31-3.72,4.28-7.73,3.42-12.26  c-3.02-15.91-20.46-11.99-25.19-6.87c-1.89,2.05-1.71,3.61-2.95,5.3c-0.61-0.23-8.08-7.71-15.19-0.59  c-6.96,6.97,0.57,12.19,1.47,15.6l-3.97,0.11c-1.24,2.62-0.14,4.57-0.89,7.24c-2.57,0.73-3.3-0.45-5.47,1.49  c-0.26,1.55-0.46,6.2-0.08,7.64c0.77,2.91,3.78,1.76,6.04,2.4c1.25,4.42-0.79,5.86,6.26,6.17c3.42,0.15,8.96-0.43,12.03,0.19  c-0.2,2.82-9.91,14.44-6.66,18.29c3.69,0.27,7.03-10.76,9.64-13.72c2.9,2.5,4.43,14.12,9.94,12.23c1.33-4.05-6.89-11.47-6.76-16.2  c3.12-2.27,14.41,0.24,18.88-0.5c2.13-1.69,1.39-1.93,1.89-4.37c3.08,0.19,7.16,4.92,10.53,1.89c0.56-3.36,0.11-8.18,0.19-11.74  C80.838,48.643,82.378,43.753,80.478,41.123z M21.948,55.933l-0.23-4.37l2.56-0.72l0.28,4.6  C22.958,56.323,23.488,56.443,21.948,55.933z M45.068,38.603l2.58,1.95l-4.34,0.19L45.068,38.603z M28.108,31.883  c0-3.12,2.94-6.06,6.06-6.34c2.68-0.24,6.24,2.31,8.15,4.06c0.91,5.26,1.31,8.57-5.46,9.55  C32.868,39.733,28.108,35.413,28.108,31.883z M65.568,61.403c-3.45,0.97-32.48,0.54-36.17-0.5c-0.03-0.11-1.79-16.09-1.79-16.1  l0.21-1.7c1.03-0.25,37.28-0.12,37.75,0.01C65.608,43.223,65.598,61.303,65.568,61.403z M48.938,37.393  c-1.23-1.98-2.94-5.7-2.94-7.99c0-13.78,21.18-15.38,21.39-0.5C67.568,41.983,51.528,41.563,48.938,37.393z M76.998,59.913  c-1.46,0-6.05-2.95-7.35-3.98l-0.83-5.93c1.43-1.45,7.56-5.28,9.18-5.4C78.598,46.733,77.658,57.573,76.998,59.913z"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M33.878,48.083c-1.29,2.47-0.92,7.67,0.29,10.04c2.26,1.15,13.23,0.38,16.1-0.1c2.46-2.08,2.79-6.97,1.79-9.84  C49.348,45.893,36.858,46.523,33.878,48.083z M48.578,55.343c-1.99,0.69-10.17,0.68-12.22,0.1l-0.61-4.77  c2.2-0.7,10.76-0.72,12.93-0.1C49.158,52.273,49.168,53.643,48.578,55.343z"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M58.118,24.633c-0.34,3.25,3.14,5.16,0.1,8.54c-2.62,0.44-5.44-0.18-4.58-3.55c0.53-2.06,2.7-3.53,3.09-5.49  c-5.58-3.97-12.5,11.17-0.52,12.92C66.798,38.603,64.738,18.683,58.118,24.633z"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M38.938,31.683c-1.82,0.71-0.88,1.32-2.08,2.98l-1.91-0.06c-2.73-3.61,1.19-3.3,2.5-5.3c-1.91-4.1-9.69,0.12-6.46,5.66  C34.298,40.653,43.238,35.273,38.938,31.683z"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M56.528,48.883c0.93,4.92,6.04,1.27,3.78-1C58.488,46.953,57.568,47.043,56.528,48.883z"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("path", {
+                                          attrs: {
+                                            d:
+                                              "M56.428,53.753c-0.66,2.05,0.22,2.82,2.29,2.78l1.24-1.6C58.888,53.073,58.268,52.883,56.428,53.753z"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  : _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          viewBox: "0 0 100 100",
+                                          x: "0px",
+                                          y: "0px"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "g",
+                                          {
+                                            attrs: {
+                                              "data-name":
+                                                "video, play, movie, cinema, film"
+                                            }
+                                          },
+                                          [
+                                            _c("path", {
+                                              staticClass: "svg-circle",
+                                              attrs: {
+                                                d:
+                                                  "M50,6A44,44,0,1,0,94,50,44.05,44.05,0,0,0,50,6Zm0,84A40,40,0,1,1,90,50,40,40,0,0,1,50,90Z"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M78,50A28,28,0,1,0,50,78,28,28,0,0,0,78,50ZM26,50A24,24,0,1,1,50,74,24,24,0,0,1,26,50Z"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("path", {
+                                              attrs: {
+                                                d:
+                                                  "M41.37,31.9V68.1L68.61,50Zm4,7.46L61.39,50l-16,10.64Z"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("path", {
+                                              staticClass: "svg-line",
+                                              attrs: {
+                                                d:
+                                                  "M50,18V14A36,36,0,0,0,14,50h4A32,32,0,0,1,50,18Z"
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("path", {
+                                              staticClass: "svg-line",
+                                              attrs: {
+                                                d:
+                                                  "M82,50A32,32,0,0,1,50,82v4A36,36,0,0,0,86,50Z"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                              ]
+                            : _vm._e()
+                        ],
+                        2
+                      )
+                    : _vm._e()
+                }),
                 _vm._v(" "),
-                _vm.currentVideos(trick.id).length > 0
-                  ? [
-                      _vm.currentTrick != trick.id
-                        ? _c(
+                _vm._l(_vm.new_tricks, function(trick) {
+                  return !_vm.showMyMoves
+                    ? _c(
+                        "li",
+                        {
+                          key: trick.id,
+                          staticClass: "spot-elements-list-item"
+                        },
+                        [
+                          _c(
                             "svg",
                             {
+                              staticClass: "add-move",
                               attrs: {
                                 xmlns: "http://www.w3.org/2000/svg",
-                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                                version: "1.1",
-                                x: "0px",
-                                y: "0px",
-                                viewBox: "0 0 100 100",
-                                "enable-background": "new 0 0 100 100",
-                                "xml:space": "preserve"
+                                viewBox: "0 0 352 512",
+                                width: "64px",
+                                height: "64px"
+                              },
+                              on: {
+                                click: function($event) {
+                                  $event.stopPropagation()
+                                  _vm.addMove(trick.id)
+                                }
                               }
                             },
                             [
                               _c("path", {
                                 attrs: {
                                   d:
-                                    "M80.478,41.123c-3.61-0.95-8,4.17-10.83,4.38c-0.41-4.94,0.16-3.6-2.01-6.05c2.31-3.72,4.28-7.73,3.42-12.26  c-3.02-15.91-20.46-11.99-25.19-6.87c-1.89,2.05-1.71,3.61-2.95,5.3c-0.61-0.23-8.08-7.71-15.19-0.59  c-6.96,6.97,0.57,12.19,1.47,15.6l-3.97,0.11c-1.24,2.62-0.14,4.57-0.89,7.24c-2.57,0.73-3.3-0.45-5.47,1.49  c-0.26,1.55-0.46,6.2-0.08,7.64c0.77,2.91,3.78,1.76,6.04,2.4c1.25,4.42-0.79,5.86,6.26,6.17c3.42,0.15,8.96-0.43,12.03,0.19  c-0.2,2.82-9.91,14.44-6.66,18.29c3.69,0.27,7.03-10.76,9.64-13.72c2.9,2.5,4.43,14.12,9.94,12.23c1.33-4.05-6.89-11.47-6.76-16.2  c3.12-2.27,14.41,0.24,18.88-0.5c2.13-1.69,1.39-1.93,1.89-4.37c3.08,0.19,7.16,4.92,10.53,1.89c0.56-3.36,0.11-8.18,0.19-11.74  C80.838,48.643,82.378,43.753,80.478,41.123z M21.948,55.933l-0.23-4.37l2.56-0.72l0.28,4.6  C22.958,56.323,23.488,56.443,21.948,55.933z M45.068,38.603l2.58,1.95l-4.34,0.19L45.068,38.603z M28.108,31.883  c0-3.12,2.94-6.06,6.06-6.34c2.68-0.24,6.24,2.31,8.15,4.06c0.91,5.26,1.31,8.57-5.46,9.55  C32.868,39.733,28.108,35.413,28.108,31.883z M65.568,61.403c-3.45,0.97-32.48,0.54-36.17-0.5c-0.03-0.11-1.79-16.09-1.79-16.1  l0.21-1.7c1.03-0.25,37.28-0.12,37.75,0.01C65.608,43.223,65.598,61.303,65.568,61.403z M48.938,37.393  c-1.23-1.98-2.94-5.7-2.94-7.99c0-13.78,21.18-15.38,21.39-0.5C67.568,41.983,51.528,41.563,48.938,37.393z M76.998,59.913  c-1.46,0-6.05-2.95-7.35-3.98l-0.83-5.93c1.43-1.45,7.56-5.28,9.18-5.4C78.598,46.733,77.658,57.573,76.998,59.913z"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M33.878,48.083c-1.29,2.47-0.92,7.67,0.29,10.04c2.26,1.15,13.23,0.38,16.1-0.1c2.46-2.08,2.79-6.97,1.79-9.84  C49.348,45.893,36.858,46.523,33.878,48.083z M48.578,55.343c-1.99,0.69-10.17,0.68-12.22,0.1l-0.61-4.77  c2.2-0.7,10.76-0.72,12.93-0.1C49.158,52.273,49.168,53.643,48.578,55.343z"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M58.118,24.633c-0.34,3.25,3.14,5.16,0.1,8.54c-2.62,0.44-5.44-0.18-4.58-3.55c0.53-2.06,2.7-3.53,3.09-5.49  c-5.58-3.97-12.5,11.17-0.52,12.92C66.798,38.603,64.738,18.683,58.118,24.633z"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M38.938,31.683c-1.82,0.71-0.88,1.32-2.08,2.98l-1.91-0.06c-2.73-3.61,1.19-3.3,2.5-5.3c-1.91-4.1-9.69,0.12-6.46,5.66  C34.298,40.653,43.238,35.273,38.938,31.683z"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M56.528,48.883c0.93,4.92,6.04,1.27,3.78-1C58.488,46.953,57.568,47.043,56.528,48.883z"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M56.428,53.753c-0.66,2.05,0.22,2.82,2.29,2.78l1.24-1.6C58.888,53.073,58.268,52.883,56.428,53.753z"
+                                    "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
                                 }
                               })
                             ]
-                          )
-                        : _c(
-                            "svg",
-                            {
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 100 100",
-                                x: "0px",
-                                y: "0px"
-                              }
-                            },
-                            [
-                              _c(
-                                "g",
-                                {
-                                  attrs: {
-                                    "data-name":
-                                      "video, play, movie, cinema, film"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    staticClass: "svg-circle",
-                                    attrs: {
-                                      d:
-                                        "M50,6A44,44,0,1,0,94,50,44.05,44.05,0,0,0,50,6Zm0,84A40,40,0,1,1,90,50,40,40,0,0,1,50,90Z"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M78,50A28,28,0,1,0,50,78,28,28,0,0,0,78,50ZM26,50A24,24,0,1,1,50,74,24,24,0,0,1,26,50Z"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M41.37,31.9V68.1L68.61,50Zm4,7.46L61.39,50l-16,10.64Z"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    staticClass: "svg-line",
-                                    attrs: {
-                                      d:
-                                        "M50,18V14A36,36,0,0,0,14,50h4A32,32,0,0,1,50,18Z"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    staticClass: "svg-line",
-                                    attrs: {
-                                      d:
-                                        "M82,50A32,32,0,0,1,50,82v4A36,36,0,0,0,86,50Z"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          )
-                    ]
-                  : _vm._e()
+                          ),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(trick.name))])
+                        ]
+                      )
+                    : _vm._e()
+                })
               ],
               2
             )
-          })
+          ],
+          1
         )
+      ]),
+      _vm._v(" "),
+      _vm.owner
+        ? _c(
+            "svg",
+            {
+              staticClass: "settings-btn",
+              style: {
+                fill: _vm.editMode ? "#5b9de8" : "",
+                transform: _vm.editMode ? "rotate(60deg)" : ""
+              },
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                "data-name": "Layer 1",
+                viewBox: "0 0 100 100",
+                x: "0px",
+                y: "0px"
+              },
+              on: {
+                click: function($event) {
+                  _vm.editMode = !_vm.editMode
+                  _vm.tip.show = false
+                },
+                mouseover: function($event) {
+                  _vm.tip.msg = _vm.editMode
+                    ? "Disable edit mode"
+                    : "Enable edit mode"
+                  _vm.tip.show = true
+                },
+                mouseout: function($event) {
+                  _vm.tip.show = false
+                }
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M98.44,43.73c-0.8-.51-7.11-4.28-9.61-5.43l-3.1-7.5c0.92-2.48,2.69-9.43,3-10.64a3.34,3.34,0,0,0-.9-3.1L82.94,12.2a3.32,3.32,0,0,0-3.1-.9c-0.92.21-8,2-10.64,3l-7.5-3.1c-1.09-2.4-4.76-8.55-5.43-9.61A3.32,3.32,0,0,0,53.44,0H46.56a3.35,3.35,0,0,0-2.83,1.56c-0.51.8-4.28,7.11-5.43,9.61l-7.5,3.1c-2.48-.92-9.43-2.69-10.64-3a3.34,3.34,0,0,0-3.1.9L12.2,17.06a3.32,3.32,0,0,0-.9,3.1c0.21,0.92,2,8,3,10.64l-3.1,7.5c-2.4,1.09-8.55,4.76-9.61,5.43A3.32,3.32,0,0,0,0,46.56v6.87a3.35,3.35,0,0,0,1.56,2.83c0.8,0.51,7.11,4.28,9.61,5.43l3.1,7.5c-0.92,2.48-2.69,9.43-3,10.64a3.34,3.34,0,0,0,.9,3.1l4.86,4.86a3.32,3.32,0,0,0,3.1.9c0.92-.21,8-2,10.64-3l7.5,3.1c1.09,2.4,4.76,8.55,5.43,9.61A3.32,3.32,0,0,0,46.56,100h6.87a3.35,3.35,0,0,0,2.83-1.56c0.51-.8,4.28-7.11,5.43-9.61l7.5-3.1c2.48,0.92,9.43,2.69,10.64,3a3.34,3.34,0,0,0,3.1-.9l4.86-4.86a3.32,3.32,0,0,0,.9-3.1c-0.21-.92-2-8-3-10.64l3.1-7.5c2.4-1.09,8.55-4.76,9.61-5.43A3.32,3.32,0,0,0,100,53.44V46.56A3.3,3.3,0,0,0,98.44,43.73ZM50,71.77A21.79,21.79,0,1,1,71.81,50,21.82,21.82,0,0,1,50,71.77Z"
+                }
+              })
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.tip.show ? _c("tip", { attrs: { msg: _vm.tip.msg } }) : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "transition-group",
+        {
+          staticClass: "custom-alert-container",
+          attrs: { name: "alerts", tag: "div" }
+        },
+        [
+          _vm._l(_vm.responses, function(response, key) {
+            return [
+              response.show
+                ? _c("Alert", {
+                    key: response.key,
+                    attrs: { msg: response.msg, error: response.error }
+                  })
+                : _vm._e()
+            ]
+          })
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "spot-page-section comments-container" }, [
+      _c("h3", { staticClass: "comments-title" }, [_vm._v("Comments")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "comments-wrap" }, [
+        _vm._v("\n\t\t\t\tsome comments\n\t\t\t")
       ])
     ])
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

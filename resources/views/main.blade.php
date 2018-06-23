@@ -62,6 +62,11 @@
 </html>
 
 <style>
+    html {
+        overflow-x: hidden;
+        margin-right: calc(-1 * (100vw - 100%));
+    }
+
     .main-content {
         max-width: 1200px;
         margin: 0px auto;

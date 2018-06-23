@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Image')->withTimestamps();
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment')->withTimestamps();
+    }
 }

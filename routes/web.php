@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function() {
 		Route::post('/spot-edit/{id}/edit-description', 'SpotController@editDescription')->name('spot.editDescription');
 		Route::post('/spot-edit/{id}/remove-move', 'SpotController@removeMove')->name('spot.removeMove');
 		Route::post('/spot-edit/{id}/add-move', 'SpotController@addMove')->name('spot.addMove');
+		Route::post('/spot-edit/{id}/detach-video', 'SpotController@removeSpotFromVideo')->name('spot.removeSpotFromVideo');
 	});
 	
 	Route::get('/spot-add', 'SpotController@add')->name('site.spotAdd');

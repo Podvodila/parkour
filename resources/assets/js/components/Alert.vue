@@ -1,9 +1,7 @@
 <template>
-	<!-- <transition name="alert"> -->
         <div class="alert custom-alert" role="alert" ref="message" :class="this.error ? 'alert-danger' : 'alert-success'">  
             {{ message }}
         </div>
-    <!-- </transition> -->
 </template>
 
 <script>
