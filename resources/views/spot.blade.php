@@ -10,6 +10,8 @@
 		'removeMove' => route('spot.removeMove', $id = $spot->id),
 		'addMove' => route('spot.addMove', $id = $spot->id),
 		'removeSpotFromVideo' => route('spot.removeSpotFromVideo', $id = $spot->id),
+		'addComment' => route('spot.addComment', $id = $spot->id),
+		'removeComment' => route('spot.removeComment', $id = $spot->id),
 	];
 @endphp
 	<div id="app">
@@ -21,6 +23,8 @@
 		:src_videos="{{$videos}}"
 		:user="{{$user}}"
 		:src_new_tricks="{{json_encode($new_tricks)}}"
+		:src_comments="{{$comments}}"
+		:local="{{ json_encode(__('spot')) }}"
 		></Spot>
 	</div>
 @endsection

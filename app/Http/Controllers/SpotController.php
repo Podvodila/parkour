@@ -12,6 +12,7 @@ use App\Spot;
 use App\Image;
 use App\Video;
 use App\Comment;
+use Intervention\Image\Facades\Image as ImageInt;
 
 class SpotController extends Controller
 {
@@ -25,6 +26,7 @@ class SpotController extends Controller
             'images' => $this->getImages($id), 
             'user' => $user,
             'new_tricks' => $this->getNewTricks($id),
+            'comments' => $this->getComments($id),
         ]);
 	}
 
@@ -158,16 +160,60 @@ class SpotController extends Controller
         return response()->json($this->getSpotVideos($id));
     }
 
+    public function addComment($spot_id, Request $request)
+    {
+        $this->validate($request, [
+            'text' => 'required|string',
+        ]);
+
+        Comment::create([
+            'description' => $request->input('text'),
+            'spot_id' => $spot_id,
+            'user_id' => Auth::id(),
+        ]);
+
+        return response()->json($this->getComments($spot_id));
+    }
+
+    public function removeComment($spot_id, Request $request)
+    {
+        $comment_id = $request->input('comment_id');
+        $comment = Comment::findOrFail($comment_id);
+        if($comment->user_id != Auth::id()) abort(403);
+        $comment->delete();
+
+        return response()->json($this->getComments($spot_id));
+    }
+
+    private function getComments($spot_id)
+    {
+        $comments =  Comment::where('spot_id', $spot_id)->latest()->get();
+        $commentsWithUsers = $comments->map(function ($item) {
+            return $item->show();
+        });
+
+        return $commentsWithUsers;
+    }
+
     private function customAddImages($request, $custom_spot_id = null) 
     {
         $spot_id = $request->input('spot_id') ? $request->input('spot_id') : $custom_spot_id;
     	if ($request->hasFile('image')) {
     		$time = time();
+            if(!Storage::disk('local')->exists('spots/' . $spot_id . '/images/')) {
+                Storage::disk('local')->makeDirectory('spots/' . $spot_id . '/images/');
+            }
     		foreach ($request->file('image') as $image) {
-	    		$filename = 'spots/' . $spot_id . '/images/' . $time++ . '.jpg';
-	    		Storage::disk('local')->put($filename, File::get($image));
+                $key = $time++;
+                $path = public_path(Storage::disk('local')->url('spots/' . $spot_id . '/images/'));
+	    		$filename = $key . '.jpg';
+	    		$img = ImageInt::make($image);
+                $img->resize(1920,1080, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->save($path . $filename);
                 Image::create([
-                    'path' => Storage::disk('local')->url($filename),
+                    'path' => Storage::disk('local')->url('spots/' . $spot_id . '/images/' . $key . '.jpg'),
                     'spot_id' => $spot_id,
                     'user_id' => Auth::id(),
                 ]);

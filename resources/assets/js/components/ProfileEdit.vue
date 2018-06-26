@@ -387,6 +387,7 @@
     			  success: function(data) { 
     			  	self.avatarSrc.exist = false;
     			  	console.log('image has been removed');
+    			  	console.log(data);
     			  },
                   error: function(data) {
                     console.log(data);

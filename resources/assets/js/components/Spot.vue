@@ -7,10 +7,12 @@
 				</div>
 				<div class="spot-description">
 					<h4 class="spot-description-title">Description</h4>
-					<div class="spot-description-body">
-						<div :contenteditable="editMode" @input="inputDescription" class="spot-description-text">
-							{{spot.description != null ? spot.description : (editMode ? '' : 'This spot has no description')}} 
-							<!-- Не показывает месседж что емпти, после события инпут -->
+					<div class="spot-description-body" :class="{'spot-description-body-active' : editMode}">
+						<div v-if="!editMode" class="spot-description-text" key="1">
+							{{spot.description ? spot.description : 'This spot has no description'}}
+						</div>
+						<div v-else contenteditable="true" @input="inputDescription" class="spot-description-text" key="2">
+							{{spot.description}}
 						</div>
 						<button v-if="editMode" class="btn btn-secondary custom-btn-save-description" type="button" @click="changeDescription">Save</button>
 					</div>
@@ -55,14 +57,42 @@
 						</div>
 					</transition-group>
 				</div>
-				<div class="spot-comments">
-					
-				</div>
 			</div>
 			<div class="spot-page-section comments-container">
-				<h3 class="comments-title">Comments</h3>
+				<div class="comments-adding-container" @focus.capture="commentFocus" @blur.capture="commentBlur" ref="commentContainer">
+					<div class="comments-adding-wrap">
+						<div contenteditable="true" @input="inputComment" class="comments-add-field" ref="comment"></div>
+						<svg xmlns="http://www.w3.org/2000/svg" 
+							viewBox="0 0 100 100" x="0px" y="0px" 
+							class="svg-add-comment" :class="newComment == '' ? 'svg-add-comment-disabled' : ''"
+							@click="addComment">
+							<path d="M51.14,52.05,25,54.58l-6.88,22a3.41,3.41,0,0,0,4.75,4.09L80.16,52.93a3.26,3.26,0,0,0,0-5.86L22.91,19.31a3.41,3.41,0,0,0-4.75,4.09l6.88,22,26.09,2.53a2.06,2.06,0,0,1,0,4.1Z"/>
+						</svg>
+						<span v-if="newComment == ''" class="comments-adding-placeholder">Text...</span>
+					</div>
+				</div>
 				<div class="comments-wrap">
-					some comments
+					<div v-for="post in comments" class="comment-container" :key="post.comment.id">
+						<div class="comment-header">
+							<a :href="getUserRoute(post.user.id)" class="comment-thumbnail-container">
+								<img :src="post.user.thumbnail" alt="small avatar" class="comment-thumbnail">
+							</a>
+							<div class="comment-header-info">
+								<a :href="getUserRoute(post.user.id)" class="comment-user-name">
+									{{post.user.first_name + ' ' + post.user.last_name}}
+								</a>
+								<span class="comment-date">
+									{{getDate(post.comment.created_at, 'comment')}}
+								</span>
+							</div>
+							<svg v-if="post.user.id == user" class="remove-comment" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" @click="removeComment(post.comment.id)">
+								<path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+							</svg>
+						</div>
+						<div class="comment-body">
+							{{post.comment.description}}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -73,7 +103,7 @@
 						<div v-for="image in images" :key="image.path" class="image-wrap" @click="sliderOpened = true;" style="opacity: 0;">
 							<img :src="image.path" @load="adjustImg">
 							<transition name="remove-image">
-								<div class="remove-image" v-if="editMode" @click.stop="removeImage(image.id)">
+								<div class="remove-image" v-if="editMode" @click.stop="removeImage(image.id, $event)">
 									<svg class="downsize-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" width="64px" height="64px">
 										<path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
 									</svg>
@@ -81,6 +111,33 @@
 							</transition>
 						</div>
 					</transition-group>
+					<div> <!-- If no photos -->
+						<svg version="1.1" baseProfile="tiny" id="DESIGNS" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve">
+							<g>
+								<g>
+									<rect x="4.5" y="3.5" transform="matrix(0.9659 -0.2588 0.2588 0.9659 -3.5956 4.6861)" fill="#DBD2C1" width="23" height="25"></rect>
+								</g>
+								<rect x="4.5" y="3.5" fill="#FFFAEE" width="23" height="25"></rect>
+								<g>
+									
+									<svg x="12" y="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" width="8" height="8" class="remove-move"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+									<rect x="6.5" y="5.5" fill="#3D3935" width="19" height="17"></rect>
+								</g>
+								<path fill="#231F20" d="M28,26.2l3-0.8l-3-11V3h-3.1l-0.7-2.7L14.3,3H4v2.8L1,6.5l3,11V29h3.1l0.7,2.7l9.9-2.7H28V26.2z M29.7,24.7
+									L28,25.2v-6.9L29.7,24.7z M23.5,1.6L23.9,3h-5.8L23.5,1.6z M2.3,7.3L4,6.8v6.9L2.3,7.3z M8.5,30.4L8.1,29h5.8L8.5,30.4z M27,28H5V4
+									h22V28z M26,5H6v18h20V5z M25,22H7V6h18V22z"></path>
+							</g>
+							<text transform="matrix(1 0 0 1 7 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">N</text>
+							<text transform="matrix(1 0 0 1 9.2793 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
+							<text transform="matrix(1 0 0 1 11.6553 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px"> </text>
+							<text transform="matrix(1 0 0 1 12.4053 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">P</text>
+							<text transform="matrix(1 0 0 1 14.4063 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">H</text>
+							<text transform="matrix(1 0 0 1 16.686 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
+							<text transform="matrix(1 0 0 1 18.9478 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">T</text>
+							<text transform="matrix(1 0 0 1 20.7827 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
+							<text transform="matrix(1 0 0 1 23.1587 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">S</text>
+						</svg>
+					</div>
 				</div>
 				<transition name="slider">
 					<div v-if="sliderOpened" class="slider-fullsize">
@@ -202,7 +259,7 @@
 	import Alert from './Alert.vue';
 
 	export default {
-		props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks'],
+		props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'local'],
 		data() {
 			return {
 				videos: this.src_videos,
@@ -226,6 +283,8 @@
 				showMyMoves: true,
 				new_tricks: this.src_new_tricks,
 				owner: this.src_spot.user_id == this.user,
+				newComment: '',
+				comments: this.src_comments,
 			}
 		},
 		computed: {
@@ -246,6 +305,7 @@
 			}
 
 			window.addEventListener('resize', this.onResize);
+			console.log(this.user);
 		},
 		methods: {
 			initMap() {
@@ -274,6 +334,10 @@
 					return arr[0];
 				} else if(type == 'dm') {
 					return arr[2] + '-' + arr[1];
+				} else if(type == 'comment') {
+					var hms = date.split(' ')[1].split(':');
+					var result = `${arr[2]} ${this.local.months[parseInt(arr[1])]} ${arr[0]} ${this.local.at} ${hms[0]}:${hms[1]}`;
+					return result;
 				}
 			},
 			sortTricks(tricks) {
@@ -341,7 +405,8 @@
                   }
 				});
 			},
-			removeImage(id) {
+			removeImage(id, event) {
+				event.currentTarget.parentNode.style.pointerEvents = "none";
 				var self = this;
 				$.ajax({
     			  method: "post",
@@ -358,6 +423,7 @@
     			  	if(self.currentImage > self.images.length) self.currentImage = self.images.length;
     			  },
                   error: function(data, b, c) {
+                  	event.currentTarget.parentNode.style.pointerEvents = "auto";
                     console.log(data);
                   }
 				});
@@ -376,9 +442,7 @@
     			  },
     			  success: function(data) { 
     			  	if(typeof data == 'object') data = null;
-    			  	console.log(self.spot.description);
     			  	self.spot.description = data;
-    			  	console.log(self.spot.description);
     			  	var response = {};
                     response.msg = 'Description changed';
     			  	response.error = false;
@@ -492,8 +556,61 @@
 				});
 			},
 			inputDescription(e) {
-				this.newDescription = e.target.innerText;
-			}
+				this.newDescription = e.target.textContent;
+			},
+			inputComment(e) {
+				this.newComment = e.target.textContent;
+			},
+			addComment() {
+				var self = this;
+				$.ajax({
+    			  method: "post",
+    			  url: self.routes.addComment,
+    			  dataType: "json",
+    			  headers: {
+				    'X-CSRF-TOKEN': self.token,
+				  },
+    			  data: {
+    			  	text: self.newComment,
+    			  	_token: self.token,
+    			  },
+    			  success: function(data) { 
+    			  	self.$refs.comment.innerHTML = '';
+    			  	self.newComment = '';
+    			  	self.comments = data;
+    			  },
+                  error: function(data) {
+                    console.log(data);
+                  }
+				});
+			},
+			commentFocus(e) {
+				this.$refs.commentContainer.style.padding = "20px 20px 20px 30px";
+			},
+			commentBlur(e) {
+				this.$refs.commentContainer.style.padding = "10px 20px 10px 30px";
+			},
+			removeComment(comment_id) {
+				var self = this;
+				$.ajax({
+    			  method: "post",
+    			  url: self.routes.removeComment,
+    			  dataType: "json",
+    			  headers: {
+				    'X-CSRF-TOKEN': self.token,
+				  },
+    			  data: {
+    			  	comment_id: comment_id,
+    			  	_token: self.token,
+    			  },
+    			  success: function(data) { 
+    			  	self.comments = data;
+    			  },
+                  error: function(data) {
+                    console.log(data);
+                  }
+				});
+			},
 		},
 		components: {
 			appVideo,
@@ -522,7 +639,7 @@
 				if(this.currentVideos(this.currentTrick).length <= 0) {
 					this.currentTrick = this.tricks[0].id;
 				}
-			}
+			},
 		}
 	}
 </script>
@@ -654,6 +771,7 @@
 
 	.custom-video {
 		max-height: 250px !important;
+		min-height: 200px !important;
 	}
 
 	.custom-card-header {
@@ -664,6 +782,8 @@
 		display: flex;
 		justify-content: space-between;
 		position: relative;
+	    height: 41px;
+	    align-items: center;
 	}
 
 	.custom-card-body {
@@ -921,6 +1041,9 @@
 
 	.custom-btn-save-description {
 		cursor: pointer;
+	    border: 0;
+	    border-left: 1px solid #ccc;
+	    border-radius: 0;
 	}
 
 	.custom-alert-container {
@@ -992,11 +1115,16 @@
     }
 
     .video-date-year {
-    	font-size: 14px;
+    	font-size: 12px;
     }
 
     .video-date-dm {
-    	font-size: 18px;
+    	font-size: 14px;
+    }
+
+    .video-edit-buttons {
+    	display: flex;
+    	height: 30px;
     }
 
     .video-remove-spot {
@@ -1011,15 +1139,7 @@
 
     .comments-container {
     	margin-top: 20px;
-    }
-
-    .comments-title {
-		padding: 20px 30px;
-		font-family: 'Nunito';
-		font-weight: normal;
-		font-size: 16px;
-		color: #82889c;
-		box-shadow: 0 2px 5px rgba(144,153,162,.1);
+    	margin-bottom: 300px;
     }
 
     .spot-description-body {
@@ -1027,8 +1147,138 @@
     	justify-content: space-between;
     }
 
+    .spot-description-body-active {
+    	border: 1px solid rgba(0, 0, 0, 0.2);
+    	border-radius: 3px;
+    }
+
     .spot-description-text {
 		outline: none;
 		width: 100%;
+		white-space: normal;
+    }
+
+    .spot-description-body-active .spot-description-text {
+    	padding: 7px;
+	    max-width: 90%;
+    }
+
+    .comments-adding-container {
+    	padding: 10px 20px 10px 30px;
+    	font-family: 'Nunito';
+    	font-weight: normal;
+    	box-shadow: 0 2px 5px rgba(144,153,162,.1);
+    	transition: .2s;
+    }
+
+    .comments-adding-placeholder {
+    	position: absolute;
+    	top: 7px;
+    	left: 0;
+    	color: #b4b8c4;
+    	font-size: 16px;
+    	z-index: 1;
+    }
+
+    .comments-adding-wrap {
+    	position: relative;
+    	display: flex;
+    	align-items: center;
+    }
+
+    .comments-add-field {
+    	width: 100%;
+    	outline: 0;
+    	font-size: 16px;
+    	font-family: 'Nunito';
+    	font-weight: normal;
+    	color: #515669;
+    	z-index: 2;
+	    width: calc(100% - 30px);
+    }
+
+    .svg-add-comment {
+    	fill: #5b9de8;
+    	width: 30px;
+    	height: 30px;
+    	align-self: flex-end;
+    }
+
+    .svg-add-comment:hover:not(.svg-add-comment-disabled) {
+    	fill: #2e82e2;
+    	cursor: pointer;
+    }
+
+    .svg-add-comment-disabled {
+    	fill: #88b8ee;
+    	pointer-events: none;
+    }
+
+    .comments-wrap {
+    	background-color: #fafbfb;
+    	color: #515669;
+	    font-size: 14px;
+    }
+
+    .comment-container {
+	    padding: 30px 92px;
+	    border-bottom: 1px solid #eaeaea;
+    }
+
+    .comment-header {
+    	display: flex;
+    	align-items: center;
+    	margin-bottom: 15px;
+    	position: relative;
+    }
+
+    .comment-header-info {
+    	display: flex;
+    	flex-direction: column;
+    }
+
+    .comment-thumbnail-container {
+    	margin-right: 10px;
+    }
+
+    .comment-thumbnail {
+    	border-radius: 50%;
+    }
+
+    .comment-user-name {
+		color: #3d464a;
+		font-size: 14px;
+		font-weight: bold;
+		margin-bottom: 5px;
+    }
+
+    .comment-date {
+		color: #82889c;
+		font-size: 12px;
+    }
+
+    .comment-body {
+    	color: #222;
+    	line-height: 20px;
+    }
+
+    .remove-comment {
+    	position: absolute;
+    	top: 0;
+    	right: 0;
+    	width: 18px;
+    	height: 18px;
+    	opacity: 0;
+    	transition: .2s;
+    	fill: #aaa;
+    	cursor: pointer;
+    }
+
+    .remove-comment:hover {
+    	fill: #a00;
+    }
+
+    .comment-container:hover .remove-comment {
+    	opacity: 1;
     }
 </style>

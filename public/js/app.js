@@ -49174,7 +49174,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.custom-video-container {\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tmargin-bottom: -4px;\n}\n.custom-video {\n\twidth: 100%;\n\tmax-height: 400px;\n}\n.video-play-button {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 99%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\tbackground-color: rgba(0, 0, 0, 0.2);\n\topacity: 0;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.video-play-button svg {\n\twidth: 64px;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tcursor: pointer;\n}\n.custom-video-container:hover .video-play-button {\n\topacity: 1;\n}\n.bot-menu {\n\tposition: absolute;\n\tbottom: 0%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 36px;\n\tbackground-color: rgba(0, 0, 0, 0.5);\n\t-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t    -ms-flex-pack: justify;\n\t        justify-content: space-between;\n\topacity: 0;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tz-index: 2147483647;\n}\n.custom-video-container:hover .bot-menu {\n\topacity: 1;\n}\n.svg {\n\theight: 100%;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.bot-menu-icon-wrap {\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.bot-menu-icon-wrap .svg-container {\n\tmargin-left: 10px;\n}\n.svg-map {\n\theight: 28px;\n}\n.removed {\n\tdisplay: none;\n}\n.svg-container {\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\tcursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.custom-video-container {\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tmargin-bottom: -4px;\n}\n.custom-video {\n\twidth: 100%;\n\tmax-height: 400px;\n\tmin-height: 250px;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.custom-video:-webkit-full-screen {\n\tobject-fit: contain;\n}\n.video-play-button {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 99%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\tbackground-color: rgba(0, 0, 0, 0.2);\n\topacity: 0;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.video-play-button svg {\n\twidth: 64px;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tcursor: pointer;\n}\n.custom-video-container:hover .video-play-button {\n\topacity: 1;\n}\n.bot-menu {\n\tposition: absolute;\n\tbottom: 0%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 36px;\n\tbackground-color: rgba(0, 0, 0, 0.5);\n\t-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t    -ms-flex-pack: justify;\n\t        justify-content: space-between;\n\topacity: 0;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tz-index: 2147483647;\n}\n.custom-video-container:hover .bot-menu {\n\topacity: 1;\n}\n.svg {\n\theight: 100%;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.bot-menu-icon-wrap {\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.bot-menu-icon-wrap .svg-container {\n\tmargin-left: 10px;\n}\n.svg-map {\n\theight: 28px;\n}\n.removed {\n\tdisplay: none;\n}\n.svg-container {\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\tcursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -51044,6 +51044,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				success: function success(data) {
 					self.avatarSrc.exist = false;
 					console.log('image has been removed');
+					console.log(data);
 				},
 				error: function error(data) {
 					console.log(data);
@@ -52597,7 +52598,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: 40px;\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 10px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 100;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n}\n.comments-title {\n\t\tpadding: 20px 30px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tfont-size: 16px;\n\t\tcolor: #82889c;\n\t\t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n\t\t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n}\n", ""]);
+exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: 40px;\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 10px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 100;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 300px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 90%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -52814,13 +52815,70 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks'],
+	props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'local'],
 	data: function data() {
 		return {
 			videos: this.src_videos,
@@ -52843,7 +52901,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			customKey: 10,
 			showMyMoves: true,
 			new_tricks: this.src_new_tricks,
-			owner: this.src_spot.user_id == this.user
+			owner: this.src_spot.user_id == this.user,
+			newComment: '',
+			comments: this.src_comments
 		};
 	},
 
@@ -52865,6 +52925,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		}
 
 		window.addEventListener('resize', this.onResize);
+		console.log(this.user);
 	},
 
 	methods: {
@@ -52894,6 +52955,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				return arr[0];
 			} else if (type == 'dm') {
 				return arr[2] + '-' + arr[1];
+			} else if (type == 'comment') {
+				var hms = date.split(' ')[1].split(':');
+				var result = arr[2] + ' ' + this.local.months[parseInt(arr[1])] + ' ' + arr[0] + ' ' + this.local.at + ' ' + hms[0] + ':' + hms[1];
+				return result;
 			}
 		},
 		sortTricks: function sortTricks(tricks) {
@@ -52959,7 +53024,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				}
 			});
 		},
-		removeImage: function removeImage(id) {
+		removeImage: function removeImage(id, event) {
+			event.currentTarget.parentNode.style.pointerEvents = "none";
 			var self = this;
 			$.ajax({
 				method: "post",
@@ -52976,6 +53042,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					if (self.currentImage > self.images.length) self.currentImage = self.images.length;
 				},
 				error: function error(data, b, c) {
+					event.currentTarget.parentNode.style.pointerEvents = "auto";
 					console.log(data);
 				}
 			});
@@ -52994,9 +53061,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				},
 				success: function success(data) {
 					if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) == 'object') data = null;
-					console.log(self.spot.description);
 					self.spot.description = data;
-					console.log(self.spot.description);
 					var response = {};
 					response.msg = 'Description changed';
 					response.error = false;
@@ -53110,7 +53175,60 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 		},
 		inputDescription: function inputDescription(e) {
-			this.newDescription = e.target.innerText;
+			this.newDescription = e.target.textContent;
+		},
+		inputComment: function inputComment(e) {
+			this.newComment = e.target.textContent;
+		},
+		addComment: function addComment() {
+			var self = this;
+			$.ajax({
+				method: "post",
+				url: self.routes.addComment,
+				dataType: "json",
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					text: self.newComment,
+					_token: self.token
+				},
+				success: function success(data) {
+					self.$refs.comment.innerHTML = '';
+					self.newComment = '';
+					self.comments = data;
+				},
+				error: function error(data) {
+					console.log(data);
+				}
+			});
+		},
+		commentFocus: function commentFocus(e) {
+			this.$refs.commentContainer.style.padding = "20px 20px 20px 30px";
+		},
+		commentBlur: function commentBlur(e) {
+			this.$refs.commentContainer.style.padding = "10px 20px 10px 30px";
+		},
+		removeComment: function removeComment(comment_id) {
+			var self = this;
+			$.ajax({
+				method: "post",
+				url: self.routes.removeComment,
+				dataType: "json",
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					comment_id: comment_id,
+					_token: self.token
+				},
+				success: function success(data) {
+					self.comments = data;
+				},
+				error: function error(data) {
+					console.log(data);
+				}
+			});
 		}
 	},
 	components: {
@@ -53165,42 +53283,60 @@ var render = function() {
               _vm._v("Description")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "spot-description-body" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "spot-description-text",
-                  attrs: { contenteditable: _vm.editMode },
-                  on: { input: _vm.inputDescription }
-                },
-                [
-                  _vm._v(
-                    "\n\t\t\t\t\t\t" +
-                      _vm._s(
-                        _vm.spot.description != null
-                          ? _vm.spot.description
-                          : _vm.editMode
-                            ? ""
-                            : "This spot has no description"
-                      ) +
-                      " \n\t\t\t\t\t\t"
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm.editMode
-                ? _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-secondary custom-btn-save-description",
-                      attrs: { type: "button" },
-                      on: { click: _vm.changeDescription }
-                    },
-                    [_vm._v("Save")]
-                  )
-                : _vm._e()
-            ])
+            _c(
+              "div",
+              {
+                staticClass: "spot-description-body",
+                class: { "spot-description-body-active": _vm.editMode }
+              },
+              [
+                !_vm.editMode
+                  ? _c(
+                      "div",
+                      { key: "1", staticClass: "spot-description-text" },
+                      [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t" +
+                            _vm._s(
+                              _vm.spot.description
+                                ? _vm.spot.description
+                                : "This spot has no description"
+                            ) +
+                            "\n\t\t\t\t\t"
+                        )
+                      ]
+                    )
+                  : _c(
+                      "div",
+                      {
+                        key: "2",
+                        staticClass: "spot-description-text",
+                        attrs: { contenteditable: "true" },
+                        on: { input: _vm.inputDescription }
+                      },
+                      [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t" +
+                            _vm._s(_vm.spot.description) +
+                            "\n\t\t\t\t\t"
+                        )
+                      ]
+                    ),
+                _vm._v(" "),
+                _vm.editMode
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn btn-secondary custom-btn-save-description",
+                        attrs: { type: "button" },
+                        on: { click: _vm.changeDescription }
+                      },
+                      [_vm._v("Save")]
+                    )
+                  : _vm._e()
+              ]
+            )
           ]),
           _vm._v(" "),
           _c(
@@ -53379,12 +53515,160 @@ var render = function() {
               )
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "spot-comments" })
+          )
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", { staticClass: "spot-page-section comments-container" }, [
+          _c(
+            "div",
+            {
+              ref: "commentContainer",
+              staticClass: "comments-adding-container",
+              on: {
+                "!focus": function($event) {
+                  return _vm.commentFocus($event)
+                },
+                "!blur": function($event) {
+                  return _vm.commentBlur($event)
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "comments-adding-wrap" }, [
+                _c("div", {
+                  ref: "comment",
+                  staticClass: "comments-add-field",
+                  attrs: { contenteditable: "true" },
+                  on: { input: _vm.inputComment }
+                }),
+                _vm._v(" "),
+                _c(
+                  "svg",
+                  {
+                    staticClass: "svg-add-comment",
+                    class:
+                      _vm.newComment == "" ? "svg-add-comment-disabled" : "",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 100 100",
+                      x: "0px",
+                      y: "0px"
+                    },
+                    on: { click: _vm.addComment }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M51.14,52.05,25,54.58l-6.88,22a3.41,3.41,0,0,0,4.75,4.09L80.16,52.93a3.26,3.26,0,0,0,0-5.86L22.91,19.31a3.41,3.41,0,0,0-4.75,4.09l6.88,22,26.09,2.53a2.06,2.06,0,0,1,0,4.1Z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm.newComment == ""
+                  ? _c("span", { staticClass: "comments-adding-placeholder" }, [
+                      _vm._v("Text...")
+                    ])
+                  : _vm._e()
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "comments-wrap" },
+            _vm._l(_vm.comments, function(post) {
+              return _c(
+                "div",
+                { key: post.comment.id, staticClass: "comment-container" },
+                [
+                  _c("div", { staticClass: "comment-header" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "comment-thumbnail-container",
+                        attrs: { href: _vm.getUserRoute(post.user.id) }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "comment-thumbnail",
+                          attrs: {
+                            src: post.user.thumbnail,
+                            alt: "small avatar"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "comment-header-info" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "comment-user-name",
+                          attrs: { href: _vm.getUserRoute(post.user.id) }
+                        },
+                        [
+                          _vm._v(
+                            "\n\t\t\t\t\t\t\t\t" +
+                              _vm._s(
+                                post.user.first_name + " " + post.user.last_name
+                              ) +
+                              "\n\t\t\t\t\t\t\t"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "comment-date" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t" +
+                            _vm._s(
+                              _vm.getDate(post.comment.created_at, "comment")
+                            ) +
+                            "\n\t\t\t\t\t\t\t"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    post.user.id == _vm.user
+                      ? _c(
+                          "svg",
+                          {
+                            staticClass: "remove-comment",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 352 512"
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.removeComment(post.comment.id)
+                              }
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                              }
+                            })
+                          ]
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "comment-body" }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t" +
+                        _vm._s(post.comment.description) +
+                        "\n\t\t\t\t\t"
+                    )
+                  ])
+                ]
+              )
+            })
+          )
+        ])
       ]),
       _vm._v(" "),
       _c("aside", { staticClass: "aside-content" }, [
@@ -53434,7 +53718,7 @@ var render = function() {
                                   on: {
                                     click: function($event) {
                                       $event.stopPropagation()
-                                      _vm.removeImage(image.id)
+                                      _vm.removeImage(image.id, $event)
                                     }
                                   }
                                 },
@@ -53467,7 +53751,213 @@ var render = function() {
                       1
                     )
                   })
-                )
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        version: "1.1",
+                        baseProfile: "tiny",
+                        id: "DESIGNS",
+                        "xmlns:cc": "http://creativecommons.org/ns#",
+                        "xmlns:dc": "http://purl.org/dc/elements/1.1/",
+                        "xmlns:rdf":
+                          "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                        xmlns: "http://www.w3.org/2000/svg",
+                        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                        x: "0px",
+                        y: "0px",
+                        viewBox: "0 0 32 32",
+                        "xml:space": "preserve"
+                      }
+                    },
+                    [
+                      _c("g", [
+                        _c("g", [
+                          _c("rect", {
+                            attrs: {
+                              x: "4.5",
+                              y: "3.5",
+                              transform:
+                                "matrix(0.9659 -0.2588 0.2588 0.9659 -3.5956 4.6861)",
+                              fill: "#DBD2C1",
+                              width: "23",
+                              height: "25"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("rect", {
+                          attrs: {
+                            x: "4.5",
+                            y: "3.5",
+                            fill: "#FFFAEE",
+                            width: "23",
+                            height: "25"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("g", [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "remove-move",
+                              attrs: {
+                                x: "12",
+                                y: "10",
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 352 512",
+                                width: "8",
+                                height: "8"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("rect", {
+                            attrs: {
+                              x: "6.5",
+                              y: "5.5",
+                              fill: "#3D3935",
+                              width: "19",
+                              height: "17"
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            fill: "#231F20",
+                            d:
+                              "M28,26.2l3-0.8l-3-11V3h-3.1l-0.7-2.7L14.3,3H4v2.8L1,6.5l3,11V29h3.1l0.7,2.7l9.9-2.7H28V26.2z M29.7,24.7\n\t\t\t\t\t\t\t\tL28,25.2v-6.9L29.7,24.7z M23.5,1.6L23.9,3h-5.8L23.5,1.6z M2.3,7.3L4,6.8v6.9L2.3,7.3z M8.5,30.4L8.1,29h5.8L8.5,30.4z M27,28H5V4\n\t\t\t\t\t\t\t\th22V28z M26,5H6v18h20V5z M25,22H7V6h18V22z"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "text",
+                        {
+                          attrs: {
+                            transform: "matrix(1 0 0 1 7 26.223)",
+                            fill: "#231F20",
+                            "font-family": "'Nunito'",
+                            "font-size": "3px"
+                          }
+                        },
+                        [_vm._v("N")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "text",
+                        {
+                          attrs: {
+                            transform: "matrix(1 0 0 1 9.2793 26.223)",
+                            fill: "#231F20",
+                            "font-family": "'Nunito'",
+                            "font-size": "3px"
+                          }
+                        },
+                        [_vm._v("O")]
+                      ),
+                      _vm._v(" "),
+                      _c("text", {
+                        attrs: {
+                          transform: "matrix(1 0 0 1 11.6553 26.223)",
+                          fill: "#231F20",
+                          "font-family": "'Nunito'",
+                          "font-size": "3px"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "text",
+                        {
+                          attrs: {
+                            transform: "matrix(1 0 0 1 12.4053 26.223)",
+                            fill: "#231F20",
+                            "font-family": "'Nunito'",
+                            "font-size": "3px"
+                          }
+                        },
+                        [_vm._v("P")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "text",
+                        {
+                          attrs: {
+                            transform: "matrix(1 0 0 1 14.4063 26.223)",
+                            fill: "#231F20",
+                            "font-family": "'Nunito'",
+                            "font-size": "3px"
+                          }
+                        },
+                        [_vm._v("H")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "text",
+                        {
+                          attrs: {
+                            transform: "matrix(1 0 0 1 16.686 26.223)",
+                            fill: "#231F20",
+                            "font-family": "'Nunito'",
+                            "font-size": "3px"
+                          }
+                        },
+                        [_vm._v("O")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "text",
+                        {
+                          attrs: {
+                            transform: "matrix(1 0 0 1 18.9478 26.223)",
+                            fill: "#231F20",
+                            "font-family": "'Nunito'",
+                            "font-size": "3px"
+                          }
+                        },
+                        [_vm._v("T")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "text",
+                        {
+                          attrs: {
+                            transform: "matrix(1 0 0 1 20.7827 26.223)",
+                            fill: "#231F20",
+                            "font-family": "'Nunito'",
+                            "font-size": "3px"
+                          }
+                        },
+                        [_vm._v("O")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "text",
+                        {
+                          attrs: {
+                            transform: "matrix(1 0 0 1 23.1587 26.223)",
+                            fill: "#231F20",
+                            "font-family": "'Nunito'",
+                            "font-size": "3px"
+                          }
+                        },
+                        [_vm._v("S")]
+                      )
+                    ]
+                  )
+                ])
               ],
               1
             ),
@@ -54068,20 +54558,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "spot-page-section comments-container" }, [
-      _c("h3", { staticClass: "comments-title" }, [_vm._v("Comments")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "comments-wrap" }, [
-        _vm._v("\n\t\t\t\tsome comments\n\t\t\t")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

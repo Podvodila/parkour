@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function() {
 		Route::post('/spot-edit/{id}/add-move', 'SpotController@addMove')->name('spot.addMove');
 		Route::post('/spot-edit/{id}/detach-video', 'SpotController@removeSpotFromVideo')->name('spot.removeSpotFromVideo');
 	});
+
+	Route::post('/spot/{id}/add-comment', 'SpotController@addComment')->name('spot.addComment');
+	Route::post('/spot/{id}/remove-comment', 'SpotController@removeComment')->name('spot.removeComment');
 	
 	Route::get('/spot-add', 'SpotController@add')->name('site.spotAdd');
 	Route::post('/spot-add', 'SpotController@addPost')->name('site.spotAddPost');

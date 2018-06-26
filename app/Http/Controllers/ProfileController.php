@@ -12,6 +12,7 @@ use App\Trick;
 use App\Video;
 use App\Spot;
 use App\Rules\NoVideo;
+use Intervention\Image\Facades\Image as ImageInt;
 
 class ProfileController extends Controller
 {
@@ -35,12 +36,25 @@ class ProfileController extends Controller
     		'avatar' => 'required|image|max:2048',
     	]);
 
+        $user_id = Auth::id();
+
+        if(!Storage::disk('local')->exists('users/' . $user_id . '/avatar/')) {
+            Storage::disk('local')->makeDirectory('users/' . $user_id . '/avatar/');
+        }
+        $path = public_path(Storage::disk('local')->url('users/' . $user_id . '/avatar/'));
+        $pathForModel = Storage::disk('local')->url('users/' . $user_id . '/avatar/');
     	$avatar = $request->file('avatar');
-    	$filename = 'users/' . Auth::id() . '/' . 'avatar.jpg';
     	if($avatar) {
-    		Storage::disk('local')->put($filename, File::get($avatar));
-            $user = User::find(Auth::id());
-            $user->avatar = Storage::disk('local')->url($filename);
+            $fullsizeName = 'full.jpg';
+            $smallsizeName = 'small.jpg';
+    		ImageInt::make($avatar)->resize(1920,1080, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->save($path . $fullsizeName);
+            ImageInt::make($avatar)->fit(60,60)->save($path . $smallsizeName, 100);
+            $user = User::find($user_id);
+            $user->avatar = $pathForModel . $fullsizeName;
+            $user->thumbnail = $pathForModel . $smallsizeName;
             $user->save();
     	}
 
@@ -49,11 +63,14 @@ class ProfileController extends Controller
 
     public function removeAvatar()
     {
-    	$filename = 'users/' . Auth::id() . '/avatar.jpg';
-    	if(Storage::disk('local')->has($filename)) {
-    		Storage::disk('local')->delete($filename);
+        $user_id = Auth::id();
+    	$full = 'users/' . $user_id . '/avatar/full.jpg';
+        $small = 'users/' . $user_id . '/avatar/small.jpg';
+    	if(Storage::disk('local')->has($full)) {
+    		Storage::disk('local')->delete([$full, $small]);
             $user = User::find(Auth::id());
             $user->avatar = null;
+            $user->thumbnail = null;
             $user->save();
     	}
 
@@ -197,7 +214,7 @@ class ProfileController extends Controller
 
     public function getAvatar($user_id) 
     {
-        $exist = Storage::disk('local')->exists('users/' . $user_id . '/avatar.jpg');
+        $exist = Storage::disk('local')->exists('users/' . $user_id . '/avatar/full.jpg');
     	return ['url' => User::find($user_id)->avatar, 'exist' => $exist];
     }
 

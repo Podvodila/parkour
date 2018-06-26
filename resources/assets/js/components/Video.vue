@@ -155,6 +155,12 @@
 	.custom-video {
 		width: 100%;
 		max-height: 400px;
+		min-height: 250px;
+	    object-fit: cover;
+	}
+
+	.custom-video:-webkit-full-screen {
+		object-fit: contain;
 	}
 
 	.video-play-button {
