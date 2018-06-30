@@ -37,11 +37,15 @@ class SpotController extends Controller
 
     public function addPost(Request $request)
     {
+        // $request->image = json_decode($request->image);
+        // $this->customAddImages($request, 3);
+        // return response()->json($request->hasFile('image'));
     	$this->validate($request, [
     		'location' => 'required|string',
     		'image' => 'required_without_all:description',
     		'image.*' => 'image|max:2048',
     		'description' => 'required_without_all:image',
+            'move' => 'required',
     		'move.*' => 'integer',
     	]);
 
@@ -56,7 +60,7 @@ class SpotController extends Controller
     	$this->customAddMoves($request, $spot);
     	$this->customAddImages($request, $spot->id);
 
-    	return redirect()->route('site.spot', ['id' => $spot->id]);
+    	return response()->json(route('site.spot', $id = $spot->id));
     }
 
     public function edit($id)

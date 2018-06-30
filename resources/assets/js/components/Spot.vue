@@ -306,7 +306,6 @@
 			}
 
 			window.addEventListener('resize', this.onResize);
-			console.log(this.user);
 		},
 		methods: {
 			initMap() {
@@ -1221,6 +1220,10 @@
     .comment-container {
 	    padding: 30px 92px;
 	    border-bottom: 1px solid #eaeaea;
+    }
+
+    .comment-container:nth-child(1) {
+    	border-top: 1px solid #eaeaea;
     }
 
     .comment-header {
