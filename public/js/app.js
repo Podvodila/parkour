@@ -14520,6 +14520,7 @@ Vue.component('Profile', __webpack_require__(61));
 Vue.component('Profileedit', __webpack_require__(74));
 Vue.component('Mapall', __webpack_require__(17));
 Vue.component('Spot', __webpack_require__(83));
+Vue.component('Spotadd', __webpack_require__(92));
 
 var app = new Vue({
   el: '#app'
@@ -51027,7 +51028,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					}
 				},
 				error: function error(data) {
-					console.log('error');
+					console.log(data);
+					console.log('new');
 				}
 			});
 		},
@@ -52598,7 +52600,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: 40px;\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 10px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 100;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 300px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 90%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n", ""]);
+exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: 40px;\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 10px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item-active:not(.with-video) span {\n    \t-webkit-transform: none;\n    \t        transform: none;\n    \tfont-weight: normal;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 100;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 300px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 90%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n.no-images, .no-images svg {\n    \twidth: 100%;\n    \theight: 100%;\n}\n.no-images svg {\n    \tfill: #231F20;\n}\n.no-images {\n    \tpadding: 10px;\n}\n.no-images-background {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.no-images-background.active {\n    \topacity: 0;\n}\n.add-first-photo {\n\t    -webkit-transform: rotate(45deg);\n\t            transform: rotate(45deg);\n    \t-webkit-transform-origin: center;\n    \t        transform-origin: center;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.add-first-photo-container:hover .add-first-photo {\n    \tfill: #0a0;\n    \t-webkit-transform: rotate(45deg) scale(1.1);\n    \t        transform: rotate(45deg) scale(1.1);\n}\n.add-first-photo-container.active {\n    \tcursor: pointer;\n}\n.img-slider-item {\n    \twidth: 100%;\n    \theight: 100%;\n    \t-o-object-fit: cover;\n    \t   object-fit: cover;\n}\n", ""]);
 
 // exports
 
@@ -52617,6 +52619,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Alert_vue__);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+//
 //
 //
 //
@@ -52974,14 +52977,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		},
 		adjustImg: function adjustImg(e) {
 			var img = e.target;
-			var settings = getComputedStyle(img);
-			if (parseInt(settings.width) > parseInt(settings.height)) {
-				img.classList.add('wide');
-				img.style.left = '-' + parseInt(settings.width) / 2 + 'px';
-			} else {
-				img.classList.add('high');
-				img.style.top = '-' + parseInt(settings.height) / 2 + 'px';
-			}
 			img.parentNode.style.opacity = 1;
 		},
 		prevImg: function prevImg() {
@@ -53339,183 +53334,196 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "spot-videos" },
-            [
-              _c(
-                "transition-group",
-                {
-                  staticClass: "tricks-container",
-                  attrs: { tag: "div", name: "videos", mode: "out-in" }
-                },
-                _vm._l(_vm.currentVideos(_vm.currentTrick), function(video) {
-                  return _c(
-                    "div",
-                    { key: video.id, staticClass: "trick-container card" },
-                    [
-                      _c(
-                        "h3",
-                        {
-                          staticClass:
-                            "card-header custom-card-header custom-card-header-full-videos custom-card-header-mute"
-                        },
+          _vm.currentVideos(_vm.currentTrick).length > 0
+            ? _c(
+                "div",
+                { staticClass: "spot-videos" },
+                [
+                  _c(
+                    "transition-group",
+                    {
+                      staticClass: "tricks-container",
+                      attrs: { tag: "div", name: "videos", mode: "out-in" }
+                    },
+                    _vm._l(_vm.currentVideos(_vm.currentTrick), function(
+                      video
+                    ) {
+                      return _c(
+                        "div",
+                        { key: video.id, staticClass: "trick-container card" },
                         [
-                          !_vm.editMode || video.user_id != _vm.user
-                            ? [
-                                _c("span", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.getDate(video.created_at, "year")
-                                    )
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  {
-                                    on: {
-                                      mouseover: function($event) {
-                                        _vm.tip.msg = "Day and month"
-                                        _vm.tip.show = true
-                                      },
-                                      mouseout: function($event) {
-                                        _vm.tip.show = false
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(
-                                        _vm.getDate(video.created_at, "dm")
-                                      )
-                                    )
-                                  ]
-                                )
-                              ]
-                            : [
-                                _c("span", { staticClass: "video-date" }, [
-                                  _c(
-                                    "span",
-                                    { staticClass: "video-date-year" },
-                                    [
+                          _c(
+                            "h3",
+                            {
+                              staticClass:
+                                "card-header custom-card-header custom-card-header-full-videos custom-card-header-mute"
+                            },
+                            [
+                              !_vm.editMode || video.user_id != _vm.user
+                                ? [
+                                    _c("span", [
                                       _vm._v(
                                         _vm._s(
                                           _vm.getDate(video.created_at, "year")
                                         )
                                       )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "video-date-dm",
-                                      on: {
-                                        mouseover: function($event) {
-                                          _vm.tip.msg = "Day and month"
-                                          _vm.tip.show = true
-                                        },
-                                        mouseout: function($event) {
-                                          _vm.tip.show = false
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      {
+                                        on: {
+                                          mouseover: function($event) {
+                                            _vm.tip.msg = "Day and month"
+                                            _vm.tip.show = true
+                                          },
+                                          mouseout: function($event) {
+                                            _vm.tip.show = false
+                                          }
                                         }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t\t\t" +
+                                      },
+                                      [
+                                        _vm._v(
                                           _vm._s(
                                             _vm.getDate(video.created_at, "dm")
-                                          ) +
-                                          "\n\t\t\t\t\t\t\t\t\t"
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  { staticClass: "video-edit-buttons" },
-                                  [
-                                    video.spot_id
-                                      ? _c(
-                                          "svg",
-                                          {
-                                            staticClass: "video-remove-spot",
-                                            attrs: {
-                                              xmlns:
-                                                "http://www.w3.org/2000/svg",
-                                              "xmlns:xlink":
-                                                "http://www.w3.org/1999/xlink",
-                                              version: "1.1",
-                                              x: "0px",
-                                              y: "0px",
-                                              viewBox: "0 0 144.083 144.083",
-                                              "enable-background":
-                                                "new 0 0 144.083 144",
-                                              "xml:space": "preserve"
-                                            },
-                                            on: {
-                                              mouseover: function($event) {
-                                                _vm.tip.msg = "Detach from spot"
-                                                _vm.tip.show = true
-                                              },
-                                              mouseout: function($event) {
-                                                _vm.tip.show = false
-                                              },
-                                              click: function($event) {
-                                                _vm.removeSpotFromVideo(
-                                                  video.id
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M64.759,44.479c-10.203,0-18.504,8.301-18.504,18.504c0,10.202,8.301,18.503,18.504,18.503  c10.203,0,18.503-8.301,18.503-18.503C83.262,52.78,74.961,44.479,64.759,44.479z M64.759,78.486  c-8.549,0-15.504-6.955-15.504-15.503c0-8.549,6.955-15.504,15.504-15.504c8.548,0,15.503,6.955,15.503,15.504  C80.262,71.532,73.307,78.486,64.759,78.486z"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M95.856,78.513c2.975-5.458,4.941-10.823,4.941-15.518c0-19.872-16.166-36.039-36.039-36.039  c-19.872,0-36.039,16.167-36.039,36.039c0,19.51,33.595,50.587,35.024,51.901l1.015,0.932l1.015-0.932  c0.49-0.451,4.769-4.41,10.172-10.195c2.545,8.294,10.271,14.343,19.389,14.343c11.182,0,20.279-9.097,20.279-20.278  C115.614,87.76,106.795,78.793,95.856,78.513z M75.194,101.049c-4.623,5.053-8.631,8.964-10.435,10.682  C59.096,106.336,31.72,79.4,31.72,62.995c0-18.218,14.821-33.039,33.039-33.039c18.218,0,33.039,14.821,33.039,33.039  c0,4.644-2.199,10.134-5.477,15.74c-9.754,1.464-17.266,9.875-17.266,20.03C75.055,99.539,75.108,100.299,75.194,101.049z   M95.334,116.044c-9.527,0-17.279-7.751-17.279-17.278s7.752-17.279,17.279-17.279c9.529,0,17.279,7.752,17.279,17.279  S104.864,116.044,95.334,116.044z"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("rect", {
-                                              attrs: {
-                                                x: "86.545",
-                                                y: "97.286",
-                                                width: "17.576",
-                                                height: "3"
-                                              }
-                                            })
-                                          ]
+                                          )
                                         )
-                                      : _vm._e()
+                                      ]
+                                    )
                                   ]
-                                )
-                              ]
-                        ],
-                        2
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "card-body custom-card-body" },
-                        [_c("app-video", { attrs: { video: video } })],
-                        1
+                                : [
+                                    _c("span", { staticClass: "video-date" }, [
+                                      _c(
+                                        "span",
+                                        { staticClass: "video-date-year" },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.getDate(
+                                                video.created_at,
+                                                "year"
+                                              )
+                                            )
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "video-date-dm",
+                                          on: {
+                                            mouseover: function($event) {
+                                              _vm.tip.msg = "Day and month"
+                                              _vm.tip.show = true
+                                            },
+                                            mouseout: function($event) {
+                                              _vm.tip.show = false
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n\t\t\t\t\t\t\t\t\t\t" +
+                                              _vm._s(
+                                                _vm.getDate(
+                                                  video.created_at,
+                                                  "dm"
+                                                )
+                                              ) +
+                                              "\n\t\t\t\t\t\t\t\t\t"
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      { staticClass: "video-edit-buttons" },
+                                      [
+                                        video.spot_id
+                                          ? _c(
+                                              "svg",
+                                              {
+                                                staticClass:
+                                                  "video-remove-spot",
+                                                attrs: {
+                                                  xmlns:
+                                                    "http://www.w3.org/2000/svg",
+                                                  "xmlns:xlink":
+                                                    "http://www.w3.org/1999/xlink",
+                                                  version: "1.1",
+                                                  x: "0px",
+                                                  y: "0px",
+                                                  viewBox:
+                                                    "0 0 144.083 144.083",
+                                                  "enable-background":
+                                                    "new 0 0 144.083 144",
+                                                  "xml:space": "preserve"
+                                                },
+                                                on: {
+                                                  mouseover: function($event) {
+                                                    _vm.tip.msg =
+                                                      "Detach from spot"
+                                                    _vm.tip.show = true
+                                                  },
+                                                  mouseout: function($event) {
+                                                    _vm.tip.show = false
+                                                  },
+                                                  click: function($event) {
+                                                    _vm.removeSpotFromVideo(
+                                                      video.id
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("path", {
+                                                  attrs: {
+                                                    d:
+                                                      "M64.759,44.479c-10.203,0-18.504,8.301-18.504,18.504c0,10.202,8.301,18.503,18.504,18.503  c10.203,0,18.503-8.301,18.503-18.503C83.262,52.78,74.961,44.479,64.759,44.479z M64.759,78.486  c-8.549,0-15.504-6.955-15.504-15.503c0-8.549,6.955-15.504,15.504-15.504c8.548,0,15.503,6.955,15.503,15.504  C80.262,71.532,73.307,78.486,64.759,78.486z"
+                                                  }
+                                                }),
+                                                _vm._v(" "),
+                                                _c("path", {
+                                                  attrs: {
+                                                    d:
+                                                      "M95.856,78.513c2.975-5.458,4.941-10.823,4.941-15.518c0-19.872-16.166-36.039-36.039-36.039  c-19.872,0-36.039,16.167-36.039,36.039c0,19.51,33.595,50.587,35.024,51.901l1.015,0.932l1.015-0.932  c0.49-0.451,4.769-4.41,10.172-10.195c2.545,8.294,10.271,14.343,19.389,14.343c11.182,0,20.279-9.097,20.279-20.278  C115.614,87.76,106.795,78.793,95.856,78.513z M75.194,101.049c-4.623,5.053-8.631,8.964-10.435,10.682  C59.096,106.336,31.72,79.4,31.72,62.995c0-18.218,14.821-33.039,33.039-33.039c18.218,0,33.039,14.821,33.039,33.039  c0,4.644-2.199,10.134-5.477,15.74c-9.754,1.464-17.266,9.875-17.266,20.03C75.055,99.539,75.108,100.299,75.194,101.049z   M95.334,116.044c-9.527,0-17.279-7.751-17.279-17.278s7.752-17.279,17.279-17.279c9.529,0,17.279,7.752,17.279,17.279  S104.864,116.044,95.334,116.044z"
+                                                  }
+                                                }),
+                                                _vm._v(" "),
+                                                _c("rect", {
+                                                  attrs: {
+                                                    x: "86.545",
+                                                    y: "97.286",
+                                                    width: "17.576",
+                                                    height: "3"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          : _vm._e()
+                                      ]
+                                    )
+                                  ]
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "card-body custom-card-body" },
+                            [_c("app-video", { attrs: { video: video } })],
+                            1
+                          )
+                        ]
                       )
-                    ]
+                    })
                   )
-                })
+                ],
+                1
               )
-            ],
-            1
-          )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "spot-page-section comments-container" }, [
@@ -53676,84 +53684,8 @@ var render = function() {
           "div",
           { staticClass: "images-block-container spot-page-section" },
           [
-            _c(
-              "div",
-              { staticClass: "images-container" },
-              [
-                _c(
-                  "transition-group",
-                  {
-                    staticClass: "images-wrap",
-                    style: {
-                      width: _vm.images.length * 330 + "px",
-                      transform: "translateX(" + _vm.sliderPosition + "px)"
-                    },
-                    attrs: { tag: "div", name: "images-slider" }
-                  },
-                  _vm._l(_vm.images, function(image) {
-                    return _c(
-                      "div",
-                      {
-                        key: image.path,
-                        staticClass: "image-wrap",
-                        staticStyle: { opacity: "0" },
-                        on: {
-                          click: function($event) {
-                            _vm.sliderOpened = true
-                          }
-                        }
-                      },
-                      [
-                        _c("img", {
-                          attrs: { src: image.path },
-                          on: { load: _vm.adjustImg }
-                        }),
-                        _vm._v(" "),
-                        _c("transition", { attrs: { name: "remove-image" } }, [
-                          _vm.editMode
-                            ? _c(
-                                "div",
-                                {
-                                  staticClass: "remove-image",
-                                  on: {
-                                    click: function($event) {
-                                      $event.stopPropagation()
-                                      _vm.removeImage(image.id, $event)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass: "downsize-btn",
-                                      attrs: {
-                                        xmlns: "http://www.w3.org/2000/svg",
-                                        viewBox: "0 0 352 512",
-                                        width: "64px",
-                                        height: "64px"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    )
-                  })
-                ),
-                _vm._v(" "),
-                _c("div", [
+            _vm.images.length <= 0
+              ? _c("div", { staticClass: "no-images" }, [
                   _c(
                     "svg",
                     {
@@ -53799,46 +53731,60 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _c("g", [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "remove-move",
-                              attrs: {
-                                x: "12",
-                                y: "10",
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 352 512",
-                                width: "8",
-                                height: "8"
+                        _c(
+                          "g",
+                          {
+                            staticClass: "add-first-photo-container",
+                            class: { active: _vm.editMode },
+                            on: {
+                              click: function($event) {
+                                _vm.$refs.crap.click()
                               }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                                }
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("rect", {
-                            attrs: {
-                              x: "6.5",
-                              y: "5.5",
-                              fill: "#3D3935",
-                              width: "19",
-                              height: "17"
                             }
-                          })
-                        ]),
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                attrs: {
+                                  x: "12",
+                                  y: "10",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  viewBox: "0 0 352 512",
+                                  width: "8",
+                                  height: "8"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  staticClass: "add-first-photo",
+                                  attrs: {
+                                    d:
+                                      "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("rect", {
+                              staticClass: "no-images-background",
+                              class: { active: _vm.editMode },
+                              attrs: {
+                                x: "6.5",
+                                y: "5.5",
+                                fill: "#3D3935",
+                                width: "19",
+                                height: "17"
+                              }
+                            })
+                          ]
+                        ),
                         _vm._v(" "),
                         _c("path", {
                           attrs: {
                             fill: "#231F20",
                             d:
-                              "M28,26.2l3-0.8l-3-11V3h-3.1l-0.7-2.7L14.3,3H4v2.8L1,6.5l3,11V29h3.1l0.7,2.7l9.9-2.7H28V26.2z M29.7,24.7\n\t\t\t\t\t\t\t\tL28,25.2v-6.9L29.7,24.7z M23.5,1.6L23.9,3h-5.8L23.5,1.6z M2.3,7.3L4,6.8v6.9L2.3,7.3z M8.5,30.4L8.1,29h5.8L8.5,30.4z M27,28H5V4\n\t\t\t\t\t\t\t\th22V28z M26,5H6v18h20V5z M25,22H7V6h18V22z"
+                              "M28,26.2l3-0.8l-3-11V3h-3.1l-0.7-2.7L14.3,3H4v2.8L1,6.5l3,11V29h3.1l0.7,2.7l9.9-2.7H28V26.2z M29.7,24.7\n\t\t\t\t\t\t\tL28,25.2v-6.9L29.7,24.7z M23.5,1.6L23.9,3h-5.8L23.5,1.6z M2.3,7.3L4,6.8v6.9L2.3,7.3z M8.5,30.4L8.1,29h5.8L8.5,30.4z M27,28H5V4\n\t\t\t\t\t\t\th22V28z M26,5H6v18h20V5z M25,22H7V6h18V22z"
                           }
                         })
                       ]),
@@ -53958,9 +53904,97 @@ var render = function() {
                     ]
                   )
                 ])
-              ],
-              1
-            ),
+              : _c(
+                  "div",
+                  { staticClass: "images-container" },
+                  [
+                    _vm.images.length > 0
+                      ? _c(
+                          "transition-group",
+                          {
+                            staticClass: "images-wrap",
+                            style: {
+                              width: _vm.images.length * 330 + "px",
+                              transform:
+                                "translateX(" + _vm.sliderPosition + "px)"
+                            },
+                            attrs: { tag: "div", name: "images-slider" }
+                          },
+                          _vm._l(_vm.images, function(image) {
+                            return _c(
+                              "div",
+                              {
+                                key: image.path,
+                                staticClass: "image-wrap",
+                                staticStyle: { opacity: "0" },
+                                on: {
+                                  click: function($event) {
+                                    _vm.sliderOpened = true
+                                  }
+                                }
+                              },
+                              [
+                                _c("img", {
+                                  staticClass: "img-slider-item",
+                                  attrs: { src: image.path },
+                                  on: { load: _vm.adjustImg }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "transition",
+                                  { attrs: { name: "remove-image" } },
+                                  [
+                                    _vm.editMode
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass: "remove-image",
+                                            on: {
+                                              click: function($event) {
+                                                $event.stopPropagation()
+                                                _vm.removeImage(
+                                                  image.id,
+                                                  $event
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "svg",
+                                              {
+                                                staticClass: "downsize-btn",
+                                                attrs: {
+                                                  xmlns:
+                                                    "http://www.w3.org/2000/svg",
+                                                  viewBox: "0 0 352 512",
+                                                  width: "64px",
+                                                  height: "64px"
+                                                }
+                                              },
+                                              [
+                                                _c("path", {
+                                                  attrs: {
+                                                    d:
+                                                      "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          })
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                ),
             _vm._v(" "),
             _c("transition", { attrs: { name: "slider" } }, [
               _vm.sliderOpened
@@ -54078,121 +54112,128 @@ var render = function() {
                 : _vm._e()
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "images-control" }, [
-              _c("div", { staticClass: "images-control-info" }, [
-                _vm.editMode
-                  ? _c(
-                      "form",
-                      {
-                        attrs: {
-                          method: "POST",
-                          enctype: "multipart/form-data",
-                          id: "upload-img"
-                        }
-                      },
-                      [
-                        _c("input", {
-                          attrs: { type: "hidden", name: "_token" },
-                          domProps: { value: _vm.token }
-                        }),
-                        _vm._v(" "),
-                        _c("input", {
-                          ref: "crap",
-                          staticClass: "hidden",
+            _c(
+              "div",
+              {
+                staticClass: "images-control",
+                class: _vm.images.length <= 0 ? "hidden" : ""
+              },
+              [
+                _c("div", { staticClass: "images-control-info" }, [
+                  _vm.editMode
+                    ? _c(
+                        "form",
+                        {
                           attrs: {
-                            type: "file",
-                            name: "image[]",
-                            multiple: ""
-                          },
-                          on: { change: _vm.uploadImg }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-secondary",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                _vm.$refs.crap.click()
+                            method: "POST",
+                            enctype: "multipart/form-data",
+                            id: "upload-img"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            attrs: { type: "hidden", name: "_token" },
+                            domProps: { value: _vm.token }
+                          }),
+                          _vm._v(" "),
+                          _c("input", {
+                            ref: "crap",
+                            staticClass: "hidden",
+                            attrs: {
+                              type: "file",
+                              name: "image[]",
+                              multiple: ""
+                            },
+                            on: { change: _vm.uploadImg }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-secondary",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  _vm.$refs.crap.click()
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Add images")]
-                        )
-                      ]
+                            },
+                            [_vm._v("Add images")]
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("span", [
+                    _vm._v(
+                      _vm._s(_vm.currentImage) +
+                        " of " +
+                        _vm._s(_vm.images.length)
                     )
-                  : _vm._e(),
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("span", [
-                  _vm._v(
-                    _vm._s(_vm.currentImage) +
-                      " of " +
-                      _vm._s(_vm.images.length)
+                _c("div", { staticClass: "images-control-buttons" }, [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "button-left",
+                      attrs: {
+                        "xmlns:x": "http://ns.adobe.com/Extensibility/1.0/",
+                        "xmlns:i": "http://ns.adobe.com/AdobeIllustrator/10.0/",
+                        "xmlns:graph": "http://ns.adobe.com/Graphs/1.0/",
+                        xmlns: "http://www.w3.org/2000/svg",
+                        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                        version: "1.1",
+                        x: "0px",
+                        y: "0px",
+                        viewBox: "0 0 100 100",
+                        "enable-background": "new 0 0 100 100",
+                        "xml:space": "preserve"
+                      },
+                      on: { click: _vm.prevImg }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M74.7,31.1L55.8,50l18.9,18.9c5.1,5.1,5.1,13.4,0,18.5h0c-5.1,5.1-13.4,5.1-18.5,0L37.3,68.5L23.4,54.6  c-2.6-2.6-2.6-6.7,0-9.3l13.9-13.9l18.9-18.9c5.1-5.1,13.4-5.1,18.5,0h0C79.8,17.7,79.8,26,74.7,31.1z"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "button-right",
+                      attrs: {
+                        "xmlns:x": "http://ns.adobe.com/Extensibility/1.0/",
+                        "xmlns:i": "http://ns.adobe.com/AdobeIllustrator/10.0/",
+                        "xmlns:graph": "http://ns.adobe.com/Graphs/1.0/",
+                        xmlns: "http://www.w3.org/2000/svg",
+                        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                        version: "1.1",
+                        x: "0px",
+                        y: "0px",
+                        viewBox: "0 0 100 100",
+                        "enable-background": "new 0 0 100 100",
+                        "xml:space": "preserve"
+                      },
+                      on: { click: _vm.nextImg }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M74.7,31.1L55.8,50l18.9,18.9c5.1,5.1,5.1,13.4,0,18.5h0c-5.1,5.1-13.4,5.1-18.5,0L37.3,68.5L23.4,54.6  c-2.6-2.6-2.6-6.7,0-9.3l13.9-13.9l18.9-18.9c5.1-5.1,13.4-5.1,18.5,0h0C79.8,17.7,79.8,26,74.7,31.1z"
+                        }
+                      })
+                    ]
                   )
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "images-control-buttons" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "button-left",
-                    attrs: {
-                      "xmlns:x": "http://ns.adobe.com/Extensibility/1.0/",
-                      "xmlns:i": "http://ns.adobe.com/AdobeIllustrator/10.0/",
-                      "xmlns:graph": "http://ns.adobe.com/Graphs/1.0/",
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      version: "1.1",
-                      x: "0px",
-                      y: "0px",
-                      viewBox: "0 0 100 100",
-                      "enable-background": "new 0 0 100 100",
-                      "xml:space": "preserve"
-                    },
-                    on: { click: _vm.prevImg }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M74.7,31.1L55.8,50l18.9,18.9c5.1,5.1,5.1,13.4,0,18.5h0c-5.1,5.1-13.4,5.1-18.5,0L37.3,68.5L23.4,54.6  c-2.6-2.6-2.6-6.7,0-9.3l13.9-13.9l18.9-18.9c5.1-5.1,13.4-5.1,18.5,0h0C79.8,17.7,79.8,26,74.7,31.1z"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "svg",
-                  {
-                    staticClass: "button-right",
-                    attrs: {
-                      "xmlns:x": "http://ns.adobe.com/Extensibility/1.0/",
-                      "xmlns:i": "http://ns.adobe.com/AdobeIllustrator/10.0/",
-                      "xmlns:graph": "http://ns.adobe.com/Graphs/1.0/",
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      version: "1.1",
-                      x: "0px",
-                      y: "0px",
-                      viewBox: "0 0 100 100",
-                      "enable-background": "new 0 0 100 100",
-                      "xml:space": "preserve"
-                    },
-                    on: { click: _vm.nextImg }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M74.7,31.1L55.8,50l18.9,18.9c5.1,5.1,5.1,13.4,0,18.5h0c-5.1,5.1-13.4,5.1-18.5,0L37.3,68.5L23.4,54.6  c-2.6-2.6-2.6-6.7,0-9.3l13.9-13.9l18.9-18.9c5.1-5.1,13.4-5.1,18.5,0h0C79.8,17.7,79.8,26,74.7,31.1z"
-                      }
-                    })
-                  ]
-                )
-              ])
-            ])
+              ]
+            )
           ],
           1
         ),
@@ -54573,6 +54614,189 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(93)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(95)
+/* template */
+var __vue_template__ = __webpack_require__(96)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\SpotAdd.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-55acdf98", Component.options)
+  } else {
+    hotAPI.reload("data-v-55acdf98", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(94);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("792719fa", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-55acdf98\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SpotAdd.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-55acdf98\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SpotAdd.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n#images-container {\n\t\tfont-family: 'Nunito';\n\t\tborder: 0;\n}\n.images-wrap {\n\t\tmargin-top: 20px;\n\t\tborder: 2px dashed #0087F7;\n}\n.remove-image {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tfill: #a00;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: 10;\n\t\topacity: 0;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n\t\tcursor: pointer !important;\n}\n.remove-image * {\n\t\tcursor: pointer !important;\n}\n.remove-image:hover {\n\t\topacity: 1;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n\t\tposition: relative;\n}\n.custom-label {\n\t\tbackground-color: #565656;\n  \t\tcolor: transparent;\n\t\ttext-shadow: 0px 2px 3px rgba(255,255,255,0.5);\n\t\t-webkit-background-clip: text;\n        background-clip: text;\n        font-family: 'Nunito';\n\t    font-size: 20px;\n\t    padding: 10px;\n        -webkit-box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n                box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n        position: absolute;\n        top: 0;\n        left: 0;\n}\n.upload-img-title {\n\t\tfont-weight: bold;\n\t\tfont-size: 32px;\n\t\tcolor: #555;\n}\n.dropzone .dz-preview.dz-image-preview {\n\t\tbackground: transparent !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 95 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['routes'],
+	data: function data() {
+		return {};
+	},
+	mounted: function mounted() {
+		this.initDropzone();
+	},
+
+	methods: {
+		initDropzone: function initDropzone() {
+			Dropzone.autoDiscover = false;
+			var myDropzone = new Dropzone(document.querySelector("#images-container"), {
+				previewTemplate: '<div class="dz-preview dz-file-preview">\n\t\t\t\t\t\t\t\t\t<div class="dz-image">\n\t\t\t\t\t\t\t\t\t    <img data-dz-thumbnail />\n\t\t\t\t\t\t\t\t  \t</div>\n\t\t\t\t\t\t\t\t  \t<svg data-dz-remove class="remove-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">\n\t\t\t\t\t\t\t\t\t\t<path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>\n\t\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t\t\t</div>',
+				uploadMultiple: true,
+				paramName: 'image',
+				autoProcessQueue: false,
+				url: 'random'
+			});
+			//console.log(myDropzone.files);
+		}
+	}
+});
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "spot-page-section images-wrap" }, [
+        _c("h1", { staticClass: "custom-label" }, [_vm._v("Add spot images")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "dropzone", attrs: { id: "images-container" } },
+          [
+            _c(
+              "div",
+              { staticClass: "dz-message", attrs: { "data-dz-message": "" } },
+              [
+                _c("span", { staticClass: "upload-img-title" }, [
+                  _vm._v("Drop files here or click to upload")
+                ])
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-55acdf98", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

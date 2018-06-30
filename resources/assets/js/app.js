@@ -21,6 +21,7 @@ Vue.component('Profile', require('./components/Profile.vue'));
 Vue.component('Profileedit', require('./components/ProfileEdit.vue'));
 Vue.component('Mapall', require('./components/MapAll.vue'));
 Vue.component('Spot', require('./components/Spot.vue'));
+Vue.component('Spotadd', require('./components/SpotAdd.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -17,7 +17,7 @@
 						<button v-if="editMode" class="btn btn-secondary custom-btn-save-description" type="button" @click="changeDescription">Save</button>
 					</div>
 				</div>
-				<div class="spot-videos">
+				<div class="spot-videos" v-if="currentVideos(currentTrick).length > 0">
 					<transition-group class="tricks-container" tag="div" name="videos" mode="out-in">
 						<div v-for="video in currentVideos(currentTrick)" :key="video.id" class="trick-container card">
 							<h3 class="card-header custom-card-header custom-card-header-full-videos custom-card-header-mute">
@@ -98,10 +98,38 @@
 		</div>
 		<aside class="aside-content">
 			<div class="images-block-container spot-page-section">
-				<div class="images-container">
-					<transition-group tag="div" name="images-slider" class="images-wrap" :style="{width: images.length * 330 + 'px', transform: 'translateX(' + sliderPosition + 'px)'}">
+				<div v-if="images.length <= 0" class="no-images">
+					<svg version="1.1" baseProfile="tiny" id="DESIGNS" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve">
+						<g>
+							<g>
+								<rect x="4.5" y="3.5" transform="matrix(0.9659 -0.2588 0.2588 0.9659 -3.5956 4.6861)" fill="#DBD2C1" width="23" height="25"></rect>
+							</g>
+							<rect x="4.5" y="3.5" fill="#FFFAEE" width="23" height="25"></rect>
+							<g class="add-first-photo-container" :class="{'active' : editMode}" @click="$refs.crap.click()">
+								<svg x="12" y="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" width="8" height="8">
+									<path class="add-first-photo" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+								</svg>
+								<rect class="no-images-background" :class="{'active' : editMode}" x="6.5" y="5.5" fill="#3D3935" width="19" height="17"></rect>
+							</g>
+							<path fill="#231F20" d="M28,26.2l3-0.8l-3-11V3h-3.1l-0.7-2.7L14.3,3H4v2.8L1,6.5l3,11V29h3.1l0.7,2.7l9.9-2.7H28V26.2z M29.7,24.7
+								L28,25.2v-6.9L29.7,24.7z M23.5,1.6L23.9,3h-5.8L23.5,1.6z M2.3,7.3L4,6.8v6.9L2.3,7.3z M8.5,30.4L8.1,29h5.8L8.5,30.4z M27,28H5V4
+								h22V28z M26,5H6v18h20V5z M25,22H7V6h18V22z"></path>
+						</g>
+						<text transform="matrix(1 0 0 1 7 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">N</text>
+						<text transform="matrix(1 0 0 1 9.2793 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
+						<text transform="matrix(1 0 0 1 11.6553 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px"> </text>
+						<text transform="matrix(1 0 0 1 12.4053 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">P</text>
+						<text transform="matrix(1 0 0 1 14.4063 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">H</text>
+						<text transform="matrix(1 0 0 1 16.686 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
+						<text transform="matrix(1 0 0 1 18.9478 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">T</text>
+						<text transform="matrix(1 0 0 1 20.7827 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
+						<text transform="matrix(1 0 0 1 23.1587 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">S</text>
+					</svg>
+				</div>
+				<div class="images-container" v-else>
+					<transition-group v-if="images.length > 0" tag="div" name="images-slider" class="images-wrap" :style="{width: images.length * 330 + 'px', transform: 'translateX(' + sliderPosition + 'px)'}">
 						<div v-for="image in images" :key="image.path" class="image-wrap" @click="sliderOpened = true;" style="opacity: 0;">
-							<img :src="image.path" @load="adjustImg">
+							<img :src="image.path" @load="adjustImg" class="img-slider-item">
 							<transition name="remove-image">
 								<div class="remove-image" v-if="editMode" @click.stop="removeImage(image.id, $event)">
 									<svg class="downsize-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" width="64px" height="64px">
@@ -111,33 +139,6 @@
 							</transition>
 						</div>
 					</transition-group>
-					<div> <!-- If no photos -->
-						<svg version="1.1" baseProfile="tiny" id="DESIGNS" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve">
-							<g>
-								<g>
-									<rect x="4.5" y="3.5" transform="matrix(0.9659 -0.2588 0.2588 0.9659 -3.5956 4.6861)" fill="#DBD2C1" width="23" height="25"></rect>
-								</g>
-								<rect x="4.5" y="3.5" fill="#FFFAEE" width="23" height="25"></rect>
-								<g>
-									
-									<svg x="12" y="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" width="8" height="8" class="remove-move"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
-									<rect x="6.5" y="5.5" fill="#3D3935" width="19" height="17"></rect>
-								</g>
-								<path fill="#231F20" d="M28,26.2l3-0.8l-3-11V3h-3.1l-0.7-2.7L14.3,3H4v2.8L1,6.5l3,11V29h3.1l0.7,2.7l9.9-2.7H28V26.2z M29.7,24.7
-									L28,25.2v-6.9L29.7,24.7z M23.5,1.6L23.9,3h-5.8L23.5,1.6z M2.3,7.3L4,6.8v6.9L2.3,7.3z M8.5,30.4L8.1,29h5.8L8.5,30.4z M27,28H5V4
-									h22V28z M26,5H6v18h20V5z M25,22H7V6h18V22z"></path>
-							</g>
-							<text transform="matrix(1 0 0 1 7 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">N</text>
-							<text transform="matrix(1 0 0 1 9.2793 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
-							<text transform="matrix(1 0 0 1 11.6553 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px"> </text>
-							<text transform="matrix(1 0 0 1 12.4053 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">P</text>
-							<text transform="matrix(1 0 0 1 14.4063 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">H</text>
-							<text transform="matrix(1 0 0 1 16.686 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
-							<text transform="matrix(1 0 0 1 18.9478 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">T</text>
-							<text transform="matrix(1 0 0 1 20.7827 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">O</text>
-							<text transform="matrix(1 0 0 1 23.1587 26.223)" fill="#231F20" font-family="'Nunito'" font-size="3px">S</text>
-						</svg>
-					</div>
 				</div>
 				<transition name="slider">
 					<div v-if="sliderOpened" class="slider-fullsize">
@@ -154,7 +155,7 @@
 						</svg>
 					</div>
 				</transition>
-				<div class="images-control">
+				<div class="images-control" :class="images.length <= 0 ? 'hidden' : ''">
 					<div class="images-control-info">
 						<form method="POST" enctype="multipart/form-data" id="upload-img" v-if="editMode">
 							<input type="hidden" name="_token" :value="token">
@@ -353,14 +354,6 @@
 			},
 			adjustImg(e) {
 				var img = e.target;
-				var settings = getComputedStyle(img);
-				if(parseInt(settings.width) > parseInt(settings.height)) {
-					img.classList.add('wide');
-					img.style.left = '-' + parseInt(settings.width)/2 + 'px';
-				} else {
-					img.classList.add('high');
-					img.style.top = '-' + parseInt(settings.height)/2 + 'px';
-				}
 				img.parentNode.style.opacity = 1;
 			},
 			prevImg() {
@@ -838,6 +831,11 @@
     	font-weight: bold;
     }
 
+    .spot-elements-list-item-active:not(.with-video) span {
+    	transform: none;
+    	font-weight: normal;
+    }
+
     .spot-elements-list-item span {
     	align-self: center;
 	    display: flex;
@@ -1280,5 +1278,47 @@
 
     .comment-container:hover .remove-comment {
     	opacity: 1;
+    }
+
+    .no-images, .no-images svg {
+    	width: 100%;
+    	height: 100%;
+    }
+
+    .no-images svg {
+    	fill: #231F20;
+    }
+
+    .no-images {
+    	padding: 10px;
+    }
+
+    .no-images-background {
+    	transition: .5s;
+    }
+
+    .no-images-background.active {
+    	opacity: 0;
+    }
+
+    .add-first-photo {
+	    transform: rotate(45deg);
+    	transform-origin: center;
+    	transition: .2s;
+    }
+
+    .add-first-photo-container:hover .add-first-photo {
+    	fill: #0a0;
+    	transform: rotate(45deg) scale(1.1);
+    }
+
+    .add-first-photo-container.active {
+    	cursor: pointer;
+    }
+
+    .img-slider-item {
+    	width: 100%;
+    	height: 100%;
+    	object-fit: cover;
     }
 </style>
