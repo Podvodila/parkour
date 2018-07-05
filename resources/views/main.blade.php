@@ -28,11 +28,10 @@
     </script>
 </head>
 <body>
-    <nav class="main-nav-container">
+    <!-- <nav class="main-nav-container">
     	<div class="main-nav">
 			<h1 class="nav-logo">parkour</h1>
 	    	<ul class="custom-navbar">
-	            <!-- Authentication Links -->
 	            @guest
 	                <li><a class="nav-link" href="{{ route('login') }}">@lang('login.login')</a></li>
 	            @else
@@ -50,7 +49,7 @@
 	            @endguest
 	        </ul>
         </div>
-    </nav>
+    </nav> -->
     <main class="main-content">
         @yield('content')
     </main>
@@ -68,8 +67,13 @@
     }
 
     .main-content {
-        max-width: 1200px;
+        max-width: 1265px;
+        padding: 0px 45px 0px 20px;
         margin: 0px auto;
+    }
+
+    a[href="http://leafletjs.com"] {
+        display: none;
     }
     
     video::-webkit-media-controls {

@@ -1,0 +1,5 @@
+.first-block {
+	height: calc(100vh - 64px);
+	background: url('../images/on_railing.jpg') no-repeat;
+	background-size: cover;
+}

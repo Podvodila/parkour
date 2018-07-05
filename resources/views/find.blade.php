@@ -1,7 +1,12 @@
 @extends('main')
 
+@php
+  $routesHeader = ['login' => route('login'), 'logout' => route('logout'), 'profile' => route('site.profileEdit'), 'find' => route('site.mapFind')];
+@endphp
+
 @section('content')
   <div id="app">
+    <HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}"></HeaderApp>
     <MapAll 
       :spots="{{$spots}}"
       :redirect="true"
@@ -11,8 +16,12 @@
 
 @section('scripts')
   <script src="{{ asset('js/app.js') }}" defer></script>
-  <script async defer src="/js/markerclusterer.js"></script>
-  <script id="googleMap" onload="window.mapLoaded = true;" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM7zVJIpwF35JDbkg0oS4awX4pBzZoMac&libraries=places"></script>
+  <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}" crossorigin=""/>
+  <script src="{{ asset('js/leaflet.js') }}" crossorigin=""></script>
+  <link rel="stylesheet" href="{{ asset('css/MarkerCluster.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('css/MarkerCluster.Default.css') }}"/>
+  <script src="{{ asset('js/leaflet.markercluster.js') }}"></script>
+  <script src="{{ asset('js/leaflet-geosearch.min.js') }}" crossorigin=""></script>
   <style>
   	body {
   		height: 100vh;

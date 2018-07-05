@@ -57,6 +57,7 @@
 				search: '',
 				description: '',
 				canSubmit: true,
+				mapMarker: null,
 			}
 		},
 		computed: {
@@ -98,129 +99,29 @@
 			},
 			initMap() {
 				var self = this;
-				var map = new google.maps.Map(document.querySelector("#map"), {
-					zoom: 3,
-					center: {lat: 48.69130611, lng: 32.34168314 },
-					disableDefaultUI: true,
-					zoomControl: true,
-					styles: [
-					    {
-					        "featureType": "landscape",
-					        "stylers": [
-					            {
-					                "hue": "#FFA800"
-					            },
-					            {
-					                "saturation": 0
-					            },
-					            {
-					                "lightness": 0
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "road.highway",
-					        "stylers": [
-					            {
-					                "hue": "#53FF00"
-					            },
-					            {
-					                "saturation": -73
-					            },
-					            {
-					                "lightness": 40
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "road.arterial",
-					        "stylers": [
-					            {
-					                "hue": "#FBFF00"
-					            },
-					            {
-					                "saturation": 0
-					            },
-					            {
-					                "lightness": 0
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "road.local",
-					        "stylers": [
-					            {
-					                "hue": "#00FFFD"
-					            },
-					            {
-					                "saturation": 0
-					            },
-					            {
-					                "lightness": 30
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "water",
-					        "stylers": [
-					            {
-					                "hue": "#00BFFF"
-					            },
-					            {
-					                "saturation": 6
-					            },
-					            {
-					                "lightness": 8
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "poi",
-					        "stylers": [
-					            {
-					                "hue": "#679714"
-					            },
-					            {
-					                "saturation": 33.4
-					            },
-					            {
-					                "lightness": -25.4
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    }
-					],
-				});
 
-				var marker = new google.maps.Marker({
-				  position: { lat: 48.69130611, lng: 48.69130611 },
-				});
+				var mymap = L.map('map', {zoomControl: false}).setView([45.33707006, 34.53894877], 4);
+				L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				    attribution: '',
+				    minZoom: 2,
+				}).addTo(mymap);
 
-				map.addListener('click', function(e) {
-		          self.placeMarker(e.latLng, map, marker);
+				L.control.zoom({
+			    	position:'topright'
+				}).addTo(mymap);
+
+				mymap.on('click', function(e) {
+		          self.placeMarker(e.latlng, mymap);
 		        });
 			},
-			placeMarker(latLng, map, marker) {
-				marker.position = latLng;
-				marker.setMap(map);
-				this.location = `${latLng.lat()} ${latLng.lng()}`;
+			placeMarker(latLng, map) {
+				
+				if(this.mapMarker != null) {
+					map.removeLayer(this.mapMarker);
+				}
+				this.mapMarker = new L.marker(latLng);
+				map.addLayer(this.mapMarker);
+				this.location = `${latLng.lat} ${latLng.lng}`;
 			},
 			isSearched(name) {
 				return name.toLowerCase().includes(this.search.toLowerCase());
@@ -339,6 +240,7 @@
 		top: 0;
 		left: 0;
 		background-color: #fff;
+		z-index: 1000;
 	}
 
 	.custom-label-wrap .custom-label {
@@ -358,7 +260,7 @@
 	.content-container {
 		width: 100%;
 		display: flex;
-		margin-top: 40px;
+		margin-top: calc(40px + 64px);
 		color: #515669;
 		font-family: 'Nunito';
 	    font-weight: normal;
@@ -467,6 +369,7 @@
 
 	.custom-submit {
 		margin-top: 15px;
+		margin-bottom: 15px;
 		cursor: pointer;
 	}
 

@@ -13,8 +13,10 @@
 		'addComment' => route('spot.addComment', $id = $spot->id),
 		'removeComment' => route('spot.removeComment', $id = $spot->id),
 	];
+	$routesHeader = ['login' => route('login'), 'logout' => route('logout'), 'profile' => route('site.profileEdit'), 'find' => route('site.mapFind')];
 @endphp
 	<div id="app">
+		<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}"></HeaderApp>
 		<Spot 
 		:routes="{{json_encode($routes)}}"
 		:src_images="{{json_encode($images)}}"
@@ -31,5 +33,6 @@
 
 @section('scripts')
 	<script src="{{ asset('js/app.js') }}" defer></script>
-  	<script id="googleMap" onload="window.mapLoaded = true;" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM7zVJIpwF35JDbkg0oS4awX4pBzZoMac"></script>
+  	<link async defer rel="stylesheet" href="{{ asset('css/leaflet.css') }}"/>
+  <script async defer id="googleMap" onload="window.mapLoaded = true;" src="{{ asset('js/leaflet.js') }}"></script>
 @endsection

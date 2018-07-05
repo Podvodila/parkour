@@ -67,7 +67,7 @@
     			     password: form.get('password'),
                      remember: form.get('remember')
     			  },
-    			  success: function(resultData) { window.location.href = '/' },
+    			  success: function(resultData) { window.location.href = '/profile' },
                   error: function(data) {
                     console.log(data.responseJSON.errors.login[0]);
                     self.error = data.responseJSON.errors.login[0];

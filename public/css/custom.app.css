@@ -20,40 +20,60 @@ body {
 }
 
 .main-nav-container {
-	background-color: #1c2029;
-	background-image: url('../images/noiseImg.png');
+	/*background-color: #1c2029;*/
+	/*background-image: url('../images/noiseImg.png');*/
 	font-family: 'Nunito';
-	color: #fff;
+	/*color: #fff;*/
 	overflow: hidden;
-	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+	/*box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);*/
+	width: 100vw;
+	height: 64px;
+	border-bottom: 1px solid rgba(0,0,0,.0975);
+    background-color: rgba(255, 255, 255, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    color: #1c2029;
 }
 
 .main-nav {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	height: 100%;
 	max-width: 1400px;
-	margin: 10px auto;
+	margin: 0px auto;
 }
 
 .nav-logo {
 	font-weight: bold;
 	font-size: 42px;
+	color: #444;
 }
 
 .custom-navbar {
 	display: flex;
 	align-items: center;
+	color: #444;
+	height: 100%;
 }
 
 .custom-navbar li {
 	margin-right: 10px;
+    height: 100%;
 }
 
 .nav-link {
+	font-family: 'Nunito';
+	font-size: 18px;
 	font-weight: normal;
-	color: #fff;
+	color: #444;
+	height: 100%;
+	display: flex;
+    align-items: center;
 }
 
 .nav-link:hover {
-	color: #fff;
+	color: #5886af;
 }

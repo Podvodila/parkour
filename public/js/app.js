@@ -14490,7 +14490,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(19);
-module.exports = __webpack_require__(93);
+module.exports = __webpack_require__(103);
 
 
 /***/ }),
@@ -14521,6 +14521,8 @@ Vue.component('Profileedit', __webpack_require__(74));
 Vue.component('Mapall', __webpack_require__(17));
 Vue.component('Spot', __webpack_require__(83));
 Vue.component('Spotadd', __webpack_require__(88));
+Vue.component('Home', __webpack_require__(93));
+Vue.component('Headerapp', __webpack_require__(98));
 
 var app = new Vue({
   el: '#app'
@@ -47981,7 +47983,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           remember: form.get('remember')
         },
         success: function success(resultData) {
-          window.location.href = '/';
+          window.location.href = '/profile';
         },
         error: function error(data) {
           console.log(data.responseJSON.errors.login[0]);
@@ -48806,7 +48808,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 0 auto;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.downsize-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.downsize-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.video-numbers {\n    \tposition: absolute;\n\t    right: 0;\n\t    height: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    width: 45px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    top: 0;\n\t    border-left: 1px solid #aaa;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    background-color: rgba(0, 0, 0, 0.05);\n}\n", ""]);
+exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 1002;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.downsize-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.downsize-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.video-numbers {\n    \tposition: absolute;\n\t    right: 0;\n\t    height: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    width: 45px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    top: 0;\n\t    border-left: 1px solid #aaa;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    background-color: rgba(0, 0, 0, 0.05);\n}\n", ""]);
 
 // exports
 
@@ -49175,7 +49177,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.custom-video-container {\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tmargin-bottom: -4px;\n}\n.custom-video {\n\twidth: 100%;\n\tmax-height: 400px;\n\tmin-height: 250px;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.custom-video:-webkit-full-screen {\n\tobject-fit: contain;\n}\n.video-play-button {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 99%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\tbackground-color: rgba(0, 0, 0, 0.2);\n\topacity: 0;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.video-play-button svg {\n\twidth: 64px;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tcursor: pointer;\n}\n.custom-video-container:hover .video-play-button {\n\topacity: 1;\n}\n.bot-menu {\n\tposition: absolute;\n\tbottom: 0%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 36px;\n\tbackground-color: rgba(0, 0, 0, 0.5);\n\t-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t    -ms-flex-pack: justify;\n\t        justify-content: space-between;\n\topacity: 0;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tz-index: 2147483647;\n}\n.custom-video-container:hover .bot-menu {\n\topacity: 1;\n}\n.svg {\n\theight: 100%;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.bot-menu-icon-wrap {\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.bot-menu-icon-wrap .svg-container {\n\tmargin-left: 10px;\n}\n.svg-map {\n\theight: 28px;\n}\n.removed {\n\tdisplay: none;\n}\n.svg-container {\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\tcursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.custom-video-container {\n\twidth: 100%;\n\tposition: relative;\n\toverflow: hidden;\n\tmargin-bottom: -4px;\n}\n.custom-video {\n\twidth: 100%;\n\tmax-height: 400px;\n\tmin-height: 250px;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.custom-video:-webkit-full-screen {\n\tobject-fit: contain;\n}\n.video-play-button {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\twidth: 100%;\n\theight: 99%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\tbackground-color: rgba(0, 0, 0, 0.2);\n\topacity: 0;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.video-play-button svg {\n\twidth: 64px;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tcursor: pointer;\n}\n.custom-video-container:hover .video-play-button {\n\topacity: 1;\n}\n.bot-menu {\n\tposition: absolute;\n\tbottom: 0%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 36px;\n\tbackground-color: rgba(0, 0, 0, 0.5);\n\t-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: justify;\n\t    -ms-flex-pack: justify;\n\t        justify-content: space-between;\n\topacity: 0;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tz-index: 2147483647;\n}\n.custom-video-container:hover .bot-menu {\n\topacity: 1;\n}\n.svg {\n\theight: 100%;\n\tfill: #fff;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n}\n.bot-menu-icon-wrap {\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.bot-menu-icon-wrap .svg-container {\n\tmargin-left: 10px;\n}\n.svg-map {\n\theight: 28px;\n}\n.removed {\n\tdisplay: none;\n}\n.svg-container {\n\theight: 100%;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\tcursor: pointer;\n}\n.svg-wrapper {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n.svg-tracer {\n\twidth: 22px;\n\theight: 22px;\n}\n", ""]);
 
 // exports
 
@@ -49243,11 +49245,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['video'],
+	props: ['video', 'spot_page'],
 	data: function data() {
 		return {
 			videoPlaying: false,
@@ -49561,14 +49573,14 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "bot-menu-icon-wrap" }, [
-            _vm.video.spot_id
+            _vm.spot_page
               ? _c(
                   "div",
                   {
                     staticClass: "svg-container",
                     on: {
                       mouseover: function($event) {
-                        _vm.tip.msg = "View on map"
+                        _vm.tip.msg = "Tracer"
                         _vm.tip.show = true
                       },
                       mouseout: function($event) {
@@ -49580,8 +49592,9 @@ var render = function() {
                     _c(
                       "a",
                       {
+                        staticClass: "svg-wrapper",
                         attrs: {
-                          href: "/spot/" + _vm.video.spot_id,
+                          href: "/profile/" + _vm.video.user_id,
                           target: "_blank"
                         }
                       },
@@ -49589,32 +49602,93 @@ var render = function() {
                         _c(
                           "svg",
                           {
-                            staticClass: "svg svg-map",
-                            staticStyle: {
-                              "enable-background": "new 0 0 100 100"
-                            },
+                            staticClass: "svg svg-tracer",
                             attrs: {
                               xmlns: "http://www.w3.org/2000/svg",
                               "xmlns:xlink": "http://www.w3.org/1999/xlink",
                               version: "1.1",
+                              x: "0px",
+                              y: "0px",
                               viewBox: "0 0 100 100",
+                              "enable-background": "new 0 0 100 100",
                               "xml:space": "preserve"
                             }
                           },
                           [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M60.6,30c0-5.5-4.5-10-10.1-10c-5.6,0-10.1,4.5-10.1,10s4.5,10,10.1,10C56.1,40,60.6,35.5,60.6,30z M44.4,30  c0-3.3,2.7-6,6.1-6s6.1,2.7,6.1,6s-2.7,6-6.1,6S44.4,33.3,44.4,30z M50,64.8l1.4-1.4C67.9,47.1,69.2,35.2,69.2,32v-2  c0-10.5-8.6-19-19.2-19s-19.2,8.5-19.2,19v2c0,3.2,1.3,15.1,17.8,31.4L50,64.8z M34.8,30c0-8.3,6.8-15,15.2-15  c8.4,0,15.2,6.7,15.2,15v2c0,2-0.8,12.3-15.2,27.1C35.6,44.3,34.8,33.9,34.8,32V30z M94.8,75.7L72.7,89l-22.4-7.4  c-0.2-0.1-0.4-0.2-0.5-0.3c-0.2,0.1-0.3,0.2-0.5,0.3L26.9,89L4.8,75.7l11.9-42.9L29,40.2c1,0.6,1.3,1.8,0.7,2.7  c-0.6,0.9-1.8,1.2-2.8,0.7L19.2,39L9.5,73.8L26,83.8l3.8-33c0.1-1.1,1.1-1.9,2.2-1.8c1.1,0.1,1.9,1.1,1.8,2.2l-3.8,32.5L48,77.8  c0,0,0,0,0,0v-6.9c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2v7c0,0,0,0,0,0L70,83.9l-3.8-32.7c-0.1-1.1,0.7-2.1,1.8-2.2  c1.1-0.1,2.1,0.7,2.2,1.8L74,83.5l16.1-9.7L80.4,39l-7.7,4.6c-1,0.6-2.2,0.3-2.8-0.7c-0.6-0.9-0.3-2.2,0.7-2.7l12.3-7.4L94.8,75.7z"
-                              }
-                            })
+                            _c("g", [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M70.1,66.1c-3,3.6-7,6.8-12.2,8.7c-2.5,0.9-5.2,1.4-7.9,1.4c-2.7,0-5.3-0.4-7.8-1.3c-5.2-1.8-9.3-5-12.3-8.7   c-4.3,2.3-11.8,6.5-19.6,12.2C19.2,90.6,33.7,98.6,50,98.6c16.3,0,30.8-8,39.7-20.3C81.9,72.6,74.4,68.4,70.1,66.1L70.1,66.1z"
+                                }
+                              }),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M24.5,44.9c0.6,2,1.6,5.8,4,8c1.8,6.6,7,14.3,15.4,17.3c2,0.7,4.1,1.1,6.3,1.1c2.1,0,4.2-0.4,6.2-1.1   c8.4-3,13.6-10.6,15.4-17.3c2.4-2.2,3.4-6,4-8c0.9-3.2,1.8-7.7-0.6-10.9c-0.1-0.1-0.2-0.2-0.3-0.4c0.2-1.1,0.3-2.2,0.4-3.2   c2.8-18.8-7.6-20-8.8-20c-0.1,0-0.1-0.1-0.2-0.1c-1.2-4.9-8.2-10-14.8-8.7C45,3,31.4,1.4,31.4,1.4c-0.2,2.9,2.3,4.9,2.3,4.9   c-11.5,7-9.4,22-8.3,27.3c-0.1,0.1-0.2,0.2-0.3,0.4C22.7,37.2,23.6,41.7,24.5,44.9z M30.5,36.1c0.1,0,0.2,0,0.3,0c0,0,0-0.1,0-0.1   c-0.3-1-1.7-6.7,3.2-10.1c4,0.9,10,1.1,18.2-2.4C68,16.7,69.4,36.1,69.4,36.1v0c0.1,0,0.2,0,0.3,0c1.6,0,3.3,1.3,1.5,7.5   c-1.4,4.9-2.7,6.3-3.6,6.3c-0.9,5.8-5.4,13.2-12.8,15.8c-1.5,0.5-3.1,0.8-4.7,0.8c-1.6,0-3.2-0.3-4.7-0.8   c-7.3-2.6-11.9-10-12.8-15.8c-1-0.1-2.3-1.4-3.6-6.3C27.2,37.3,28.9,36.1,30.5,36.1z"
+                                }
+                              })
+                            ])
                           ]
                         )
                       ]
                     )
                   ]
                 )
-              : _vm._e(),
+              : _vm.video.spot_id
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "svg-container",
+                      on: {
+                        mouseover: function($event) {
+                          _vm.tip.msg = "View on map"
+                          _vm.tip.show = true
+                        },
+                        mouseout: function($event) {
+                          _vm.tip.show = false
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "/spot/" + _vm.video.spot_id,
+                            target: "_blank"
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "svg svg-map",
+                              staticStyle: {
+                                "enable-background": "new 0 0 100 100"
+                              },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                version: "1.1",
+                                viewBox: "0 0 100 100",
+                                "xml:space": "preserve"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M60.6,30c0-5.5-4.5-10-10.1-10c-5.6,0-10.1,4.5-10.1,10s4.5,10,10.1,10C56.1,40,60.6,35.5,60.6,30z M44.4,30  c0-3.3,2.7-6,6.1-6s6.1,2.7,6.1,6s-2.7,6-6.1,6S44.4,33.3,44.4,30z M50,64.8l1.4-1.4C67.9,47.1,69.2,35.2,69.2,32v-2  c0-10.5-8.6-19-19.2-19s-19.2,8.5-19.2,19v2c0,3.2,1.3,15.1,17.8,31.4L50,64.8z M34.8,30c0-8.3,6.8-15,15.2-15  c8.4,0,15.2,6.7,15.2,15v2c0,2-0.8,12.3-15.2,27.1C35.6,44.3,34.8,33.9,34.8,32V30z M94.8,75.7L72.7,89l-22.4-7.4  c-0.2-0.1-0.4-0.2-0.5-0.3c-0.2,0.1-0.3,0.2-0.5,0.3L26.9,89L4.8,75.7l11.9-42.9L29,40.2c1,0.6,1.3,1.8,0.7,2.7  c-0.6,0.9-1.8,1.2-2.8,0.7L19.2,39L9.5,73.8L26,83.8l3.8-33c0.1-1.1,1.1-1.9,2.2-1.8c1.1,0.1,1.9,1.1,1.8,2.2l-3.8,32.5L48,77.8  c0,0,0,0,0,0v-6.9c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2v7c0,0,0,0,0,0L70,83.9l-3.8-32.7c-0.1-1.1,0.7-2.1,1.8-2.2  c1.1-0.1,2.1,0.7,2.2,1.8L74,83.5l16.1-9.7L80.4,39l-7.7,4.6c-1,0.6-2.2,0.3-2.8-0.7c-0.6-0.9-0.3-2.2,0.7-2.7l12.3-7.4L94.8,75.7z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e(),
             _vm._v(" "),
             _c(
               "div",
@@ -50629,7 +50703,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 0 auto;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n\t\tposition: relative;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tmargin-top: 10px;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\t-webkit-animation: avatarUp .4s;\n\t\t        animation: avatarUp .4s;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.close-map-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.close-map-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.close-map-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t    fill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.image-buttons {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \twidth: 100%;\n    \theight: 100%;\n\t    border-radius: 50%;\n}\n.change-image, .remove-image {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-box-flex: 1;\n\t\t    -ms-flex: 1;\n\t\t        flex: 1;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\topacity: 0;\n\t\tcursor: pointer;\n}\n.change-image svg, .remove-image svg {\n\t\tfill: rgba(255, 255, 255, 0.9);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.change-image:hover svg {\n    \tfill: rgba(0, 204, 0, 0.7);\n}\n.remove-image:hover svg {\n    \tfill: rgba(204, 0, 0, 0.7);\n}\n.image-buttons:hover .change-image, .image-buttons:hover .remove-image {\n\t\topacity: 1;\n\t\t-webkit-transform: translateY(0);\n\t\t        transform: translateY(0);\n}\n.change-image {\n\t\t-webkit-transform: translateY(-100%);\n\t\t        transform: translateY(-100%);\n}\n.remove-image {\n\t\t-webkit-transform: translateY(100%);\n\t\t        transform: translateY(100%);\n}\n.hidden {\n    \tdisplay: none;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.add-image {\n    \tposition: absolute;\n    \twidth: 100%;\n    \theight: 100%;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tcursor: pointer;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tbackground-color: rgba(0, 0, 0, 0.3);\n    \tz-index: 100;\n}\n.add-image svg {\n    \tfill: rgba(0, 162, 0, 1);\n    \twidth: 64px;\n    \tcursor: pointer;\n}\n.avatar-container:hover .add-image {\n\t\topacity: 1;\n}\n.social-item {\n    \tmargin-bottom: 10px;\n}\n.social-default {\n    \tfont-size: 14px;\n}\n.custom-btn {\n    \tcursor: pointer;\n}\n.tricks-wrap {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.custom-all-tricks-button, .custom-add-video-button {\n\t\t-ms-flex-item-align: end;\n\t\t    align-self: flex-end;\n\t\tcursor: pointer;\n\t\tmargin-bottom: 20px;\n\t\tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.all-tricks-container {\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.custom-list-group {\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n}\n.custom-list-group .custom-list-group-item {\n\t\tmargin-bottom: 10px;\n\t\twidth: 33%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-transition: all .5s ease;\n\t\ttransition: all .5s ease;\n}\n.new-tricks-enter, .new-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.new-tricks-leave-active {\n\t  position: absolute;\n}\n.add-element {\n    \tcolor: #5cb85c;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.add-element:hover {\n    \tcolor: #449d44;\n}\n.custom-list-group-item:hover .add-element {\n    \topacity: 1;\n}\n.remove-trick {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n    \theight: 30px;\n}\n.remove-trick svg {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n\t\tfill: #333;\n\t\twidth: 30px;\n}\n.remove-trick svg path {\n\t\tfill: #333;\n\t\tstroke: #333;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform-origin: center center;\n\t\t        transform-origin: center center;\n}\n.remove-trick:hover svg path {\n    \tfill: #a00;\n    \tstroke: #a00;\n}\n.remove-trick svg circle {\n\t\tstroke: #333 !important;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-trick:hover svg circle {\n    \tstroke: #a00 !important;\n}\n.remove-trick:hover svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(90deg);\n    \t        transform: rotate(90deg);\n}\n.remove-trick:hover svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-90deg);\n    \t        transform: rotate(-90deg);\n}\n.remove-trick:active svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(135deg);\n    \t        transform: rotate(135deg);\n}\n.remove-trick:active svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-135deg);\n    \t        transform: rotate(-135deg);\n}\n.remove-video {\n    \tfill: #555;\n    \twidth: 24px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.remove-video:hover {\n    \tfill: #a00;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-add-spot, .video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot {\n\t\twidth: 30px;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.video-add-spot:hover {\n    \tfill: #080;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \theight: 24px;\n}\n.map-container {\n    \tposition: fixed;\n\t    z-index: 120;\n\t    width: 100vw;\n\t    height: 100vh;\n\t    left: 0px;\n\t    top: 0px;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    background-color: rgba(0, 0, 0, 0.5);\n}\n.map-wrap {\n\t\twidth: 90%;\n\t\theight: 80%;\n}\n", ""]);
+exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n\t\tposition: relative;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tmargin-top: 10px;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\t-webkit-animation: avatarUp .4s;\n\t\t        animation: avatarUp .4s;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.close-map-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.close-map-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.close-map-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t    fill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.image-buttons {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \twidth: 100%;\n    \theight: 100%;\n\t    border-radius: 50%;\n}\n.change-image, .remove-image {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-box-flex: 1;\n\t\t    -ms-flex: 1;\n\t\t        flex: 1;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\topacity: 0;\n\t\tcursor: pointer;\n}\n.change-image svg, .remove-image svg {\n\t\tfill: rgba(255, 255, 255, 0.9);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.change-image:hover svg {\n    \tfill: rgba(0, 204, 0, 0.7);\n}\n.remove-image:hover svg {\n    \tfill: rgba(204, 0, 0, 0.7);\n}\n.image-buttons:hover .change-image, .image-buttons:hover .remove-image {\n\t\topacity: 1;\n\t\t-webkit-transform: translateY(0);\n\t\t        transform: translateY(0);\n}\n.change-image {\n\t\t-webkit-transform: translateY(-100%);\n\t\t        transform: translateY(-100%);\n}\n.remove-image {\n\t\t-webkit-transform: translateY(100%);\n\t\t        transform: translateY(100%);\n}\n.hidden {\n    \tdisplay: none;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.add-image {\n    \tposition: absolute;\n    \twidth: 100%;\n    \theight: 100%;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tcursor: pointer;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tbackground-color: rgba(0, 0, 0, 0.3);\n    \tz-index: 100;\n}\n.add-image svg {\n    \tfill: rgba(0, 162, 0, 1);\n    \twidth: 64px;\n    \tcursor: pointer;\n}\n.avatar-container:hover .add-image {\n\t\topacity: 1;\n}\n.social-item {\n    \tmargin-bottom: 10px;\n}\n.social-default {\n    \tfont-size: 14px;\n}\n.custom-btn {\n    \tcursor: pointer;\n}\n.tricks-wrap {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.custom-all-tricks-button, .custom-add-video-button {\n\t\t-ms-flex-item-align: end;\n\t\t    align-self: flex-end;\n\t\tcursor: pointer;\n\t\tmargin-bottom: 20px;\n\t\tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.all-tricks-container {\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.custom-list-group {\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n}\n.custom-list-group .custom-list-group-item {\n\t\tmargin-bottom: 10px;\n\t\twidth: 33%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-transition: all .5s ease;\n\t\ttransition: all .5s ease;\n}\n.new-tricks-enter, .new-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.new-tricks-leave-active {\n\t  position: absolute;\n}\n.add-element {\n    \tcolor: #5cb85c;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.add-element:hover {\n    \tcolor: #449d44;\n}\n.custom-list-group-item:hover .add-element {\n    \topacity: 1;\n}\n.remove-trick {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n    \theight: 30px;\n}\n.remove-trick svg {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n\t\tfill: #333;\n\t\twidth: 30px;\n}\n.remove-trick svg path {\n\t\tfill: #333;\n\t\tstroke: #333;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform-origin: center center;\n\t\t        transform-origin: center center;\n}\n.remove-trick:hover svg path {\n    \tfill: #a00;\n    \tstroke: #a00;\n}\n.remove-trick svg circle {\n\t\tstroke: #333 !important;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-trick:hover svg circle {\n    \tstroke: #a00 !important;\n}\n.remove-trick:hover svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(90deg);\n    \t        transform: rotate(90deg);\n}\n.remove-trick:hover svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-90deg);\n    \t        transform: rotate(-90deg);\n}\n.remove-trick:active svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(135deg);\n    \t        transform: rotate(135deg);\n}\n.remove-trick:active svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-135deg);\n    \t        transform: rotate(-135deg);\n}\n.remove-video {\n    \tfill: #555;\n    \twidth: 24px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.remove-video:hover {\n    \tfill: #a00;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-add-spot, .video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot {\n\t\twidth: 30px;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.video-add-spot:hover {\n    \tfill: #080;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \theight: 24px;\n}\n.map-container {\n    \tposition: fixed;\n        z-index: 1002;\n\t    width: 100vw;\n\t    height: 100vh;\n\t    left: 0px;\n\t    top: 0px;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    background-color: rgba(0, 0, 0, 0.5);\n}\n.map-wrap {\n\t\twidth: 90%;\n\t\theight: 80%;\n}\n", ""]);
 
 // exports
 
@@ -51322,7 +51396,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.custom-map-wrap {\n\t\theight: 100%;\n\t\twidth: 100%;\n\t\tposition: relative;\n}\n.map-search-container {\n\t\tposition: absolute;\n\t\ttop: 10px;\n\t\tright: 10px;\n\t\tbackground-color: #fff;\n\t\tborder: 1px solid #bbb;\n    \tborder-radius: 3px;\n\t    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);\n\t            box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);\n}\n.map-search-placeholder {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n}\n.map-search-field {\n\t\tposition: relative;\n\t\twidth: 40px;\n\t\theight: 40px;\n\t\tpadding: 6px 12px;\n\t\tborder: none;\n\t\toutline: 0;\n\t\topacity: 0;\n\t    -webkit-transition: all .175s cubic-bezier(.4,0,.2,1);\n\t    transition: all .175s cubic-bezier(.4,0,.2,1);\n\t\tcursor: pointer;\n\t\tbackground-color: #fff;\n\t\tz-index: 16;\n}\n.map-search-field:focus + .map-search-placeholder {\n\t\topacity: 0;\n}\n.map-search-field:focus {\n\t\twidth: 250px;\n\t\topacity: 1;\n\t\tcursor: text;\n}\n#map {\n\t\theight: 100%;\n\t\twidth: 100%;\n}\n.pic {\n\t\tmax-width: 300px;\n}\n", ""]);
+exports.push([module.i, "\n.custom-map-wrap {\n\t\theight: 100%;\n\t\twidth: 100%;\n\t\tposition: relative;\n}\n.map-search-container {\n\t\tposition: absolute;\n\t\ttop: calc(10px + 64px);\n\t\tright: 10px;\n\t\tbackground-color: #fff;\n\t\tborder: 1px solid #bbb;\n    \tborder-radius: 3px;\n\t    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);\n\t            box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);\n        z-index: 1000;\n}\n.not-found {\n\t\t-webkit-animation: warning 0.3s;\n\t\t        animation: warning 0.3s;\n}\n.not-found .map-search-field {\n\t\tbackground-color: rgba(200, 0, 0, 0.1) !important;\n}\n@-webkit-keyframes warning {\nfrom {-webkit-transform: translateX(0px);transform: translateX(0px);\n}\n25% {-webkit-transform: translateX(10px);transform: translateX(10px);\n}\n50% {-webkit-transform: translateX(-10px);transform: translateX(-10px);\n}\n75% {-webkit-transform: translateX(10px);transform: translateX(10px);\n}\nto {-webkit-transform: translateX(0px);transform: translateX(0px);\n}\n}\n@keyframes warning {\nfrom {-webkit-transform: translateX(0px);transform: translateX(0px);\n}\n25% {-webkit-transform: translateX(10px);transform: translateX(10px);\n}\n50% {-webkit-transform: translateX(-10px);transform: translateX(-10px);\n}\n75% {-webkit-transform: translateX(10px);transform: translateX(10px);\n}\nto {-webkit-transform: translateX(0px);transform: translateX(0px);\n}\n}\n.map-search-placeholder {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100%;\n\t\theight: 100%;\n}\n.map-search-field {\n\t\tposition: relative;\n\t\twidth: 40px;\n\t\theight: 40px;\n\t\tpadding: 6px 12px;\n\t\tborder: none;\n\t\toutline: 0;\n\t\topacity: 0;\n\t    -webkit-transition: all .175s cubic-bezier(.4,0,.2,1);\n\t    transition: all .175s cubic-bezier(.4,0,.2,1);\n\t\tcursor: pointer;\n\t\tbackground-color: #fff;\n\t\tz-index: 16;\n}\n.map-search-field:focus + .map-search-placeholder {\n\t\topacity: 0;\n}\n.map-search-field:focus {\n\t\twidth: 250px;\n\t\topacity: 1;\n\t\tcursor: text;\n}\n#map {\n\t\theight: 100%;\n\t\twidth: 100%;\n}\n.pic {\n\t\tmax-width: 300px;\n}\n.fullsize-map-container {\n\t\tpadding: 0 !important;\n}\n.main-nav-container-update {\n\t\tborder: 0;\n\t\t-webkit-box-shadow: 0px 13px 26px 0px rgba(0,0,0,0.09);\n\t\t        box-shadow: 0px 13px 26px 0px rgba(0,0,0,0.09);\n}\n.leaflet-top {\n\t\ttop: 64px !important;\n}\n", ""]);
 
 // exports
 
@@ -51358,154 +51432,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var comp = {
 	props: ['spots', 'redirect'],
 	data: function data() {
-		return {};
+		return {
+			delayTimer: null,
+			provider: null,
+			mymap: null
+		};
 	},
 	mounted: function mounted() {
-		if (this.redirect) {
-			if (window.mapLoaded === undefined) {
-				var heh = document.querySelector('#googleMap');
-				heh.addEventListener('load', this.initMap);
-			} else {
-				this.initMap();
-			}
-		} else {
-			this.initMap();
-		}
+		this.initMap();
+		if (this.redirect) this.cssUpdate();
 	},
 
 	methods: {
 		initMap: function initMap() {
 			var self = this;
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 3,
-				center: { lat: 45.33707006, lng: 34.53894877 },
-				disableDefaultUI: true,
-				zoomControl: true,
-				styles: [{
-					"featureType": "landscape",
-					"stylers": [{
-						"hue": "#FFA800"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 0
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.highway",
-					"stylers": [{
-						"hue": "#53FF00"
-					}, {
-						"saturation": -73
-					}, {
-						"lightness": 40
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.arterial",
-					"stylers": [{
-						"hue": "#FBFF00"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 0
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.local",
-					"stylers": [{
-						"hue": "#00FFFD"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 30
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "water",
-					"stylers": [{
-						"hue": "#00BFFF"
-					}, {
-						"saturation": 6
-					}, {
-						"lightness": 8
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "poi",
-					"stylers": [{
-						"hue": "#679714"
-					}, {
-						"saturation": 33.4
-					}, {
-						"lightness": -25.4
-					}, {
-						"gamma": 1
-					}]
-				}]
-			});
-
-			var input = document.getElementById('map-search-field');
-			var searchBox = new google.maps.places.SearchBox(input);
-
-			searchBox.addListener('places_changed', function () {
-				var places = searchBox.getPlaces();
-
-				if (places.length == 0) {
-					return;
-				}
-
-				var bounds = new google.maps.LatLngBounds();
-				places.forEach(function (place) {
-					if (!place.geometry) {
-						console.log("Returned place contains no geometry");
-						return;
-					}
-
-					if (place.geometry.viewport) {
-						bounds.union(place.geometry.viewport);
-					} else {
-						bounds.extend(place.geometry.location);
-					}
-				});
-				map.fitBounds(bounds);
-			});
-
-			var locations = [];
-
+			this.mymap = L.map('map').setView([45.33707006, 34.53894877], 4);
+			L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '',
+				minZoom: 2
+			}).addTo(this.mymap);
+			var markers = L.markerClusterGroup();
 			for (var i = 0; i < this.spots.length; i++) {
-				locations.push({
-					lat: this.spots[i].lat,
-					lng: this.spots[i].lng,
-					url: "/spot/" + this.spots[i].id,
-					spot_id: this.spots[i].id
-				});
-			}
+				var marker = new L.marker([this.spots[i].lat, this.spots[i].lng]);
 
-			var markers = locations.map(function (location, i) {
-				return new google.maps.Marker({
-					position: location,
-					url: location.url,
-					spot_id: location.spot_id
-				});
-			});
-
-			var markerCluster = new MarkerClusterer(map, markers, { imagePath: "/images/m" });
-
-			for (i = 0; i < markers.length; i++) {
-				google.maps.event.addListener(markers[i], 'click', function () {
+				marker.url = "/spot/" + this.spots[i].id;
+				marker.spot_id = this.spots[i].id;
+				marker.on('click', function () {
 					if (self.redirect) {
 						window.location.href = this.url;
 					} else {
 						self.$emit('marker-clicked', this.spot_id);
 					}
 				});
+				markers.addLayer(marker);
 			}
+			this.mymap.addLayer(markers);
+
+			this.provider = new GeoSearch.OpenStreetMapProvider();
+		},
+		checkMap: function checkMap(e) {
+			console.log(e);
+		},
+		enterSearch: function enterSearch(e) {
+			var self = this;
+			var val = e.currentTarget.value;
+			self.provider.search({ query: val }).then(function (result) {
+				if (result[0]) {
+					self.mymap.fitBounds(result[0].bounds);
+				} else {
+					var inputCont = document.querySelector(".map-search-container");
+					inputCont.classList.add('not-found');
+					setTimeout(function () {
+						inputCont.classList.remove('not-found');
+					}, 1000);
+				}
+			});
+		},
+		cssUpdate: function cssUpdate() {
+			document.querySelector('.main-content').classList.add('fullsize-map-container');
+			document.querySelector('.main-nav-container').classList.add('main-nav-container-update');
 		}
 	}
 };
@@ -51530,6 +51515,17 @@ var render = function() {
           type: "text",
           id: "map-search-field",
           placeholder: "Search for a location..."
+        },
+        on: {
+          keyup: function($event) {
+            if (
+              !("button" in $event) &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.enterSearch($event)
+          }
         }
       }),
       _vm._v(" "),
@@ -52826,7 +52822,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: 40px;\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 10px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item-active:not(.with-video) span {\n    \t-webkit-transform: none;\n    \t        transform: none;\n    \tfont-weight: normal;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 100;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 300px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 90%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-container:nth-child(1) {\n    \tborder-top: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n.no-images, .no-images svg {\n    \twidth: 100%;\n    \theight: 100%;\n}\n.no-images svg {\n    \tfill: #231F20;\n}\n.no-images {\n    \tpadding: 10px;\n}\n.no-images-background {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.no-images-background.active {\n    \topacity: 0;\n}\n.add-first-photo {\n\t    -webkit-transform: rotate(45deg);\n\t            transform: rotate(45deg);\n    \t-webkit-transform-origin: center;\n    \t        transform-origin: center;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.add-first-photo-container:hover .add-first-photo {\n    \tfill: #0a0;\n    \t-webkit-transform: rotate(45deg) scale(1.1);\n    \t        transform: rotate(45deg) scale(1.1);\n}\n.add-first-photo-container.active {\n    \tcursor: pointer;\n}\n.img-slider-item {\n    \twidth: 100%;\n    \theight: 100%;\n    \t-o-object-fit: cover;\n    \t   object-fit: cover;\n}\n", ""]);
+exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 74px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item-active:not(.with-video) span {\n    \t-webkit-transform: none;\n    \t        transform: none;\n    \tfont-weight: normal;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 1005;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 1000;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 300px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 90%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-container:nth-child(1) {\n    \tborder-top: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n.no-images, .no-images svg {\n    \twidth: 100%;\n    \theight: 100%;\n}\n.no-images svg {\n    \tfill: #231F20;\n}\n.no-images {\n    \tpadding: 10px;\n}\n.no-images-background {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.no-images-background.active {\n    \topacity: 0;\n}\n.add-first-photo {\n\t    -webkit-transform: rotate(45deg);\n\t            transform: rotate(45deg);\n    \t-webkit-transform-origin: center;\n    \t        transform-origin: center;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.add-first-photo-container:hover .add-first-photo {\n    \tfill: #0a0;\n    \t-webkit-transform: rotate(45deg) scale(1.1);\n    \t        transform: rotate(45deg) scale(1.1);\n}\n.add-first-photo-container.active {\n    \tcursor: pointer;\n}\n.img-slider-item {\n    \twidth: 100%;\n    \theight: 100%;\n    \t-o-object-fit: cover;\n    \t   object-fit: cover;\n}\n", ""]);
 
 // exports
 
@@ -53159,82 +53155,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	methods: {
 		initMap: function initMap() {
 			var self = this;
-			var map = new google.maps.Map(document.querySelector("#map"), {
-				zoom: 12,
-				center: { lat: self.spot.lat, lng: self.spot.lng },
-				styles: [{
-					"featureType": "landscape",
-					"stylers": [{
-						"hue": "#FFA800"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 0
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.highway",
-					"stylers": [{
-						"hue": "#53FF00"
-					}, {
-						"saturation": -73
-					}, {
-						"lightness": 40
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.arterial",
-					"stylers": [{
-						"hue": "#FBFF00"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 0
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.local",
-					"stylers": [{
-						"hue": "#00FFFD"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 30
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "water",
-					"stylers": [{
-						"hue": "#00BFFF"
-					}, {
-						"saturation": 6
-					}, {
-						"lightness": 8
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "poi",
-					"stylers": [{
-						"hue": "#679714"
-					}, {
-						"saturation": 33.4
-					}, {
-						"lightness": -25.4
-					}, {
-						"gamma": 1
-					}]
-				}]
-			});
+			var mymap = L.map('map').setView([self.spot.lat, self.spot.lng], 12);
+			L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '',
+				minZoom: 2
+			}).addTo(mymap);
 
-			var marker = new google.maps.Marker({
-				position: { lat: self.spot.lat, lng: self.spot.lng },
-				map: map
-			});
+			var marker = new L.marker([self.spot.lat, self.spot.lng]);
+			mymap.addLayer(marker);
 		},
 		getUserRoute: function getUserRoute(id) {
 			return this.routes.user.replace('0', id);
@@ -53805,7 +53733,11 @@ var render = function() {
                           _c(
                             "div",
                             { staticClass: "card-body custom-card-body" },
-                            [_c("app-video", { attrs: { video: video } })],
+                            [
+                              _c("app-video", {
+                                attrs: { video: video, spot_page: true }
+                              })
+                            ],
                             1
                           )
                         ]
@@ -53839,7 +53771,18 @@ var render = function() {
                   ref: "comment",
                   staticClass: "comments-add-field",
                   attrs: { contenteditable: "true" },
-                  on: { input: _vm.inputComment }
+                  on: {
+                    input: _vm.inputComment,
+                    keydown: function($event) {
+                      if (
+                        !("button" in $event) &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      $event.preventDefault()
+                    }
+                  }
                 }),
                 _vm._v(" "),
                 _c(
@@ -54987,7 +54930,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#images-container {\n\t\tfont-family: 'Nunito';\n\t\tborder: 0;\n\t\tpadding-top: 30px;\n}\n#map {\n\t\twidth: 100%;\n\t\theight: 332px;\n}\n.images-wrap {\n\t\tborder: 2px dashed #0087F7;\n}\n.remove-image {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tfill: #a00;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: 10;\n\t\topacity: 0;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n\t\tcursor: pointer !important;\n}\n.remove-image * {\n\t\tcursor: pointer !important;\n}\n.remove-image:hover {\n\t\topacity: 1;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n\t\tposition: relative;\n}\n.custom-label {\n\t\tbackground-color: #565656;\n  \t\tcolor: transparent;\n\t\ttext-shadow: 0px 2px 3px rgba(255,255,255,0.5);\n\t\t-webkit-background-clip: text;\n        background-clip: text;\n        font-family: 'Nunito';\n\t    font-size: 20px;\n\t    padding: 10px;\n        -webkit-box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n                box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n        position: absolute;\n        top: 0;\n        left: 0;\n}\n.custom-label-wrap {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: #fff;\n}\n.custom-label-wrap .custom-label {\n\t\tposition: static;\n}\n.upload-img-title {\n\t\tfont-weight: bold;\n\t\tfont-size: 32px;\n\t\tcolor: #555;\n}\n.dropzone .dz-preview.dz-image-preview {\n\t\tbackground: transparent !important;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: 40px;\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 830px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 370px;\n\t\tpadding: 0 10px;\n}\n.map-wrap {\n\t\tposition: relative;\n}\n.description-wrap {\n\t\tposition: relative;\n\t\tmargin-top: 20px;\n\t\tmin-height: 150px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.description-field {\n\t    margin-top: 40px;\n}\n.tricks-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tmargin-top: 20px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.selected-tricks {\n\t\tmargin-top: 40px;\n}\n.selected-tricks-list {\n\t\tmargin-left: 20px;\n}\n.unselected-tricks-list .list-group-item {\n\t\ttext-align: right;\n}\n.unselected-tricks {\n\t\tmax-width: 300px;\n}\n.selected-tricks-title {\n\t\tcolor: #555;\n\t\tfont-weight: bold;\n\t\tfont-size: 20px;\n\t\tmargin-bottom: 10px;\n}\n.search-tricks {\n\t\tmargin-bottom: 20px;\n}\n.unselected-tricks-list {\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n}\n.selected-tricks-list {\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.unselected-tricks-list .list-group-item,\n\t.selected-tricks-list .list-group-item {\n\t  -webkit-transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  display: inline-block;\n\t  cursor: pointer;\n\t  width: 200px;\n}\n.unselected-tricks-list .list-group-item:hover {\n\t\tcolor: #155724;\n    \tbackground-color: #c3e6cb;\n    \t/*transform: translateX(-10px);*/\n}\n.selected-tricks-list .list-group-item:hover {\n\t\tcolor: #721c24;\n    \tbackground-color: #f5c6cb;\n    \t/*transform: translateX(10px);*/\n}\n.unselected-tricks-enter, .unselected-tricks-leave-to,\n\t.selected-tricks-enter, .selected-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(-30px);\n\t          transform: translateY(-30px);\n}\n.unselected-tricks-leave-active,\n\t.selected-tricks-leave-active {\n\t  position: absolute;\n}\n.custom-submit {\n\t\tmargin-top: 15px;\n\t\tcursor: pointer;\n}\n.disabled {\n\t\tpointer-events: none;\n}\n", ""]);
+exports.push([module.i, "\n#images-container {\n\t\tfont-family: 'Nunito';\n\t\tborder: 0;\n\t\tpadding-top: 30px;\n}\n#map {\n\t\twidth: 100%;\n\t\theight: 332px;\n}\n.images-wrap {\n\t\tborder: 2px dashed #0087F7;\n}\n.remove-image {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tfill: #a00;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: 10;\n\t\topacity: 0;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n\t\tcursor: pointer !important;\n}\n.remove-image * {\n\t\tcursor: pointer !important;\n}\n.remove-image:hover {\n\t\topacity: 1;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n\t\tposition: relative;\n}\n.custom-label {\n\t\tbackground-color: #565656;\n  \t\tcolor: transparent;\n\t\ttext-shadow: 0px 2px 3px rgba(255,255,255,0.5);\n\t\t-webkit-background-clip: text;\n        background-clip: text;\n        font-family: 'Nunito';\n\t    font-size: 20px;\n\t    padding: 10px;\n        -webkit-box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n                box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n        position: absolute;\n        top: 0;\n        left: 0;\n}\n.custom-label-wrap {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: #fff;\n\t\tz-index: 1000;\n}\n.custom-label-wrap .custom-label {\n\t\tposition: static;\n}\n.upload-img-title {\n\t\tfont-weight: bold;\n\t\tfont-size: 32px;\n\t\tcolor: #555;\n}\n.dropzone .dz-preview.dz-image-preview {\n\t\tbackground: transparent !important;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 830px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 370px;\n\t\tpadding: 0 10px;\n}\n.map-wrap {\n\t\tposition: relative;\n}\n.description-wrap {\n\t\tposition: relative;\n\t\tmargin-top: 20px;\n\t\tmin-height: 150px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.description-field {\n\t    margin-top: 40px;\n}\n.tricks-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tmargin-top: 20px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.selected-tricks {\n\t\tmargin-top: 40px;\n}\n.selected-tricks-list {\n\t\tmargin-left: 20px;\n}\n.unselected-tricks-list .list-group-item {\n\t\ttext-align: right;\n}\n.unselected-tricks {\n\t\tmax-width: 300px;\n}\n.selected-tricks-title {\n\t\tcolor: #555;\n\t\tfont-weight: bold;\n\t\tfont-size: 20px;\n\t\tmargin-bottom: 10px;\n}\n.search-tricks {\n\t\tmargin-bottom: 20px;\n}\n.unselected-tricks-list {\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n}\n.selected-tricks-list {\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.unselected-tricks-list .list-group-item,\n\t.selected-tricks-list .list-group-item {\n\t  -webkit-transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  display: inline-block;\n\t  cursor: pointer;\n\t  width: 200px;\n}\n.unselected-tricks-list .list-group-item:hover {\n\t\tcolor: #155724;\n    \tbackground-color: #c3e6cb;\n    \t/*transform: translateX(-10px);*/\n}\n.selected-tricks-list .list-group-item:hover {\n\t\tcolor: #721c24;\n    \tbackground-color: #f5c6cb;\n    \t/*transform: translateX(10px);*/\n}\n.unselected-tricks-enter, .unselected-tricks-leave-to,\n\t.selected-tricks-enter, .selected-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(-30px);\n\t          transform: translateY(-30px);\n}\n.unselected-tricks-leave-active,\n\t.selected-tricks-leave-active {\n\t  position: absolute;\n}\n.custom-submit {\n\t\tmargin-top: 15px;\n\t\tmargin-bottom: 15px;\n\t\tcursor: pointer;\n}\n.disabled {\n\t\tpointer-events: none;\n}\n", ""]);
 
 // exports
 
@@ -55056,7 +54999,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			selectedTricks: [],
 			search: '',
 			description: '',
-			canSubmit: true
+			canSubmit: true,
+			mapMarker: null
 		};
 	},
 
@@ -55093,92 +55037,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		initMap: function initMap() {
 			var self = this;
-			var map = new google.maps.Map(document.querySelector("#map"), {
-				zoom: 3,
-				center: { lat: 48.69130611, lng: 32.34168314 },
-				disableDefaultUI: true,
-				zoomControl: true,
-				styles: [{
-					"featureType": "landscape",
-					"stylers": [{
-						"hue": "#FFA800"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 0
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.highway",
-					"stylers": [{
-						"hue": "#53FF00"
-					}, {
-						"saturation": -73
-					}, {
-						"lightness": 40
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.arterial",
-					"stylers": [{
-						"hue": "#FBFF00"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 0
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "road.local",
-					"stylers": [{
-						"hue": "#00FFFD"
-					}, {
-						"saturation": 0
-					}, {
-						"lightness": 30
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "water",
-					"stylers": [{
-						"hue": "#00BFFF"
-					}, {
-						"saturation": 6
-					}, {
-						"lightness": 8
-					}, {
-						"gamma": 1
-					}]
-				}, {
-					"featureType": "poi",
-					"stylers": [{
-						"hue": "#679714"
-					}, {
-						"saturation": 33.4
-					}, {
-						"lightness": -25.4
-					}, {
-						"gamma": 1
-					}]
-				}]
-			});
 
-			var marker = new google.maps.Marker({
-				position: { lat: 48.69130611, lng: 48.69130611 }
-			});
+			var mymap = L.map('map', { zoomControl: false }).setView([45.33707006, 34.53894877], 4);
+			L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '',
+				minZoom: 2
+			}).addTo(mymap);
 
-			map.addListener('click', function (e) {
-				self.placeMarker(e.latLng, map, marker);
+			L.control.zoom({
+				position: 'topright'
+			}).addTo(mymap);
+
+			mymap.on('click', function (e) {
+				self.placeMarker(e.latlng, mymap);
 			});
 		},
-		placeMarker: function placeMarker(latLng, map, marker) {
-			marker.position = latLng;
-			marker.setMap(map);
-			this.location = latLng.lat() + ' ' + latLng.lng();
+		placeMarker: function placeMarker(latLng, map) {
+
+			if (this.mapMarker != null) {
+				map.removeLayer(this.mapMarker);
+			}
+			this.mapMarker = new L.marker(latLng);
+			map.addLayer(this.mapMarker);
+			this.location = latLng.lat + ' ' + latLng.lng;
 		},
 		isSearched: function isSearched(name) {
 			return name.toLowerCase().includes(this.search.toLowerCase());
@@ -55426,6 +55307,511 @@ if (false) {
 
 /***/ }),
 /* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(94)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(96)
+/* template */
+var __vue_template__ = __webpack_require__(97)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Home.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-85ef4954", Component.options)
+  } else {
+    hotAPI.reload("data-v-85ef4954", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(95);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("de53da26", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85ef4954\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85ef4954\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nbody {\n\tbackground-color: #fff;\n}\n.main-wrap {\n\twidth: 100%;\n\theight: 100%;\n}\n.first-block,\n.second-block {\n\twidth: 100%;\n\theight: 100vh;\n\tposition: relative;\n}\n.first-block-bg-img {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: -1;\n\twidth: 100%;\n\theight: 100%;\n\t-o-object-fit: cover;\n\t   object-fit: cover;\n    -webkit-filter: brightness(90%);\n            filter: brightness(90%);\n\t/*filter: blur(1px);*/\n\t/*margin: -5px -10px -10px -5px;*/\n}\n.first-block-title {\n\tfont-family: 'Nunito';\n\tfont-weight: bold;\n\tfont-size: 62px;\n\tcolor: #fff;\n\twhite-space: nowrap;\n}\n.first-block-content {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\tposition: absolute;\n\ttop: 50%;\n\tleft: 50%;\n\t-webkit-transform: translate(-50%, -50%);\n\t        transform: translate(-50%, -50%);\n}\n.second-block-content {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\theight: 100%;\n}\n.first-block-content-container {\n\t/*background-color: rgba(255, 255, 255, 0.5);*/\n\twidth: 100%;\n\theight: 100%;\n}\n.custom-btn-find-spot {\n    margin: 20px auto 0px;\n    font-size: 24px;\n    cursor: pointer;\n    font-family: 'Nunito';\n    background-color: rgba(0, 0, 0, 0.15);\n}\n.custom-btn-find-spot:hover, \n.custom-btn-find-spot:focus, \n.custom-btn-find-spot:active {\n\t background-color: #17a2b8; \n     border-color: #17a2b8; \n     color: #fff;\n}\n.second-block-img {\n\t-webkit-box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\t        box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\tposition: relative;\n\tz-index: 10;\n\t-webkit-filter: blur(2px);\n\t        filter: blur(2px);\n\tborder-radius: 5px;\n\t/*animation-fill-mode: forwards;\n\tanimation-play-state: paused;*/\n\t/*transition: .5s;*/\n}\n.second-block-img-wrap {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.second-block-first-img {\n\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t        transform: translate3d(-30px, 30px, 0);\n}\n.second-block-first-img.active-animation {\n\t-webkit-animation: firstImgShow .8s forwards ease;\n\t        animation: firstImgShow .8s forwards ease;\n}\n.second-block-second-img {\n\t-webkit-transform: translate3d(30px, -30px, 0);\n\t        transform: translate3d(30px, -30px, 0);\n}\n.second-block-second-img.active-animation {\n\t-webkit-animation: secondImgShow .8s forwards ease;\n\t        animation: secondImgShow .8s forwards ease;\n}\n@-webkit-keyframes firstImgShow{\nfrom {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n\t\tz-index: 9;\n}\n49% {\n\t\tz-index: 9;\n}\n50% {\n\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t        transform: translate3d(-30px, -30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\nto {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\n}\n@keyframes firstImgShow{\nfrom {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n\t\tz-index: 9;\n}\n49% {\n\t\tz-index: 9;\n}\n50% {\n\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t        transform: translate3d(-30px, -30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\nto {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\n}\n@-webkit-keyframes secondImgShow{\nfrom {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n\t\tz-index: 9;\n}\n49% {\n\t\tz-index: 9;\n}\n50% {\n\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t        transform: translate3d(30px, 30px, 0);\n\t\tz-index: 10;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\nto {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\n}\n@keyframes secondImgShow{\nfrom {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n\t\tz-index: 9;\n}\n49% {\n\t\tz-index: 9;\n}\n50% {\n\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t        transform: translate3d(30px, 30px, 0);\n\t\tz-index: 10;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\nto {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\n}\n.second-block-title-container {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n    margin-left: 50px;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    height: 100%;\n}\n.second-block-title {\n\tfont-family: 'Nunito';\n\tfont-size: 34px;\n\tcolor: #777;\n\t-webkit-transition: 1s;\n\ttransition: 1s;\n\ttext-align: right;\n\tmax-width: 400px;\n}\n.second-block-title:nth-child(1) {\n\tmargin-bottom: 150px;\n}\n.second-block-title.active-title {\n\tcolor: #444;\n\t/*font-weight: bold;*/\n\t-webkit-transform: scale(1.1);\n\t        transform: scale(1.1);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['images_path', 'routes'],
+	data: function data() {
+		return {
+			focusImg: 2,
+			changeFocusImgTimeout: null
+		};
+	},
+	mounted: function mounted() {
+		this.classOptimize();
+		console.log(this.images_path);
+	},
+
+	methods: {
+		classOptimize: function classOptimize() {
+			document.querySelector('.main-content').classList.remove('main-content');
+		},
+		changeFocusImg: function changeFocusImg(img) {
+			var _this = this;
+
+			if (this.changeFocusImgTimeout || this.focusImg == img) return;
+			this.focusImg = img;
+			this.changeFocusImgTimeout = setTimeout(function () {
+				return _this.changeFocusImgTimeout = null;
+			}, 800);
+		}
+	}
+});
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "main-wrap" }, [
+    _c("div", { staticClass: "first-block" }, [
+      _c("img", {
+        staticClass: "first-block-bg-img",
+        attrs: { src: _vm.images_path + "parkour_1.jpg" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "first-block-content-container" }, [
+        _c("div", { staticClass: "first-block-content" }, [
+          _c("h1", { staticClass: "first-block-title" }, [
+            _vm._v("YOU CAN PARKOUR ANYWHERE")
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-outline-info custom-btn-find-spot",
+              attrs: { href: _vm.routes.find }
+            },
+            [_vm._v("Find a spot")]
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "second-block" }, [
+      _c("div", { staticClass: "second-block-content" }, [
+        _c("div", { staticClass: "second-block-img-wrap" }, [
+          _c("img", {
+            staticClass: "second-block-img second-block-first-img",
+            class: { "active-animation": _vm.focusImg == 1 },
+            attrs: { src: _vm.images_path + "map.jpg" },
+            on: {
+              mouseover: function($event) {
+                _vm.changeFocusImg(1)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "second-block-img second-block-second-img",
+            class: { "active-animation": _vm.focusImg == 2 },
+            attrs: { src: _vm.images_path + "video_example.jpg" },
+            on: {
+              mouseover: function($event) {
+                _vm.changeFocusImg(2)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "second-block-title-container" }, [
+          _c(
+            "h3",
+            {
+              staticClass: "second-block-title",
+              class: { "active-title": _vm.focusImg == 1 }
+            },
+            [
+              _vm._v(
+                "\n\t\t\t\t\tFind a spot to train or share your spots with others\n\t\t\t\t"
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "h3",
+            {
+              staticClass: "second-block-title",
+              class: { "active-title": _vm.focusImg == 2 }
+            },
+            [_vm._v("\n\t\t\t\t\tShare videos of your moves\n\t\t\t\t")]
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-85ef4954", module.exports)
+  }
+}
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(99)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(101)
+/* template */
+var __vue_template__ = __webpack_require__(102)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\HeaderApp.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5d3868ed", Component.options)
+  } else {
+    hotAPI.reload("data-v-5d3868ed", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(100);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("70ce3968", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5d3868ed\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HeaderApp.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5d3868ed\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HeaderApp.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.login,\n.logout {\n\tborder-left: 1px solid rgba(0,0,0,.0975);\n\tborder-right: 1px solid rgba(0,0,0,.0975);\n\tcolor: #5886af;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tmargin-left: 30px;\n}\n.login:hover,\n.logout:hover {\n\tbackground-color: #5886af;\n\tcolor: #fff;\n\tborder-left: 1px solid #5886af;\n\tborder-right: 1px solid #5886af;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 101 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['auth', 'routes'],
+	data: function data() {
+		return {
+			token: $('meta[name="csrf-token"]').attr('content')
+		};
+	},
+
+	methods: {
+		logout: function logout() {
+			document.getElementById('logout-form').submit();
+		}
+	},
+	created: function created() {
+		console.log(this.auth);
+	}
+});
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("nav", { staticClass: "main-nav-container" }, [
+    _c("div", { staticClass: "main-nav" }, [
+      _c("h1", { staticClass: "nav-logo" }, [_vm._v("parkour")]),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "custom-navbar" },
+        [
+          _c("li", [
+            _c(
+              "a",
+              { staticClass: "nav-link", attrs: { href: _vm.routes.find } },
+              [_vm._v("Find a spot")]
+            )
+          ]),
+          _vm._v(" "),
+          !_vm.auth
+            ? [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link login",
+                      attrs: { href: _vm.routes.login }
+                    },
+                    [_vm._v("Login")]
+                  )
+                ])
+              ]
+            : [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { href: _vm.routes.profile }
+                    },
+                    [_vm._v("Profile")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link logout",
+                      attrs: { href: _vm.routes.logout },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.logout($event)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Logout\n                        "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "form",
+                    {
+                      ref: "logout",
+                      staticStyle: { display: "none" },
+                      attrs: {
+                        id: "logout-form",
+                        action: _vm.routes.logout,
+                        method: "POST"
+                      }
+                    },
+                    [
+                      _c("input", {
+                        attrs: { type: "hidden", name: "_token" },
+                        domProps: { value: _vm.token }
+                      })
+                    ]
+                  )
+                ])
+              ]
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5d3868ed", module.exports)
+  }
+}
+
+/***/ }),
+/* 103 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -2,7 +2,7 @@
 	<div class="custom-map-wrap">
 		<div id="map"></div>
 		<div class="map-search-container">
-			<input type="text" class="map-search-field" id="map-search-field" placeholder="Search for a location..." @keyup.enter="enterSearch">
+			<input type="text" class="map-search-field" id="map-search-field" placeholder="Search for a location...">
 			<svg class="map-search-placeholder" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px">
 				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 					<path d="M56.363961,56.863961 C46.4055916,66.8223305 30.2598846,66.8223305 20.3015152,56.863961 C10.3431458,46.9055916 10.3431458,30.7598846 20.3015152,20.8015152 C30.2598846,10.8431458 46.4055916,10.8431458 56.363961,20.8015152 C66.3223305,30.7598846 66.3223305,46.9055916 56.363961,56.863961 Z M54.2426407,54.7426407 C63.0294373,45.9558441 63.0294373,31.7096321 54.2426407,22.9228355 C45.4558441,14.136039 31.2096321,14.136039 22.4228355,22.9228355 C13.636039,31.7096321 13.636039,45.9558441 22.4228355,54.7426407 C31.2096321,63.5294373 45.4558441,63.5294373 54.2426407,54.7426407 Z" fill="#000000" fill-rule="nonzero"/>
@@ -24,69 +24,203 @@
 		props: ['spots', 'redirect'],
 		data() {
 			return {
-				delayTimer: null,
-				provider: null,
-				mymap: null,
+
 			}
 		},
 		mounted() {
-			this.initMap();
-			if(this.redirect) this.cssUpdate();
+			if(this.redirect) {
+				if(window.mapLoaded === undefined) {
+					var heh = document.querySelector('#googleMap');
+					heh.addEventListener('load', this.initMap);
+				} else {
+					this.initMap();
+				}
+			} else {
+				this.initMap();
+			}
 		},
 		methods: {
 			initMap() {
 				var self = this;
-				this.mymap = L.map('map').setView([45.33707006, 34.53894877], 4);
-				L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				    attribution: '',
-				    minZoom: 2,
-				}).addTo(this.mymap);
-			 	var markers = L.markerClusterGroup();
-			    for(var i = 0; i < this.spots.length; i++) {
-			    	var marker = new L.marker([this.spots[i].lat, this.spots[i].lng]);
-			    	
-			    	marker.url = "/spot/" + this.spots[i].id;
-			    	marker.spot_id = this.spots[i].id;
-			    	marker.on('click', function() {
-			    		if(self.redirect) {
-					      window.location.href = this.url;
-					    } else {
-						  self.$emit('marker-clicked', this.spot_id);
+			    var map = new google.maps.Map(document.getElementById('map'), {
+			      zoom: 3,
+			      center: {lat: 45.33707006, lng: 34.53894877},
+			      disableDefaultUI: true,
+				  zoomControl: true,
+			      styles: [
+					    {
+					        "featureType": "landscape",
+					        "stylers": [
+					            {
+					                "hue": "#FFA800"
+					            },
+					            {
+					                "saturation": 0
+					            },
+					            {
+					                "lightness": 0
+					            },
+					            {
+					                "gamma": 1
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "road.highway",
+					        "stylers": [
+					            {
+					                "hue": "#53FF00"
+					            },
+					            {
+					                "saturation": -73
+					            },
+					            {
+					                "lightness": 40
+					            },
+					            {
+					                "gamma": 1
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "road.arterial",
+					        "stylers": [
+					            {
+					                "hue": "#FBFF00"
+					            },
+					            {
+					                "saturation": 0
+					            },
+					            {
+					                "lightness": 0
+					            },
+					            {
+					                "gamma": 1
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "road.local",
+					        "stylers": [
+					            {
+					                "hue": "#00FFFD"
+					            },
+					            {
+					                "saturation": 0
+					            },
+					            {
+					                "lightness": 30
+					            },
+					            {
+					                "gamma": 1
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "water",
+					        "stylers": [
+					            {
+					                "hue": "#00BFFF"
+					            },
+					            {
+					                "saturation": 6
+					            },
+					            {
+					                "lightness": 8
+					            },
+					            {
+					                "gamma": 1
+					            }
+					        ]
+					    },
+					    {
+					        "featureType": "poi",
+					        "stylers": [
+					            {
+					                "hue": "#679714"
+					            },
+					            {
+					                "saturation": 33.4
+					            },
+					            {
+					                "lightness": -25.4
+					            },
+					            {
+					                "gamma": 1
+					            }
+					        ]
 					    }
-			    	});
-			    	markers.addLayer(marker);
-			    }
-			    this.mymap.addLayer(markers);
+					],
+			    });
 
-			    this.provider = new GeoSearch.OpenStreetMapProvider();
-			},
-			checkMap(e) {
-				console.log(e);
-			},
-			enterSearch(e) {
-				var self = this;
-				var val = e.currentTarget.value;
-		        self.provider
-				  .search({ query: val })
-				  .then(function(result) { 
-				    if(result[0]) {
-				    	self.mymap.fitBounds(result[0].bounds);
+			    var input = document.getElementById('map-search-field');
+		        var searchBox = new google.maps.places.SearchBox(input);
+
+		        searchBox.addListener('places_changed', function() {
+				  var places = searchBox.getPlaces();
+
+				  if (places.length == 0) {
+				    return;
+				  }
+
+				  var bounds = new google.maps.LatLngBounds();
+				  places.forEach(function(place) {
+				    if (!place.geometry) {
+				      console.log("Returned place contains no geometry");
+				      return;
+				    }
+
+				    if (place.geometry.viewport) {
+				      bounds.union(place.geometry.viewport);
 				    } else {
-				    	var inputCont = document.querySelector(".map-search-container");
-				    	inputCont.classList.add('not-found');
-				    	setTimeout(() => {inputCont.classList.remove('not-found')}, 1000);
+				      bounds.extend(place.geometry.location);
 				    }
 				  });
+				  map.fitBounds(bounds);
+				});
+
+			    var locations = [
+			      ];
+
+			    for(var i = 0; i < this.spots.length; i++) {
+			    	locations.push({
+			    		lat: this.spots[i].lat,
+			    		lng: this.spots[i].lng,
+			    		url: "/spot/" + this.spots[i].id,
+			    		spot_id: this.spots[i].id,
+			    	});
+			    }
+
+			    var markers = locations.map(function(location, i) {
+			      return new google.maps.Marker({
+			        position: location,
+			        url: location.url,
+			        spot_id: location.spot_id,
+			      });
+			    });
+
+			    var markerCluster = new MarkerClusterer(map, markers,
+			        {imagePath: "/images/m"});
+
+			    for ( i = 0; i < markers.length; i++ ) {
+				    google.maps.event.addListener(markers[i], 'click', function() {
+				      if(self.redirect) {
+					      window.location.href = this.url;
+					  } else {
+					  	self.$emit('marker-clicked', this.spot_id);
+					  }
+
+				    });
+				}
 			},
-			cssUpdate() {
-				document.querySelector('.main-content').classList.add('fullsize-map-container');
-				document.querySelector('.main-nav-container').classList.add('main-nav-container-update');
-			}
-		},
+		}
 	};
 
 	export default comp;
 </script>
+
+<!-- <script async defer src="/js/markerclusterer.js"></script> -->
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM7zVJIpwF35JDbkg0oS4awX4pBzZoMac"></script> -->
 
 <style>
 	.custom-map-wrap {
@@ -97,29 +231,12 @@
 
 	.map-search-container {
 		position: absolute;
-		top: calc(10px + 64px);
+		top: 10px;
 		right: 10px;
 		background-color: #fff;
 		border: 1px solid #bbb;
     	border-radius: 3px;
 	    box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
-        z-index: 1000;
-	}
-
-	.not-found {
-		animation: warning 0.3s;
-	}
-
-	.not-found .map-search-field {
-		background-color: rgba(200, 0, 0, 0.1) !important;
-	}
-
-	@keyframes warning {
-		from {transform: translateX(0px);}
-		25% {transform: translateX(10px);}
-		50% {transform: translateX(-10px);}
-		75% {transform: translateX(10px);}
-		to {transform: translateX(0px);}
 	}
 
 	.map-search-placeholder {
@@ -161,18 +278,5 @@
 
 	.pic {
 		max-width: 300px;
-	}
-
-	.fullsize-map-container {
-		padding: 0 !important;
-	}
-
-	.main-nav-container-update {
-		border: 0;
-		box-shadow: 0px 13px 26px 0px rgba(0,0,0,0.09);
-	}
-
-	.leaflet-top {
-		top: 64px !important;
 	}
 </style>

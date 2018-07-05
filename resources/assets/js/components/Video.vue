@@ -20,7 +20,17 @@
 			<div class="bot-menu-icon-wrap">
 				<div 
 					class="svg-container" 
-					v-if="video.spot_id"
+					v-if="spot_page"
+					@mouseover="tip.msg='Tracer'; tip.show=true;"
+					@mouseout="tip.show=false"
+					>
+					<a :href="'/profile/' + video.user_id" target="_blank" class="svg-wrapper">
+						<svg class="svg svg-tracer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M70.1,66.1c-3,3.6-7,6.8-12.2,8.7c-2.5,0.9-5.2,1.4-7.9,1.4c-2.7,0-5.3-0.4-7.8-1.3c-5.2-1.8-9.3-5-12.3-8.7   c-4.3,2.3-11.8,6.5-19.6,12.2C19.2,90.6,33.7,98.6,50,98.6c16.3,0,30.8-8,39.7-20.3C81.9,72.6,74.4,68.4,70.1,66.1L70.1,66.1z"/><path d="M24.5,44.9c0.6,2,1.6,5.8,4,8c1.8,6.6,7,14.3,15.4,17.3c2,0.7,4.1,1.1,6.3,1.1c2.1,0,4.2-0.4,6.2-1.1   c8.4-3,13.6-10.6,15.4-17.3c2.4-2.2,3.4-6,4-8c0.9-3.2,1.8-7.7-0.6-10.9c-0.1-0.1-0.2-0.2-0.3-0.4c0.2-1.1,0.3-2.2,0.4-3.2   c2.8-18.8-7.6-20-8.8-20c-0.1,0-0.1-0.1-0.2-0.1c-1.2-4.9-8.2-10-14.8-8.7C45,3,31.4,1.4,31.4,1.4c-0.2,2.9,2.3,4.9,2.3,4.9   c-11.5,7-9.4,22-8.3,27.3c-0.1,0.1-0.2,0.2-0.3,0.4C22.7,37.2,23.6,41.7,24.5,44.9z M30.5,36.1c0.1,0,0.2,0,0.3,0c0,0,0-0.1,0-0.1   c-0.3-1-1.7-6.7,3.2-10.1c4,0.9,10,1.1,18.2-2.4C68,16.7,69.4,36.1,69.4,36.1v0c0.1,0,0.2,0,0.3,0c1.6,0,3.3,1.3,1.5,7.5   c-1.4,4.9-2.7,6.3-3.6,6.3c-0.9,5.8-5.4,13.2-12.8,15.8c-1.5,0.5-3.1,0.8-4.7,0.8c-1.6,0-3.2-0.3-4.7-0.8   c-7.3-2.6-11.9-10-12.8-15.8c-1-0.1-2.3-1.4-3.6-6.3C27.2,37.3,28.9,36.1,30.5,36.1z"/></g></svg>
+					</a>
+				</div>
+				<div 
+					class="svg-container" 
+					v-else-if="video.spot_id"
 					@mouseover="tip.msg='View on map'; tip.show=true;"
 					@mouseout="tip.show=false"
 					>
@@ -57,7 +67,7 @@
 	import Tip from './Tip.vue';
 
 	export default {
-		props: ['video'],
+		props: ['video', 'spot_page'],
 		data() {
 			return {
 				videoPlaying: false,
@@ -236,5 +246,14 @@
 		display: flex;
 		align-items: center;
 		cursor: pointer;
+	}
+
+	.svg-wrapper {
+		display: flex;
+	}
+
+	.svg-tracer {
+		width: 22px;
+		height: 22px;
 	}
 </style>

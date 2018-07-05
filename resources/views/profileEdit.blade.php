@@ -4,8 +4,10 @@
 @php
 	$routes = ['updateAvatar' => route('profile.uploadImg'), 'removeAvatar' => route('profile.removeImg'), 'getUserVideos' => route('ajax.getUserVideos'), 'getAvatar' => route('ajax.getAvatar'), 'setSocial' => route('ajax.setSocial'), 'addMove' => route('profile.addMove'), 'removeMove' => route('profile.removeMove'), 'addVideo' => route('profile.addMoveVideo'), 'removeVideo' => route('profile.removeMoveVideo'), 'addSpotToVideo' => route('profile.addSpotToVideo'), 
 	'removeSpotFromVideo' => route('profile.removeSpotFromVideo')];
+	$routesHeader = ['login' => route('login'), 'logout' => route('logout'), 'profile' => route('site.profileEdit'), 'find' => route('site.mapFind')];
 @endphp
 	<div id="app">
+		<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}"></HeaderApp>
 		<ProfileEdit 
 		:routes="{{json_encode($routes)}}"
 		:user="{{$user}}"
@@ -20,6 +22,10 @@
 
 @section('scripts')
 	<script src="{{ asset('js/app.js') }}" defer></script>
-	<script async defer src="/js/markerclusterer.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM7zVJIpwF35JDbkg0oS4awX4pBzZoMac&libraries=places"></script>
+	<link defer rel="stylesheet" href="{{ asset('css/leaflet.css') }}"/>
+  <script defer src="{{ asset('js/leaflet.js') }}"></script>
+  <link defer rel="stylesheet" href="{{ asset('css/MarkerCluster.css') }}"/>
+  <link defer rel="stylesheet" href="{{ asset('css/MarkerCluster.Default.css') }}"/>
+  <script defer src="{{ asset('js/leaflet.markercluster.js') }}"></script>
+  <script defer src="{{ asset('js/leaflet-geosearch.min.js') }}"></script>
 @endsection

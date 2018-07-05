@@ -52,7 +52,7 @@
 								</template>
 							</h3>
 							<div class="card-body custom-card-body">
-								<app-video :video="video"></app-video>
+								<app-video :video="video" :spot_page="true"></app-video>
 							</div>
 						</div>
 					</transition-group>
@@ -61,7 +61,7 @@
 			<div class="spot-page-section comments-container">
 				<div class="comments-adding-container" @focus.capture="commentFocus" @blur.capture="commentBlur" ref="commentContainer">
 					<div class="comments-adding-wrap">
-						<div contenteditable="true" @input="inputComment" class="comments-add-field" ref="comment"></div>
+						<div contenteditable="true" @input="inputComment" @keydown.enter.prevent class="comments-add-field" ref="comment"></div>
 						<svg xmlns="http://www.w3.org/2000/svg" 
 							viewBox="0 0 100 100" x="0px" y="0px" 
 							class="svg-add-comment" :class="newComment == '' ? 'svg-add-comment-disabled' : ''"
@@ -310,119 +310,14 @@
 		methods: {
 			initMap() {
 				var self = this;
-				var map = new google.maps.Map(document.querySelector("#map"), {
-					zoom: 12,
-					center: {lat: self.spot.lat, lng: self.spot.lng },
-					styles: [
-					    {
-					        "featureType": "landscape",
-					        "stylers": [
-					            {
-					                "hue": "#FFA800"
-					            },
-					            {
-					                "saturation": 0
-					            },
-					            {
-					                "lightness": 0
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "road.highway",
-					        "stylers": [
-					            {
-					                "hue": "#53FF00"
-					            },
-					            {
-					                "saturation": -73
-					            },
-					            {
-					                "lightness": 40
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "road.arterial",
-					        "stylers": [
-					            {
-					                "hue": "#FBFF00"
-					            },
-					            {
-					                "saturation": 0
-					            },
-					            {
-					                "lightness": 0
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "road.local",
-					        "stylers": [
-					            {
-					                "hue": "#00FFFD"
-					            },
-					            {
-					                "saturation": 0
-					            },
-					            {
-					                "lightness": 30
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "water",
-					        "stylers": [
-					            {
-					                "hue": "#00BFFF"
-					            },
-					            {
-					                "saturation": 6
-					            },
-					            {
-					                "lightness": 8
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    },
-					    {
-					        "featureType": "poi",
-					        "stylers": [
-					            {
-					                "hue": "#679714"
-					            },
-					            {
-					                "saturation": 33.4
-					            },
-					            {
-					                "lightness": -25.4
-					            },
-					            {
-					                "gamma": 1
-					            }
-					        ]
-					    }
-					],
-				});
+				var mymap = L.map('map').setView([self.spot.lat, self.spot.lng], 12);
+				L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				    attribution: '',
+				    minZoom: 2,
+				}).addTo(mymap);
 
-				var marker = new google.maps.Marker({
-				  position: {lat: self.spot.lat, lng: self.spot.lng },
-				  map: map,
-				});
+				var marker = new L.marker([self.spot.lat, self.spot.lng]);
+				mymap.addLayer(marker);
 			},
 			getUserRoute(id) {
 				return this.routes.user.replace('0', id);
@@ -752,7 +647,7 @@
 	.content-container {
 		width: 100%;
 		display: flex;
-		margin-top: 40px;
+		margin-top: calc(40px + 64px);
 		color: #515669;
 		font-family: 'Nunito';
 	    font-weight: normal;
@@ -810,7 +705,7 @@
 
 	.spot-elements {
 		position: sticky;
-		top: 10px;
+		top: 74px;
 		padding: 20px;
 	}
 
@@ -1040,7 +935,7 @@
 
 	.slider-fullsize {
 		position: fixed;
-		z-index: 100;
+		z-index: 1005;
 		top: 0;
 		left: 0;
 		width: 100vw;
@@ -1152,7 +1047,7 @@
     	top: 70px;
     	display: flex;
     	flex-direction: column;
-    	z-index: 200;
+    	z-index: 1000;
     	transition: .2s;
     }
 

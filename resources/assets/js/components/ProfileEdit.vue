@@ -635,7 +635,7 @@
 	.profile-content {
 		padding: 60px 20px 0;
 		width: 1100px;
-    	margin: 0 auto;
+    	margin: 64px auto 0px;
 	}
 
 	.profile-info {
@@ -1213,7 +1213,7 @@
 
     .map-container {
     	position: fixed;
-	    z-index: 120;
+        z-index: 1002;
 	    width: 100vw;
 	    height: 100vh;
 	    left: 0px;
