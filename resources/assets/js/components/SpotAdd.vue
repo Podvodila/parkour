@@ -4,17 +4,17 @@
 			<div class="spot-page-section map-wrap">
 				<div id="map"></div>
 				<div class="custom-label-wrap">
-					<h1 class="custom-label">Location of spot</h1>
+					<h1 class="custom-label">{{local['location of spot']}}</h1>
 				</div>
 			</div>
 			<div class="spot-page-section description-wrap">
-				<h1 class="custom-label">Description</h1>
+				<h1 class="custom-label">{{local['description']}}</h1>
 				<textarea class="form-control description-field" rows="3" v-model="description"></textarea>
 			</div>
 			<div class="spot-page-section tricks-wrap">
-				<h1 class="custom-label">Moves</h1>
+				<h1 class="custom-label">{{local['moves']}}</h1>
 				<div class="selected-tricks">
-					<h3 class="selected-tricks-title">Selected Moves:</h3>
+					<h3 class="selected-tricks-title">{{local['selected moves']}}:</h3>
 					<transition-group tag="ul" name="selected-tricks" class="list-group selected-tricks-list">
 	  					<li class="list-group-item" 
 	  					v-for="(trick, index) in selectedTricks" 
@@ -23,7 +23,7 @@
 	  				</transition-group>
 				</div>
 				<div class="unselected-tricks">
-					<input class="form-control search-tricks" type="search" placeholder="Search" v-model="search">
+					<input class="form-control search-tricks" type="search" :placeholder="local['search']" v-model="search">
 					<transition-group tag="ul" name="unselected-tricks" class="list-group unselected-tricks-list">
 	  					<li class="list-group-item" 
 	  						v-for="(trick, index) in unselectedTricks" 
@@ -33,13 +33,13 @@
 	  				</transition-group>
   				</div>
 			</div>
-			<button class="btn btn-success custom-submit" :class="{disabled: !canSubmit}" @click="spotAdd">Create Spot</button>
+			<button class="btn btn-success custom-submit" :class="{disabled: !canSubmit}" @click="spotAdd">{{local['create spot']}}</button>
 		</div>
 		<aside class="aside-content"">
 			<div class="spot-page-section images-wrap">
-				<h1 class="custom-label">Add spot images</h1>
+				<h1 class="custom-label">{{local['images']}}</h1>
 				<div id="images-container" class="dropzone">
-			 		<div class="dz-message" data-dz-message><span class="upload-img-title">Drop files here or click to upload</span></div>
+			 		<div class="dz-message" data-dz-message><span class="upload-img-title">{{local['drop files']}}</span></div>
 				</div>
 			</div>
 		</aside>
@@ -48,7 +48,7 @@
 
 <script>
 	export default {
-		props: ['routes', 'tricks'],
+		props: ['routes', 'tricks', 'src_local'],
 		data() {
 			return {
 				location: null,
@@ -58,6 +58,7 @@
 				description: '',
 				canSubmit: true,
 				mapMarker: null,
+				local: this.src_local,
 			}
 		},
 		computed: {
@@ -77,6 +78,8 @@
 			} else {
 				this.initMap();
 			}
+
+			eventBus.$on('changeLocale', (data) => {this.local = data});
 		},
 		methods: {
 			initDropzone() {
@@ -177,7 +180,7 @@
 
 <style>
 	#images-container {
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		border: 0;
 		padding-top: 30px;
 	}
@@ -226,7 +229,7 @@
 		-webkit-background-clip: text;
      	-moz-background-clip: text;
         background-clip: text;
-        font-family: 'Nunito';
+        font-family: 'Nunito', 'Arial';
 	    font-size: 20px;
 	    padding: 10px;
         box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
@@ -262,7 +265,7 @@
 		display: flex;
 		margin-top: calc(40px + 64px);
 		color: #515669;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 	    font-weight: normal;
 	    position: relative;
 	}

@@ -4,8 +4,8 @@
 			<img :src="images_path + 'parkour_1.jpg'" class="first-block-bg-img">
 			<div class="first-block-content-container">
 				<div class="first-block-content">
-					<h1 class="first-block-title">YOU CAN PARKOUR ANYWHERE</h1>
-					<a :href="routes.find" class="btn btn-outline-info custom-btn-find-spot">Find a spot</a>
+					<h1 class="first-block-title">{{local['main title']}}</h1>
+					<a :href="routes.find" class="btn btn-outline-info custom-btn-find-spot">{{local['find a spot']}}</a>
 				</div>
 			</div>
 		</div>
@@ -21,10 +21,10 @@
 				</div>
 				<div class="second-block-title-container">
 					<h3 class="second-block-title" :class="{'active-title' : (focusImg == 1)}">
-						Find a spot to train or share your spots with others
+						{{local['find a spot title']}}
 					</h3>
 					<h3 class="second-block-title" :class="{'active-title' : (focusImg == 2)}">
-						Share videos of your moves
+						{{local['share videos']}}
 					</h3>
 				</div>
 			</div>
@@ -34,16 +34,17 @@
 
 <script>
 	export default {
-		props: ['images_path', 'routes'],
+		props: ['images_path', 'routes', 'src_local'],
 		data() {
 			return {
 				focusImg: 2,
 				changeFocusImgTimeout: null,
+				local: this.src_local,
 			}
 		},
 		mounted() {
 			this.classOptimize();
-			console.log(this.images_path);
+			eventBus.$on('changeLocale', (data) => {this.local = data});
 		},
 		methods: {
 			classOptimize() {
@@ -89,11 +90,12 @@
 	}
 
 	.first-block-title {
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		font-weight: bold;
 		font-size: 62px;
 		color: #fff;
-		white-space: nowrap;
+	    width: 80vw;
+    	text-align: center;
 	}
 
 	.first-block-content {
@@ -123,7 +125,7 @@
 	    margin: 20px auto 0px;
 	    font-size: 24px;
 	    cursor: pointer;
-	    font-family: 'Nunito';
+	    font-family: 'Nunito', 'Arial';
 	    background-color: rgba(0, 0, 0, 0.15);
 	}
 
@@ -218,7 +220,7 @@
 	}
 
 	.second-block-title {
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		font-size: 34px;
 		color: #777;
 		transition: 1s;

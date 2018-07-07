@@ -3,12 +3,19 @@
 @section('content')
 @php
     $routes = ['login' => route('login'), 'forgot' => route('password.request'), 'register' => route('register')];
-    $routesHeader = ['login' => route('login'), 'logout' => route('logout'), 'profile' => route('site.profileEdit'), 'find' => route('site.mapFind')];
+    $routesHeader = [
+			'login' => route('login'), 
+			'logout' => route('logout'), 
+			'profile' => route('site.profileEdit'), 
+			'find' => route('site.mapFind'),
+			'changeLocale' => route('site.changeLocale'),
+			'home' => route('site.index'),
+		];
 @endphp
 <div id="app">
-	<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}"></HeaderApp>
+	<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}" :src_local="{{ json_encode(__('header')) }}"></HeaderApp>
     <Login 
-        localization="{{ json_encode(__('login')) }}"
+        :src_local="{{ json_encode(__('login')) }}"
         routes="{{ json_encode($routes) }}"
         ></Login>
 </div>

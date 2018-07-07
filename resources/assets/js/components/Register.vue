@@ -8,7 +8,7 @@
 		<form id="register-form" class="register-form" method="POST" :action="route['register']" @submit.prevent="register">
 			<input type="hidden" name="_token" :value="csrf">
 			<div v-for="(value, key) in fields" :key="key" class="input-container">
-				<input :type="value.type" class="form-control register-input" :placeholder="value.placeholder" :name="value.name" v-model="value.value" 
+				<input :type="value.type" class="form-control register-input" :placeholder="local[value.placeholder]" :name="value.name" v-model="value.value" 
 				v-on:input="check_correct(value); is_pass_conf(value) ? check_pass_conf(value): '';"
 				required>
 				<transition name="alert">
@@ -18,7 +18,7 @@
 				</transition>
 			</div>
 			<div class="register-btn-container progress">
-				<button type="submit"  class="btn register-btn" :disabled="progressbar != 100" :style="{color: progressbar > 45 ? '#fff' : ''}">{{JSON.parse(this.localization)['register']}}</button>
+				<button type="submit"  class="btn register-btn" :disabled="progressbar != 100" :style="{color: progressbar > 45 ? '#fff' : ''}">{{local['register']}}</button>
 				<div class="progress-bar custom-progress-bar" :style="{width: progressbar + '%'}"></div>
 			</div>
 		</form>
@@ -27,7 +27,7 @@
 
 <script>
 	export default {
-		props: ['localization', 'routes'],
+		props: ['routes', 'src_local'],
 		data() {
 			return {
 				route: JSON.parse(this.routes),
@@ -36,40 +36,41 @@
 				fields: [
 					{
 						name: 'first_name',
-						placeholder: JSON.parse(this.localization)['first name'],
+						placeholder: 'first name',
 						value: '',
 						pattern: /^[a-zA-Zа-яА-я]{2,20}$/,
 						type: 'text',
 					},
 					{
 						name: 'last_name',
-						placeholder: JSON.parse(this.localization)['last name'],
+						placeholder: 'last name',
 						value: '',
 						pattern: /^[a-zA-Zа-яА-я]{2,20}$/,
 						type: 'text',
 					},
 					{
-						name: 'login',
-						placeholder: JSON.parse(this.localization)['login'],
+						name: 'email',
+						placeholder: 'email',
 						value: '',
-						pattern: /^[a-zA-Z]{2,15}$/,
+						pattern: /.+@.+\..+/i,
 						type: 'text',
 					},
 					{
 						name: 'password',
-						placeholder: JSON.parse(this.localization)['password'],
+						placeholder: 'password',
 						value: '',
 						pattern: /[0-9a-zA-Z!@#$%^&*]{6,}/,
 						type: 'password',
 					},
 					{
 						name: 'password_confirmation',
-						placeholder: JSON.parse(this.localization)['confirm password'],
+						placeholder: 'confirm password',
 						value: '',
 						pattern: /[0-9a-zA-Z!@#$%^&*]{6,}/,
 						type: 'password',
 					},
 				],
+				local: this.src_local,
 			}
 		},
 		computed: {
@@ -84,11 +85,15 @@
 		      return piece * counter;
 		    },
 		},
+		mounted() {
+			eventBus.$on('changeLocale', (data) => {
+				this.local = data;
+			});
+		},
 		methods: {
 			register() {
 				var form = new FormData(document.querySelector("#register-form"));
                 var self = this;
-
 				$.ajax({
     			  method: "POST",
                   type: "POST",
@@ -100,13 +105,13 @@
     			     _token : $('meta[name="csrf-token"]').attr('content'),
     			     first_name: form.get('first_name'),
     			     last_name: form.get('last_name'), 
-    			     login: form.get('login'),
+    			     email: form.get('email'),
     			     password: form.get('password'),
                      password_confirmation: form.get('password_confirmation'),
     			  },
     			  success: function(resultData) { window.location.href = '/' },
                   error: function(data) {
-                    console.log(data.responseJSON.errors.login[0]);
+                    console.log(data);
                     self.error = data.responseJSON.errors.login[0];
                     setTimeout(()=> {
                         self.error = '';
@@ -165,7 +170,7 @@
         padding: 30px;
         display: flex;
         flex-direction: column;
-        font-family: 'Nunito';
+        font-family: 'Nunito', 'Arial';
         margin-bottom: 20px;
     }
 
@@ -212,6 +217,7 @@
         position: absolute;
         right: 42%;
         top: 10px;
+        z-index: 1003;
     }
 
     .alert-enter-active {

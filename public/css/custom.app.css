@@ -10,6 +10,18 @@
 	font-weight: bold; 
 }
 
+@font-face {
+	font-family: 'Arial';
+	src: url('../fonts/ArialRoundedMTProCyr.otf') format("opentype");
+	font-weight: normal; 
+}
+
+@font-face {
+	font-family: 'Arial';
+	src: url('../fonts/ArialRoundedMTProCyr-Bold.otf') format("opentype");
+	font-weight: bold; 
+}
+
 body {
     background-color: rgba(0, 0, 0, 0.05);
 }
@@ -22,14 +34,13 @@ body {
 .main-nav-container {
 	/*background-color: #1c2029;*/
 	/*background-image: url('../images/noiseImg.png');*/
-	font-family: 'Nunito';
+	font-family: 'Nunito', 'Arial';
 	/*color: #fff;*/
-	overflow: hidden;
 	/*box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);*/
 	width: 100vw;
 	height: 64px;
 	border-bottom: 1px solid rgba(0,0,0,.0975);
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
     position: fixed;
     top: 0;
     left: 0;
@@ -44,6 +55,7 @@ body {
 	height: 100%;
 	max-width: 1400px;
 	margin: 0px auto;
+	padding: 0px 20px;
 }
 
 .nav-logo {
@@ -65,7 +77,7 @@ body {
 }
 
 .nav-link {
-	font-family: 'Nunito';
+	font-family: 'Nunito', 'Arial';
 	font-size: 18px;
 	font-weight: normal;
 	color: #444;

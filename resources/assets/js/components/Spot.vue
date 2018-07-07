@@ -6,15 +6,15 @@
 		
 				</div>
 				<div class="spot-description">
-					<h4 class="spot-description-title">Description</h4>
+					<h4 class="spot-description-title">{{local['description']}}</h4>
 					<div class="spot-description-body" :class="{'spot-description-body-active' : editMode}">
 						<div v-if="!editMode" class="spot-description-text" key="1">
-							{{spot.description ? spot.description : 'This spot has no description'}}
+							{{spot.description ? spot.description : local['no description'] }}
 						</div>
 						<div v-else contenteditable="true" @input="inputDescription" class="spot-description-text" key="2">
 							{{spot.description}}
 						</div>
-						<button v-if="editMode" class="btn btn-secondary custom-btn-save-description" type="button" @click="changeDescription">Save</button>
+						<button v-if="editMode" class="btn btn-secondary custom-btn-save-description" type="button" @click="changeDescription">{{local['save']}}</button>
 					</div>
 				</div>
 				<div class="spot-videos" v-if="currentVideos(currentTrick).length > 0">
@@ -23,7 +23,7 @@
 							<h3 class="card-header custom-card-header custom-card-header-full-videos custom-card-header-mute">
 								<template v-if="!editMode || video.user_id != user">
 									<span>{{getDate(video.created_at, 'year')}}</span>
-									<span @mouseover="tip.msg='Day and month'; tip.show=true;"
+									<span @mouseover="tip.msg=local['day and month']; tip.show=true;"
 										  @mouseout="tip.show=false">{{getDate(video.created_at, 'dm')}}</span>
 								</template>
 								<template v-else>
@@ -31,7 +31,7 @@
 										<span class="video-date-year">{{getDate(video.created_at, 'year')}}</span>
 										<span 
 											class="video-date-dm"
-											@mouseover="tip.msg='Day and month'; tip.show=true;"
+											@mouseover="tip.msg=local['day and month']; tip.show=true;"
 											@mouseout="tip.show=false">
 											{{getDate(video.created_at, 'dm')}}
 										</span>
@@ -39,7 +39,7 @@
 									<span class="video-edit-buttons">
 										<svg 
 											v-if="video.spot_id"
-											@mouseover="tip.msg='Detach from spot'; tip.show=true;"
+											@mouseover="tip.msg=local['detach from spot']; tip.show=true;"
 											@mouseout="tip.show=false"
 											@click="removeSpotFromVideo(video.id)"
 											class="video-remove-spot" 
@@ -68,14 +68,17 @@
 							@click="addComment">
 							<path d="M51.14,52.05,25,54.58l-6.88,22a3.41,3.41,0,0,0,4.75,4.09L80.16,52.93a3.26,3.26,0,0,0,0-5.86L22.91,19.31a3.41,3.41,0,0,0-4.75,4.09l6.88,22,26.09,2.53a2.06,2.06,0,0,1,0,4.1Z"/>
 						</svg>
-						<span v-if="newComment == ''" class="comments-adding-placeholder">Text...</span>
+						<span v-if="newComment == ''" class="comments-adding-placeholder">{{local['comment placeholder']}}</span>
 					</div>
 				</div>
 				<div class="comments-wrap">
 					<div v-for="post in comments" class="comment-container" :key="post.comment.id">
 						<div class="comment-header">
 							<a :href="getUserRoute(post.user.id)" class="comment-thumbnail-container">
-								<img :src="post.user.thumbnail" alt="small avatar" class="comment-thumbnail">
+								<img v-if="post.user.thumbnail" :src="post.user.thumbnail" alt="small avatar" class="comment-thumbnail">
+								<svg v-else class="avatar-placeholder" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+									<path class="st0" d="M87.8,89.5H11.2c-0.9,0-1.7-0.7-1.7-1.6c0-8.8,5.6-16.1,14.6-19.2l8-2.7l2.2-4.1c-1.9-2.5-3.3-5.3-4-7.9  c-2.1-2-3-5.2-3.5-6.9c-0.8-2.7-1.6-6.7,0.5-9.4c0.1-0.1,0.2-0.2,0.3-0.3c-0.2-1-0.3-1.9-0.4-2.8c-2.5-16.2,6.7-17.2,7.8-17.3  c0.1-0.1,0.1-0.1,0.1-0.1c1.1-4.2,7.4-8.6,13.2-7.5c5.9,1.2,18-0.1,18-0.1c0.2,2.5-2,4.2-2,4.2c10.2,6,8.4,19.1,7.4,23.6  c0.1,0.1,0.2,0.2,0.3,0.3c2.1,2.7,1.3,6.7,0.5,9.4c-0.5,1.7-1.4,4.9-3.5,6.9c-0.7,2.6-2.1,5.3-4,7.8L67,66l8,2.7  c9,3.1,14.6,10.4,14.6,19.2C89.5,88.8,88.8,89.5,87.8,89.5z M61.1,14.5c-2.6,2.3-3.3,0-3.3,0c-18.9-5.9-16.2,5-23.1,6.7  c-6.8,1.6-4.9,13.3-4.9,13.3c5-14,14.8-10,14.8-10c13.1,5.6,19.8,1.7,19.8,1.7c2.6,1.1,4.9,6.7,4.9,6.7  C71.2,21.8,61.1,14.5,61.1,14.5z M65.5,51.8c0.9-0.1,2.1-1.3,3.3-5.6c1.6-5.5,0.1-6.6-1.5-6.6c-0.1,0-0.2,0-0.3,0  c0.1-0.1,0.1-0.1,0.1-0.1c0.3-0.8,1.6-5.8-2.9-8.9c-3.6,0.8-9.2,1-16.7-2.1c-14.4-5.8-15.7,11.1-15.7,11.1c-0.1,0-0.2,0-0.3,0  c-1.5,0-2.9,1.1-1.3,6.6c1.3,4.3,2.5,5.5,3.3,5.6c0.8,5.1,4.9,11.6,11.7,13.9c1.4,0.4,2.8,0.5,4.3,0.5s2.9,0,4.3-0.5  C60.5,63.4,64.7,56.9,65.5,51.8z M35.2,67c4.1,4.1,9.1,7.5,14.3,7.5c5.2,0,10.2-3.3,14.3-7.5l-1.4-2.6c-2,1.9-4.5,3.5-7.3,4.5  c-1.8,0.6-3.7,0.5-5.6,0.5s-3.8,0.1-5.6-0.5c-2.9-1-5.3-2.6-7.3-4.5L35.2,67z M73.9,71.8l-7.6-2.6c-4.7,4.7-10.7,8.6-16.8,8.6  s-12.1-3.9-16.8-8.6l-7.6,2.6c-7,2.4-11.7,7.8-12.3,14.4h73.3C85.5,79.6,80.9,74.2,73.9,71.8z M56.2,47.8c-0.9,0-1.7-0.7-1.7-1.7  c0-0.9,0.7-1.7,1.7-1.7h3.3c0.9,0,1.7,0.7,1.7,1.7c0,0.9-0.7,1.7-1.7,1.7H56.2z M42.8,47.8h-3.3c-0.9,0-1.7-0.7-1.7-1.7  c0-0.9,0.7-1.7,1.7-1.7h3.3c0.9,0,1.7,0.7,1.7,1.7C44.5,47.1,43.8,47.8,42.8,47.8z"/>
+								</svg>
 							</a>
 							<div class="comment-header-info">
 								<a :href="getUserRoute(post.user.id)" class="comment-user-name">
@@ -160,9 +163,9 @@
 						<form method="POST" enctype="multipart/form-data" id="upload-img" v-if="editMode">
 							<input type="hidden" name="_token" :value="token">
 							<input type="file" name="image[]" class="hidden" ref="crap" @change="uploadImg" multiple>
-							<button type="button" class="btn btn-secondary" @click="$refs.crap.click()">Add images</button>
+							<button type="button" class="btn btn-secondary" @click="$refs.crap.click()">{{local['add images']}}</button>
 						</form>
-						<span>{{currentImage}} of {{images.length}}</span>
+						<span>{{currentImage}} {{local['of']}} {{images.length}}</span>
 					</div>
 					<div class="images-control-buttons">
 						<svg class="button-left" xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" @click="prevImg">
@@ -180,18 +183,18 @@
 				    <a class="nav-link" href="#" 
 				    	@click.prevent="showMyMoves = true;"
 				    	:class="{active: showMyMoves}">
-					    My Moves
+					    {{local['my moves']}}
 					</a>
 				  </li>
 				  <li class="nav-item">
 				    <a class="nav-link" href="#" 
 						@click.prevent="showMyMoves = false;"
 						:class="{active: !showMyMoves}">
-						Add Moves
+						{{local['add moves']}}
 					</a>
 				  </li>
 				</ul>
-				<h3 v-else class="spot-elements-title">List of elements</h3>
+				<h3 v-else class="spot-elements-title">{{local['list of moves']}}</h3>
 				<transition-group name="side-tricks" tag="ul" class="spot-elements-list">
 					<li v-if="showMyMoves"
 						v-for="trick in tricks" 
@@ -240,7 +243,7 @@
 		<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px" class="settings-btn" 
 			:style="{fill: editMode ? '#5b9de8' : '', transform: editMode ? 'rotate(60deg)' : ''}"
 			@click="editMode = !editMode; tip.show=false;"
-			@mouseover="tip.msg = editMode ? 'Disable edit mode' : 'Enable edit mode'; tip.show=true;"
+			@mouseover="tip.msg = editMode ? local['disable edit mode'] : local['enable edit mode']; tip.show=true;"
 			@mouseout="tip.show=false"
 			v-if="owner">
 			<path d="M98.44,43.73c-0.8-.51-7.11-4.28-9.61-5.43l-3.1-7.5c0.92-2.48,2.69-9.43,3-10.64a3.34,3.34,0,0,0-.9-3.1L82.94,12.2a3.32,3.32,0,0,0-3.1-.9c-0.92.21-8,2-10.64,3l-7.5-3.1c-1.09-2.4-4.76-8.55-5.43-9.61A3.32,3.32,0,0,0,53.44,0H46.56a3.35,3.35,0,0,0-2.83,1.56c-0.51.8-4.28,7.11-5.43,9.61l-7.5,3.1c-2.48-.92-9.43-2.69-10.64-3a3.34,3.34,0,0,0-3.1.9L12.2,17.06a3.32,3.32,0,0,0-.9,3.1c0.21,0.92,2,8,3,10.64l-3.1,7.5c-2.4,1.09-8.55,4.76-9.61,5.43A3.32,3.32,0,0,0,0,46.56v6.87a3.35,3.35,0,0,0,1.56,2.83c0.8,0.51,7.11,4.28,9.61,5.43l3.1,7.5c-0.92,2.48-2.69,9.43-3,10.64a3.34,3.34,0,0,0,.9,3.1l4.86,4.86a3.32,3.32,0,0,0,3.1.9c0.92-.21,8-2,10.64-3l7.5,3.1c1.09,2.4,4.76,8.55,5.43,9.61A3.32,3.32,0,0,0,46.56,100h6.87a3.35,3.35,0,0,0,2.83-1.56c0.51-.8,4.28-7.11,5.43-9.61l7.5-3.1c2.48,0.92,9.43,2.69,10.64,3a3.34,3.34,0,0,0,3.1-.9l4.86-4.86a3.32,3.32,0,0,0,.9-3.1c-0.21-.92-2-8-3-10.64l3.1-7.5c2.4-1.09,8.55-4.76,9.61-5.43A3.32,3.32,0,0,0,100,53.44V46.56A3.3,3.3,0,0,0,98.44,43.73ZM50,71.77A21.79,21.79,0,1,1,71.81,50,21.82,21.82,0,0,1,50,71.77Z"/>
@@ -260,7 +263,7 @@
 	import Alert from './Alert.vue';
 
 	export default {
-		props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'local'],
+		props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'src_local'],
 		data() {
 			return {
 				videos: this.src_videos,
@@ -286,6 +289,7 @@
 				owner: this.src_spot.user_id == this.user,
 				newComment: '',
 				comments: this.src_comments,
+				local: this.src_local,
 			}
 		},
 		computed: {
@@ -306,6 +310,7 @@
 			}
 
 			window.addEventListener('resize', this.onResize);
+			eventBus.$on('changeLocale', (data) => {this.local = data});
 		},
 		methods: {
 			initMap() {
@@ -435,7 +440,7 @@
     			  	if(typeof data == 'object') data = null;
     			  	self.spot.description = data;
     			  	var response = {};
-                    response.msg = 'Description changed';
+                    response.msg = self.local['description changed'];
     			  	response.error = false;
     			  	response.show = true;
     			  	response.key = self.customKey++;
@@ -462,7 +467,7 @@
 
 				if(this.tricks.length <= 1) {
 					var response = {};
-                    response.msg = 'Spot must have at least one move';
+                    response.msg = self.local['at least one move'];
     			  	response.error = true;
     			  	response.show = true;
     			  	response.key = self.customKey++;
@@ -532,7 +537,7 @@
     			  	self.videos = data;
     			  	self.tip.show = false;
     			  	var response = {};
-                    response.msg = "Video successfuly detached from this spot";
+                    response.msg = self.local['successfuly detached'];
     			  	response.error = false;
     			  	response.show = true;
     			  	response.key = self.customKey++;
@@ -602,6 +607,9 @@
                   }
 				});
 			},
+			check() {
+				console.log('checked');
+			}
 		},
 		components: {
 			appVideo,
@@ -649,7 +657,7 @@
 		display: flex;
 		margin-top: calc(40px + 64px);
 		color: #515669;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 	    font-weight: normal;
 	    position: relative;
 	}
@@ -767,7 +775,7 @@
 
 	.custom-card-header {
 		font-size: 16px;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		font-weight: normal;
 		background-color: #f2f2f4;
 		display: flex;
@@ -1161,7 +1169,7 @@
 
     .comments-adding-container {
     	padding: 10px 20px 10px 30px;
-    	font-family: 'Nunito';
+    	font-family: 'Nunito', 'Arial';
     	font-weight: normal;
     	box-shadow: 0 2px 5px rgba(144,153,162,.1);
     	transition: .2s;
@@ -1186,7 +1194,7 @@
     	width: 100%;
     	outline: 0;
     	font-size: 16px;
-    	font-family: 'Nunito';
+    	font-family: 'Nunito', 'Arial';
     	font-weight: normal;
     	color: #515669;
     	z-index: 2;
@@ -1323,4 +1331,12 @@
     	height: 100%;
     	object-fit: cover;
     }
+
+    .avatar-placeholder {
+    	width: 60px;
+    	height: 60px;
+	    fill: #333;
+    }
+
+    
 </style>

@@ -15,6 +15,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ window.eventBus = new Vue();
+
 Vue.component('Login', require('./components/Login.vue'));
 Vue.component('Register', require('./components/Register.vue'));
 Vue.component('Profile', require('./components/Profile.vue'));
@@ -26,5 +28,5 @@ Vue.component('Home', require('./components/Home.vue'));
 Vue.component('Headerapp', require('./components/HeaderApp.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });

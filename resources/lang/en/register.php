@@ -6,4 +6,5 @@
 		'login' => 'Login',
 		'password' => 'Password',
 		'confirm password' => 'Confirm Password',
+		'email' => 'Email',
 	];

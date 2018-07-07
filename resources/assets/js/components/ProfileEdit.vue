@@ -4,7 +4,7 @@
 			<div class="avatar-wrap">
 				<div class="avatar-container" id="avatar-container">
 					<template v-if="avatarSrc.exist">
-						<img :src="avatarSrc.url" alt="avatar" id="avatar" ref="avatar" @load="imgLoaded">
+						<img :src="avatarSrc.url" alt="avatar" id="avatar" ref="avatar">
 						<div class="image-buttons">
 							<div class="change-image">
 								<form :action="routes.updateAvatar" method="POST" enctype="multipart/form-data" id="upload-img">
@@ -70,14 +70,14 @@
 					  <span class="input-group-addon social-default" id="basic-facebook">facebook.com/</span>
 					  <input type="text" class="form-control" id="facebook-url" aria-describedby="basic-facebook" v-model="social.facebook">
 					  <span class="input-group-btn">
-				        <button class="btn btn-secondary custom-btn" type="button" @click="saveSocial('facebook')">Save</button>
+				        <button class="btn btn-secondary custom-btn" type="button" @click="saveSocial('facebook')">{{local['save']}}</button>
 				      </span>
 					</div>
 					<div class="input-group social-item">
 					  <span class="input-group-addon social-default" id="basic-instagram">instagram.com/</span>
 					  <input type="text" class="form-control" id="instagram-url" aria-describedby="basic-instagram" v-model="social.instagram">
 					  <span class="input-group-btn">
-				        <button class="btn btn-secondary custom-btn" type="button" @click="saveSocial('instagram')">Save</button>
+				        <button class="btn btn-secondary custom-btn" type="button" @click="saveSocial('instagram')">{{local['save']}}</button>
 				      </span>
 					</div>
 					<transition-group name="alerts" tag="div" class="custom-alert-container">
@@ -95,13 +95,13 @@
 					:class="allTricksShow ? 'btn-danger' : 'btn-primary'" 
 					@click="switchAllTricks"
 					data-toggle="collapse" data-target="#collapseMove" aria-expanded="false" aria-controls="collapseMove">
-					{{allTricksShow ? 'Close' : 'Add elements'}}
+					{{allTricksShow ? local['close'] : local['add moves']}}
 				</button>
 				<div class="all-tricks-container collapse" id="collapseMove">
 					<transition-group tag="ul" class="list-group custom-list-group" name="new-tricks">
 					  <li class="list-group-item custom-list-group-item" v-for="trick in notAddedTricks" :key="trick.id">
 					  	<span>{{trick.name}}</span>
-					  	<span class="add-element" @click="addElement(trick.id)">Add element</span>
+					  	<span class="add-element" @click="addElement(trick.id)">{{local['add move']}}</span>
 					  </li>
 					</transition-group>
 				</div>
@@ -111,7 +111,7 @@
 					<input type="hidden" name="_token" :value="token">
 					<label>
 						<input type="file" name="video" class="hidden" id="add-video-input" @change="addVideo">
-						<span class="btn btn-primary">Add video</span>
+						<span class="btn btn-primary">{{local['add video']}}</span>
 					</label>
 				</form>
 			</template>
@@ -123,7 +123,7 @@
 							<span 
 								@click.stop="removeElement(trick.id)" 
 								class="remove-trick"
-								@mouseover="tip.msg='Remove element'; tip.show=true;"
+								@mouseover="tip.msg=local['remove move']; tip.show=true;"
 								@mouseout="tip.show=false"
 								>
 								<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 26.458333 26.458333" version="1.1" x="0px" y="0px">
@@ -149,7 +149,7 @@
 								<span class="video-date-year">{{getDate(video.created_at, 'year')}}</span>
 								<span 
 									class="video-date-dm"
-									@mouseover="tip.msg='Day and month'; tip.show=true;"
+									@mouseover="tip.msg=local['day and month']; tip.show=true;"
 									@mouseout="tip.show=false"
 								>
 									{{getDate(video.created_at, 'dm')}}
@@ -158,7 +158,7 @@
 							<span class="video-edit-buttons">
 								<svg 
 									v-if="video.spot_id"
-									@mouseover="tip.msg='Detach from spot'; tip.show=true;"
+									@mouseover="tip.msg=local['detach from spot']; tip.show=true;"
 									@mouseout="tip.show=false"
 									@click="removeSpotFromVideo(video.id)"
 									class="video-remove-spot" 
@@ -169,14 +169,14 @@
 								</svg>
 								<svg 
 									v-else
-									@mouseover="tip.msg='Attach to spot'; tip.show=true;"
+									@mouseover="tip.msg=local['attach to spot']; tip.show=true;"
 									@mouseout="tip.show=false"
 									class="video-add-spot" @click="showSpotAdding(video.id)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
 									<path d="M50,24c-11,0-20,9-20,20c0,19.3,18.7,31.3,19.5,31.8c0.2,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2C51.3,75.3,70,63.3,70,44  C70,33,61,24,50,24z M50,73.8C47,71.7,32,60.4,32,44c0-9.9,8.1-18,18-18s18,8.1,18,18C68,60.4,53,71.7,50,73.8z M56,43  c0,0.6-0.4,1-1,1h-4v4c0,0.6-0.4,1-1,1s-1-0.4-1-1v-4h-4c-0.6,0-1-0.4-1-1s0.4-1,1-1h4v-4c0-0.6,0.4-1,1-1s1,0.4,1,1v4h4  C55.6,42,56,42.4,56,43z M50,31c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S56.6,31,50,31z M50,53c-5.5,0-10-4.5-10-10  s4.5-10,10-10s10,4.5,10,10S55.5,53,50,53z"/>
 								</svg>
 
 								<svg 
-									@mouseover="tip.msg='Delete video'; tip.show=true;"
+									@mouseover="tip.msg=local['delete video']; tip.show=true;"
 									@mouseout="tip.show=false"
 									class="remove-video" @click="removeVideo(video)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24" x="0px" y="0px">
 									<path d="M18,19C18,20.66 16.66,22 15,22H8C6.34,22 5,20.66 5,19V7H4V4H8.5L9.5,3H13.5L14.5,4H19V7H18V19M6,7V19C6,20.1 6.9,21 8,21H15C16.1,21 17,20.1 17,19V7H6M18,6V5H14L13,4H10L9,5H5V6H18M8,9H9V19H8V9M14,9H15V19H14V9Z"/>
@@ -187,7 +187,7 @@
 							<app-video :video="video"></app-video>
 						</div>
 						<div class="card-footer text-muted custom-card-footer"
-							@mouseover="tip.msg='Element name'; tip.show=true;"
+							@mouseover="tip.msg=local['element name']; tip.show=true;"
 							@mouseout="tip.show=false"
 						>{{fullVideoListTrickName}}</div>
 					</div>
@@ -197,7 +197,7 @@
 				v-if="fullVideoList.show" 
 				class="back-to-tricks" 
 				@click="backToTricks"
-				@mouseover="tip.msg='Back to tricks'; tip.show=true;"
+				@mouseover="tip.msg=local['back to moves']; tip.show=true;"
 				@mouseout="tip.show=false"
 				>
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve">
@@ -224,7 +224,7 @@
 	import Tip from './Tip.vue';
 
 	export default {
-		props: ['user', 'user_tricks', 'prop_videos', 'avatar', 'routes', 'all_tricks', 'spots'],
+		props: ['user', 'user_tricks', 'prop_videos', 'avatar', 'routes', 'all_tricks', 'spots', 'src_local'],
 		data() {
 			return {
 				videos: this.prop_videos,
@@ -250,9 +250,11 @@
 					show: false,
 					msg: '',
 				},
+				local: this.src_local,
 			}
 		},
-		created() {
+		mounted() {
+			eventBus.$on('changeLocale', (data) => {this.local = data});
 		},
 		computed: {
 			fullName() {
@@ -313,27 +315,6 @@
 					return video.trick_id == trick_id;
 				});
 			},
-			avatarClass() {
-				var customClass;
-				if(this.$refs.avatar.width > this.$refs.avatar.height) {
-					customClass = 'wide';
-				} else {
-					customClass = 'high';
-				}
-				this.$refs.avatar.classList.add(customClass);
-			},
-			marginAvatar() {
-				var avatar = this.$refs.avatar;
-				var width = avatar.width;
-				var height = avatar.height;
-				if(width > height) {
-					var result = '-' + width/2 + 'px';
-					avatar.style.left = result;
-				} else {
-					var result = '-' + height/2 + 'px';
-					avatar.style.top = result;
-				}
-			},
 			showAllVideos(trick_id) {
 				this.fullVideoList.trick_id = trick_id;
 				this.fullVideoList.show = true;
@@ -370,8 +351,15 @@
     			  	}
     			  },
                   error: function(data) {
-                    console.log(data);
-                    console.log('new');
+                    var response = {};
+                    response.msg = data.responseJSON.errors.avatar[0];
+    			  	response.error = true;
+    			  	response.show = true;
+    			  	response.key = self.customKey++;
+    			  	self.responses.push(response);
+    			  	setTimeout(()=> {
+                        self.responses.shift();
+                    }, 5000);
                   }
 				});
 			},
@@ -395,10 +383,6 @@
                   }
 				});
 			},
-			imgLoaded() {
-				this.avatarClass();
-				this.marginAvatar();
-			},
 			saveSocial(social) {
 				var self = this;
 				var value = social == 'facebook' ? this.social.facebook : this.social.instagram;
@@ -413,7 +397,7 @@
     			  },
     			  success: function(data) { 
     			  	var response = {};
-    			  	response.msg = data;
+    			  	response.msg = self.local['saved'];
     			  	response.error = false;
     			  	response.show = true;
     			  	response.key = self.customKey++;
@@ -479,6 +463,7 @@
                   error: function(data) {
                   	var response = {};
                     response.msg = data.responseJSON.errors.move[0];
+                    if(response.msg == "First you need to delete the video confirmation.") response.msg = self.local['first delete video'];
     			  	response.error = true;
     			  	response.show = true;
     			  	response.key = self.customKey++;
@@ -568,7 +553,7 @@
     			  success: function(data) { 
     			  	self.videos = data;
     			  	var response = {};
-                    response.msg = "Spot successfuly added to your video";
+                    response.msg = self.local['video added to spot'];
     			  	response.error = false;
     			  	response.show = true;
     			  	response.key = self.customKey++;
@@ -598,7 +583,7 @@
     			  success: function(data) { 
     			  	self.videos = data;
     			  	var response = {};
-                    response.msg = "Spot successfuly removed from your video";
+                    response.msg = self.local['video removed from spot'];
     			  	response.error = false;
     			  	response.show = true;
     			  	response.key = self.customKey++;
@@ -632,6 +617,12 @@
 </script>
 
 <style>
+	.avatar-container img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
 	.profile-content {
 		padding: 60px 20px 0;
 		width: 1100px;
@@ -679,14 +670,14 @@
 
 	.contacts-name {
 		font-size: 32px;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		font-weight: normal;
 	}
 
 	.contacts-social {
 		display: flex;
 		flex-direction: column;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		font-weight: normal;
 		margin-top: 10px;
 	}
@@ -802,7 +793,7 @@
 
 	.custom-card-header {
 		font-size: 24px;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		font-weight: normal;
 		background-color: #f2f2f4;
 		cursor: pointer;
@@ -854,7 +845,7 @@
 	.custom-card-footer {
 		background-color: #e8e8e8;
 		cursor: default;
-	    font-family: 'Nunito';
+	    font-family: 'Nunito', 'Arial';
     	font-weight: normal;
     	font-size: 14px;
 	}
@@ -1056,12 +1047,12 @@
 		align-self: flex-end;
 		cursor: pointer;
 		margin-bottom: 20px;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
     	font-weight: normal;
     }
 
     .all-tricks-container {
-    	font-family: 'Nunito';
+    	font-family: 'Nunito', 'Arial';
     	font-weight: normal;
     }
 

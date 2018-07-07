@@ -4,7 +4,7 @@
         <form id="login-form" class="login-form" method="POST" :action="route['login']" @submit.prevent="login">
 			<input type="hidden" name="_token" :value="csrf">
             <div>
-                <input id="login" type="text" class="form-control" name="login" :placeholder="local['login']" required autofocus>
+                <input id="login" type="text" class="form-control" name="email" :placeholder="local['email']" required autofocus>
                 <Alert :msg="error" :error="true" v-if="error"></Alert>
             </div>
 
@@ -15,7 +15,7 @@
             <div class="login-buttons">
                 <label class="check-remember"><input type="checkbox" name="remember">{{ local['remember'] }}</label>
                 <button type="submit" class="btn btn-primary">
-                    {{ local['login'] }}
+                    {{ local['submit'] }}
                 </button>
             </div>
             
@@ -40,15 +40,18 @@
     import Alert from './Alert.vue';
 
 	export default {
-		props: ['localization', 'routes'],
+		props: ['routes', 'src_local'],
 		data() {
 			return {
-				local: JSON.parse(this.localization),
 				csrf: $('meta[name="csrf-token"]').attr('content'),
                 error: '',
                 route: JSON.parse(this.routes),
+                local: this.src_local,
 			}
 		},
+        mounted() {
+            eventBus.$on('changeLocale', (data) => {this.local = data});
+        },
 		methods: {
 			login(data) {
 				var form = new FormData(document.querySelector("#login-form"));
@@ -63,14 +66,14 @@
     			  url: this.route['login'],
     			  data: {// change data to this object
     			     _token : $('meta[name="csrf-token"]').attr('content'), 
-    			     login: form.get('login'),
+    			     email: form.get('email'),
     			     password: form.get('password'),
                      remember: form.get('remember')
     			  },
     			  success: function(resultData) { window.location.href = '/profile' },
                   error: function(data) {
-                    console.log(data.responseJSON.errors.login[0]);
-                    self.error = data.responseJSON.errors.login[0];
+                    console.log(data);
+                    self.error = data.responseJSON.errors.email[0];
                     setTimeout(()=> {
                         self.error = '';
                     }, 5000);
@@ -97,7 +100,7 @@
         padding: 30px;
         display: flex;
         flex-direction: column;
-        font-family: 'Nunito';
+        font-family: 'Nunito', 'Arial';
         margin-bottom: 20px;
     }
 

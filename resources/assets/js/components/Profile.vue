@@ -110,7 +110,7 @@
 						<h3 class="card-header custom-card-header" :class="currentVideos(trick.id).length > 1 ? '' : 'custom-card-header-mute'" @click="currentVideos(trick.id).length > 1 ? showAllVideos(trick.id) : ''">
 							<span>{{trick.name}}</span>
 							<span v-if="currentVideos(trick.id).length > 1" class="video-numbers"
-								@mouseover="tip.msg='Number of videos'; tip.show=true;"
+								@mouseover="tip.msg=local['number of videos']; tip.show=true;"
 								@mouseout="tip.show=false"
 							>{{currentVideos(trick.id).length}}</span>
 						</h3>
@@ -126,7 +126,7 @@
 						<h3 class="card-header custom-card-header custom-card-header-full-videos custom-card-header-mute">
 							<span>{{getDate(video.created_at, 'year')}}</span>
 							<span 
-								@mouseover="tip.msg='Day and month'; tip.show=true;"
+								@mouseover="tip.msg=local['day and month']; tip.show=true;"
 								@mouseout="tip.show=false"
 							>{{getDate(video.created_at, 'dm')}}</span>
 						</h3>
@@ -134,7 +134,7 @@
 							<app-video :video="video"></app-video>
 						</div>
 						<div class="card-footer text-muted custom-card-footer"
-							@mouseover="tip.msg='Element name'; tip.show=true;"
+							@mouseover="tip.msg=local['element name']; tip.show=true;"
 							@mouseout="tip.show=false"
 						>{{fullVideoListTrickName}}</div>
 					</div>
@@ -144,7 +144,7 @@
 				v-if="fullVideoList.show" 
 				class="back-to-tricks" 
 				@click="backToTricks"
-				@mouseover="tip.msg='Back to tricks'; tip.show=true;"
+				@mouseover="tip.msg=local['back to moves']; tip.show=true;"
 				@mouseout="tip.show=false"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><path d="M93,43.7H26.3l19.3-19.3c2.5-2.5,2.5-6.5,0-8.9c-1.2-1.2-2.8-1.8-4.5-1.8c-1.7,0-3.3,0.7-4.5,1.9l-30,30.1  c-2.5,2.5-2.5,6.5,0,8.9l30,30.1c1.2,1.2,2.8,1.8,4.5,1.8c1.7,0,3.3-0.6,4.5-1.8c1.2-1.2,1.9-2.8,1.9-4.5c0-1.7-0.7-3.3-1.8-4.5  L26.3,56.3H93c3.5,0,6.3-2.8,6.3-6.3C99.3,46.5,96.5,43.7,93,43.7z"/></svg>
@@ -159,13 +159,10 @@
 	import Tip from './Tip.vue';
 
 	export default {
-		props: ['user', 'tricks', 'videos', 'avatar', 'routes'],
+		props: ['user', 'tricks', 'videos', 'avatar', 'routes', 'src_local'],
 		data() {
 			return {
 				avatarOpened: false,
-				avatarLeft: null,
-				avatarWide: false,
-				avatarHigh: false,
 				fullVideoList: {
 					show: false,
 					trick_id: null,
@@ -174,19 +171,13 @@
 					show: false,
 					msg: '',
 				},
+				local: this.src_local,
 			}
 		},
 		created() {
-			var self = this;
-			$(function() {
-				$("#avatar").on("load", function() {
-					self.avatarClass();
-					self.marginAvatar();
-				}).each(function() {
-				  if(this.complete) $(this).trigger('load');
-				});
-			});
-			
+		},
+		mounted() {
+			eventBus.$on('changeLocale', (data) => {this.local = data});
 		},
 		computed: {
 			fullName() {
@@ -236,54 +227,16 @@
 					return video.trick_id == trick_id;
 				});
 			},
-			avatarClass() {
-				var customClass;
-				if(this.$refs.avatar.width > this.$refs.avatar.height) {
-					customClass = 'wide';
-				} else {
-					customClass = 'high';
-				}
-				this.$refs.avatar.classList.add(customClass);
-			},
-			marginAvatar() {
-				var avatar = this.$refs.avatar;
-				var width = avatar.width;
-				var height = avatar.height;
-				if(width > height) {
-					var result = '-' + width/2 + 'px';
-					avatar.style.left = result;
-				} else {
-					var result = '-' + height/2 + 'px';
-					avatar.style.top = result;
-				}
-			},
 			switchAvatar(e) {
 				if(!this.avatarOpened) {
 					this.avatarOpened = true;
-					if(this.avatarLeft == null) {
-						this.avatarLeft = e.target.style.left;
-					}
-					
-					if(e.target.classList.contains('wide')) {
-						this.avatarWide = true;
-						e.target.classList.remove('wide');
-					} else {
-						this.avatarHigh = true;
-						e.target.classList.remove('high');
-					}
 					e.target.classList.add('full-size-avatar');
-					e.target.style.left = (document.documentElement.clientWidth - this.$refs.avatar.width)/2 + 'px';
+					// e.target.style.left = (document.documentElement.clientWidth - this.$refs.avatar.width)/2 + 'px';
 					e.target.parentNode.classList.add('full-size-avatar-container');
 				} else {
 					this.avatarOpened = false;
-					this.$refs.avatar.style.left = this.avatarLeft;
 					this.$refs.avatar.classList.remove('full-size-avatar');
 					this.$refs.avatar.parentNode.classList.remove('full-size-avatar-container');
-					if(this.avatarWide) {
-						this.$refs.avatar.classList.add('wide');
-					} else {
-						this.$refs.avatar.classList.add('high');
-					}
 				}
 			},
 			showAllVideos(trick_id) {
@@ -341,6 +294,9 @@
 
 	.avatar-container img {
 		position: relative;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 		/*transition: .2s;*/
 	}
 
@@ -361,7 +317,7 @@
 
 	.contacts-name {
 		font-size: 32px;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		font-weight: normal;
 	}
 
@@ -416,6 +372,9 @@
 		cursor: pointer;
 		max-width: 90vw;
 		max-height: 80vh;
+		width: auto;
+		height: auto;
+		object-fit: contain;
 	}
 
 	.avatar-container.full-size-avatar-container {
@@ -429,6 +388,9 @@
 		background-color: rgba(0, 0, 0, 0.5);
 		cursor: default;
 		animation: avatarUp .2s;
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
 	}
 
 	.avatar-container.full-size-avatar-container .full-size-avatar:hover {
@@ -477,7 +439,7 @@
 
 	.custom-card-header {
 		font-size: 24px;
-		font-family: 'Nunito';
+		font-family: 'Nunito', 'Arial';
 		font-weight: normal;
 		background-color: #f2f2f4;
 		cursor: pointer;
@@ -529,7 +491,7 @@
 	.custom-card-footer {
 		background-color: #e8e8e8;
 		cursor: default;
-	    font-family: 'Nunito';
+	    font-family: 'Nunito', 'Arial';
     	font-weight: normal;
     	font-size: 14px;
 	}

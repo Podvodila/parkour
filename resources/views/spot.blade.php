@@ -13,10 +13,19 @@
 		'addComment' => route('spot.addComment', $id = $spot->id),
 		'removeComment' => route('spot.removeComment', $id = $spot->id),
 	];
-	$routesHeader = ['login' => route('login'), 'logout' => route('logout'), 'profile' => route('site.profileEdit'), 'find' => route('site.mapFind')];
+	$local = __('spot');
+	$routesHeader = [
+			'login' => route('login'), 
+			'logout' => route('logout'), 
+			'profile' => route('site.profileEdit'), 
+			'find' => route('site.mapFind'),
+			'changeLocale' => route('site.changeLocale'),
+			'spotAdd' => route('site.spotAdd'),
+			'home' => route('site.index'),
+		];
 @endphp
 	<div id="app">
-		<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}"></HeaderApp>
+		<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}" :src_local="{{ json_encode(__('header')) }}"></HeaderApp>
 		<Spot 
 		:routes="{{json_encode($routes)}}"
 		:src_images="{{json_encode($images)}}"
@@ -26,7 +35,7 @@
 		:user="{{$user}}"
 		:src_new_tricks="{{json_encode($new_tricks)}}"
 		:src_comments="{{$comments}}"
-		:local="{{ json_encode(__('spot')) }}"
+		:src_local="{{ json_encode($local) }}"
 		></Spot>
 	</div>
 @endsection

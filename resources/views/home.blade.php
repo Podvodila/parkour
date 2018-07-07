@@ -2,14 +2,23 @@
 
 @php
     $routes = ['find' => route('site.mapFind')];
-    $routesHeader = ['login' => route('login'), 'logout' => route('logout'), 'profile' => route('site.profileEdit'), 'find' => route('site.mapFind')];
+    $routesHeader = [
+			'login' => route('login'), 
+			'logout' => route('logout'), 
+			'profile' => route('site.profileEdit'), 
+			'find' => route('site.mapFind'),
+			'changeLocale' => route('site.changeLocale'),
+			'spotAdd' => route('site.spotAdd'),
+			'home' => route('site.index'),
+		];
 @endphp
 
 @section('content')
 <div id="app">
-	<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}"></HeaderApp>
+	<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}" :src_local="{{ json_encode(__('header')) }}"></HeaderApp>
     <Home images_path="{{asset('images')}}/"
-          :routes="{{json_encode($routes)}}"></Home>
+          :routes="{{json_encode($routes)}}"
+          :src_local="{{ json_encode(__('home')) }}"></Home>
 </div>
 @endsection
 

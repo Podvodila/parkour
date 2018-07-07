@@ -28,28 +28,6 @@
     </script>
 </head>
 <body>
-    <!-- <nav class="main-nav-container">
-    	<div class="main-nav">
-			<h1 class="nav-logo">parkour</h1>
-	    	<ul class="custom-navbar">
-	            @guest
-	                <li><a class="nav-link" href="{{ route('login') }}">@lang('login.login')</a></li>
-	            @else
-	                <li>
-                        <a class="nav-link" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            @lang('login.logout')
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-	                </li>
-	            @endguest
-	        </ul>
-        </div>
-    </nav> -->
     <main class="main-content">
         @yield('content')
     </main>

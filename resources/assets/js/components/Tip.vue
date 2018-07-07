@@ -38,7 +38,7 @@
 	    padding: 0 9px;
 	    border-radius: 2px;
         white-space: nowrap;
-        font-family: 'Nunito';
+        font-family: 'Nunito', 'Arial';
         font-weight: normal;
         font-size: 11px;
         line-height: 19px;

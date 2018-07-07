@@ -14514,6 +14514,8 @@ window.Vue = __webpack_require__(43);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.eventBus = new Vue();
+
 Vue.component('Login', __webpack_require__(46));
 Vue.component('Register', __webpack_require__(56));
 Vue.component('Profile', __webpack_require__(61));
@@ -47866,7 +47868,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.login-container {\n    max-width: 600px;\n    margin: 10px auto;\n    margin-top: 100px;\n}\n.login-form {\n    background-color: #fff;\n    border: 1px solid #e6e6e6;\n    padding: 30px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    font-family: 'Nunito';\n    margin-bottom: 20px;\n}\n.register {\n    padding: 25px;\n}\n.login-form>div {\n    margin-bottom: 10px;\n}\n.login-form>div:last-child {\n    margin-bottom: 0px;\n}\n.login-reg {\n    text-align: center;\n}\n.login-buttons {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n.check-remember {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: #777;\n    font-size: 13px;\n}\n.login-forgot {\n    font-size: 15px;\n}\n.login-alert {\n    position: absolute;\n    /*right: 42%;*/\n    top: 10px;\n}\n.alert-enter-active {\n    -webkit-animation: alertUp .5s;\n            animation: alertUp .5s;\n}\n.alert-leave-active {\n    -webkit-animation: alertAway .5s;\n            animation: alertAway .5s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
+exports.push([module.i, "\n.login-container {\n    max-width: 600px;\n    margin: 10px auto;\n    margin-top: 100px;\n}\n.login-form {\n    background-color: #fff;\n    border: 1px solid #e6e6e6;\n    padding: 30px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    font-family: 'Nunito', 'Arial';\n    margin-bottom: 20px;\n}\n.register {\n    padding: 25px;\n}\n.login-form>div {\n    margin-bottom: 10px;\n}\n.login-form>div:last-child {\n    margin-bottom: 0px;\n}\n.login-reg {\n    text-align: center;\n}\n.login-buttons {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n.check-remember {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: #777;\n    font-size: 13px;\n}\n.login-forgot {\n    font-size: 15px;\n}\n.login-alert {\n    position: absolute;\n    /*right: 42%;*/\n    top: 10px;\n}\n.alert-enter-active {\n    -webkit-animation: alertUp .5s;\n            animation: alertUp .5s;\n}\n.alert-leave-active {\n    -webkit-animation: alertAway .5s;\n            animation: alertAway .5s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
 
 // exports
 
@@ -47954,14 +47956,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['localization', 'routes'],
+  props: ['routes', 'src_local'],
   data: function data() {
     return {
-      local: JSON.parse(this.localization),
       csrf: $('meta[name="csrf-token"]').attr('content'),
       error: '',
-      route: JSON.parse(this.routes)
+      route: JSON.parse(this.routes),
+      local: this.src_local
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    eventBus.$on('changeLocale', function (data) {
+      _this.local = data;
+    });
   },
 
   methods: {
@@ -47978,7 +47987,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         url: this.route['login'],
         data: { // change data to this object
           _token: $('meta[name="csrf-token"]').attr('content'),
-          login: form.get('login'),
+          email: form.get('email'),
           password: form.get('password'),
           remember: form.get('remember')
         },
@@ -47986,8 +47995,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           window.location.href = '/profile';
         },
         error: function error(data) {
-          console.log(data.responseJSON.errors.login[0]);
-          self.error = data.responseJSON.errors.login[0];
+          console.log(data);
+          self.error = data.responseJSON.errors.email[0];
           setTimeout(function () {
             self.error = '';
           }, 5000);
@@ -48133,8 +48142,8 @@ var render = function() {
               attrs: {
                 id: "login",
                 type: "text",
-                name: "login",
-                placeholder: _vm.local["login"],
+                name: "email",
+                placeholder: _vm.local["email"],
                 required: "",
                 autofocus: ""
               }
@@ -48172,7 +48181,7 @@ var render = function() {
             [
               _vm._v(
                 "\n                    " +
-                  _vm._s(_vm.local["login"]) +
+                  _vm._s(_vm.local["submit"]) +
                   "\n                "
               )
             ]
@@ -48308,7 +48317,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.register-container {\n        max-width: 600px;\n        margin: 10px auto;\n        margin-top: 100px;\n}\n.register-form {\n        background-color: #fff;\n        border: 1px solid #e6e6e6;\n        padding: 30px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        font-family: 'Nunito';\n        margin-bottom: 20px;\n}\n.register-form>div {\n        margin-bottom: 10px;\n}\n.register-form>div:last-child {\n        margin-bottom: 0px;\n}\n.register-btn-container {\n    \tposition: relative;\n    \theight: 34px;\n}\n.register-btn {\n    \tposition: absolute;\n    \tbackground-color: transparent;\n    \tz-index: 100;\n    \twidth: 100%;\n    \tcursor: pointer;\n}\n.input-container {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.alert-svg {\n    \theight: 17px;\n    \tmargin-left: 10px;\n}\n.fill-red {\n    \tfill: #c00;\n}\n.fill-green {\n    \tfill: green;\n}\n.login-alert {\n        position: absolute;\n        right: 42%;\n        top: 10px;\n}\n.alert-enter-active {\n        -webkit-animation: alertUp .5s;\n                animation: alertUp .5s;\n}\n.alert-leave-active {\n        -webkit-animation: alertAway .5s;\n                animation: alertAway .5s;\n}\n.custom-progress-bar {\n    \theight: 100%;\n    \t-webkit-transition: .4s;\n    \ttransition: .4s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
+exports.push([module.i, "\n.register-container {\n        max-width: 600px;\n        margin: 10px auto;\n        margin-top: 100px;\n}\n.register-form {\n        background-color: #fff;\n        border: 1px solid #e6e6e6;\n        padding: 30px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        font-family: 'Nunito', 'Arial';\n        margin-bottom: 20px;\n}\n.register-form>div {\n        margin-bottom: 10px;\n}\n.register-form>div:last-child {\n        margin-bottom: 0px;\n}\n.register-btn-container {\n    \tposition: relative;\n    \theight: 34px;\n}\n.register-btn {\n    \tposition: absolute;\n    \tbackground-color: transparent;\n    \tz-index: 100;\n    \twidth: 100%;\n    \tcursor: pointer;\n}\n.input-container {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.alert-svg {\n    \theight: 17px;\n    \tmargin-left: 10px;\n}\n.fill-red {\n    \tfill: #c00;\n}\n.fill-green {\n    \tfill: green;\n}\n.login-alert {\n        position: absolute;\n        right: 42%;\n        top: 10px;\n        z-index: 1003;\n}\n.alert-enter-active {\n        -webkit-animation: alertUp .5s;\n                animation: alertUp .5s;\n}\n.alert-leave-active {\n        -webkit-animation: alertAway .5s;\n                animation: alertAway .5s;\n}\n.custom-progress-bar {\n    \theight: 100%;\n    \t-webkit-transition: .4s;\n    \ttransition: .4s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
 
 // exports
 
@@ -48348,7 +48357,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['localization', 'routes'],
+	props: ['routes', 'src_local'],
 	data: function data() {
 		return {
 			route: JSON.parse(this.routes),
@@ -48356,35 +48365,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			error: '',
 			fields: [{
 				name: 'first_name',
-				placeholder: JSON.parse(this.localization)['first name'],
+				placeholder: 'first name',
 				value: '',
 				pattern: /^[a-zA-Zа-яА-я]{2,20}$/,
 				type: 'text'
 			}, {
 				name: 'last_name',
-				placeholder: JSON.parse(this.localization)['last name'],
+				placeholder: 'last name',
 				value: '',
 				pattern: /^[a-zA-Zа-яА-я]{2,20}$/,
 				type: 'text'
 			}, {
-				name: 'login',
-				placeholder: JSON.parse(this.localization)['login'],
+				name: 'email',
+				placeholder: 'email',
 				value: '',
-				pattern: /^[a-zA-Z]{2,15}$/,
+				pattern: /.+@.+\..+/i,
 				type: 'text'
 			}, {
 				name: 'password',
-				placeholder: JSON.parse(this.localization)['password'],
+				placeholder: 'password',
 				value: '',
 				pattern: /[0-9a-zA-Z!@#$%^&*]{6,}/,
 				type: 'password'
 			}, {
 				name: 'password_confirmation',
-				placeholder: JSON.parse(this.localization)['confirm password'],
+				placeholder: 'confirm password',
 				value: '',
 				pattern: /[0-9a-zA-Z!@#$%^&*]{6,}/,
 				type: 'password'
-			}]
+			}],
+			local: this.src_local
 		};
 	},
 
@@ -48400,11 +48410,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return piece * counter;
 		}
 	},
+	mounted: function mounted() {
+		var _this = this;
+
+		eventBus.$on('changeLocale', function (data) {
+			_this.local = data;
+		});
+	},
+
 	methods: {
 		register: function register() {
 			var form = new FormData(document.querySelector("#register-form"));
 			var self = this;
-
 			$.ajax({
 				method: "POST",
 				type: "POST",
@@ -48416,7 +48433,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					_token: $('meta[name="csrf-token"]').attr('content'),
 					first_name: form.get('first_name'),
 					last_name: form.get('last_name'),
-					login: form.get('login'),
+					email: form.get('email'),
 					password: form.get('password'),
 					password_confirmation: form.get('password_confirmation')
 				},
@@ -48424,7 +48441,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					window.location.href = '/';
 				},
 				error: function error(data) {
-					console.log(data.responseJSON.errors.login[0]);
+					console.log(data);
 					self.error = data.responseJSON.errors.login[0];
 					setTimeout(function () {
 						self.error = '';
@@ -48535,7 +48552,7 @@ var render = function() {
                       ],
                       staticClass: "form-control register-input",
                       attrs: {
-                        placeholder: value.placeholder,
+                        placeholder: _vm.local[value.placeholder],
                         name: value.name,
                         required: "",
                         type: "checkbox"
@@ -48588,7 +48605,7 @@ var render = function() {
                         ],
                         staticClass: "form-control register-input",
                         attrs: {
-                          placeholder: value.placeholder,
+                          placeholder: _vm.local[value.placeholder],
                           name: value.name,
                           required: "",
                           type: "radio"
@@ -48617,7 +48634,7 @@ var render = function() {
                         ],
                         staticClass: "form-control register-input",
                         attrs: {
-                          placeholder: value.placeholder,
+                          placeholder: _vm.local[value.placeholder],
                           name: value.name,
                           required: "",
                           type: value.type
@@ -48697,7 +48714,7 @@ var render = function() {
                 style: { color: _vm.progressbar > 45 ? "#fff" : "" },
                 attrs: { type: "submit", disabled: _vm.progressbar != 100 }
               },
-              [_vm._v(_vm._s(JSON.parse(this.localization)["register"]))]
+              [_vm._v(_vm._s(_vm.local["register"]))]
             ),
             _vm._v(" "),
             _c("div", {
@@ -48808,7 +48825,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 1002;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.downsize-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.downsize-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.video-numbers {\n    \tposition: absolute;\n\t    right: 0;\n\t    height: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    width: 45px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    top: 0;\n\t    border-left: 1px solid #aaa;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    background-color: rgba(0, 0, 0, 0.05);\n}\n", ""]);
+exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\twidth: auto;\n\t\theight: auto;\n\t\t-o-object-fit: contain;\n\t\t   object-fit: contain;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 1002;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.downsize-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.downsize-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.video-numbers {\n    \tposition: absolute;\n\t    right: 0;\n\t    height: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    width: 45px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    top: 0;\n\t    border-left: 1px solid #aaa;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    background-color: rgba(0, 0, 0, 0.05);\n}\n", ""]);
 
 // exports
 
@@ -48984,13 +49001,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['user', 'tricks', 'videos', 'avatar', 'routes'],
+	props: ['user', 'tricks', 'videos', 'avatar', 'routes', 'src_local'],
 	data: function data() {
 		return {
 			avatarOpened: false,
-			avatarLeft: null,
-			avatarWide: false,
-			avatarHigh: false,
 			fullVideoList: {
 				show: false,
 				trick_id: null
@@ -48998,18 +49012,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			tip: {
 				show: false,
 				msg: ''
-			}
+			},
+			local: this.src_local
 		};
 	},
-	created: function created() {
-		var self = this;
-		$(function () {
-			$("#avatar").on("load", function () {
-				self.avatarClass();
-				self.marginAvatar();
-			}).each(function () {
-				if (this.complete) $(this).trigger('load');
-			});
+	created: function created() {},
+	mounted: function mounted() {
+		var _this = this;
+
+		eventBus.$on('changeLocale', function (data) {
+			_this.local = data;
 		});
 	},
 
@@ -49018,7 +49030,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return this.user.first_name + ' ' + this.user.last_name;
 		},
 		tricksWithVideo: function tricksWithVideo() {
-			var _this = this;
+			var _this2 = this;
 
 			var pushedTricks = [];
 			var tricksAfterSort = [];
@@ -49026,7 +49038,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				if (pushedTricks.includes(this.videos[i].trick_id)) continue;
 				pushedTricks.push(this.videos[i].trick_id);
 				this.tricks.forEach(function (trick) {
-					if (trick.id == _this.videos[i].trick_id) {
+					if (trick.id == _this2.videos[i].trick_id) {
 						tricksAfterSort.push(trick);
 					}
 				});
@@ -49034,11 +49046,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return tricksAfterSort;
 		},
 		tricksWithoutVideo: function tricksWithoutVideo() {
-			var _this2 = this;
+			var _this3 = this;
 
 			return this.tricks.filter(function (trick) {
 				var result = true;
-				_this2.videos.forEach(function (video) {
+				_this3.videos.forEach(function (video) {
 					if (video.trick_id == trick.id) {
 						result = false;
 					}
@@ -49065,54 +49077,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				return video.trick_id == trick_id;
 			});
 		},
-		avatarClass: function avatarClass() {
-			var customClass;
-			if (this.$refs.avatar.width > this.$refs.avatar.height) {
-				customClass = 'wide';
-			} else {
-				customClass = 'high';
-			}
-			this.$refs.avatar.classList.add(customClass);
-		},
-		marginAvatar: function marginAvatar() {
-			var avatar = this.$refs.avatar;
-			var width = avatar.width;
-			var height = avatar.height;
-			if (width > height) {
-				var result = '-' + width / 2 + 'px';
-				avatar.style.left = result;
-			} else {
-				var result = '-' + height / 2 + 'px';
-				avatar.style.top = result;
-			}
-		},
 		switchAvatar: function switchAvatar(e) {
 			if (!this.avatarOpened) {
 				this.avatarOpened = true;
-				if (this.avatarLeft == null) {
-					this.avatarLeft = e.target.style.left;
-				}
-
-				if (e.target.classList.contains('wide')) {
-					this.avatarWide = true;
-					e.target.classList.remove('wide');
-				} else {
-					this.avatarHigh = true;
-					e.target.classList.remove('high');
-				}
 				e.target.classList.add('full-size-avatar');
-				e.target.style.left = (document.documentElement.clientWidth - this.$refs.avatar.width) / 2 + 'px';
+				// e.target.style.left = (document.documentElement.clientWidth - this.$refs.avatar.width)/2 + 'px';
 				e.target.parentNode.classList.add('full-size-avatar-container');
 			} else {
 				this.avatarOpened = false;
-				this.$refs.avatar.style.left = this.avatarLeft;
 				this.$refs.avatar.classList.remove('full-size-avatar');
 				this.$refs.avatar.parentNode.classList.remove('full-size-avatar-container');
-				if (this.avatarWide) {
-					this.$refs.avatar.classList.add('wide');
-				} else {
-					this.$refs.avatar.classList.add('high');
-				}
 			}
 		},
 		showAllVideos: function showAllVideos(trick_id) {
@@ -49381,7 +49355,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.custom-tip {\n\t\tposition: fixed;\n\t\tcolor: #fff;\n\t    background: #5c626a;\n\t    padding: 0 9px;\n\t    border-radius: 2px;\n        white-space: nowrap;\n        font-family: 'Nunito';\n        font-weight: normal;\n        font-size: 11px;\n        line-height: 19px;\n        z-index: 2147483647;\n        opacity: 0;\n        -webkit-user-select: none;\n           -moz-user-select: none;\n            -ms-user-select: none;\n                user-select: none;\n}\n", ""]);
+exports.push([module.i, "\n.custom-tip {\n\t\tposition: fixed;\n\t\tcolor: #fff;\n\t    background: #5c626a;\n\t    padding: 0 9px;\n\t    border-radius: 2px;\n        white-space: nowrap;\n        font-family: 'Nunito', 'Arial';\n        font-weight: normal;\n        font-size: 11px;\n        line-height: 19px;\n        z-index: 2147483647;\n        opacity: 0;\n        -webkit-user-select: none;\n           -moz-user-select: none;\n            -ms-user-select: none;\n                user-select: none;\n}\n", ""]);
 
 // exports
 
@@ -50437,7 +50411,8 @@ var render = function() {
                                     staticClass: "video-numbers",
                                     on: {
                                       mouseover: function($event) {
-                                        _vm.tip.msg = "Number of videos"
+                                        _vm.tip.msg =
+                                          _vm.local["number of videos"]
                                         _vm.tip.show = true
                                       },
                                       mouseout: function($event) {
@@ -50506,7 +50481,7 @@ var render = function() {
                                 {
                                   on: {
                                     mouseover: function($event) {
-                                      _vm.tip.msg = "Day and month"
+                                      _vm.tip.msg = _vm.local["day and month"]
                                       _vm.tip.show = true
                                     },
                                     mouseout: function($event) {
@@ -50537,7 +50512,7 @@ var render = function() {
                                 "card-footer text-muted custom-card-footer",
                               on: {
                                 mouseover: function($event) {
-                                  _vm.tip.msg = "Element name"
+                                  _vm.tip.msg = _vm.local["element name"]
                                   _vm.tip.show = true
                                 },
                                 mouseout: function($event) {
@@ -50563,7 +50538,7 @@ var render = function() {
                   on: {
                     click: _vm.backToTricks,
                     mouseover: function($event) {
-                      _vm.tip.msg = "Back to tricks"
+                      _vm.tip.msg = _vm.local["back to moves"]
                       _vm.tip.show = true
                     },
                     mouseout: function($event) {
@@ -50703,7 +50678,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n\t\tposition: relative;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tmargin-top: 10px;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\t-webkit-animation: avatarUp .4s;\n\t\t        animation: avatarUp .4s;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.close-map-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.close-map-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.close-map-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t    fill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.image-buttons {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \twidth: 100%;\n    \theight: 100%;\n\t    border-radius: 50%;\n}\n.change-image, .remove-image {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-box-flex: 1;\n\t\t    -ms-flex: 1;\n\t\t        flex: 1;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\topacity: 0;\n\t\tcursor: pointer;\n}\n.change-image svg, .remove-image svg {\n\t\tfill: rgba(255, 255, 255, 0.9);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.change-image:hover svg {\n    \tfill: rgba(0, 204, 0, 0.7);\n}\n.remove-image:hover svg {\n    \tfill: rgba(204, 0, 0, 0.7);\n}\n.image-buttons:hover .change-image, .image-buttons:hover .remove-image {\n\t\topacity: 1;\n\t\t-webkit-transform: translateY(0);\n\t\t        transform: translateY(0);\n}\n.change-image {\n\t\t-webkit-transform: translateY(-100%);\n\t\t        transform: translateY(-100%);\n}\n.remove-image {\n\t\t-webkit-transform: translateY(100%);\n\t\t        transform: translateY(100%);\n}\n.hidden {\n    \tdisplay: none;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.add-image {\n    \tposition: absolute;\n    \twidth: 100%;\n    \theight: 100%;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tcursor: pointer;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tbackground-color: rgba(0, 0, 0, 0.3);\n    \tz-index: 100;\n}\n.add-image svg {\n    \tfill: rgba(0, 162, 0, 1);\n    \twidth: 64px;\n    \tcursor: pointer;\n}\n.avatar-container:hover .add-image {\n\t\topacity: 1;\n}\n.social-item {\n    \tmargin-bottom: 10px;\n}\n.social-default {\n    \tfont-size: 14px;\n}\n.custom-btn {\n    \tcursor: pointer;\n}\n.tricks-wrap {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.custom-all-tricks-button, .custom-add-video-button {\n\t\t-ms-flex-item-align: end;\n\t\t    align-self: flex-end;\n\t\tcursor: pointer;\n\t\tmargin-bottom: 20px;\n\t\tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.all-tricks-container {\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n}\n.custom-list-group {\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n}\n.custom-list-group .custom-list-group-item {\n\t\tmargin-bottom: 10px;\n\t\twidth: 33%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-transition: all .5s ease;\n\t\ttransition: all .5s ease;\n}\n.new-tricks-enter, .new-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.new-tricks-leave-active {\n\t  position: absolute;\n}\n.add-element {\n    \tcolor: #5cb85c;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.add-element:hover {\n    \tcolor: #449d44;\n}\n.custom-list-group-item:hover .add-element {\n    \topacity: 1;\n}\n.remove-trick {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n    \theight: 30px;\n}\n.remove-trick svg {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n\t\tfill: #333;\n\t\twidth: 30px;\n}\n.remove-trick svg path {\n\t\tfill: #333;\n\t\tstroke: #333;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform-origin: center center;\n\t\t        transform-origin: center center;\n}\n.remove-trick:hover svg path {\n    \tfill: #a00;\n    \tstroke: #a00;\n}\n.remove-trick svg circle {\n\t\tstroke: #333 !important;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-trick:hover svg circle {\n    \tstroke: #a00 !important;\n}\n.remove-trick:hover svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(90deg);\n    \t        transform: rotate(90deg);\n}\n.remove-trick:hover svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-90deg);\n    \t        transform: rotate(-90deg);\n}\n.remove-trick:active svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(135deg);\n    \t        transform: rotate(135deg);\n}\n.remove-trick:active svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-135deg);\n    \t        transform: rotate(-135deg);\n}\n.remove-video {\n    \tfill: #555;\n    \twidth: 24px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.remove-video:hover {\n    \tfill: #a00;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-add-spot, .video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot {\n\t\twidth: 30px;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.video-add-spot:hover {\n    \tfill: #080;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \theight: 24px;\n}\n.map-container {\n    \tposition: fixed;\n        z-index: 1002;\n\t    width: 100vw;\n\t    height: 100vh;\n\t    left: 0px;\n\t    top: 0px;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    background-color: rgba(0, 0, 0, 0.5);\n}\n.map-wrap {\n\t\twidth: 90%;\n\t\theight: 80%;\n}\n", ""]);
+exports.push([module.i, "\n.avatar-container img {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n}\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n\t\tposition: relative;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tmargin-top: 10px;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\t-webkit-animation: avatarUp .4s;\n\t\t        animation: avatarUp .4s;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.close-map-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.close-map-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.close-map-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t    fill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.image-buttons {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \twidth: 100%;\n    \theight: 100%;\n\t    border-radius: 50%;\n}\n.change-image, .remove-image {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-box-flex: 1;\n\t\t    -ms-flex: 1;\n\t\t        flex: 1;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\topacity: 0;\n\t\tcursor: pointer;\n}\n.change-image svg, .remove-image svg {\n\t\tfill: rgba(255, 255, 255, 0.9);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.change-image:hover svg {\n    \tfill: rgba(0, 204, 0, 0.7);\n}\n.remove-image:hover svg {\n    \tfill: rgba(204, 0, 0, 0.7);\n}\n.image-buttons:hover .change-image, .image-buttons:hover .remove-image {\n\t\topacity: 1;\n\t\t-webkit-transform: translateY(0);\n\t\t        transform: translateY(0);\n}\n.change-image {\n\t\t-webkit-transform: translateY(-100%);\n\t\t        transform: translateY(-100%);\n}\n.remove-image {\n\t\t-webkit-transform: translateY(100%);\n\t\t        transform: translateY(100%);\n}\n.hidden {\n    \tdisplay: none;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.add-image {\n    \tposition: absolute;\n    \twidth: 100%;\n    \theight: 100%;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tcursor: pointer;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tbackground-color: rgba(0, 0, 0, 0.3);\n    \tz-index: 100;\n}\n.add-image svg {\n    \tfill: rgba(0, 162, 0, 1);\n    \twidth: 64px;\n    \tcursor: pointer;\n}\n.avatar-container:hover .add-image {\n\t\topacity: 1;\n}\n.social-item {\n    \tmargin-bottom: 10px;\n}\n.social-default {\n    \tfont-size: 14px;\n}\n.custom-btn {\n    \tcursor: pointer;\n}\n.tricks-wrap {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.custom-all-tricks-button, .custom-add-video-button {\n\t\t-ms-flex-item-align: end;\n\t\t    align-self: flex-end;\n\t\tcursor: pointer;\n\t\tmargin-bottom: 20px;\n\t\tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n}\n.all-tricks-container {\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n}\n.custom-list-group {\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n}\n.custom-list-group .custom-list-group-item {\n\t\tmargin-bottom: 10px;\n\t\twidth: 33%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-transition: all .5s ease;\n\t\ttransition: all .5s ease;\n}\n.new-tricks-enter, .new-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.new-tricks-leave-active {\n\t  position: absolute;\n}\n.add-element {\n    \tcolor: #5cb85c;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.add-element:hover {\n    \tcolor: #449d44;\n}\n.custom-list-group-item:hover .add-element {\n    \topacity: 1;\n}\n.remove-trick {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n    \theight: 30px;\n}\n.remove-trick svg {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n\t\tfill: #333;\n\t\twidth: 30px;\n}\n.remove-trick svg path {\n\t\tfill: #333;\n\t\tstroke: #333;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform-origin: center center;\n\t\t        transform-origin: center center;\n}\n.remove-trick:hover svg path {\n    \tfill: #a00;\n    \tstroke: #a00;\n}\n.remove-trick svg circle {\n\t\tstroke: #333 !important;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-trick:hover svg circle {\n    \tstroke: #a00 !important;\n}\n.remove-trick:hover svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(90deg);\n    \t        transform: rotate(90deg);\n}\n.remove-trick:hover svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-90deg);\n    \t        transform: rotate(-90deg);\n}\n.remove-trick:active svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(135deg);\n    \t        transform: rotate(135deg);\n}\n.remove-trick:active svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-135deg);\n    \t        transform: rotate(-135deg);\n}\n.remove-video {\n    \tfill: #555;\n    \twidth: 24px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.remove-video:hover {\n    \tfill: #a00;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-add-spot, .video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot {\n\t\twidth: 30px;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.video-add-spot:hover {\n    \tfill: #080;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \theight: 24px;\n}\n.map-container {\n    \tposition: fixed;\n        z-index: 1002;\n\t    width: 100vw;\n\t    height: 100vh;\n\t    left: 0px;\n\t    top: 0px;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    background-color: rgba(0, 0, 0, 0.5);\n}\n.map-wrap {\n\t\twidth: 90%;\n\t\theight: 80%;\n}\n", ""]);
 
 // exports
 
@@ -50950,7 +50925,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['user', 'user_tricks', 'prop_videos', 'avatar', 'routes', 'all_tricks', 'spots'],
+	props: ['user', 'user_tricks', 'prop_videos', 'avatar', 'routes', 'all_tricks', 'spots', 'src_local'],
 	data: function data() {
 		return {
 			videos: this.prop_videos,
@@ -50975,17 +50950,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			tip: {
 				show: false,
 				msg: ''
-			}
+			},
+			local: this.src_local
 		};
 	},
-	created: function created() {},
+	mounted: function mounted() {
+		var _this = this;
+
+		eventBus.$on('changeLocale', function (data) {
+			_this.local = data;
+		});
+	},
 
 	computed: {
 		fullName: function fullName() {
 			return this.user.first_name + ' ' + this.user.last_name;
 		},
 		tricksWithVideo: function tricksWithVideo() {
-			var _this = this;
+			var _this2 = this;
 
 			var pushedTricks = [];
 			var tricksAfterSort = [];
@@ -50993,7 +50975,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				if (pushedTricks.includes(this.videos[i].trick_id)) continue;
 				pushedTricks.push(this.videos[i].trick_id);
 				this.tricks.forEach(function (trick) {
-					if (trick.id == _this.videos[i].trick_id) {
+					if (trick.id == _this2.videos[i].trick_id) {
 						tricksAfterSort.push(trick);
 					}
 				});
@@ -51001,11 +50983,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			return tricksAfterSort;
 		},
 		tricksWithoutVideo: function tricksWithoutVideo() {
-			var _this2 = this;
+			var _this3 = this;
 
 			return this.tricks.filter(function (trick) {
 				var result = true;
-				_this2.videos.forEach(function (video) {
+				_this3.videos.forEach(function (video) {
 					if (video.trick_id == trick.id) {
 						result = false;
 					}
@@ -51026,11 +51008,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			return this.fullVideoList.show ? 'trick-list' : 'video-list';
 		},
 		notAddedTricks: function notAddedTricks() {
-			var _this3 = this;
+			var _this4 = this;
 
 			return this.all_tricks.filter(function (trick) {
 				var result = true;
-				_this3.tricks.forEach(function (myTrick) {
+				_this4.tricks.forEach(function (myTrick) {
 					if (myTrick.id == trick.id) {
 						result = false;
 					}
@@ -51044,27 +51026,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			return this.videos.filter(function (video) {
 				return video.trick_id == trick_id;
 			});
-		},
-		avatarClass: function avatarClass() {
-			var customClass;
-			if (this.$refs.avatar.width > this.$refs.avatar.height) {
-				customClass = 'wide';
-			} else {
-				customClass = 'high';
-			}
-			this.$refs.avatar.classList.add(customClass);
-		},
-		marginAvatar: function marginAvatar() {
-			var avatar = this.$refs.avatar;
-			var width = avatar.width;
-			var height = avatar.height;
-			if (width > height) {
-				var result = '-' + width / 2 + 'px';
-				avatar.style.left = result;
-			} else {
-				var result = '-' + height / 2 + 'px';
-				avatar.style.top = result;
-			}
 		},
 		showAllVideos: function showAllVideos(trick_id) {
 			this.fullVideoList.trick_id = trick_id;
@@ -51102,8 +51063,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					}
 				},
 				error: function error(data) {
-					console.log(data);
-					console.log('new');
+					var response = {};
+					response.msg = data.responseJSON.errors.avatar[0];
+					response.error = true;
+					response.show = true;
+					response.key = self.customKey++;
+					self.responses.push(response);
+					setTimeout(function () {
+						self.responses.shift();
+					}, 5000);
 				}
 			});
 		},
@@ -51127,10 +51095,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				}
 			});
 		},
-		imgLoaded: function imgLoaded() {
-			this.avatarClass();
-			this.marginAvatar();
-		},
 		saveSocial: function saveSocial(social) {
 			var _data;
 
@@ -51144,7 +51108,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				data: (_data = {}, _defineProperty(_data, social, value), _defineProperty(_data, '_token', $('meta[name="csrf-token"]').attr('content')), _data),
 				success: function success(data) {
 					var response = {};
-					response.msg = data;
+					response.msg = self.local['saved'];
 					response.error = false;
 					response.show = true;
 					response.key = self.customKey++;
@@ -51210,6 +51174,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				error: function error(data) {
 					var response = {};
 					response.msg = data.responseJSON.errors.move[0];
+					if (response.msg == "First you need to delete the video confirmation.") response.msg = self.local['first delete video'];
 					response.error = true;
 					response.show = true;
 					response.key = self.customKey++;
@@ -51299,7 +51264,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				success: function success(data) {
 					self.videos = data;
 					var response = {};
-					response.msg = "Spot successfuly added to your video";
+					response.msg = self.local['video added to spot'];
 					response.error = false;
 					response.show = true;
 					response.key = self.customKey++;
@@ -51329,7 +51294,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				success: function success(data) {
 					self.videos = data;
 					var response = {};
-					response.msg = "Spot successfuly removed from your video";
+					response.msg = self.local['video removed from spot'];
 					response.error = false;
 					response.show = true;
 					response.key = self.customKey++;
@@ -51662,8 +51627,7 @@ var render = function() {
                         src: _vm.avatarSrc.url,
                         alt: "avatar",
                         id: "avatar"
-                      },
-                      on: { load: _vm.imgLoaded }
+                      }
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "image-buttons" }, [
@@ -52054,7 +52018,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("Save")]
+                    [_vm._v(_vm._s(_vm.local["save"]))]
                   )
                 ])
               ]),
@@ -52107,7 +52071,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("Save")]
+                    [_vm._v(_vm._s(_vm.local["save"]))]
                   )
                 ])
               ]),
@@ -52160,7 +52124,11 @@ var render = function() {
                   [
                     _vm._v(
                       "\n\t\t\t\t" +
-                        _vm._s(_vm.allTricksShow ? "Close" : "Add elements") +
+                        _vm._s(
+                          _vm.allTricksShow
+                            ? _vm.local["close"]
+                            : _vm.local["add moves"]
+                        ) +
                         "\n\t\t\t"
                     )
                   ]
@@ -52200,7 +52168,7 @@ var render = function() {
                                   }
                                 }
                               },
-                              [_vm._v("Add element")]
+                              [_vm._v(_vm._s(_vm.local["add move"]))]
                             )
                           ]
                         )
@@ -52248,7 +52216,7 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("span", { staticClass: "btn btn-primary" }, [
-                        _vm._v("Add video")
+                        _vm._v(_vm._s(_vm.local["add video"]))
                       ])
                     ])
                   ]
@@ -52289,7 +52257,7 @@ var render = function() {
                                     _vm.removeElement(trick.id)
                                   },
                                   mouseover: function($event) {
-                                    _vm.tip.msg = "Remove element"
+                                    _vm.tip.msg = _vm.local["remove move"]
                                     _vm.tip.show = true
                                   },
                                   mouseout: function($event) {
@@ -52440,7 +52408,7 @@ var render = function() {
                                     staticClass: "video-date-dm",
                                     on: {
                                       mouseover: function($event) {
-                                        _vm.tip.msg = "Day and month"
+                                        _vm.tip.msg = _vm.local["day and month"]
                                         _vm.tip.show = true
                                       },
                                       mouseout: function($event) {
@@ -52483,7 +52451,8 @@ var render = function() {
                                           },
                                           on: {
                                             mouseover: function($event) {
-                                              _vm.tip.msg = "Detach from spot"
+                                              _vm.tip.msg =
+                                                _vm.local["detach from spot"]
                                               _vm.tip.show = true
                                             },
                                             mouseout: function($event) {
@@ -52539,7 +52508,8 @@ var render = function() {
                                           },
                                           on: {
                                             mouseover: function($event) {
-                                              _vm.tip.msg = "Attach to spot"
+                                              _vm.tip.msg =
+                                                _vm.local["attach to spot"]
                                               _vm.tip.show = true
                                             },
                                             mouseout: function($event) {
@@ -52575,7 +52545,8 @@ var render = function() {
                                       },
                                       on: {
                                         mouseover: function($event) {
-                                          _vm.tip.msg = "Delete video"
+                                          _vm.tip.msg =
+                                            _vm.local["delete video"]
                                           _vm.tip.show = true
                                         },
                                         mouseout: function($event) {
@@ -52614,7 +52585,7 @@ var render = function() {
                                 "card-footer text-muted custom-card-footer",
                               on: {
                                 mouseover: function($event) {
-                                  _vm.tip.msg = "Element name"
+                                  _vm.tip.msg = _vm.local["element name"]
                                   _vm.tip.show = true
                                 },
                                 mouseout: function($event) {
@@ -52640,7 +52611,7 @@ var render = function() {
                   on: {
                     click: _vm.backToTricks,
                     mouseover: function($event) {
-                      _vm.tip.msg = "Back to tricks"
+                      _vm.tip.msg = _vm.local["back to moves"]
                       _vm.tip.show = true
                     },
                     mouseout: function($event) {
@@ -52822,7 +52793,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 74px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item-active:not(.with-video) span {\n    \t-webkit-transform: none;\n    \t        transform: none;\n    \tfont-weight: normal;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 1005;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 1000;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 300px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 90%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-container:nth-child(1) {\n    \tborder-top: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n.no-images, .no-images svg {\n    \twidth: 100%;\n    \theight: 100%;\n}\n.no-images svg {\n    \tfill: #231F20;\n}\n.no-images {\n    \tpadding: 10px;\n}\n.no-images-background {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.no-images-background.active {\n    \topacity: 0;\n}\n.add-first-photo {\n\t    -webkit-transform: rotate(45deg);\n\t            transform: rotate(45deg);\n    \t-webkit-transform-origin: center;\n    \t        transform-origin: center;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.add-first-photo-container:hover .add-first-photo {\n    \tfill: #0a0;\n    \t-webkit-transform: rotate(45deg) scale(1.1);\n    \t        transform: rotate(45deg) scale(1.1);\n}\n.add-first-photo-container.active {\n    \tcursor: pointer;\n}\n.img-slider-item {\n    \twidth: 100%;\n    \theight: 100%;\n    \t-o-object-fit: cover;\n    \t   object-fit: cover;\n}\n", ""]);
+exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito', 'Arial';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 74px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item-active:not(.with-video) span {\n    \t-webkit-transform: none;\n    \t        transform: none;\n    \tfont-weight: normal;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 1005;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 1000;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 300px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 90%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-container:nth-child(1) {\n    \tborder-top: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n.no-images, .no-images svg {\n    \twidth: 100%;\n    \theight: 100%;\n}\n.no-images svg {\n    \tfill: #231F20;\n}\n.no-images {\n    \tpadding: 10px;\n}\n.no-images-background {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.no-images-background.active {\n    \topacity: 0;\n}\n.add-first-photo {\n\t    -webkit-transform: rotate(45deg);\n\t            transform: rotate(45deg);\n    \t-webkit-transform-origin: center;\n    \t        transform-origin: center;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.add-first-photo-container:hover .add-first-photo {\n    \tfill: #0a0;\n    \t-webkit-transform: rotate(45deg) scale(1.1);\n    \t        transform: rotate(45deg) scale(1.1);\n}\n.add-first-photo-container.active {\n    \tcursor: pointer;\n}\n.img-slider-item {\n    \twidth: 100%;\n    \theight: 100%;\n    \t-o-object-fit: cover;\n    \t   object-fit: cover;\n}\n.avatar-placeholder {\n    \twidth: 60px;\n    \theight: 60px;\n\t    fill: #333;\n}\n\n    \n", ""]);
 
 // exports
 
@@ -53097,13 +53068,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 //
 //
 //
+//
+//
+//
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'local'],
+	props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'src_local'],
 	data: function data() {
 		return {
 			videos: this.src_videos,
@@ -53128,7 +53102,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			new_tricks: this.src_new_tricks,
 			owner: this.src_spot.user_id == this.user,
 			newComment: '',
-			comments: this.src_comments
+			comments: this.src_comments,
+			local: this.src_local
 		};
 	},
 
@@ -53142,6 +53117,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		this.currentTrick = this.tricks[0].id;
 	},
 	mounted: function mounted() {
+		var _this = this;
+
 		if (window.mapLoaded === undefined) {
 			var heh = document.querySelector('#googleMap');
 			heh.addEventListener('load', this.initMap);
@@ -53150,6 +53127,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		}
 
 		window.addEventListener('resize', this.onResize);
+		eventBus.$on('changeLocale', function (data) {
+			_this.local = data;
+		});
 	},
 
 	methods: {
@@ -53278,7 +53258,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) == 'object') data = null;
 					self.spot.description = data;
 					var response = {};
-					response.msg = 'Description changed';
+					response.msg = self.local['description changed'];
 					response.error = false;
 					response.show = true;
 					response.key = self.customKey++;
@@ -53305,7 +53285,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 			if (this.tricks.length <= 1) {
 				var response = {};
-				response.msg = 'Spot must have at least one move';
+				response.msg = self.local['at least one move'];
 				response.error = true;
 				response.show = true;
 				response.key = self.customKey++;
@@ -53375,7 +53355,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					self.videos = data;
 					self.tip.show = false;
 					var response = {};
-					response.msg = "Video successfuly detached from this spot";
+					response.msg = self.local['successfuly detached'];
 					response.error = false;
 					response.show = true;
 					response.key = self.customKey++;
@@ -53444,6 +53424,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					console.log(data);
 				}
 			});
+		},
+		check: function check() {
+			console.log('checked');
 		}
 	},
 	components: {
@@ -53495,7 +53478,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "spot-description" }, [
             _c("h4", { staticClass: "spot-description-title" }, [
-              _vm._v("Description")
+              _vm._v(_vm._s(_vm.local["description"]))
             ]),
             _vm._v(" "),
             _c(
@@ -53515,7 +53498,7 @@ var render = function() {
                             _vm._s(
                               _vm.spot.description
                                 ? _vm.spot.description
-                                : "This spot has no description"
+                                : _vm.local["no description"]
                             ) +
                             "\n\t\t\t\t\t"
                         )
@@ -53547,7 +53530,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.changeDescription }
                       },
-                      [_vm._v("Save")]
+                      [_vm._v(_vm._s(_vm.local["save"]))]
                     )
                   : _vm._e()
               ]
@@ -53594,7 +53577,8 @@ var render = function() {
                                       {
                                         on: {
                                           mouseover: function($event) {
-                                            _vm.tip.msg = "Day and month"
+                                            _vm.tip.msg =
+                                              _vm.local["day and month"]
                                             _vm.tip.show = true
                                           },
                                           mouseout: function($event) {
@@ -53634,7 +53618,8 @@ var render = function() {
                                           staticClass: "video-date-dm",
                                           on: {
                                             mouseover: function($event) {
-                                              _vm.tip.msg = "Day and month"
+                                              _vm.tip.msg =
+                                                _vm.local["day and month"]
                                               _vm.tip.show = true
                                             },
                                             mouseout: function($event) {
@@ -53684,7 +53669,9 @@ var render = function() {
                                                 on: {
                                                   mouseover: function($event) {
                                                     _vm.tip.msg =
-                                                      "Detach from spot"
+                                                      _vm.local[
+                                                        "detach from spot"
+                                                      ]
                                                     _vm.tip.show = true
                                                   },
                                                   mouseout: function($event) {
@@ -53811,7 +53798,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm.newComment == ""
                   ? _c("span", { staticClass: "comments-adding-placeholder" }, [
-                      _vm._v("Text...")
+                      _vm._v(_vm._s(_vm.local["comment placeholder"]))
                     ])
                   : _vm._e()
               ])
@@ -53834,13 +53821,41 @@ var render = function() {
                         attrs: { href: _vm.getUserRoute(post.user.id) }
                       },
                       [
-                        _c("img", {
-                          staticClass: "comment-thumbnail",
-                          attrs: {
-                            src: post.user.thumbnail,
-                            alt: "small avatar"
-                          }
-                        })
+                        post.user.thumbnail
+                          ? _c("img", {
+                              staticClass: "comment-thumbnail",
+                              attrs: {
+                                src: post.user.thumbnail,
+                                alt: "small avatar"
+                              }
+                            })
+                          : _c(
+                              "svg",
+                              {
+                                staticClass: "avatar-placeholder",
+                                staticStyle: {
+                                  "enable-background": "new 0 0 100 100"
+                                },
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                  version: "1.1",
+                                  x: "0px",
+                                  y: "0px",
+                                  viewBox: "0 0 100 100",
+                                  "xml:space": "preserve"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  staticClass: "st0",
+                                  attrs: {
+                                    d:
+                                      "M87.8,89.5H11.2c-0.9,0-1.7-0.7-1.7-1.6c0-8.8,5.6-16.1,14.6-19.2l8-2.7l2.2-4.1c-1.9-2.5-3.3-5.3-4-7.9  c-2.1-2-3-5.2-3.5-6.9c-0.8-2.7-1.6-6.7,0.5-9.4c0.1-0.1,0.2-0.2,0.3-0.3c-0.2-1-0.3-1.9-0.4-2.8c-2.5-16.2,6.7-17.2,7.8-17.3  c0.1-0.1,0.1-0.1,0.1-0.1c1.1-4.2,7.4-8.6,13.2-7.5c5.9,1.2,18-0.1,18-0.1c0.2,2.5-2,4.2-2,4.2c10.2,6,8.4,19.1,7.4,23.6  c0.1,0.1,0.2,0.2,0.3,0.3c2.1,2.7,1.3,6.7,0.5,9.4c-0.5,1.7-1.4,4.9-3.5,6.9c-0.7,2.6-2.1,5.3-4,7.8L67,66l8,2.7  c9,3.1,14.6,10.4,14.6,19.2C89.5,88.8,88.8,89.5,87.8,89.5z M61.1,14.5c-2.6,2.3-3.3,0-3.3,0c-18.9-5.9-16.2,5-23.1,6.7  c-6.8,1.6-4.9,13.3-4.9,13.3c5-14,14.8-10,14.8-10c13.1,5.6,19.8,1.7,19.8,1.7c2.6,1.1,4.9,6.7,4.9,6.7  C71.2,21.8,61.1,14.5,61.1,14.5z M65.5,51.8c0.9-0.1,2.1-1.3,3.3-5.6c1.6-5.5,0.1-6.6-1.5-6.6c-0.1,0-0.2,0-0.3,0  c0.1-0.1,0.1-0.1,0.1-0.1c0.3-0.8,1.6-5.8-2.9-8.9c-3.6,0.8-9.2,1-16.7-2.1c-14.4-5.8-15.7,11.1-15.7,11.1c-0.1,0-0.2,0-0.3,0  c-1.5,0-2.9,1.1-1.3,6.6c1.3,4.3,2.5,5.5,3.3,5.6c0.8,5.1,4.9,11.6,11.7,13.9c1.4,0.4,2.8,0.5,4.3,0.5s2.9,0,4.3-0.5  C60.5,63.4,64.7,56.9,65.5,51.8z M35.2,67c4.1,4.1,9.1,7.5,14.3,7.5c5.2,0,10.2-3.3,14.3-7.5l-1.4-2.6c-2,1.9-4.5,3.5-7.3,4.5  c-1.8,0.6-3.7,0.5-5.6,0.5s-3.8,0.1-5.6-0.5c-2.9-1-5.3-2.6-7.3-4.5L35.2,67z M73.9,71.8l-7.6-2.6c-4.7,4.7-10.7,8.6-16.8,8.6  s-12.1-3.9-16.8-8.6l-7.6,2.6c-7,2.4-11.7,7.8-12.3,14.4h73.3C85.5,79.6,80.9,74.2,73.9,71.8z M56.2,47.8c-0.9,0-1.7-0.7-1.7-1.7  c0-0.9,0.7-1.7,1.7-1.7h3.3c0.9,0,1.7,0.7,1.7,1.7c0,0.9-0.7,1.7-1.7,1.7H56.2z M42.8,47.8h-3.3c-0.9,0-1.7-0.7-1.7-1.7  c0-0.9,0.7-1.7,1.7-1.7h3.3c0.9,0,1.7,0.7,1.7,1.7C44.5,47.1,43.8,47.8,42.8,47.8z"
+                                  }
+                                })
+                              ]
+                            )
                       ]
                     ),
                     _vm._v(" "),
@@ -54393,7 +54408,7 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v("Add images")]
+                            [_vm._v(_vm._s(_vm.local["add images"]))]
                           )
                         ]
                       )
@@ -54402,7 +54417,9 @@ var render = function() {
                   _c("span", [
                     _vm._v(
                       _vm._s(_vm.currentImage) +
-                        " of " +
+                        " " +
+                        _vm._s(_vm.local["of"]) +
+                        " " +
                         _vm._s(_vm.images.length)
                     )
                   ])
@@ -54493,7 +54510,13 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("\n\t\t\t\t    My Moves\n\t\t\t\t")]
+                      [
+                        _vm._v(
+                          "\n\t\t\t\t    " +
+                            _vm._s(_vm.local["my moves"]) +
+                            "\n\t\t\t\t"
+                        )
+                      ]
                     )
                   ]),
                   _vm._v(" "),
@@ -54511,12 +54534,18 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("\n\t\t\t\t\tAdd Moves\n\t\t\t\t")]
+                      [
+                        _vm._v(
+                          "\n\t\t\t\t\t" +
+                            _vm._s(_vm.local["add moves"]) +
+                            "\n\t\t\t\t"
+                        )
+                      ]
                     )
                   ])
                 ])
               : _c("h3", { staticClass: "spot-elements-title" }, [
-                  _vm._v("List of elements")
+                  _vm._v(_vm._s(_vm.local["list of moves"]))
                 ]),
             _vm._v(" "),
             _c(
@@ -54788,8 +54817,8 @@ var render = function() {
                 },
                 mouseover: function($event) {
                   _vm.tip.msg = _vm.editMode
-                    ? "Disable edit mode"
-                    : "Enable edit mode"
+                    ? _vm.local["disable edit mode"]
+                    : _vm.local["enable edit mode"]
                   _vm.tip.show = true
                 },
                 mouseout: function($event) {
@@ -54930,7 +54959,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#images-container {\n\t\tfont-family: 'Nunito';\n\t\tborder: 0;\n\t\tpadding-top: 30px;\n}\n#map {\n\t\twidth: 100%;\n\t\theight: 332px;\n}\n.images-wrap {\n\t\tborder: 2px dashed #0087F7;\n}\n.remove-image {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tfill: #a00;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: 10;\n\t\topacity: 0;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n\t\tcursor: pointer !important;\n}\n.remove-image * {\n\t\tcursor: pointer !important;\n}\n.remove-image:hover {\n\t\topacity: 1;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n\t\tposition: relative;\n}\n.custom-label {\n\t\tbackground-color: #565656;\n  \t\tcolor: transparent;\n\t\ttext-shadow: 0px 2px 3px rgba(255,255,255,0.5);\n\t\t-webkit-background-clip: text;\n        background-clip: text;\n        font-family: 'Nunito';\n\t    font-size: 20px;\n\t    padding: 10px;\n        -webkit-box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n                box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n        position: absolute;\n        top: 0;\n        left: 0;\n}\n.custom-label-wrap {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: #fff;\n\t\tz-index: 1000;\n}\n.custom-label-wrap .custom-label {\n\t\tposition: static;\n}\n.upload-img-title {\n\t\tfont-weight: bold;\n\t\tfont-size: 32px;\n\t\tcolor: #555;\n}\n.dropzone .dz-preview.dz-image-preview {\n\t\tbackground: transparent !important;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 830px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 370px;\n\t\tpadding: 0 10px;\n}\n.map-wrap {\n\t\tposition: relative;\n}\n.description-wrap {\n\t\tposition: relative;\n\t\tmargin-top: 20px;\n\t\tmin-height: 150px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.description-field {\n\t    margin-top: 40px;\n}\n.tricks-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tmargin-top: 20px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.selected-tricks {\n\t\tmargin-top: 40px;\n}\n.selected-tricks-list {\n\t\tmargin-left: 20px;\n}\n.unselected-tricks-list .list-group-item {\n\t\ttext-align: right;\n}\n.unselected-tricks {\n\t\tmax-width: 300px;\n}\n.selected-tricks-title {\n\t\tcolor: #555;\n\t\tfont-weight: bold;\n\t\tfont-size: 20px;\n\t\tmargin-bottom: 10px;\n}\n.search-tricks {\n\t\tmargin-bottom: 20px;\n}\n.unselected-tricks-list {\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n}\n.selected-tricks-list {\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.unselected-tricks-list .list-group-item,\n\t.selected-tricks-list .list-group-item {\n\t  -webkit-transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  display: inline-block;\n\t  cursor: pointer;\n\t  width: 200px;\n}\n.unselected-tricks-list .list-group-item:hover {\n\t\tcolor: #155724;\n    \tbackground-color: #c3e6cb;\n    \t/*transform: translateX(-10px);*/\n}\n.selected-tricks-list .list-group-item:hover {\n\t\tcolor: #721c24;\n    \tbackground-color: #f5c6cb;\n    \t/*transform: translateX(10px);*/\n}\n.unselected-tricks-enter, .unselected-tricks-leave-to,\n\t.selected-tricks-enter, .selected-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(-30px);\n\t          transform: translateY(-30px);\n}\n.unselected-tricks-leave-active,\n\t.selected-tricks-leave-active {\n\t  position: absolute;\n}\n.custom-submit {\n\t\tmargin-top: 15px;\n\t\tmargin-bottom: 15px;\n\t\tcursor: pointer;\n}\n.disabled {\n\t\tpointer-events: none;\n}\n", ""]);
+exports.push([module.i, "\n#images-container {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tborder: 0;\n\t\tpadding-top: 30px;\n}\n#map {\n\t\twidth: 100%;\n\t\theight: 332px;\n}\n.images-wrap {\n\t\tborder: 2px dashed #0087F7;\n}\n.remove-image {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tfill: #a00;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: 10;\n\t\topacity: 0;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n\t\tcursor: pointer !important;\n}\n.remove-image * {\n\t\tcursor: pointer !important;\n}\n.remove-image:hover {\n\t\topacity: 1;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n\t\tposition: relative;\n}\n.custom-label {\n\t\tbackground-color: #565656;\n  \t\tcolor: transparent;\n\t\ttext-shadow: 0px 2px 3px rgba(255,255,255,0.5);\n\t\t-webkit-background-clip: text;\n        background-clip: text;\n        font-family: 'Nunito', 'Arial';\n\t    font-size: 20px;\n\t    padding: 10px;\n        -webkit-box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n                box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n        position: absolute;\n        top: 0;\n        left: 0;\n}\n.custom-label-wrap {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: #fff;\n\t\tz-index: 1000;\n}\n.custom-label-wrap .custom-label {\n\t\tposition: static;\n}\n.upload-img-title {\n\t\tfont-weight: bold;\n\t\tfont-size: 32px;\n\t\tcolor: #555;\n}\n.dropzone .dz-preview.dz-image-preview {\n\t\tbackground: transparent !important;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito', 'Arial';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 830px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 370px;\n\t\tpadding: 0 10px;\n}\n.map-wrap {\n\t\tposition: relative;\n}\n.description-wrap {\n\t\tposition: relative;\n\t\tmargin-top: 20px;\n\t\tmin-height: 150px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.description-field {\n\t    margin-top: 40px;\n}\n.tricks-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tmargin-top: 20px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.selected-tricks {\n\t\tmargin-top: 40px;\n}\n.selected-tricks-list {\n\t\tmargin-left: 20px;\n}\n.unselected-tricks-list .list-group-item {\n\t\ttext-align: right;\n}\n.unselected-tricks {\n\t\tmax-width: 300px;\n}\n.selected-tricks-title {\n\t\tcolor: #555;\n\t\tfont-weight: bold;\n\t\tfont-size: 20px;\n\t\tmargin-bottom: 10px;\n}\n.search-tricks {\n\t\tmargin-bottom: 20px;\n}\n.unselected-tricks-list {\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n}\n.selected-tricks-list {\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.unselected-tricks-list .list-group-item,\n\t.selected-tricks-list .list-group-item {\n\t  -webkit-transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  display: inline-block;\n\t  cursor: pointer;\n\t  width: 200px;\n}\n.unselected-tricks-list .list-group-item:hover {\n\t\tcolor: #155724;\n    \tbackground-color: #c3e6cb;\n    \t/*transform: translateX(-10px);*/\n}\n.selected-tricks-list .list-group-item:hover {\n\t\tcolor: #721c24;\n    \tbackground-color: #f5c6cb;\n    \t/*transform: translateX(10px);*/\n}\n.unselected-tricks-enter, .unselected-tricks-leave-to,\n\t.selected-tricks-enter, .selected-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(-30px);\n\t          transform: translateY(-30px);\n}\n.unselected-tricks-leave-active,\n\t.selected-tricks-leave-active {\n\t  position: absolute;\n}\n.custom-submit {\n\t\tmargin-top: 15px;\n\t\tmargin-bottom: 15px;\n\t\tcursor: pointer;\n}\n.disabled {\n\t\tpointer-events: none;\n}\n", ""]);
 
 // exports
 
@@ -54991,7 +55020,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['routes', 'tricks'],
+	props: ['routes', 'tricks', 'src_local'],
 	data: function data() {
 		return {
 			location: null,
@@ -55000,7 +55029,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			search: '',
 			description: '',
 			canSubmit: true,
-			mapMarker: null
+			mapMarker: null,
+			local: this.src_local
 		};
 	},
 
@@ -55014,6 +55044,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		}
 	},
 	mounted: function mounted() {
+		var _this = this;
+
 		this.initDropzone();
 		if (window.mapLoaded === undefined) {
 			var heh = document.querySelector('#googleMap');
@@ -55021,6 +55053,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		} else {
 			this.initMap();
 		}
+
+		eventBus.$on('changeLocale', function (data) {
+			_this.local = data;
+		});
 	},
 
 	methods: {
@@ -55122,10 +55158,20 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content-container" }, [
     _c("div", { staticClass: "main-spot-content" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "spot-page-section map-wrap" }, [
+        _c("div", { attrs: { id: "map" } }),
+        _vm._v(" "),
+        _c("div", { staticClass: "custom-label-wrap" }, [
+          _c("h1", { staticClass: "custom-label" }, [
+            _vm._v(_vm._s(_vm.local["location of spot"]))
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "spot-page-section description-wrap" }, [
-        _c("h1", { staticClass: "custom-label" }, [_vm._v("Description")]),
+        _c("h1", { staticClass: "custom-label" }, [
+          _vm._v(_vm._s(_vm.local["description"]))
+        ]),
         _vm._v(" "),
         _c("textarea", {
           directives: [
@@ -55151,14 +55197,16 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "spot-page-section tricks-wrap" }, [
-        _c("h1", { staticClass: "custom-label" }, [_vm._v("Moves")]),
+        _c("h1", { staticClass: "custom-label" }, [
+          _vm._v(_vm._s(_vm.local["moves"]))
+        ]),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "selected-tricks" },
           [
             _c("h3", { staticClass: "selected-tricks-title" }, [
-              _vm._v("Selected Moves:")
+              _vm._v(_vm._s(_vm.local["selected moves"]) + ":")
             ]),
             _vm._v(" "),
             _c(
@@ -55201,7 +55249,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control search-tricks",
-              attrs: { type: "search", placeholder: "Search" },
+              attrs: { type: "search", placeholder: _vm.local["search"] },
               domProps: { value: _vm.search },
               on: {
                 input: function($event) {
@@ -55249,33 +55297,15 @@ var render = function() {
           class: { disabled: !_vm.canSubmit },
           on: { click: _vm.spotAdd }
         },
-        [_vm._v("Create Spot")]
+        [_vm._v(_vm._s(_vm.local["create spot"]))]
       )
     ]),
     _vm._v(" "),
-    _vm._m(1)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "spot-page-section map-wrap" }, [
-      _c("div", { attrs: { id: "map" } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "custom-label-wrap" }, [
-        _c("h1", { staticClass: "custom-label" }, [_vm._v("Location of spot")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("aside", { staticClass: "aside-content" }, [
+    _c("aside", { staticClass: "aside-content" }, [
       _c("div", { staticClass: "spot-page-section images-wrap" }, [
-        _c("h1", { staticClass: "custom-label" }, [_vm._v("Add spot images")]),
+        _c("h1", { staticClass: "custom-label" }, [
+          _vm._v(_vm._s(_vm.local["images"]))
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -55286,7 +55316,7 @@ var staticRenderFns = [
               { staticClass: "dz-message", attrs: { "data-dz-message": "" } },
               [
                 _c("span", { staticClass: "upload-img-title" }, [
-                  _vm._v("Drop files here or click to upload")
+                  _vm._v(_vm._s(_vm.local["drop files"]))
                 ])
               ]
             )
@@ -55294,8 +55324,9 @@ var staticRenderFns = [
         )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -55391,7 +55422,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nbody {\n\tbackground-color: #fff;\n}\n.main-wrap {\n\twidth: 100%;\n\theight: 100%;\n}\n.first-block,\n.second-block {\n\twidth: 100%;\n\theight: 100vh;\n\tposition: relative;\n}\n.first-block-bg-img {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: -1;\n\twidth: 100%;\n\theight: 100%;\n\t-o-object-fit: cover;\n\t   object-fit: cover;\n    -webkit-filter: brightness(90%);\n            filter: brightness(90%);\n\t/*filter: blur(1px);*/\n\t/*margin: -5px -10px -10px -5px;*/\n}\n.first-block-title {\n\tfont-family: 'Nunito';\n\tfont-weight: bold;\n\tfont-size: 62px;\n\tcolor: #fff;\n\twhite-space: nowrap;\n}\n.first-block-content {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\tposition: absolute;\n\ttop: 50%;\n\tleft: 50%;\n\t-webkit-transform: translate(-50%, -50%);\n\t        transform: translate(-50%, -50%);\n}\n.second-block-content {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: row;\n\t        flex-direction: row;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n\theight: 100%;\n}\n.first-block-content-container {\n\t/*background-color: rgba(255, 255, 255, 0.5);*/\n\twidth: 100%;\n\theight: 100%;\n}\n.custom-btn-find-spot {\n    margin: 20px auto 0px;\n    font-size: 24px;\n    cursor: pointer;\n    font-family: 'Nunito';\n    background-color: rgba(0, 0, 0, 0.15);\n}\n.custom-btn-find-spot:hover, \n.custom-btn-find-spot:focus, \n.custom-btn-find-spot:active {\n\t background-color: #17a2b8; \n     border-color: #17a2b8; \n     color: #fff;\n}\n.second-block-img {\n\t-webkit-box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\t        box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\tposition: relative;\n\tz-index: 10;\n\t-webkit-filter: blur(2px);\n\t        filter: blur(2px);\n\tborder-radius: 5px;\n\t/*animation-fill-mode: forwards;\n\tanimation-play-state: paused;*/\n\t/*transition: .5s;*/\n}\n.second-block-img-wrap {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.second-block-first-img {\n\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t        transform: translate3d(-30px, 30px, 0);\n}\n.second-block-first-img.active-animation {\n\t-webkit-animation: firstImgShow .8s forwards ease;\n\t        animation: firstImgShow .8s forwards ease;\n}\n.second-block-second-img {\n\t-webkit-transform: translate3d(30px, -30px, 0);\n\t        transform: translate3d(30px, -30px, 0);\n}\n.second-block-second-img.active-animation {\n\t-webkit-animation: secondImgShow .8s forwards ease;\n\t        animation: secondImgShow .8s forwards ease;\n}\n@-webkit-keyframes firstImgShow{\nfrom {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n\t\tz-index: 9;\n}\n49% {\n\t\tz-index: 9;\n}\n50% {\n\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t        transform: translate3d(-30px, -30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\nto {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\n}\n@keyframes firstImgShow{\nfrom {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n\t\tz-index: 9;\n}\n49% {\n\t\tz-index: 9;\n}\n50% {\n\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t        transform: translate3d(-30px, -30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\nto {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\n}\n@-webkit-keyframes secondImgShow{\nfrom {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n\t\tz-index: 9;\n}\n49% {\n\t\tz-index: 9;\n}\n50% {\n\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t        transform: translate3d(30px, 30px, 0);\n\t\tz-index: 10;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\nto {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\n}\n@keyframes secondImgShow{\nfrom {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n\t\tz-index: 9;\n}\n49% {\n\t\tz-index: 9;\n}\n50% {\n\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t        transform: translate3d(30px, 30px, 0);\n\t\tz-index: 10;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\nto {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n\t\tz-index: 11;\n\t\t-webkit-filter: blur(0px);\n\t\t        filter: blur(0px);\n}\n}\n.second-block-title-container {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n    margin-left: 50px;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    height: 100%;\n}\n.second-block-title {\n\tfont-family: 'Nunito';\n\tfont-size: 34px;\n\tcolor: #777;\n\t-webkit-transition: 1s;\n\ttransition: 1s;\n\ttext-align: right;\n\tmax-width: 400px;\n}\n.second-block-title:nth-child(1) {\n\tmargin-bottom: 150px;\n}\n.second-block-title.active-title {\n\tcolor: #444;\n\t/*font-weight: bold;*/\n\t-webkit-transform: scale(1.1);\n\t        transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, "\nbody {\n\t\tbackground-color: #fff;\n}\n.main-wrap {\n\t\twidth: 100%;\n\t\theight: 100%;\n}\n.first-block,\n\t.second-block {\n\t\twidth: 100%;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.first-block-bg-img {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: -1;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n\t    -webkit-filter: brightness(90%);\n\t            filter: brightness(90%);\n\t\t/*filter: blur(1px);*/\n\t\t/*margin: -5px -10px -10px -5px;*/\n}\n.first-block-title {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: bold;\n\t\tfont-size: 62px;\n\t\tcolor: #fff;\n\t    width: 80vw;\n    \ttext-align: center;\n}\n.first-block-content {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tposition: absolute;\n\t\ttop: 50%;\n\t\tleft: 50%;\n\t\t-webkit-transform: translate(-50%, -50%);\n\t\t        transform: translate(-50%, -50%);\n}\n.second-block-content {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\theight: 100%;\n}\n.first-block-content-container {\n\t\t/*background-color: rgba(255, 255, 255, 0.5);*/\n\t\twidth: 100%;\n\t\theight: 100%;\n}\n.custom-btn-find-spot {\n\t    margin: 20px auto 0px;\n\t    font-size: 24px;\n\t    cursor: pointer;\n\t    font-family: 'Nunito', 'Arial';\n\t    background-color: rgba(0, 0, 0, 0.15);\n}\n.custom-btn-find-spot:hover, \n\t.custom-btn-find-spot:focus, \n\t.custom-btn-find-spot:active {\n\t\t background-color: #17a2b8; \n\t     border-color: #17a2b8; \n\t     color: #fff;\n}\n.second-block-img {\n\t\t-webkit-box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\t\t        box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\t\tposition: relative;\n\t\tz-index: 10;\n\t\t-webkit-filter: blur(2px);\n\t\t        filter: blur(2px);\n\t\tborder-radius: 5px;\n\t\t/*animation-fill-mode: forwards;\n\t\tanimation-play-state: paused;*/\n\t\t/*transition: .5s;*/\n}\n.second-block-img-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.second-block-first-img {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n}\n.second-block-first-img.active-animation {\n\t\t-webkit-animation: firstImgShow .8s forwards ease;\n\t\t        animation: firstImgShow .8s forwards ease;\n}\n.second-block-second-img {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n}\n.second-block-second-img.active-animation {\n\t\t-webkit-animation: secondImgShow .8s forwards ease;\n\t\t        animation: secondImgShow .8s forwards ease;\n}\n@-webkit-keyframes firstImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t\t        transform: translate3d(-30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@keyframes firstImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t\t        transform: translate3d(-30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@-webkit-keyframes secondImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t\t        transform: translate3d(30px, 30px, 0);\n\t\t\tz-index: 10;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@keyframes secondImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t\t        transform: translate3d(30px, 30px, 0);\n\t\t\tz-index: 10;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n.second-block-title-container {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t    margin-left: 50px;\n\t    -webkit-box-align: end;\n\t        -ms-flex-align: end;\n\t            align-items: flex-end;\n\t    height: 100%;\n}\n.second-block-title {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-size: 34px;\n\t\tcolor: #777;\n\t\t-webkit-transition: 1s;\n\t\ttransition: 1s;\n\t\ttext-align: right;\n\t\tmax-width: 400px;\n}\n.second-block-title:nth-child(1) {\n\t\tmargin-bottom: 150px;\n}\n.second-block-title.active-title {\n\t\tcolor: #444;\n\t\t/*font-weight: bold;*/\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -55438,16 +55469,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['images_path', 'routes'],
+	props: ['images_path', 'routes', 'src_local'],
 	data: function data() {
 		return {
 			focusImg: 2,
-			changeFocusImgTimeout: null
+			changeFocusImgTimeout: null,
+			local: this.src_local
 		};
 	},
 	mounted: function mounted() {
+		var _this = this;
+
 		this.classOptimize();
-		console.log(this.images_path);
+		eventBus.$on('changeLocale', function (data) {
+			_this.local = data;
+		});
 	},
 
 	methods: {
@@ -55455,12 +55491,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			document.querySelector('.main-content').classList.remove('main-content');
 		},
 		changeFocusImg: function changeFocusImg(img) {
-			var _this = this;
+			var _this2 = this;
 
 			if (this.changeFocusImgTimeout || this.focusImg == img) return;
 			this.focusImg = img;
 			this.changeFocusImgTimeout = setTimeout(function () {
-				return _this.changeFocusImgTimeout = null;
+				return _this2.changeFocusImgTimeout = null;
 			}, 800);
 		}
 	}
@@ -55484,7 +55520,7 @@ var render = function() {
       _c("div", { staticClass: "first-block-content-container" }, [
         _c("div", { staticClass: "first-block-content" }, [
           _c("h1", { staticClass: "first-block-title" }, [
-            _vm._v("YOU CAN PARKOUR ANYWHERE")
+            _vm._v(_vm._s(_vm.local["main title"]))
           ]),
           _vm._v(" "),
           _c(
@@ -55493,7 +55529,7 @@ var render = function() {
               staticClass: "btn btn-outline-info custom-btn-find-spot",
               attrs: { href: _vm.routes.find }
             },
-            [_vm._v("Find a spot")]
+            [_vm._v(_vm._s(_vm.local["find a spot"]))]
           )
         ])
       ])
@@ -55534,7 +55570,9 @@ var render = function() {
             },
             [
               _vm._v(
-                "\n\t\t\t\t\tFind a spot to train or share your spots with others\n\t\t\t\t"
+                "\n\t\t\t\t\t" +
+                  _vm._s(_vm.local["find a spot title"]) +
+                  "\n\t\t\t\t"
               )
             ]
           ),
@@ -55545,7 +55583,13 @@ var render = function() {
               staticClass: "second-block-title",
               class: { "active-title": _vm.focusImg == 2 }
             },
-            [_vm._v("\n\t\t\t\t\tShare videos of your moves\n\t\t\t\t")]
+            [
+              _vm._v(
+                "\n\t\t\t\t\t" +
+                  _vm._s(_vm.local["share videos"]) +
+                  "\n\t\t\t\t"
+              )
+            ]
           )
         ])
       ])
@@ -55648,7 +55692,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.login,\n.logout {\n\tborder-left: 1px solid rgba(0,0,0,.0975);\n\tborder-right: 1px solid rgba(0,0,0,.0975);\n\tcolor: #5886af;\n\t-webkit-transition: .2s;\n\ttransition: .2s;\n\tmargin-left: 30px;\n}\n.login:hover,\n.logout:hover {\n\tbackground-color: #5886af;\n\tcolor: #fff;\n\tborder-left: 1px solid #5886af;\n\tborder-right: 1px solid #5886af;\n}\n", ""]);
+exports.push([module.i, "\n.login,\n\t.logout {\n\t\tborder-left: 1px solid rgba(0,0,0,.0975);\n\t\tborder-right: 1px solid rgba(0,0,0,.0975);\n\t\tcolor: #5886af;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tmargin-left: 30px;\n}\n.login:hover,\n\t.logout:hover {\n\t\tbackground-color: #5886af;\n\t\tcolor: #fff;\n\t\tborder-left: 1px solid #5886af;\n\t\tborder-right: 1px solid #5886af;\n}\n.svg-language {\n\t\twidth: 40px;\n\t\tposition: relative;\n\t\tz-index: 999;\n}\n.svg-language-first-front,\n\t.svg-language-second-front,\n\t.svg-language-background {\n\t\tfill: transparent;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.language-container:hover .svg-language-first-front,\n\t.svg-languages-container:hover + .svg-language .svg-language-first-front {\n\t\tfill: #1976D2;\n}\n.language-container:hover .svg-language-second-front,\n\t.svg-languages-container:hover + .svg-language .svg-language-second-front {\n\t\tfill: #2196F3;\n}\n.language-container:hover .svg-language-background,\n\t.svg-languages-container:hover + .svg-language .svg-language-background {\n\t\tfill:#ECEFF1;\n}\n.language-container {\n\t\tposition: relative;\n\t\theight: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\tcursor: pointer;\n\t\twidth: 60px;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n}\n.language-container:focus .svg-languages-container,\n\t.language-container:active .svg-languages-container,\n\t.language-container:hover .svg-languages-container,\n\t.svg-languages-container:hover {\n\t\ttop: 100%;\n\t\tvisibility: visible;\n\t\topacity: 1;\n}\n.svg-languages-container {\n\t\tposition: absolute;\n\t\tleft: 0;\n\t\ttop: 50%;\n\t\tz-index: 998;\n\t\t-webkit-transition: .3s;\n\t\ttransition: .3s;\n\t\tvisibility: hidden;\n\t\topacity: 0;\n\t\twidth: 100%;\n}\n.svg-languages-container li {\n\t\tmargin: 0;\n\t\twidth: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    border-radius: 3px;\n}\n.svg-languages-container li:hover {\n\t\tbackground-color: rgba(0, 0, 0, 0.1);\n}\n.svg-languages-container li:active {\n\t\tbackground-color: rgba(0, 0, 0, 0.2);\n}\n.svg-language-british svg,\n\t.svg-language-russian svg {\n\t\twidth: 40px;\n\t\theight: 40px;\n}\n.language-wrap {\n\t\tmargin-left: 30px;\n}\n.nav-logo-wrap:hover, .nav-logo-wrap {\n\t\ttext-decoration: none;\n}\n.toggle-menu {\n\t\tposition: absolute;\n\t\ttop: 12px;\n\t\tright: 30px;\n\t\tdisplay: none;\n\t\twidth: 40px;\n\t\theight: 40px;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tfill: #444;\n\t\toverflow: visible !important;\n}\n@media(max-width: 930px) {\n.main-nav-container {\n\t\t\theight: auto;\n\t\t\toverflow: hidden;\n}\n.main-nav {\n\t\t\t-webkit-box-orient: vertical;\n\t\t\t-webkit-box-direction: normal;\n\t\t\t    -ms-flex-direction: column;\n\t\t\t        flex-direction: column;\n\t\t\tpadding: 10px 20px;\n}\n.custom-navbar {\n\t\t\t-webkit-box-orient: vertical;\n\t\t\t-webkit-box-direction: normal;\n\t\t\t    -ms-flex-direction: column;\n\t\t\t        flex-direction: column;\n\t\t\tmax-height: 0px;\n\t\t\tvisibility: hidden;\n\t\t\topacity: 0;\n\t\t\t-webkit-transition: .5s max-height, .3s opacity;\n\t\t\ttransition: .5s max-height, .3s opacity;\n\t\t    width: 100%;\n}\n.nav-logo-wrap {\n\t\t\t-ms-flex-item-align: start;\n\t\t\t    align-self: flex-start;\n}\n.toggle-menu {\n\t\t\tdisplay: inline-block;\n}\n.custom-navbar.opened {\n\t\t\tmax-height: 500px;\n\t\t\tvisibility: visible;\n\t\t\topacity: 1;\n}\n.custom-navbar>li {\n\t\t    margin: 0px;\n\t\t    border-top: 1px solid #ccc;\n\t\t    width: 100%;\n\t\t    display: -webkit-box;\n\t\t    display: -ms-flexbox;\n\t\t    display: flex;\n\t\t    -webkit-box-pack: center;\n\t\t        -ms-flex-pack: center;\n\t\t            justify-content: center;\n\t\t    padding: 5px 0px;\n}\n.custom-navbar>li:nth-child(1) {\n\t\t\tmargin-top: 20px;\n}\n.custom-navbar>li>.nav-link {\n\t\t\twidth: 100%;\n\t\t    display: -webkit-box;\n\t\t    display: -ms-flexbox;\n\t\t    display: flex;\n    \t\t-webkit-box-pack: center;\n    \t\t    -ms-flex-pack: center;\n    \t\t        justify-content: center;\n    \t\t-webkit-transition: .2s;\n    \t\ttransition: .2s;\n}\n.login,\n\t\t.logout {\n\t\t\tmargin: 0px;\n\t\t\tborder: 0;\n\t\t\tcolor: #444;\n}\n.login:hover,\n\t\t.logout:hover {\n\t\t\tborder: 0;\n}\n.route-list-item {\n\t\t\t-webkit-transition: .2s;\n\t\t\ttransition: .2s;\n}\n.route-list-item:hover,\n\t\t.route-list-item:active,\n\t\t.route-list-item:focus {\n\t\t\t/*background-color: rgba(0, 0, 0, 0.1);*/\n\t\t\tbackground-color: #5886af;\n}\n.route-list-item:hover>.nav-link,\n\t\t.route-list-item:active>.nav-link,\n\t\t.route-list-item:focus>.nav-link {\n    \t\tcolor: #fff;\n}\n.language-container:focus .svg-languages-container,\n\t\t.language-container:active .svg-languages-container,\n\t\t.language-container:hover .svg-languages-container,\n\t\t.svg-languages-container:hover {\n\t\t\tleft: 100%;\n\t\t\ttop: 0;\n\t\t\tvisibility: visible;\n\t\t\topacity: 1;\n}\n.svg-languages-container {\n\t\t\tposition: absolute;\n\t\t\tleft: 0;\n\t\t\ttop: 0;\n\t\t\tz-index: 998;\n\t\t\t-webkit-transition: .3s;\n\t\t\ttransition: .3s;\n\t\t\tvisibility: hidden;\n\t\t\topacity: 0;\n\t\t\twidth: 100%;\n\t\t\tdisplay: -webkit-box;\n\t\t\tdisplay: -ms-flexbox;\n\t\t\tdisplay: flex;\n}\n.svg-languages-container li {\n\t\t\tmargin-left: 10px;\n}\n.toggle-menu:active {\n\t\t\t/*transform: scale(1.2);*/\n}\n.toggle-menu path {\n\t\t\t-webkit-transition: .5s all;\n\t\t\ttransition: .5s all;\n}\n.menu-top-line {\n\t\t\t-webkit-transform: rotate(0deg);\n\t\t\t        transform: rotate(0deg);\n    \t\t-webkit-transform-origin: 10% 40%;\n    \t\t        transform-origin: 10% 40%;\n}\n.menu-top-line.active {\n\t\t\t-webkit-transform: rotate(45deg);\n\t\t\t        transform: rotate(45deg);\n\t\t\tfill: #a00;\n}\n.menu-mid-line {\n\t\t    opacity: 1;\n\t\t    -webkit-transform: scale(1);\n\t\t            transform: scale(1);\n\t\t    -webkit-transform-origin: center;\n\t\t            transform-origin: center;\n}\n.menu-mid-line.active {\n\t\t\topacity: 0;\n\t\t\t-webkit-transform: scale(0);\n\t\t\t        transform: scale(0);\n}\n.menu-bot-line {\n\t\t    -webkit-transform: rotate(0deg);\n\t\t            transform: rotate(0deg);\n    \t\t-webkit-transform-origin: 10% 60%;\n    \t\t        transform-origin: 10% 60%;\n}\n.menu-bot-line.active {\n\t\t\t-webkit-transform: rotate(-45deg);\n\t\t\t        transform: rotate(-45deg);\n\t\t\tfill: #a00;\n}\n}\n", ""]);
 
 // exports
 
@@ -55686,22 +55730,248 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['auth', 'routes'],
+	props: ['auth', 'routes', 'src_local'],
 	data: function data() {
 		return {
-			token: $('meta[name="csrf-token"]').attr('content')
+			token: $('meta[name="csrf-token"]').attr('content'),
+			local: this.src_local,
+			menuOpened: false
 		};
 	},
 
 	methods: {
 		logout: function logout() {
 			document.getElementById('logout-form').submit();
+		},
+		changeLocale: function changeLocale(locale) {
+			var self = this;
+			$.ajax({
+				method: "post",
+				url: self.routes.changeLocale,
+				dataType: "json",
+				headers: {
+					'X-CSRF-TOKEN': self.token
+				},
+				data: {
+					locale: JSON.stringify(locale),
+					_token: self.token
+				},
+				success: function success(data) {
+					if (Array.isArray(data)) {
+						self.local = data[0];
+						eventBus.$emit('changeLocale', data[1]);
+					}
+				},
+				error: function error(data) {
+					console.log(data);
+				}
+			});
 		}
-	},
-	created: function created() {
-		console.log(this.auth);
 	}
 });
 
@@ -55715,46 +55985,61 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "main-nav-container" }, [
     _c("div", { staticClass: "main-nav" }, [
-      _c("h1", { staticClass: "nav-logo" }, [_vm._v("parkour")]),
+      _c(
+        "a",
+        { staticClass: "nav-logo-wrap", attrs: { href: _vm.routes.home } },
+        [_c("h1", { staticClass: "nav-logo" }, [_vm._v("parkour")])]
+      ),
       _vm._v(" "),
       _c(
         "ul",
-        { staticClass: "custom-navbar" },
+        { staticClass: "custom-navbar", class: { opened: _vm.menuOpened } },
         [
-          _c("li", [
+          _c("li", { staticClass: "route-list-item" }, [
             _c(
               "a",
               { staticClass: "nav-link", attrs: { href: _vm.routes.find } },
-              [_vm._v("Find a spot")]
+              [_vm._v(_vm._s(_vm.local["find a spot"]))]
             )
           ]),
           _vm._v(" "),
           !_vm.auth
             ? [
-                _c("li", [
+                _c("li", { staticClass: "route-list-item" }, [
                   _c(
                     "a",
                     {
                       staticClass: "nav-link login",
                       attrs: { href: _vm.routes.login }
                     },
-                    [_vm._v("Login")]
+                    [_vm._v(_vm._s(_vm.local.login))]
                   )
                 ])
               ]
             : [
-                _c("li", [
+                _c("li", { staticClass: "route-list-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { href: _vm.routes.spotAdd }
+                    },
+                    [_vm._v(_vm._s(_vm.local["add spot"]))]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "route-list-item" }, [
                   _c(
                     "a",
                     {
                       staticClass: "nav-link",
                       attrs: { href: _vm.routes.profile }
                     },
-                    [_vm._v("Profile")]
+                    [_vm._v(_vm._s(_vm.local.profile))]
                   )
                 ]),
                 _vm._v(" "),
-                _c("li", [
+                _c("li", { staticClass: "route-list-item" }, [
                   _c(
                     "a",
                     {
@@ -55769,7 +56054,9 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            Logout\n                        "
+                        "\n                            " +
+                          _vm._s(_vm.local.logout) +
+                          "\n                        "
                       )
                     ]
                   ),
@@ -55793,11 +56080,596 @@ var render = function() {
                     ]
                   )
                 ])
-              ]
+              ],
+          _vm._v(" "),
+          _c("li", { staticClass: "language-wrap" }, [
+            _c("div", { staticClass: "language-container" }, [
+              _c("ul", { staticClass: "svg-languages-container" }, [
+                _c(
+                  "li",
+                  {
+                    staticClass: "svg-language-british",
+                    on: {
+                      click: function($event) {
+                        _vm.changeLocale("en")
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          version: "1.1",
+                          id: "Capa_1",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                          x: "0px",
+                          y: "0px",
+                          width: "800px",
+                          height: "800px",
+                          viewBox: "0 0 800 800",
+                          "enable-background": "new 0 0 800 800",
+                          "xml:space": "preserve"
+                        }
+                      },
+                      [
+                        _c("g", [
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "24.807,331.323 24.807,232.411 173.175,331.323 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "25.807,234.279 25.807,330.323 169.872,330.323 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "154.567,153.839 331.322,153.839 331.322,271.675 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "330.322,154.839 157.87,154.839 330.322,269.807 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "24.807,468.678 173.175,468.678 24.807,567.589 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "25.807,469.678 25.807,565.721 169.872,469.678 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "468.678,153.839 645.433,153.839 468.678,271.675 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "642.13,154.839 469.678,154.839 469.678,269.807 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "626.825,331.323 775.193,232.411 775.193,331.323 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "774.193,330.323 774.193,234.279 630.128,330.323 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "154.567,646.161 331.322,528.323 331.322,646.161 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "157.87,645.161 330.322,645.161 330.322,530.191 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "626.825,468.678 775.193,468.678 775.193,567.589 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "774.193,565.721 774.193,469.678 630.128,469.678 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "468.678,646.161 468.678,528.323 645.433,646.161 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#103B9B",
+                              points:
+                                "469.678,645.161 642.13,645.161 469.678,530.191 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#FFFFFF",
+                              points:
+                                "642.13,154.839 469.678,269.807 469.678,154.839 450.322,154.839 450.322,349.677 774.193,349.677 \n\t\t\t\t\t\t\t\t\t\t\t\t774.193,330.323 630.128,330.323 774.193,234.279 774.193,166.045 527.778,330.323 481.254,330.323 469.678,330.323 \n\t\t\t\t\t\t\t\t\t\t\t\t469.678,313.244 469.678,282.228 660.743,154.839 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#FFFFFF",
+                              points:
+                                "157.87,645.161 330.322,530.191 330.322,645.161 349.678,645.161 349.678,450.322 25.807,450.322 \n\t\t\t\t\t\t\t\t\t\t\t\t25.807,469.678 169.872,469.678 25.807,565.721 25.807,633.954 272.222,469.678 318.746,469.678 330.322,469.678 330.322,486.77 \n\t\t\t\t\t\t\t\t\t\t\t\t330.322,517.786 139.262,645.161 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              points:
+                                "52.217,646.161 318.443,468.678 331.322,468.678 331.322,487.305 93.041,646.161 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              points:
+                                "318.746,469.678 55.52,645.161 92.738,645.161 330.322,486.77 330.322,469.678 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              points:
+                                "234.126,331.323 24.807,191.44 24.807,164.177 275.525,331.323 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              points:
+                                "25.807,166.045 25.807,190.906 234.429,330.323 272.222,330.323 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              points:
+                                "524.476,468.678 564.026,468.678 775.193,609.788 775.193,635.822 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              points:
+                                "774.193,633.954 774.193,610.322 563.723,469.678 527.778,469.678 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              points:
+                                "468.678,331.323 468.678,312.708 706.959,153.839 747.783,153.839 481.557,331.323 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              points:
+                                "481.254,330.323 744.48,154.839 707.262,154.839 469.678,313.244 469.678,330.323 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M800,657.979v-54.572c0-0.021,0-0.041,0-0.062V142.02c0-0.014,0-0.025,0-0.039v-0.045c0-0.076-0.011-0.15-0.012-0.226\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.006-0.348-0.02-0.693-0.054-1.041c-0.014-0.148-0.041-0.291-0.061-0.436c-0.036-0.272-0.07-0.545-0.125-0.815\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.038-0.189-0.09-0.374-0.136-0.561c-0.054-0.22-0.104-0.44-0.169-0.659c-0.069-0.227-0.153-0.446-0.232-0.666\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.063-0.172-0.118-0.346-0.189-0.516c-0.111-0.27-0.239-0.53-0.368-0.79c-0.059-0.119-0.108-0.237-0.17-0.354\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.178-0.33-0.37-0.65-0.573-0.963c-0.027-0.043-0.05-0.088-0.077-0.131c-0.002-0.003-0.005-0.007-0.009-0.01\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.241-0.359-0.497-0.708-0.772-1.042c-0.125-0.153-0.265-0.289-0.396-0.435c-0.146-0.162-0.287-0.331-0.442-0.485\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.217-0.217-0.447-0.417-0.678-0.616c-0.084-0.072-0.162-0.153-0.249-0.224c-0.221-0.181-0.451-0.344-0.682-0.509\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.11-0.08-0.217-0.167-0.33-0.243c-0.2-0.134-0.408-0.251-0.614-0.374c-0.158-0.094-0.313-0.194-0.475-0.28\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.164-0.088-0.334-0.162-0.503-0.243c-0.215-0.103-0.427-0.21-0.646-0.303c-0.126-0.052-0.255-0.093-0.382-0.14\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.267-0.1-0.532-0.201-0.806-0.285c-0.1-0.031-0.201-0.05-0.303-0.078c-0.301-0.083-0.602-0.167-0.91-0.227\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.138-0.027-0.276-0.04-0.414-0.063c-0.298-0.05-0.596-0.1-0.9-0.127c-0.398-0.038-0.8-0.06-1.202-0.06\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.009-0.002-0.018-0.002-0.024-0.002h-83.654c-0.016,0-0.029,0-0.045,0H12.903c-0.007,0-0.014,0-0.021,0\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.403,0.002-0.805,0.022-1.206,0.06c-0.351,0.033-0.695,0.088-1.038,0.148c-0.091,0.016-0.183,0.024-0.272,0.042\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.337,0.067-0.666,0.155-0.993,0.248c-0.072,0.021-0.146,0.035-0.218,0.057c-0.296,0.089-0.583,0.198-0.871,0.308\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.105,0.04-0.213,0.072-0.316,0.117c-0.241,0.1-0.473,0.215-0.706,0.33c-0.146,0.072-0.298,0.136-0.442,0.213\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.184,0.098-0.359,0.21-0.538,0.318c-0.184,0.11-0.372,0.215-0.552,0.335c-0.136,0.091-0.262,0.193-0.394,0.288\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.208,0.151-0.42,0.299-0.621,0.464c-0.108,0.088-0.207,0.188-0.312,0.279c-0.208,0.182-0.42,0.363-0.618,0.561\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.189,0.188-0.361,0.391-0.539,0.59c-0.1,0.114-0.207,0.217-0.303,0.333c-0.275,0.334-0.532,0.682-0.772,1.041\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.003,0.005-0.007,0.009-0.01,0.014c-0.033,0.05-0.059,0.104-0.091,0.153c-0.198,0.306-0.389,0.618-0.561,0.939\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.065,0.12-0.117,0.246-0.177,0.368c-0.126,0.256-0.253,0.511-0.361,0.776c-0.072,0.174-0.129,0.351-0.193,0.526\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.079,0.218-0.162,0.434-0.23,0.657c-0.067,0.22-0.115,0.44-0.17,0.663c-0.046,0.186-0.098,0.368-0.134,0.557\n\t\t\t\t\t\t\t\t\t\t\t\tc-0.053,0.272-0.089,0.545-0.125,0.819c-0.019,0.145-0.046,0.288-0.06,0.434c-0.035,0.348-0.046,0.695-0.053,1.041\n\t\t\t\t\t\t\t\t\t\t\t\tC0.01,141.786,0,141.86,0,141.936v0.045c0,0.014,0,0.025,0,0.039v55.811c0,0.016,0,0.029,0,0.044v460.104c0,0.014,0,0.025,0,0.04\n\t\t\t\t\t\t\t\t\t\t\t\tv0.044c0,0.076,0.01,0.15,0.012,0.226c0.005,0.348,0.019,0.693,0.053,1.041c0.014,0.146,0.041,0.289,0.06,0.436\n\t\t\t\t\t\t\t\t\t\t\t\tc0.036,0.273,0.071,0.545,0.125,0.817c0.038,0.188,0.09,0.373,0.136,0.561c0.053,0.22,0.103,0.44,0.168,0.659\n\t\t\t\t\t\t\t\t\t\t\t\tc0.069,0.225,0.151,0.441,0.232,0.662c0.063,0.174,0.119,0.35,0.191,0.521c0.11,0.268,0.239,0.526,0.366,0.784\n\t\t\t\t\t\t\t\t\t\t\t\tc0.059,0.119,0.108,0.239,0.172,0.357c0.177,0.331,0.37,0.65,0.573,0.964c0.027,0.043,0.05,0.088,0.078,0.131\n\t\t\t\t\t\t\t\t\t\t\t\tc0.001,0.003,0.005,0.007,0.007,0.01c0.278,0.417,0.585,0.811,0.908,1.191c0.1,0.118,0.207,0.227,0.31,0.342\n\t\t\t\t\t\t\t\t\t\t\t\tc0.224,0.246,0.458,0.481,0.699,0.709c0.134,0.126,0.268,0.249,0.406,0.368c0.256,0.22,0.523,0.427,0.797,0.628\n\t\t\t\t\t\t\t\t\t\t\t\tc0.115,0.084,0.224,0.176,0.34,0.255c0.389,0.265,0.792,0.507,1.209,0.73c0.1,0.054,0.203,0.097,0.305,0.146\n\t\t\t\t\t\t\t\t\t\t\t\tc0.335,0.167,0.676,0.322,1.027,0.461c0.133,0.052,0.265,0.099,0.397,0.146c0.332,0.119,0.669,0.222,1.012,0.313\n\t\t\t\t\t\t\t\t\t\t\t\tc0.136,0.036,0.272,0.073,0.41,0.104c0.354,0.081,0.714,0.145,1.079,0.196c0.125,0.018,0.25,0.043,0.375,0.057\n\t\t\t\t\t\t\t\t\t\t\t\tc0.459,0.052,0.926,0.083,1.399,0.084c0.022,0,0.044,0.004,0.068,0.004c0.005,0,0.012,0,0.018,0h83.623c0.017,0,0.036,0,0.053,0\n\t\t\t\t\t\t\t\t\t\t\t\th690.458c0.005,0,0.013,0.002,0.018,0.002c0.022,0,0.045-0.004,0.067-0.004c0.473-0.002,0.938-0.032,1.398-0.084\n\t\t\t\t\t\t\t\t\t\t\t\tc0.124-0.014,0.246-0.04,0.369-0.057c0.367-0.052,0.73-0.115,1.086-0.198c0.135-0.031,0.269-0.067,0.402-0.104\n\t\t\t\t\t\t\t\t\t\t\t\tc0.348-0.093,0.688-0.197,1.022-0.316c0.131-0.046,0.26-0.091,0.389-0.143c0.356-0.14,0.702-0.298,1.041-0.466\n\t\t\t\t\t\t\t\t\t\t\t\tc0.097-0.049,0.196-0.09,0.292-0.142c0.42-0.224,0.824-0.468,1.215-0.732c0.113-0.078,0.221-0.167,0.33-0.248\n\t\t\t\t\t\t\t\t\t\t\t\tc0.277-0.201,0.548-0.411,0.806-0.635c0.138-0.119,0.271-0.241,0.402-0.365c0.244-0.229,0.477-0.466,0.704-0.712\n\t\t\t\t\t\t\t\t\t\t\t\tc0.103-0.113,0.208-0.222,0.308-0.339c0.323-0.38,0.63-0.775,0.908-1.19c0.002-0.004,0.005-0.007,0.007-0.011\n\t\t\t\t\t\t\t\t\t\t\t\tc0.029-0.043,0.05-0.087,0.078-0.13c0.203-0.313,0.396-0.632,0.572-0.964c0.063-0.117,0.112-0.237,0.171-0.354\n\t\t\t\t\t\t\t\t\t\t\t\tc0.129-0.26,0.256-0.52,0.368-0.79c0.07-0.17,0.125-0.344,0.188-0.516c0.081-0.221,0.164-0.44,0.232-0.666\n\t\t\t\t\t\t\t\t\t\t\t\tc0.065-0.219,0.115-0.438,0.169-0.657c0.047-0.188,0.098-0.371,0.136-0.563c0.054-0.27,0.09-0.544,0.124-0.815\n\t\t\t\t\t\t\t\t\t\t\t\tc0.019-0.146,0.047-0.289,0.062-0.437c0.035-0.346,0.047-0.693,0.054-1.039c0.002-0.076,0.012-0.15,0.012-0.226v-0.045\n\t\t\t\t\t\t\t\t\t\t\t\tC800,658.006,800,657.992,800,657.979z M469.678,313.244l237.584-158.405h37.219L481.254,330.323h46.524l246.415-164.277v68.234\n\t\t\t\t\t\t\t\t\t\t\t\tv96.043v19.354H450.322V154.839h19.355H642.13h18.613L469.678,282.228V313.244z M349.678,349.677H25.807v-19.354v-96.043v-12.335\n\t\t\t\t\t\t\t\t\t\t\t\tl162.176,108.378h46.446L25.807,190.906v-24.86l246.416,164.277h46.524L55.52,154.839h102.352h172.45h19.355V349.677z\n\t\t\t\t\t\t\t\t\t\t\t\t M330.322,486.77L92.738,645.161H55.52l263.226-175.483h-46.524L25.807,633.954v-68.233v-96.043v-19.355h323.871v194.839h-19.355\n\t\t\t\t\t\t\t\t\t\t\t\tH157.87h-18.608l191.061-127.375V486.77z M450.322,450.322h233.549c7.128,0,12.903-5.777,12.903-12.903l0,0\n\t\t\t\t\t\t\t\t\t\t\t\tc0-7.126-5.775-12.902-12.903-12.902H437.419c-7.127,0-12.903,5.776-12.903,12.902v207.742h-49.031V437.419\n\t\t\t\t\t\t\t\t\t\t\t\tc0-7.126-5.776-12.902-12.903-12.902H25.807v-49.033h336.774c7.127,0,12.903-5.777,12.903-12.903V154.839h49.031v207.742\n\t\t\t\t\t\t\t\t\t\t\t\tc0,7.126,5.776,12.903,12.903,12.903h336.774v49.033h-38.709c-7.128,0-12.903,5.776-12.903,12.902l0,0\n\t\t\t\t\t\t\t\t\t\t\t\tc0,7.126,5.775,12.903,12.903,12.903h38.709v19.355v96.043v13.565L610.171,469.678h-46.448l210.471,140.645v23.631L527.778,469.678\n\t\t\t\t\t\t\t\t\t\t\t\th-46.524L744.48,645.161H642.13H469.678h-19.355V450.322z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("polygon", {
+                            attrs: {
+                              fill: "#FFFFFF",
+                              points:
+                                "330.322,269.807 157.87,154.839 55.52,154.839 318.746,330.323 272.222,330.323 234.429,330.323 \n\t\t\t\t\t\t\t\t\t\t\t\t187.983,330.323 25.807,221.944 25.807,234.279 169.872,330.323 25.807,330.323 25.807,349.677 349.678,349.677 349.678,154.839 \n\t\t\t\t\t\t\t\t\t\t\t\t330.322,154.839 \t"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              fill: "#FFFFFF",
+                              d:
+                                "M469.678,530.191l172.452,114.97H744.48L481.254,469.678h46.524h35.946h46.448l164.021,109.608v-13.565\n\t\t\t\t\t\t\t\t\t\t\t\tl-144.065-96.043h144.065v-19.355h-38.709c-7.128,0-12.903-5.777-12.903-12.903h-25.807c0,7.126-5.775,12.903-12.903,12.903\n\t\t\t\t\t\t\t\t\t\t\t\tH450.322v194.839h19.355V530.191z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              d:
+                                "M374.484,646.161V437.419c0-6.563-5.34-11.902-11.903-11.902H24.807v-51.033h337.774\n\t\t\t\t\t\t\t\t\t\t\t\tc6.563,0,11.903-5.34,11.903-11.903V153.839h51.031v208.742c0,6.563,5.34,11.903,11.903,11.903h337.774v51.033h-39.709\n\t\t\t\t\t\t\t\t\t\t\t\tc-6.563,0-11.903,5.339-11.903,11.902v1h-27.807v-1c0-6.563-5.34-11.902-11.903-11.902H437.419\n\t\t\t\t\t\t\t\t\t\t\t\tc-6.563,0-11.903,5.339-11.903,11.902v208.742H374.484z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              d:
+                                "M722.581,437.419c0-7.126,5.775-12.902,12.903-12.902h38.709v-49.033H437.419\n\t\t\t\t\t\t\t\t\t\t\t\tc-7.127,0-12.903-5.777-12.903-12.903V154.839h-49.031v207.742c0,7.126-5.776,12.903-12.903,12.903H25.807v49.033h336.774\n\t\t\t\t\t\t\t\t\t\t\t\tc7.127,0,12.903,5.776,12.903,12.902v207.742h49.031V437.419c0-7.126,5.776-12.902,12.903-12.902h246.452\n\t\t\t\t\t\t\t\t\t\t\t\tc7.128,0,12.903,5.776,12.903,12.902l0,0H722.581L722.581,437.419z"
+                            }
+                          })
+                        ])
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass: "svg-language-russian",
+                    on: {
+                      click: function($event) {
+                        _vm.changeLocale("ru")
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        attrs: {
+                          version: "1.1",
+                          id: "Capa_1",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                          x: "0px",
+                          y: "0px",
+                          width: "800px",
+                          height: "800px",
+                          viewBox: "0 0 800 800",
+                          "enable-background": "new 0 0 800 800",
+                          "xml:space": "preserve"
+                        }
+                      },
+                      [
+                        _c("g", [
+                          _c("path", {
+                            attrs: {
+                              fill: "#103B9B",
+                              d:
+                                "M644.161,487.021v-1c0-6.563-5.34-11.903-11.903-11.903H24.807V325.882h750.387v148.236h-91.322\n\t\t\t\t\t\t\t\t\t\t\t\tc-6.563,0-11.903,5.34-11.903,11.903v1H644.161z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              fill: "#103B9B",
+                              d:
+                                "M683.871,473.118h90.322V326.882H25.807v146.236h606.451c7.128,0,12.903,5.777,12.903,12.903h25.807\n\t\t\t\t\t\t\t\t\t\t\t\tC670.968,478.896,676.743,473.118,683.871,473.118z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("rect", {
+                            attrs: {
+                              x: "25.807",
+                              y: "154.839",
+                              fill: "#FFFFFF",
+                              width: "748.387",
+                              height: "146.236"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              d:
+                                "M24.807,646.161V497.925h607.451c6.563,0,11.903-5.34,11.903-11.903v-1h27.807v1\n\t\t\t\t\t\t\t\t\t\t\t\tc0,6.563,5.34,11.903,11.903,11.903h91.322v148.236H24.807z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              fill: "#ED1F34",
+                              d:
+                                "M683.871,498.925c-7.128,0-12.903-5.777-12.903-12.903h-25.807c0,7.126-5.775,12.903-12.903,12.903H25.807\n\t\t\t\t\t\t\t\t\t\t\t\tv146.236h748.387V498.925H683.871z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M787.097,129.032H12.903C5.775,129.032,0,134.81,0,141.936v516.129c0,7.126,5.775,12.903,12.903,12.903h774.193\n\t\t\t\t\t\t\t\t\t\t\t\tc7.128,0,12.903-5.777,12.903-12.903V141.936C800,134.81,794.225,129.032,787.097,129.032z M774.193,154.839v146.236H25.807\n\t\t\t\t\t\t\t\t\t\t\t\tV154.839H774.193z M25.807,645.161V498.925h606.451c7.128,0,12.903-5.777,12.903-12.903s-5.775-12.903-12.903-12.903H25.807\n\t\t\t\t\t\t\t\t\t\t\t\tV326.882h748.387v146.236h-90.322c-7.128,0-12.903,5.777-12.903,12.903s5.775,12.903,12.903,12.903h90.322v146.236H25.807z"
+                            }
+                          })
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "svg-language",
+                  staticStyle: { "enable-background": "new 0 0 512 512" },
+                  attrs: {
+                    version: "1.1",
+                    id: "Capa_1",
+                    xmlns: "http://www.w3.org/2000/svg",
+                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                    x: "0px",
+                    y: "0px",
+                    viewBox: "0 0 512 512",
+                    "xml:space": "preserve"
+                  }
+                },
+                [
+                  _c("path", {
+                    staticClass: "svg-language-background",
+                    attrs: {
+                      d:
+                        "M458.667,85.333H256c-1.145,0-2.282,0.18-3.371,0.533l-2.56,0.853\n\t\t\t\t\t\t\t\t\tc-5.59,1.86-8.614,7.899-6.754,13.488c0.011,0.034,0.023,0.067,0.034,0.101l107.221,313.323l-70.613,80.683\n\t\t\t\t\t\t\t\t\tc-3.876,4.436-3.423,11.175,1.013,15.051c1.946,1.701,4.444,2.637,7.029,2.634h170.667C488.122,512,512,488.122,512,458.667v-320\n\t\t\t\t\t\t\t\t\tC512,109.211,488.122,85.333,458.667,85.333z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "svg-language-first-front",
+                    attrs: {
+                      d:
+                        "M372.373,411.584c-1.731-3.806-5.526-6.25-9.707-6.251H256c-5.891,0-10.667,4.776-10.667,10.667\n\t\t\t\t\t\t\t\t\tc0,1.282,0.231,2.554,0.683,3.755l32,85.333c1.321,3.513,4.392,6.073,8.085,6.741c0.627,0.108,1.262,0.165,1.899,0.171\n\t\t\t\t\t\t\t\t\tc3.075-0.003,5.998-1.333,8.021-3.648l74.667-85.333C373.445,419.868,374.104,415.396,372.373,411.584z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      staticStyle: { fill: "#455A64" },
+                      attrs: {
+                        d:
+                          "M458.667,234.667H309.333c-5.891,0-10.667-4.776-10.667-10.667c0-5.891,4.776-10.667,10.667-10.667\n\t\t\t\t\t\t\t\t\t\th149.333c5.891,0,10.667,4.776,10.667,10.667C469.333,229.891,464.558,234.667,458.667,234.667z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#455A64" },
+                      attrs: {
+                        d:
+                          "M373.333,234.667c-5.891,0-10.667-4.776-10.667-10.667v-21.333c0-5.891,4.776-10.667,10.667-10.667\n\t\t\t\t\t\t\t\t\t\tS384,196.776,384,202.667V224C384,229.891,379.224,234.667,373.333,234.667z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#455A64" },
+                      attrs: {
+                        d:
+                          "M341.333,362.667c-5.891-0.005-10.663-4.785-10.657-10.676c0.003-3.443,1.668-6.673,4.471-8.673\n\t\t\t\t\t\t\t\t\t\tC381.867,310.123,416,242.453,416,224c0-5.891,4.776-10.667,10.667-10.667c5.891,0,10.667,4.776,10.667,10.667\n\t\t\t\t\t\t\t\t\t\tc0,28.117-41.109,102.101-89.813,136.683C345.714,361.971,343.552,362.665,341.333,362.667z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#455A64" },
+                      attrs: {
+                        d:
+                          "M426.667,384c-2.669,0.003-5.241-0.994-7.211-2.795c-7.723-7.083-75.904-70.059-88-99.861\n\t\t\t\t\t\t\t\t\t\tc-2.221-5.461,0.406-11.688,5.867-13.909s11.688,0.406,13.909,5.867c8.725,21.504,62.635,73.813,82.667,92.139\n\t\t\t\t\t\t\t\t\t\tc4.359,3.962,4.681,10.708,0.719,15.068C432.583,382.747,429.692,384.016,426.667,384z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("path", {
+                    staticClass: "svg-language-second-front",
+                    attrs: {
+                      d:
+                        "M372.757,412.544L234.091,7.211C232.614,2.898,228.559,0,224,0H53.333C23.878,0,0,23.878,0,53.333\n\t\t\t\t\t\t\t\t\tv320c0,29.455,23.878,53.333,53.333,53.333h309.333c5.891,0,10.666-4.776,10.666-10.667\n\t\t\t\t\t\t\t\t\tC373.333,414.824,373.138,413.656,372.757,412.544z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      staticStyle: { fill: "#FAFAFA" },
+                      attrs: {
+                        d:
+                          "M202.667,298.667c-4.51,0.001-8.533-2.835-10.048-7.083l-43.285-121.216l-43.285,121.216\n\t\t\t\t\t\t\t\t\t\tc-2.203,5.464-8.418,8.107-13.882,5.904c-5.155-2.078-7.85-7.767-6.193-13.072l53.333-149.333\n\t\t\t\t\t\t\t\t\t\tc2.609-5.543,9.218-7.922,14.761-5.314c2.335,1.099,4.214,2.978,5.314,5.314l53.333,149.333c1.986,5.531-0.876,11.627-6.4,13.632\n\t\t\t\t\t\t\t\t\t\tC205.143,298.463,203.909,298.672,202.667,298.667z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      staticStyle: { fill: "#FAFAFA" },
+                      attrs: {
+                        d:
+                          "M170.667,234.667H128c-5.891,0-10.667-4.776-10.667-10.667c0-5.891,4.776-10.667,10.667-10.667\n\t\t\t\t\t\t\t\t\t\th42.667c5.891,0,10.667,4.776,10.667,10.667C181.333,229.891,176.558,234.667,170.667,234.667z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M362.667,426.667H53.333C23.878,426.667,0,402.789,0,373.333v-320C0,23.878,23.878,0,53.333,0H224\n\t\t\t\t\t\t\t\t\tc4.559,0,8.614,2.898,10.091,7.211l138.667,405.333c1.909,5.573-1.062,11.639-6.635,13.547\n\t\t\t\t\t\t\t\t\tC365.01,426.472,363.842,426.667,362.667,426.667z M53.333,21.333c-17.673,0-32,14.327-32,32v320c0,17.673,14.327,32,32,32h294.4\n\t\t\t\t\t\t\t\t\tl-131.349-384H53.333z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M458.667,512H288c-4.443,0-8.42-2.754-9.984-6.912l-32-85.333c-2.074-5.52,0.72-11.676,6.24-13.749\n\t\t\t\t\t\t\t\t\tc5.52-2.074,11.676,0.72,13.749,6.24l29.397,78.421h163.264c17.673,0,32-14.327,32-32v-320c0-17.673-14.327-32-32-32H256\n\t\t\t\t\t\t\t\t\tc-5.891,0-10.667-4.776-10.667-10.667c0-5.891,4.776-10.667,10.667-10.667h202.667c29.455,0,53.333,23.878,53.333,53.333v320\n\t\t\t\t\t\t\t\t\tC512,488.122,488.122,512,458.667,512z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M288,512c-5.891-0.006-10.662-4.786-10.656-10.677c0.003-2.578,0.938-5.067,2.634-7.008l74.667-85.333\n\t\t\t\t\t\t\t\t\tc3.9-4.415,10.641-4.834,15.056-0.934c4.383,3.871,4.832,10.548,1.008,14.971l-74.667,85.333\n\t\t\t\t\t\t\t\t\tC294.015,510.673,291.082,512.003,288,512z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M202.667,298.667c-4.51,0.001-8.533-2.835-10.048-7.083l-43.285-121.216l-43.285,121.216\n\t\t\t\t\t\t\t\t\tc-2.203,5.464-8.418,8.107-13.882,5.904c-5.155-2.078-7.85-7.767-6.193-13.072l53.333-149.333c2.609-5.543,9.218-7.922,14.761-5.314\n\t\t\t\t\t\t\t\t\tc2.335,1.099,4.214,2.978,5.314,5.314l53.333,149.333c1.986,5.531-0.876,11.627-6.4,13.632\n\t\t\t\t\t\t\t\t\tC205.143,298.463,203.909,298.672,202.667,298.667z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M170.667,234.667H128c-5.891,0-10.667-4.776-10.667-10.667c0-5.891,4.776-10.667,10.667-10.667h42.667\n\t\t\t\t\t\t\t\t\tc5.891,0,10.667,4.776,10.667,10.667C181.333,229.891,176.558,234.667,170.667,234.667z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M458.667,234.667H309.333c-5.891,0-10.667-4.776-10.667-10.667c0-5.891,4.776-10.667,10.667-10.667h149.333\n\t\t\t\t\t\t\t\t\tc5.891,0,10.667,4.776,10.667,10.667C469.333,229.891,464.558,234.667,458.667,234.667z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M373.333,234.667c-5.891,0-10.667-4.776-10.667-10.667v-21.333c0-5.891,4.776-10.667,10.667-10.667S384,196.776,384,202.667\n\t\t\t\t\t\t\t\t\tV224C384,229.891,379.224,234.667,373.333,234.667z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M341.333,362.667c-5.891-0.005-10.663-4.785-10.657-10.676c0.003-3.443,1.668-6.673,4.471-8.673\n\t\t\t\t\t\t\t\t\tC381.867,310.123,416,242.453,416,224c0-5.891,4.776-10.667,10.667-10.667c5.891,0,10.667,4.776,10.667,10.667\n\t\t\t\t\t\t\t\t\tc0,28.117-41.109,102.101-89.813,136.683C345.714,361.971,343.552,362.665,341.333,362.667z"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M426.667,384c-2.669,0.003-5.241-0.994-7.211-2.795c-7.723-7.083-75.904-70.059-88-99.861\n\t\t\t\t\t\t\t\t\tc-2.221-5.461,0.406-11.688,5.867-13.909s11.688,0.406,13.909,5.867c8.725,21.504,62.635,73.813,82.667,92.139\n\t\t\t\t\t\t\t\t\tc4.359,3.962,4.681,10.708,0.719,15.068C432.583,382.747,429.692,384.016,426.667,384z"
+                    }
+                  })
+                ]
+              )
+            ])
+          ])
         ],
         2
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "svg",
+      {
+        staticClass: "toggle-menu",
+        staticStyle: { "enable-background": "new 0 0 124 124" },
+        attrs: {
+          version: "1.1",
+          id: "Capa_1",
+          xmlns: "http://www.w3.org/2000/svg",
+          "xmlns:xlink": "http://www.w3.org/1999/xlink",
+          x: "0px",
+          y: "0px",
+          width: "124px",
+          height: "124px",
+          viewBox: "0 0 124 124",
+          "xml:space": "preserve"
+        },
+        on: {
+          click: function($event) {
+            _vm.menuOpened = !_vm.menuOpened
+          }
+        }
+      },
+      [
+        _c("g", [
+          _c("path", {
+            staticClass: "menu-top-line",
+            class: { active: _vm.menuOpened },
+            attrs: {
+              d:
+                "M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z"
+            }
+          }),
+          _vm._v(" "),
+          _c("path", {
+            staticClass: "menu-mid-line",
+            class: { active: _vm.menuOpened },
+            attrs: {
+              d:
+                "M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z"
+            }
+          }),
+          _vm._v(" "),
+          _c("path", {
+            staticClass: "menu-bot-line",
+            class: { active: _vm.menuOpened },
+            attrs: {
+              d:
+                "M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z"
+            }
+          })
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
