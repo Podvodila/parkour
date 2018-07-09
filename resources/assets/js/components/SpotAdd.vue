@@ -43,10 +43,17 @@
 				</div>
 			</div>
 		</aside>
+		<transition-group name="alerts" tag="div" class="custom-alert-container">
+			<template v-for="(response, key) in responses">
+					<Alert :msg="response.msg" :error="response.error" v-if="response.show" :key="response.key"></Alert>
+			</template>
+		</transition-group>
 	</div>
 </template>
 
 <script>
+	import Alert from './Alert.vue';
+
 	export default {
 		props: ['routes', 'tricks', 'src_local'],
 		data() {
@@ -59,6 +66,8 @@
 				canSubmit: true,
 				mapMarker: null,
 				local: this.src_local,
+				responses: [],
+				customKey: 10,
 			}
 		},
 		computed: {
@@ -98,7 +107,6 @@
 					autoProcessQueue: false,
 					url: 'random',
 				});
-				//console.log(myDropzone.files);
 			},
 			initMap() {
 				var self = this;
@@ -169,12 +177,25 @@
     			  	window.location.href = data;
     			  },
                   error: function(data, b, c) {
-                  	console.log(data);
+                  	for(var key in data.responseJSON.errors) {
+                  		var response = {};
+	                    response.msg = data.responseJSON.errors[key][0];
+	    			  	response.error = true;
+	    			  	response.show = true;
+	    			  	response.key = self.customKey++;
+	    			  	self.responses.push(response);
+	    			  	setTimeout(()=> {
+	                        self.responses.shift();
+	                    }, 5000);
+                  	}
                   	self.canSubmit = true;
                   }
 				});
 			},
-		}
+		},
+		components: {
+			Alert,
+		},
 	}
 </script>
 
@@ -378,5 +399,142 @@
 
 	.disabled {
 		pointer-events: none;
+	}
+
+	.custom-alert-container {
+    	position: fixed;
+    	top: 70px;
+    	display: flex;
+    	flex-direction: column;
+    	z-index: 2000;
+    	transition: .2s;
+    }
+
+    .custom-alert-container .alert {
+		transition: .2s;
+    }
+
+    .alerts-enter, .alerts-leave-to {
+	  opacity: 0;
+	  transform: translateY(30px);
+	}
+	.alerts-leave-active {
+	  position: absolute;
+	}
+
+	@media(max-width: 1267px) {
+		.content-container {
+			justify-content: center;
+		}
+
+		.main-spot-content {
+			width: 630px;
+		}
+
+		.aside-content {
+			width: 270px;
+		}
+
+		.upload-img-title {
+			font-size: 23px;
+		}
+	}
+
+	@media(max-width: 970px) {
+		.main-spot-content {
+			width: 500px;
+		}
+
+		.aside-content {
+			width: 200px;
+		}
+
+		.images-wrap .custom-label {
+			font-size: 15px;
+		}
+
+		.upload-img-title {
+			font-size: 18px;
+		}
+
+		.selected-tricks-list {
+			margin-left: 0px;
+		}
+	}
+
+	@media(max-width: 970px) {
+		.content-container {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.aside-content {
+			order: 1;
+			width: 500px;
+			margin-bottom: 20px;
+		}
+
+		.main-spot-content {
+			order: 2;
+		}
+
+		.upload-img-title {
+			font-size: 26px;
+		}
+
+		.images-wrap .custom-label {
+			font-size: 20px;
+		}
+
+		main.main-content {
+			padding: 0px 10px;
+		}
+	}
+
+	@media(max-width: 521px) {
+		.aside-content,
+		.main-spot-content {
+			width: 390px;
+		}
+
+		.unselected-tricks-list .list-group-item,
+		.selected-tricks-list .list-group-item {
+			width: 140px;
+			font-size: 14px;
+		}
+
+		.search-tricks {
+			font-size: 12px;
+		}
+	}
+
+	@media(max-width: 410px) {
+		.aside-content,
+		.main-spot-content {
+			width: 340px;
+		}
+
+		.unselected-tricks-list .list-group-item,
+		.selected-tricks-list .list-group-item {
+		    width: 130px;
+    		font-size: 13px;
+		}
+	}
+
+	@media(max-width: 359px) {
+		main.main-content {
+			padding: 0px;
+		}
+
+		.aside-content,
+		.main-spot-content {
+		    width: 320px;
+		}
+
+		.unselected-tricks-list .list-group-item,
+		.selected-tricks-list .list-group-item {
+		    width: 120px;
+    		font-size: 13px;
+		}
 	}
 </style>

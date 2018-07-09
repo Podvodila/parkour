@@ -1,10 +1,10 @@
 <template>
 	<div class="register-container">
 		<transition name="alert">
-			<div class="alert alert-danger login-alert" role="alert" v-if="error">  
-	            {{ error }}
-	        </div>
-	    </transition>
+            <div class="custom-alert-container" v-if="error">
+                <Alert :msg="error" :error="true"></Alert>
+            </div>
+        </transition>
 		<form id="register-form" class="register-form" method="POST" :action="route['register']" @submit.prevent="register">
 			<input type="hidden" name="_token" :value="csrf">
 			<div v-for="(value, key) in fields" :key="key" class="input-container">
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+	import Alert from './Alert.vue';
+	
 	export default {
 		props: ['routes', 'src_local'],
 		data() {
@@ -111,8 +113,8 @@
     			  },
     			  success: function(resultData) { window.location.href = '/' },
                   error: function(data) {
-                    console.log(data);
-                    self.error = data.responseJSON.errors.login[0];
+                    console.log('error');
+                    self.error = data.responseJSON.errors.email[0];
                     setTimeout(()=> {
                         self.error = '';
                     }, 5000);
@@ -153,7 +155,10 @@
 					}
 				}
 		    },
-		}
+		},
+		components: {
+            Alert,
+        },
 	}
 </script>
 
@@ -213,33 +218,29 @@
     	fill: green;
     }
 
-    .login-alert {
-        position: absolute;
-        right: 42%;
-        top: 10px;
-        z-index: 1003;
+    .custom-alert-container {
+        position: fixed;
+        top: 70px;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+        transition: .2s;
     }
 
-    .alert-enter-active {
-        animation: alertUp .5s;
+    .custom-alert-container .alert {
+        transition: .2s;
     }
 
+    .alert-enter, .alert-leave-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
     .alert-leave-active {
-        animation: alertAway .5s;
+      position: fixed;
     }
 
     .custom-progress-bar {
     	height: 100%;
     	transition: .4s;
-    }
-
-    @keyframes alertUp {
-        from {opacity: 0}
-        to {opacity: 1}
-    }
-
-    @keyframes alertAway {
-        from {opacity: 1}
-        to {opacity: 0}
     }
 </style>

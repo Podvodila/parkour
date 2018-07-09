@@ -5,7 +5,11 @@
 			<input type="hidden" name="_token" :value="csrf">
             <div>
                 <input id="login" type="text" class="form-control" name="email" :placeholder="local['email']" required autofocus>
-                <Alert :msg="error" :error="true" v-if="error"></Alert>
+                <transition name="alert">
+                    <div class="custom-alert-container" v-if="error">
+                        <Alert :msg="error" :error="true"></Alert>
+                    </div>
+                </transition>
             </div>
 
             <div>
@@ -72,7 +76,7 @@
     			  },
     			  success: function(resultData) { window.location.href = '/profile' },
                   error: function(data) {
-                    console.log(data);
+                    console.log('error');
                     self.error = data.responseJSON.errors.email[0];
                     setTimeout(()=> {
                         self.error = '';
@@ -136,27 +140,30 @@
         font-size: 15px;
     }
 
-    .login-alert {
-        position: absolute;
-        /*right: 42%;*/
-        top: 10px;
+    .custom-alert-container {
+        position: fixed;
+        top: 70px;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+        transition: .2s;
     }
 
-    .alert-enter-active {
-        animation: alertUp .5s;
+    .custom-alert-container .alert {
+        transition: .2s;
     }
 
+    .alert-enter, .alert-leave-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
     .alert-leave-active {
-        animation: alertAway .5s;
+      position: fixed;
     }
 
-    @keyframes alertUp {
-        from {opacity: 0}
-        to {opacity: 1}
-    }
-
-    @keyframes alertAway {
-        from {opacity: 1}
-        to {opacity: 0}
+    @media(max-width: 720px) {
+        main.main-content {
+            padding: 0px 20px;
+        }
     }
 </style>

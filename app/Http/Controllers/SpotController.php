@@ -37,9 +37,6 @@ class SpotController extends Controller
 
     public function addPost(Request $request)
     {
-        // $request->image = json_decode($request->image);
-        // $this->customAddImages($request, 3);
-        // return response()->json($request->hasFile('image'));
     	$this->validate($request, [
     		'location' => 'required|string',
     		'image' => 'required_without_all:description',
@@ -66,16 +63,6 @@ class SpotController extends Controller
     public function edit($id)
     {
     	return view('spotEdit', ['spot' => Spot::find($id), 'tricks' => Trick::all()]);
-    }
-
-    public function remove($id)
-    {
-    	$spot = Spot::find($id);
-    	$spot->delete();
-
-    	Storage::disk('local')->deleteDirectory('spots/' . $id);
-
-    	return redirect()->route('site.index');
     }
 
     public function removeImage($id, Request $request)
@@ -114,20 +101,6 @@ class SpotController extends Controller
         return response()->json($this->getImages($request->input('spot_id')));
     }
 
-    public function editLocation($id, Request $request)
-    {
-    	$this->validate($request, [
-    		'location' => 'required|string',
-    	]);
-    	$spot = Spot::find($id);
-    	$latLng = $request->input('location');
-    	$spot->lat = $this->getLat($latLng);
-    	$spot->lng = $this->getLng($latLng);
-    	$spot->save();
-
-    	return redirect()->back();
-    }
-
     public function editDescription($id, Request $request)
     {
     	$this->validate($request, [
@@ -145,13 +118,13 @@ class SpotController extends Controller
     {
     	$spot = Spot::find($spot_id);
     	$spot->tricks()->detach($request->input('move'));
-    	return response()->json(['attached_tricks' => $spot->tricks, 'new_tricks' => $this->getNewTricks($spot_id)]);
+    	return response()->json(['attached_tricks' => $spot->tricks->unique(), 'new_tricks' => $this->getNewTricks($spot_id)]);
     }
 
     public function addMove($spot_id, Request $request)
     {
     	$this->customAddMoves($request, Spot::find($spot_id));
-    	return response()->json(['attached_tricks' => Spot::find($spot_id)->tricks, 'new_tricks' => $this->getNewTricks($spot_id)]);
+    	return response()->json(['attached_tricks' => Spot::find($spot_id)->tricks->unique(), 'new_tricks' => $this->getNewTricks($spot_id)]);
     }
 
     public function removeSpotFromVideo($id, Request $request)

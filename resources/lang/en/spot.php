@@ -31,4 +31,5 @@
 		'description changed' => 'Description changed',
 		'at least one move' => 'Spot must have at least one move',
 		'successfuly detached' => 'Video successfuly detached from this spot',
+		'comments' => 'Comments',
 	];

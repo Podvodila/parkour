@@ -92,7 +92,7 @@
 	.first-block-title {
 		font-family: 'Nunito', 'Arial';
 		font-weight: bold;
-		font-size: 62px;
+		font-size: 56px;
 		color: #fff;
 	    width: 80vw;
     	text-align: center;
@@ -236,5 +236,65 @@
 		color: #444;
 		/*font-weight: bold;*/
 		transform: scale(1.1);
+	}
+
+	.second-block-img:not(.active-animation) {
+		will-change: transform;
+	}
+
+	@media(max-width: 1088px) {
+		.first-block-title {
+			font-size: 46px;
+		}
+
+		.second-block-img-wrap {
+			width: 300px;
+		}
+
+		.second-block-img {
+			width: 100%;
+		}
+
+		.second-block-title {
+			font-size: 26px;
+		}
+	}
+
+	@media(max-width: 866px) {
+		.second-block-img-wrap {
+			width: 250px;
+		}
+
+		.second-block-title {
+			font-size: 20px;
+		}
+
+		.second-block-content {
+     		padding: 0px 40px 0px 50px;
+		}
+	}
+
+	@media(max-width: 720px) {
+		.first-block-title {
+			font-size: 36px;
+		}
+
+		.second-block-title:nth-child(1) {
+			margin-bottom: 50px;
+		}
+
+		.second-block-content {
+		    flex-direction: column;
+		    padding: 0px;
+		}
+
+		.second-block-title-container {
+			margin-left: 0px;
+			padding: 0px 30px;
+		}
+
+		.second-block-title {
+			text-align: center;
+		}
 	}
 </style>

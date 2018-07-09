@@ -102,7 +102,7 @@ class ProfileController extends Controller
     public function addMoveVideo(Request $request)
     {
     	$this->validate($request, [
-    		'video' => 'mimes:flv,mp4,mpeg,mov,avi,wmv | max:20000',
+    		'video' => 'mimes:flv,mp4,mpeg,mov,avi,wmv | max:30000',
     		'move' => 'integer',
     	]);
     	$video = $request->file('video');
@@ -129,16 +129,6 @@ class ProfileController extends Controller
     	}
 
     	return response()->json($this->getUserVideos(Auth::id()));
-    }
-
-    public function addTrainingVideo() // from youtube
-    {
-    	
-    }
-
-    public function removeTrainingVideo()
-    {
-    	
     }
 
     public function setSocial(Request $request)

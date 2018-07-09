@@ -25,23 +25,24 @@
 		];
 @endphp
 	<div id="app">
-		<HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}" :src_local="{{ json_encode(__('header')) }}"></HeaderApp>
+		<HeaderApp :routes="{{json_encode($routesHeader)}}" :auth="{{json_encode(auth()->guard()->check())}}" :src_local="{{ json_encode(__('header')) }}"></HeaderApp>
 		<Spot 
 		:routes="{{json_encode($routes)}}"
 		:src_images="{{json_encode($images)}}"
 		:src_spot="{{$spot}}"
-		:tricks_src="{{$spot->tricks}}"
+		:tricks_src="{{$spot->tricks->unique()}}"
 		:src_videos="{{$videos}}"
-		:user="{{$user}}"
+		:user="{{json_encode($user)}}"
 		:src_new_tricks="{{json_encode($new_tricks)}}"
 		:src_comments="{{$comments}}"
 		:src_local="{{ json_encode($local) }}"
+		:auth="{{json_encode(auth()->guard()->check())}}"
 		></Spot>
 	</div>
 @endsection
 
 @section('scripts')
 	<script src="{{ asset('js/app.js') }}" defer></script>
-  	<link async defer rel="stylesheet" href="{{ asset('css/leaflet.css') }}"/>
-  <script async defer id="googleMap" onload="window.mapLoaded = true;" src="{{ asset('js/leaflet.js') }}"></script>
+  	<link defer rel="stylesheet" href="{{ asset('css/leaflet.css') }}"/>
+  <script defer id="googleMap" onload="window.mapLoaded = true;" src="{{ asset('js/leaflet.js') }}"></script>
 @endsection

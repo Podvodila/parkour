@@ -31,4 +31,5 @@
 		'description changed' => 'Описание изменено',
 		'at least one move' => 'Место должно иметь как минимум один элемент',
 		'successfuly detached' => 'Видео успешно отвязано',
+		'comments' => 'Комментарии',
 	];

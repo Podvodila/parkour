@@ -60,15 +60,150 @@
 			</div>
 			<div class="spot-page-section comments-container">
 				<div class="comments-adding-container" @focus.capture="commentFocus" @blur.capture="commentBlur" ref="commentContainer">
-					<div class="comments-adding-wrap">
+					<div v-if="auth" class="comments-adding-wrap">
 						<div contenteditable="true" @input="inputComment" @keydown.enter.prevent class="comments-add-field" ref="comment"></div>
-						<svg xmlns="http://www.w3.org/2000/svg" 
+						<svg v-if="!commentLoading"
+							xmlns="http://www.w3.org/2000/svg" 
 							viewBox="0 0 100 100" x="0px" y="0px" 
 							class="svg-add-comment" :class="newComment == '' ? 'svg-add-comment-disabled' : ''"
 							@click="addComment">
 							<path d="M51.14,52.05,25,54.58l-6.88,22a3.41,3.41,0,0,0,4.75,4.09L80.16,52.93a3.26,3.26,0,0,0,0-5.86L22.91,19.31a3.41,3.41,0,0,0-4.75,4.09l6.88,22,26.09,2.53a2.06,2.06,0,0,1,0,4.1Z"/>
 						</svg>
+						<svg v-else class="svg-add-comment-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+						    <defs>
+						      <filter id="tail-0.a4db4fdd84ecd" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB">
+						        <feGaussianBlur in="SourceGraphic" stdDeviation="3"></feGaussianBlur>
+						        <feColorMatrix mode="matrix" values="1 0 0 0 0   0 1 0 0 0   0 0 1 0 0   0 0 0 60 -40" result="cm"></feColorMatrix>
+						      </filter>
+						    </defs>
+						    <g filter="url(#tail-0.a4db4fdd84ecd)" transform="rotate(54 50 50)">
+						      <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="4s" begin="0s" repeatCount="indefinite"></animateTransform>
+						      <g transform="rotate(333.474 50 50)">
+						        <g transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="19" fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.13333333333333333 0 0.03333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(331.178 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="18" fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.16666666666666669 0 0.06666666666666667 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(328.576 50.0001 50)">
+						        <g transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="17" fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.2 0 0.1 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(325.612 50 50)">
+						        <g transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="16" fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.23333333333333334 0 0.13333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(322.212 50 50)">
+						        <g transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="15" fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.26666666666666666 0 0.16666666666666666 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(318.287 50 50)">
+						        <g transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="14" fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.30000000000000004 0 0.2 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(314.708 50 50)">
+						        <g transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="13" fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.33333333333333337 0 0.23333333333333334 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(309.018 50 50)">
+						        <g transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="12" fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.3666666666666667 0 0.26666666666666666 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(302.443 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="11"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.4 0 0.3 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(294.767 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="10"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.43333333333333335 0 0.3333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(285.715 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="9"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.4666666666666667 0 0.36666666666666664 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(274.96 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="8"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.5 0 0.4 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(263.29 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="7"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.5333333333333333 0 0.43333333333333335 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(247.243 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="6"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.5666666666666667 0 0.4666666666666667 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(233.28 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="5"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.6 0 0.5 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(210.448 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="4"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.6333333333333333 0 0.5333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(189.723 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="3"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.6666666666666666 0 0.5666666666666667 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(167.547 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="2"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.7 0 0.6 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(151.39 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="1"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.7333333333333333 0 0.6333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						      <g transform="rotate(134.242 50 50)">
+						        <g  transform="translate(50 19.6)">
+						          <circle cx="0" cy="0" r="0"   fill="#ff7c81" transform="scale(0.48)"></circle>
+						        </g>
+						        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.7666666666666666 0 0.6666666666666666 1" repeatCount="indefinite" dur="1"></animateTransform>
+						      </g>
+						    </g>
+						</svg>
 						<span v-if="newComment == ''" class="comments-adding-placeholder">{{local['comment placeholder']}}</span>
+					</div>
+					<div v-else class="comments-not-auth">
+						<h3>{{local['comments']}}</h3>
 					</div>
 				</div>
 				<div class="comments-wrap">
@@ -145,7 +280,7 @@
 				</div>
 				<transition name="slider">
 					<div v-if="sliderOpened" class="slider-fullsize">
-						<div class="images-wrap-fullsize" :style="{width: fullsizeSliderWidth + 'px', transform: 'translateX(' + fullsizeSliderPosition + 'px)'}">
+						<div class="images-wrap-fullsize" :style="{width: fullsizeSliderWidth + 'vw', transform: 'translateX(' + fullsizeSliderPosition + 'vw)'}">
 							<div v-for="image in images" :key="image.path" class="image-wrap-fullsize" @click="sliderOpened = false;">
 								<img :src="image.path" @load="adjustFullsizeImg" @resize="adjustFullsizeImg" ref="images" @click.stop>
 							</div>
@@ -163,7 +298,14 @@
 						<form method="POST" enctype="multipart/form-data" id="upload-img" v-if="editMode">
 							<input type="hidden" name="_token" :value="token">
 							<input type="file" name="image[]" class="hidden" ref="crap" @change="uploadImg" multiple>
-							<button type="button" class="btn btn-secondary" @click="$refs.crap.click()">{{local['add images']}}</button>
+							<button type="button" class="btn btn-secondary custom-add-images-btn" @click="$refs.crap.click()">
+								<span>{{local['add images']}}</span>
+								<svg v-if="imageLoading" @click.stop class="image-load-placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+								    <path fill="none" d="M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40 C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z" stroke="#ff7c81" stroke-width="7" stroke-dasharray="159.08513549804687 97.50379272460938">
+								      <animate attributeName="stroke-dashoffset" calcMode="linear" values="0;256.58892822265625" keyTimes="0;1" dur="1" begin="0s" repeatCount="indefinite"></animate>
+								    </path>
+							    </svg>
+							</button>
 						</form>
 						<span>{{currentImage}} {{local['of']}} {{images.length}}</span>
 					</div>
@@ -178,7 +320,7 @@
 				</div>
 			</div>
 			<div class="spot-elements spot-page-section">
-				<ul v-if="editMode" class="nav nav-tabs nav-tricks">
+				<ul v-if="editMode" class="nav-tricks">
 				  <li class="nav-item">
 				    <a class="nav-link" href="#" 
 				    	@click.prevent="showMyMoves = true;"
@@ -195,7 +337,7 @@
 				  </li>
 				</ul>
 				<h3 v-else class="spot-elements-title">{{local['list of moves']}}</h3>
-				<transition-group name="side-tricks" tag="ul" class="spot-elements-list">
+				<transition-group name="side-tricks" tag="ul" class="spot-elements-list" :style="{'margin-top':editMode?'40px':''}">
 					<li v-if="showMyMoves"
 						v-for="trick in tricks" 
 						:key="trick.id"
@@ -263,7 +405,7 @@
 	import Alert from './Alert.vue';
 
 	export default {
-		props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'src_local'],
+		props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'src_local', 'auth'],
 		data() {
 			return {
 				videos: this.src_videos,
@@ -290,11 +432,13 @@
 				newComment: '',
 				comments: this.src_comments,
 				local: this.src_local,
+				imageLoading: false,
+				commentLoading: false,
 			}
 		},
 		computed: {
 			fullsizeSliderWidth() {
-				return this.images.length * document.documentElement.clientWidth;
+				return this.images.length * 100;
 			},
 		},
 		created() {
@@ -386,6 +530,7 @@
 				var self = this;
 				var form = new FormData(document.querySelector("#upload-img"));
 				form.append('spot_id', this.spot.id);
+				self.imageLoading = true;
 				$.ajax({
     			  method: "post",
     			  url: self.routes.addImages,
@@ -397,9 +542,9 @@
     			  	if(self.currentImage == 0) self.currentImage = 1;
     			  },
                   error: function(data, b, c) {
-                    console.log(data);
+                    console.log('error');
                   }
-				});
+				}).always(function() {self.imageLoading = false;});
 			},
 			removeImage(id, event) {
 				event.currentTarget.parentNode.style.pointerEvents = "none";
@@ -420,7 +565,7 @@
     			  },
                   error: function(data, b, c) {
                   	event.currentTarget.parentNode.style.pointerEvents = "auto";
-                    console.log(data);
+                    console.log('error');
                   }
 				});
 			},
@@ -494,7 +639,7 @@
     			  	self.new_tricks = data.new_tricks;
     			  },
                   error: function(data, b, c) {
-                  	console.log(data);
+                  	console.log('error');
                   }
 				});
 			},
@@ -516,7 +661,7 @@
     			  	self.new_tricks = data.new_tricks;
     			  },
                   error: function(data, b, c) {
-                  	console.log(data);
+                  	console.log('error');
                   }
 				});
 			},
@@ -547,7 +692,7 @@
                     }, 5000);
     			  },
                   error: function(data) {
-                    console.log(data);
+                    console.log('error');
                   }
 				});
 			},
@@ -559,6 +704,7 @@
 			},
 			addComment() {
 				var self = this;
+				self.commentLoading = true;
 				$.ajax({
     			  method: "post",
     			  url: self.routes.addComment,
@@ -576,9 +722,9 @@
     			  	self.comments = data;
     			  },
                   error: function(data) {
-                    console.log(data);
+                    console.log('error');
                   }
-				});
+				}).always(function() {self.commentLoading = false;});
 			},
 			commentFocus(e) {
 				this.$refs.commentContainer.style.padding = "20px 20px 20px 30px";
@@ -603,13 +749,10 @@
     			  	self.comments = data;
     			  },
                   error: function(data) {
-                    console.log(data);
+                    console.log('error');
                   }
 				});
 			},
-			check() {
-				console.log('checked');
-			}
 		},
 		components: {
 			appVideo,
@@ -620,7 +763,7 @@
 			currentImage(val) {
 				var val = val - 1;
 				this.sliderPosition = val * -330;
-				this.fullsizeSliderPosition = val * -parseInt(document.documentElement.clientWidth);
+				this.fullsizeSliderPosition = val * -100;
 			},
 			editMode(val) {
 				if(val == false) {
@@ -663,6 +806,7 @@
 	}
 
 	.main-spot-content {
+		/*min-width: 850px;*/
 		width: 850px;
 		padding: 0 10px;
 	}
@@ -1074,15 +1218,41 @@
 	}
 
 	.nav-tricks {
-		margin-bottom: 20px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.nav-tricks li {
+		width: 100%;
 	}
 
 	.nav-tricks li a {
-		color: #0275d8;
+		color: #0275a8;
+		transition: .2s;
 	}
 
-	.nav-tricks li a:hover {
+	.nav-tricks li a.active {
+		color: #444;
+	}
+
+	.nav-tricks li a:not(.active):hover {
 		color: #014c8c;
+	}
+
+	.nav-tricks .nav-item:nth-child(1) .nav-link:not(.active) {
+	    box-shadow: inset -3px -3px 9px 2px #ccc;
+	}
+
+	.nav-tricks .nav-item:nth-child(2) .nav-link:not(.active) {
+	    box-shadow: inset 3px -3px 9px 2px #ccc;
+	}
+
+	.nav-tricks .nav-link:not(.active) {
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 
 	.spot-elements-list-item .remove-move {
@@ -1143,7 +1313,7 @@
 
     .comments-container {
     	margin-top: 20px;
-    	margin-bottom: 300px;
+    	margin-bottom: 20px;
     }
 
     .spot-description-body {
@@ -1160,11 +1330,12 @@
 		outline: none;
 		width: 100%;
 		white-space: normal;
+	    word-wrap: break-word;
     }
 
     .spot-description-body-active .spot-description-text {
     	padding: 7px;
-	    max-width: 90%;
+	    max-width: 85%;
     }
 
     .comments-adding-container {
@@ -1201,11 +1372,16 @@
 	    width: calc(100% - 30px);
     }
 
-    .svg-add-comment {
+    .svg-add-comment,
+    .svg-add-comment-loading {
     	fill: #5b9de8;
     	width: 30px;
     	height: 30px;
     	align-self: flex-end;
+    }
+
+    .svg-add-comment-loading circle {
+    	fill: #5b9de8;
     }
 
     .svg-add-comment:hover:not(.svg-add-comment-disabled) {
@@ -1268,6 +1444,7 @@
     .comment-body {
     	color: #222;
     	line-height: 20px;
+    	word-wrap: break-word;
     }
 
     .remove-comment {
@@ -1338,5 +1515,203 @@
 	    fill: #333;
     }
 
-    
+    .comments-not-auth h3 {
+    	font-family: 'Nunito', 'Arial';
+    	color: #777;
+    	font-size: 28px;
+    }
+
+    .custom-add-images-btn {
+    	position: relative;
+    }
+
+    .image-load-placeholder {
+    	position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    left: 0;
+	    top: 0;
+	    background-color: #fff;
+    }
+
+    .image-load-placeholder path {
+    	stroke: rgb(91, 157, 232);
+    }
+
+    @media(max-width: 1280px) {
+    	.content-container {
+    		width: 950px;
+		    margin-left: auto;
+    		margin-right: auto;
+    	}
+
+    	.main-spot-content {
+    		min-width: 600px;
+    		width: 600px;
+    	}
+
+    	.spot-description-body-active .spot-description-text {
+    		max-width: 70%;
+    	}
+
+    	.trick-container {
+		    width: 250px;
+    	}
+
+    	.custom-video {
+		    max-height: 200px !important;
+    		min-height: 120px !important;
+    	}
+    }
+
+    @media(max-width: 1020px) {
+    	.content-container {
+    		flex-direction: column;
+    	}
+
+    	.aside-content {
+    		width: auto;
+    		display: flex;
+    		align-items: flex-start;
+    		order: 1;
+    	}
+
+    	.images-block-container {
+    		width: 330px;
+		    margin-right: 20px;
+    	}
+
+    	.spot-elements {
+    		width: 300px;
+    		position: relative;
+    		top: 0;
+    	}
+
+    	.main-spot-content {
+		    min-width: 670px;
+    		width: 670px;
+    		order: 2;
+    	}
+
+    	.content-container {
+    		width: 670px;
+    	}
+
+    	.trick-container {
+    		width: 280px;
+    	}
+    }
+
+    @media(max-width: 720px) {
+    	.aside-content {
+    		flex-direction: column;
+    		align-items: center;
+    	}
+
+    	.spot-elements {
+    		width: 330px;
+		    margin-bottom: 20px;
+    	}
+
+    	.images-block-container {
+    		margin-right: 0px;
+    	}
+
+    	.main-spot-content {
+    		min-width: 500px;
+    		width: 500px;
+    	}
+
+    	.content-container {
+    		align-items: center;
+    	}
+
+    	main.main-content {
+		    padding: 0px 10px 0px 10px;
+    	}
+
+    	.content-container {
+    		width: 500px;
+    	}
+
+    	.trick-container {
+    		width: 420px;
+    	}
+
+    	.custom-video {
+		    max-height: 300px !important;
+    		min-height: 200px !important;
+    	}
+    }
+
+    @media(max-width: 570px) {
+    	.content-container {
+    		width: 350px;
+    	}
+
+    	.main-spot-content {
+		    min-width: 350px;
+    		width: 350px;
+    	}
+
+    	.trick-container {
+    		width: 270px;
+    	}
+
+    	.custom-video {
+    		max-height: 220px !important;
+    		min-height: 140px !important;
+    	}
+
+    	.comment-container {
+    		padding: 30px;
+    	}
+
+    	#map {
+    		height: 200px;
+    	}
+
+    	.spot-description-body {
+    		align-items: flex-end;
+    	}
+
+    	.custom-btn-save-description {
+		    font-size: 12px;
+		    padding: 10px;
+		    font-family: Arial;
+		    border: 1px solid #ccc;
+		    box-shadow: 0px 0px 5px 2px #ccc;
+    	}
+
+    	.settings-btn:hover {
+    		fill: rgba(0, 0, 0, 0.3);
+    	}
+
+    	.settings-btn:active {
+    		fill: #5b9de8;
+    	}
+    }
+
+    @media(max-width: 410px) {
+
+    	.settings-btn {
+		    top: -34px;
+    		left: 10px;
+    	}
+    }
+
+    @media(max-width: 359px) {
+    	main.main-content {
+    		padding: 0px;
+    	}
+
+    	.content-container {
+		    width: 320px;
+    		overflow: hidden;
+    	}
+
+    	.settings-btn {
+    		top: 10px;
+    	}
+    }
 </style>

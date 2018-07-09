@@ -2,7 +2,7 @@
 	<div class="profile-content">
 		<div class="profile-info">
 			<div class="avatar-wrap">
-				<div class="avatar-container" id="avatar-container">
+				<div v-if="!imageLoading" class="avatar-container" id="avatar-container">
 					<template v-if="avatarSrc.exist">
 						<img :src="avatarSrc.url" alt="avatar" id="avatar" ref="avatar">
 						<div class="image-buttons">
@@ -62,6 +62,139 @@
 						</svg>
 					</template>
 				</div>
+				<div v-else class="avatar-container">
+				    <svg class="image-load-placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+					    <defs>
+					      <filter id="tail-0.a4db4fdd84ecd" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB">
+					        <feGaussianBlur in="SourceGraphic" stdDeviation="3"></feGaussianBlur>
+					        <feColorMatrix mode="matrix" values="1 0 0 0 0   0 1 0 0 0   0 0 1 0 0   0 0 0 60 -40" result="cm"></feColorMatrix>
+					      </filter>
+					    </defs>
+					    <g filter="url(#tail-0.a4db4fdd84ecd)" transform="rotate(54 50 50)">
+					      <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="4s" begin="0s" repeatCount="indefinite"></animateTransform>
+					      <g transform="rotate(333.474 50 50)">
+					        <g transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="19" fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.13333333333333333 0 0.03333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(331.178 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="18" fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.16666666666666669 0 0.06666666666666667 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(328.576 50.0001 50)">
+					        <g transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="17" fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.2 0 0.1 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(325.612 50 50)">
+					        <g transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="16" fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.23333333333333334 0 0.13333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(322.212 50 50)">
+					        <g transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="15" fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.26666666666666666 0 0.16666666666666666 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(318.287 50 50)">
+					        <g transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="14" fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.30000000000000004 0 0.2 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(314.708 50 50)">
+					        <g transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="13" fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.33333333333333337 0 0.23333333333333334 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(309.018 50 50)">
+					        <g transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="12" fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1" keySplines="0.3666666666666667 0 0.26666666666666666 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(302.443 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="11"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.4 0 0.3 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(294.767 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="10"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.43333333333333335 0 0.3333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(285.715 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="9"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.4666666666666667 0 0.36666666666666664 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(274.96 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="8"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.5 0 0.4 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(263.29 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="7"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.5333333333333333 0 0.43333333333333335 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(247.243 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="6"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.5666666666666667 0 0.4666666666666667 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(233.28 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="5"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.6 0 0.5 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(210.448 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="4"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.6333333333333333 0 0.5333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(189.723 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="3"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.6666666666666666 0 0.5666666666666667 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(167.547 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="2"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.7 0 0.6 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(151.39 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="1"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.7333333333333333 0 0.6333333333333333 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					      <g transform="rotate(134.242 50 50)">
+					        <g  transform="translate(50 19.6)">
+					          <circle cx="0" cy="0" r="0"   fill="#ff7c81" transform="scale(0.48)"></circle>
+					        </g>
+					        <animateTransform attributeName="transform" calcMode="spline" type="rotate" values="0 50 50;360 50 50" keyTimes="0;1"  keySplines="0.7666666666666666 0 0.6666666666666666 1" repeatCount="indefinite" dur="1"></animateTransform>
+					      </g>
+					    </g>
+					</svg>
+				</div>
 			</div>
 			<div class="profile-contacts">
 				<p class="contacts-name">{{ fullName }}</p>
@@ -101,7 +234,15 @@
 					<transition-group tag="ul" class="list-group custom-list-group" name="new-tricks">
 					  <li class="list-group-item custom-list-group-item" v-for="trick in notAddedTricks" :key="trick.id">
 					  	<span>{{trick.name}}</span>
-					  	<span class="add-element" @click="addElement(trick.id)">{{local['add move']}}</span>
+					  	<span class="add-element desktop-add-element" @click="addElement(trick.id)">{{local['add move']}}</span>
+					  	<span class="mobile-add-element" @click="addElement(trick.id)">
+						  	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="0 0 42 42" style="enable-background:new 0 0 42 42;" xml:space="preserve">
+								<path style="fill:#23A24D;" d="M37.059,16H26V4.941C26,2.224,23.718,0,21,0s-5,2.224-5,4.941V16H4.941C2.224,16,0,18.282,0,21
+									s2.224,5,4.941,5H16v11.059C16,39.776,18.282,42,21,42s5-2.224,5-4.941V26h11.059C39.776,26,42,23.718,42,21S39.776,16,37.059,16z"
+									/>
+							</svg>
+						</span>
 					  </li>
 					</transition-group>
 				</div>
@@ -110,8 +251,15 @@
 				<form :action="routes.addVideo" method="POST" enctype="multipart/form-data" id="add-video" class="custom-add-video-button" @submit.prevent>
 					<input type="hidden" name="_token" :value="token">
 					<label>
-						<input type="file" name="video" class="hidden" id="add-video-input" @change="addVideo">
-						<span class="btn btn-primary">{{local['add video']}}</span>
+						<input v-if="!videoLoading" type="file" name="video" class="hidden" id="add-video-input" @change="addVideo">
+						<span class="btn btn-primary custom-add-video-btn">
+							<span>{{local['add video']}}</span>
+							<svg v-if="videoLoading" @click.stop class="video-load-placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+							    <path fill="none" d="M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40 C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z" stroke="#ff7c81" stroke-width="7" stroke-dasharray="159.08513549804687 97.50379272460938">
+							      <animate attributeName="stroke-dashoffset" calcMode="linear" values="0;256.58892822265625" keyTimes="0;1" dur="1" begin="0s" repeatCount="indefinite"></animate>
+							    </path>
+						  </svg>
+						</span>
 					</label>
 				</form>
 			</template>
@@ -251,6 +399,8 @@
 					msg: '',
 				},
 				local: this.src_local,
+				videoLoading: false,
+				imageLoading: false,
 			}
 		},
 		mounted() {
@@ -333,6 +483,7 @@
 			updateImage() {
 				var self = this;
 				var form = new FormData(document.querySelector("#upload-img"));
+				self.imageLoading = true;
 				$.ajax({
     			  method: "post",
     			  url: self.routes.updateAvatar,
@@ -342,8 +493,6 @@
     			  data: form,
     			  success: function(data) { 
     			  	if(self.avatarSrc.exist) {
-    			  		self.$refs.avatar.className = '';
-    			  		self.$refs.avatar.removeAttribute('style');
     			  		self.avatarSrc.url = data.url + '?' + Date.now();
     			  	} else {
     			  		self.avatarSrc.url = data.url + '?' + Date.now();
@@ -361,11 +510,12 @@
                         self.responses.shift();
                     }, 5000);
                   }
-				});
+				}).always(function() {self.imageLoading = false;});
 			},
 			removeImage() {
 				var self = this;
 				var form = new FormData(document.querySelector("#remove-img"));
+				self.imageLoading = true;
 				$.ajax({
     			  method: "post",
     			  url: self.routes.removeAvatar,
@@ -375,13 +525,11 @@
     			  data: form,
     			  success: function(data) { 
     			  	self.avatarSrc.exist = false;
-    			  	console.log('image has been removed');
-    			  	console.log(data);
     			  },
                   error: function(data) {
-                    console.log(data);
+                    console.log('error');
                   }
-				});
+				}).always(function() {self.imageLoading = false;});
 			},
 			saveSocial(social) {
 				var self = this;
@@ -434,14 +582,13 @@
     			     _token : $('meta[name="csrf-token"]').attr('content'),
     			  },
     			  success: function(data) {
-    			  	console.log(data);
     			  	var element = self.all_tricks.filter((trick) => {
 						return trick.id == id;
 					})[0];
 					self.tricks.push(element);
     			  },
                   error: function(data) {
-                  	console.log(data);
+                  	console.log('error');
                   }
 				});
 			},
@@ -478,6 +625,7 @@
 				var self = this;
 				var form = new FormData(document.querySelector("#add-video"));
 				form.append('move', this.fullVideoList.trick_id);
+				self.videoLoading = true;
 				$.ajax({
     			  method: "post",
     			  url: self.routes.addVideo,
@@ -489,6 +637,7 @@
     			  	self.videos = data;
     			  },
                   error: function(data) {
+                  	console.log('error');
                     var response = {};
                     response.msg = data.responseJSON.errors.video[0];
     			  	response.error = true;
@@ -499,7 +648,7 @@
                         self.responses.shift();
                     }, 5000);
                   }
-				});
+				}).always(function() {self.videoLoading = false;});
 			},
 			removeVideo(video) {
 				var self = this;
@@ -563,7 +712,7 @@
                     }, 5000);
     			  },
                   error: function(data) {
-                    console.log(data);
+                    console.log('error');
                   }
 				});
 			},
@@ -593,7 +742,7 @@
                     }, 5000);
     			  },
                   error: function(data) {
-                    console.log(data);
+                    console.log('error');
                   }
 				});
 			},
@@ -858,6 +1007,7 @@
 		position: fixed;
 		top: 60px;
 		right: 37px;
+	    z-index: 100;
 	}
 
 	.back-to-tricks svg {
@@ -1218,5 +1368,182 @@
     .map-wrap {
 		width: 90%;
 		height: 80%;
+    }
+
+    .mobile-add-element {
+    	display: none;
+    	position: absolute;
+    	top: 0;
+    	right: 10px;
+    	bottom: 0;
+    }
+
+    .mobile-add-element svg {
+    	width: 30px;
+    }
+
+    .custom-add-video-btn {
+    	position: relative;
+    }
+
+    .video-load-placeholder {
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    left: 0;
+	    top: 0;
+	    background-color: #0275d8;
+    }
+
+    .video-load-placeholder path {
+    	stroke: #fff;
+    }
+
+    .image-load-placeholder {
+    	width: 100%;
+    	height: 100%;
+    }
+
+    .image-load-placeholder path {
+    	stroke: rgb(91, 157, 232);
+    }
+
+    @media(max-width: 1160px) {
+    	.profile-content {
+    		width: auto;
+    	}
+
+    	.trick-container {
+    		width: 450px;
+    	}
+
+    	.custom-video-container .custom-video {
+    		min-height: 200px;
+    		max-height: 300px;
+    	}
+    }
+
+    @media(max-width: 1040px) {
+    	.trick-container {
+    		width: 350px;
+    	}
+
+    	.custom-video-container .custom-video {
+    		min-height: 150px;
+    		max-height: 250px;
+    	}
+
+    	.desktop-add-element {
+    		display: none;
+    	}
+
+    	.mobile-add-element {
+	    	display: flex;
+	    	align-items: center;
+    	}
+    }
+
+    @media(max-width: 830px) {
+    	.tricks-container {
+    		justify-content: center;
+    	}
+
+    	.trick-container {
+    		width: 500px;
+    	}
+
+    	.custom-video-container .custom-video {
+    		min-height: 250px;
+    		max-height: 400px;
+    	}
+
+    	.custom-list-group .custom-list-group-item {
+    		width: 49%;
+    	}
+
+    	.change-image, .remove-image {
+    		opacity: 1;
+    		transform: translateY(0);
+    	}
+
+    	.avatar-container .add-image {
+    		opacity: 1;
+    	}
+
+    	.avatar-wrap {
+    		width: 200px;
+    	}
+
+    	.avatar-container {
+    		width: 150px;
+    		height: 150px;
+    	}
+    }
+
+    @media(max-width: 700px) {
+    	main.main-content {
+    		padding: 0px 10px 0px 10px;
+    	}
+
+    	.avatar-wrap {
+    		width: 150px;
+    	}
+
+    	.avatar-container {
+    		width: 100px;
+    		height: 100px;
+    	}
+
+    	.image-buttons svg {
+    		width: 36px;
+    		height: 36px;
+    	}
+    }
+
+    @media(max-width: 560px) { 
+    	.custom-video-container .custom-video {
+    		min-height: 150px;
+    		max-height: 300px;
+    	}
+
+    	.profile-info {
+    		flex-direction: column;
+    	}
+
+    	.avatar-wrap {
+    		width: 100%;
+		    margin-bottom: 20px;
+    	}
+
+    	.avatar-container {
+    		width: 200px;
+    		height: 200px;
+    	}
+
+    	.image-buttons svg {
+    		width: 64px;
+    		height: 64px;
+    	}
+    }
+
+    @media(max-width: 480px) { 
+    	.custom-list-group .custom-list-group-item {
+    		width: 100%;
+    	}
+
+    	.social-default {
+    		font-size: 11px;
+    	}
+
+    	.social-item .custom-btn {
+    		font-size: 12px;
+    	}
+
+    	.close-map-btn {
+    		top: 5px;
+    		right: 10px;
+		    fill: #e33;
+    		z-index: 2000;
+    	}
     }
 </style>

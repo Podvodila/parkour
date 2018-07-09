@@ -26,6 +26,7 @@
         display: inline-block;
         transition: all 1s;
         white-space: nowrap;
+        font-family: 'Nunito', 'Arial';
 	}
 
 	.alert-enter-active {

@@ -826,6 +826,57 @@ module.exports = g;
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
+  __webpack_require__(51)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(53)
+/* template */
+var __vue_template__ = __webpack_require__(54)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Alert.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-11375e75", Component.options)
+  } else {
+    hotAPI.reload("data-v-11375e75", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
   __webpack_require__(68)
 }
 var normalizeComponent = __webpack_require__(3)
@@ -871,7 +922,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -973,57 +1024,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(51)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(53)
-/* template */
-var __vue_template__ = __webpack_require__(54)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Alert.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-11375e75", Component.options)
-  } else {
-    hotAPI.reload("data-v-11375e75", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
 
 /***/ }),
 /* 8 */
@@ -35681,7 +35681,7 @@ module.exports = __webpack_require__(25);
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(11);
 var Axios = __webpack_require__(27);
-var defaults = __webpack_require__(6);
+var defaults = __webpack_require__(7);
 
 /**
  * Create an instance of Axios
@@ -35764,7 +35764,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(6);
+var defaults = __webpack_require__(7);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(36);
 var dispatchRequest = __webpack_require__(37);
@@ -36303,7 +36303,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(38);
 var isCancel = __webpack_require__(15);
-var defaults = __webpack_require__(6);
+var defaults = __webpack_require__(7);
 var isAbsoluteURL = __webpack_require__(39);
 var combineURLs = __webpack_require__(40);
 
@@ -47868,7 +47868,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.login-container {\n    max-width: 600px;\n    margin: 10px auto;\n    margin-top: 100px;\n}\n.login-form {\n    background-color: #fff;\n    border: 1px solid #e6e6e6;\n    padding: 30px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    font-family: 'Nunito', 'Arial';\n    margin-bottom: 20px;\n}\n.register {\n    padding: 25px;\n}\n.login-form>div {\n    margin-bottom: 10px;\n}\n.login-form>div:last-child {\n    margin-bottom: 0px;\n}\n.login-reg {\n    text-align: center;\n}\n.login-buttons {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n.check-remember {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: #777;\n    font-size: 13px;\n}\n.login-forgot {\n    font-size: 15px;\n}\n.login-alert {\n    position: absolute;\n    /*right: 42%;*/\n    top: 10px;\n}\n.alert-enter-active {\n    -webkit-animation: alertUp .5s;\n            animation: alertUp .5s;\n}\n.alert-leave-active {\n    -webkit-animation: alertAway .5s;\n            animation: alertAway .5s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
+exports.push([module.i, "\n.login-container {\n    max-width: 600px;\n    margin: 10px auto;\n    margin-top: 100px;\n}\n.login-form {\n    background-color: #fff;\n    border: 1px solid #e6e6e6;\n    padding: 30px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    font-family: 'Nunito', 'Arial';\n    margin-bottom: 20px;\n}\n.register {\n    padding: 25px;\n}\n.login-form>div {\n    margin-bottom: 10px;\n}\n.login-form>div:last-child {\n    margin-bottom: 0px;\n}\n.login-reg {\n    text-align: center;\n}\n.login-buttons {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n}\n.check-remember {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: #777;\n    font-size: 13px;\n}\n.login-forgot {\n    font-size: 15px;\n}\n.custom-alert-container {\n    position: fixed;\n    top: 70px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    z-index: 1000;\n    -webkit-transition: .2s;\n    transition: .2s;\n}\n.custom-alert-container .alert {\n    -webkit-transition: .2s;\n    transition: .2s;\n}\n.alert-enter, .alert-leave-to {\n  opacity: 0;\n  -webkit-transform: translateY(30px);\n          transform: translateY(30px);\n}\n.alert-leave-active {\n  position: fixed;\n}\n@media(max-width: 720px) {\nmain.main-content {\n        padding: 0px 20px;\n}\n}\n", ""]);
 
 // exports
 
@@ -47912,8 +47912,12 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Alert_vue__);
+//
+//
+//
+//
 //
 //
 //
@@ -47995,7 +47999,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           window.location.href = '/profile';
         },
         error: function error(data) {
-          console.log(data);
+          console.log('error');
           self.error = data.responseJSON.errors.email[0];
           setTimeout(function () {
             self.error = '';
@@ -48044,7 +48048,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.custom-alert {\n        z-index: 200;\n        display: inline-block;\n        -webkit-transition: all 1s;\n        transition: all 1s;\n        white-space: nowrap;\n}\n.alert-enter-active {\n        -webkit-animation: alertUp .5s;\n                animation: alertUp .5s;\n}\n.alert-leave-active {\n        -webkit-animation: alertAway .5s;\n                animation: alertAway .5s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
+exports.push([module.i, "\n.custom-alert {\n        z-index: 200;\n        display: inline-block;\n        -webkit-transition: all 1s;\n        transition: all 1s;\n        white-space: nowrap;\n        font-family: 'Nunito', 'Arial';\n}\n.alert-enter-active {\n        -webkit-animation: alertUp .5s;\n                animation: alertUp .5s;\n}\n.alert-leave-active {\n        -webkit-animation: alertAway .5s;\n                animation: alertAway .5s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
 
 // exports
 
@@ -48149,9 +48153,16 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _vm.error
-              ? _c("Alert", { attrs: { msg: _vm.error, error: true } })
-              : _vm._e()
+            _c("transition", { attrs: { name: "alert" } }, [
+              _vm.error
+                ? _c(
+                    "div",
+                    { staticClass: "custom-alert-container" },
+                    [_c("Alert", { attrs: { msg: _vm.error, error: true } })],
+                    1
+                  )
+                : _vm._e()
+            ])
           ],
           1
         ),
@@ -48317,7 +48328,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.register-container {\n        max-width: 600px;\n        margin: 10px auto;\n        margin-top: 100px;\n}\n.register-form {\n        background-color: #fff;\n        border: 1px solid #e6e6e6;\n        padding: 30px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        font-family: 'Nunito', 'Arial';\n        margin-bottom: 20px;\n}\n.register-form>div {\n        margin-bottom: 10px;\n}\n.register-form>div:last-child {\n        margin-bottom: 0px;\n}\n.register-btn-container {\n    \tposition: relative;\n    \theight: 34px;\n}\n.register-btn {\n    \tposition: absolute;\n    \tbackground-color: transparent;\n    \tz-index: 100;\n    \twidth: 100%;\n    \tcursor: pointer;\n}\n.input-container {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.alert-svg {\n    \theight: 17px;\n    \tmargin-left: 10px;\n}\n.fill-red {\n    \tfill: #c00;\n}\n.fill-green {\n    \tfill: green;\n}\n.login-alert {\n        position: absolute;\n        right: 42%;\n        top: 10px;\n        z-index: 1003;\n}\n.alert-enter-active {\n        -webkit-animation: alertUp .5s;\n                animation: alertUp .5s;\n}\n.alert-leave-active {\n        -webkit-animation: alertAway .5s;\n                animation: alertAway .5s;\n}\n.custom-progress-bar {\n    \theight: 100%;\n    \t-webkit-transition: .4s;\n    \ttransition: .4s;\n}\n@-webkit-keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@keyframes alertUp {\nfrom {opacity: 0\n}\nto {opacity: 1\n}\n}\n@-webkit-keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n@keyframes alertAway {\nfrom {opacity: 1\n}\nto {opacity: 0\n}\n}\n", ""]);
+exports.push([module.i, "\n.register-container {\n        max-width: 600px;\n        margin: 10px auto;\n        margin-top: 100px;\n}\n.register-form {\n        background-color: #fff;\n        border: 1px solid #e6e6e6;\n        padding: 30px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        font-family: 'Nunito', 'Arial';\n        margin-bottom: 20px;\n}\n.register-form>div {\n        margin-bottom: 10px;\n}\n.register-form>div:last-child {\n        margin-bottom: 0px;\n}\n.register-btn-container {\n    \tposition: relative;\n    \theight: 34px;\n}\n.register-btn {\n    \tposition: absolute;\n    \tbackground-color: transparent;\n    \tz-index: 100;\n    \twidth: 100%;\n    \tcursor: pointer;\n}\n.input-container {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.alert-svg {\n    \theight: 17px;\n    \tmargin-left: 10px;\n}\n.fill-red {\n    \tfill: #c00;\n}\n.fill-green {\n    \tfill: green;\n}\n.custom-alert-container {\n        position: fixed;\n        top: 70px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-orient: vertical;\n        -webkit-box-direction: normal;\n            -ms-flex-direction: column;\n                flex-direction: column;\n        z-index: 1000;\n        -webkit-transition: .2s;\n        transition: .2s;\n}\n.custom-alert-container .alert {\n        -webkit-transition: .2s;\n        transition: .2s;\n}\n.alert-enter, .alert-leave-to {\n      opacity: 0;\n      -webkit-transform: translateY(30px);\n              transform: translateY(30px);\n}\n.alert-leave-active {\n      position: fixed;\n}\n.custom-progress-bar {\n    \theight: 100%;\n    \t-webkit-transition: .4s;\n    \ttransition: .4s;\n}\n", ""]);
 
 // exports
 
@@ -48328,6 +48339,8 @@ exports.push([module.i, "\n.register-container {\n        max-width: 600px;\n   
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Alert_vue__);
 //
 //
 //
@@ -48355,6 +48368,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['routes', 'src_local'],
@@ -48441,8 +48456,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					window.location.href = '/';
 				},
 				error: function error(data) {
-					console.log(data);
-					self.error = data.responseJSON.errors.login[0];
+					console.log('error');
+					self.error = data.responseJSON.errors.email[0];
 					setTimeout(function () {
 						self.error = '';
 					}, 5000);
@@ -48485,6 +48500,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				}
 			}
 		}
+	},
+	components: {
+		Alert: __WEBPACK_IMPORTED_MODULE_0__Alert_vue___default.a
 	}
 });
 
@@ -48504,11 +48522,9 @@ var render = function() {
         _vm.error
           ? _c(
               "div",
-              {
-                staticClass: "alert alert-danger login-alert",
-                attrs: { role: "alert" }
-              },
-              [_vm._v("  \n            " + _vm._s(_vm.error) + "\n        ")]
+              { staticClass: "custom-alert-container" },
+              [_c("Alert", { attrs: { msg: _vm.error, error: true } })],
+              1
             )
           : _vm._e()
       ]),
@@ -48825,7 +48841,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\twidth: auto;\n\t\theight: auto;\n\t\t-o-object-fit: contain;\n\t\t   object-fit: contain;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 1002;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.downsize-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.downsize-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.video-numbers {\n    \tposition: absolute;\n\t    right: 0;\n\t    height: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    width: 45px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    top: 0;\n\t    border-left: 1px solid #aaa;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    background-color: rgba(0, 0, 0, 0.05);\n}\n", ""]);
+exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tz-index: 90;\n\t\tcursor: pointer;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\twidth: auto;\n\t\theight: auto;\n\t\t-o-object-fit: contain;\n\t\t   object-fit: contain;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 1002;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.downsize-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.downsize-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.downsize-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\topacity: 0;\n}\nto {\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t\tfill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.video-numbers {\n    \tposition: absolute;\n\t    right: 0;\n\t    height: 100%;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    width: 45px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    top: 0;\n\t    border-left: 1px solid #aaa;\n\t    -webkit-transition: .2s;\n\t    transition: .2s;\n\t    background-color: rgba(0, 0, 0, 0.05);\n}\n@media(max-width: 1160px) {\n.profile-content {\n    \t\twidth: auto;\n}\n.trick-container {\n    \t\twidth: 450px;\n}\n.custom-video-container .custom-video {\n    \t\tmin-height: 200px;\n    \t\tmax-height: 300px;\n}\n}\n@media(max-width: 1040px) {\n.trick-container {\n    \t\twidth: 350px;\n}\n.custom-video-container .custom-video {\n    \t\tmin-height: 150px;\n    \t\tmax-height: 250px;\n}\n}\n@media(max-width: 830px) {\n.tricks-container {\n    \t\t-webkit-box-pack: center;\n    \t\t    -ms-flex-pack: center;\n    \t\t        justify-content: center;\n}\n.trick-container {\n    \t\twidth: 500px;\n}\n.custom-video-container .custom-video {\n    \t\tmin-height: 250px;\n    \t\tmax-height: 400px;\n}\n.avatar-wrap {\n    \t\twidth: 200px;\n}\n.avatar-container {\n    \t\twidth: 150px;\n    \t\theight: 150px;\n}\n}\n@media(max-width: 700px) {\nmain.main-content {\n    \t\tpadding: 0px 10px 0px 10px;\n}\n}\n@media(max-width: 560px) {\n.custom-video-container .custom-video {\n    \t\tmin-height: 150px;\n    \t\tmax-height: 300px;\n}\n.profile-info {\n    \t\t-webkit-box-orient: vertical;\n    \t\t-webkit-box-direction: normal;\n    \t\t    -ms-flex-direction: column;\n    \t\t        flex-direction: column;\n}\n.avatar-wrap {\n    \t\twidth: 100%;\n\t\t    margin-bottom: 20px;\n}\n.avatar-container {\n    \t\twidth: 200px;\n    \t\theight: 200px;\n}\n}\n@media(max-width: 480px) {\n.downsize-btn {\n    \t\tz-index: 2000;\n    \t\tfill: #f33;\n}\n}\n", ""]);
 
 // exports
 
@@ -48838,7 +48854,7 @@ exports.push([module.i, "\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twi
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Video_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Tip_vue__);
 //
 //
@@ -49162,7 +49178,7 @@ exports.push([module.i, "\n.custom-video-container {\n\twidth: 100%;\n\tposition
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Tip_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Tip_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Tip_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Tip_vue__);
 //
 //
@@ -50678,7 +50694,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.avatar-container img {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n}\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n\t\tposition: relative;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tmargin-top: 10px;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\t-webkit-animation: avatarUp .4s;\n\t\t        animation: avatarUp .4s;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.close-map-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.close-map-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.close-map-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t    fill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.image-buttons {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \twidth: 100%;\n    \theight: 100%;\n\t    border-radius: 50%;\n}\n.change-image, .remove-image {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-box-flex: 1;\n\t\t    -ms-flex: 1;\n\t\t        flex: 1;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\topacity: 0;\n\t\tcursor: pointer;\n}\n.change-image svg, .remove-image svg {\n\t\tfill: rgba(255, 255, 255, 0.9);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.change-image:hover svg {\n    \tfill: rgba(0, 204, 0, 0.7);\n}\n.remove-image:hover svg {\n    \tfill: rgba(204, 0, 0, 0.7);\n}\n.image-buttons:hover .change-image, .image-buttons:hover .remove-image {\n\t\topacity: 1;\n\t\t-webkit-transform: translateY(0);\n\t\t        transform: translateY(0);\n}\n.change-image {\n\t\t-webkit-transform: translateY(-100%);\n\t\t        transform: translateY(-100%);\n}\n.remove-image {\n\t\t-webkit-transform: translateY(100%);\n\t\t        transform: translateY(100%);\n}\n.hidden {\n    \tdisplay: none;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.add-image {\n    \tposition: absolute;\n    \twidth: 100%;\n    \theight: 100%;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tcursor: pointer;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tbackground-color: rgba(0, 0, 0, 0.3);\n    \tz-index: 100;\n}\n.add-image svg {\n    \tfill: rgba(0, 162, 0, 1);\n    \twidth: 64px;\n    \tcursor: pointer;\n}\n.avatar-container:hover .add-image {\n\t\topacity: 1;\n}\n.social-item {\n    \tmargin-bottom: 10px;\n}\n.social-default {\n    \tfont-size: 14px;\n}\n.custom-btn {\n    \tcursor: pointer;\n}\n.tricks-wrap {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.custom-all-tricks-button, .custom-add-video-button {\n\t\t-ms-flex-item-align: end;\n\t\t    align-self: flex-end;\n\t\tcursor: pointer;\n\t\tmargin-bottom: 20px;\n\t\tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n}\n.all-tricks-container {\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n}\n.custom-list-group {\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n}\n.custom-list-group .custom-list-group-item {\n\t\tmargin-bottom: 10px;\n\t\twidth: 33%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-transition: all .5s ease;\n\t\ttransition: all .5s ease;\n}\n.new-tricks-enter, .new-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.new-tricks-leave-active {\n\t  position: absolute;\n}\n.add-element {\n    \tcolor: #5cb85c;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.add-element:hover {\n    \tcolor: #449d44;\n}\n.custom-list-group-item:hover .add-element {\n    \topacity: 1;\n}\n.remove-trick {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n    \theight: 30px;\n}\n.remove-trick svg {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n\t\tfill: #333;\n\t\twidth: 30px;\n}\n.remove-trick svg path {\n\t\tfill: #333;\n\t\tstroke: #333;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform-origin: center center;\n\t\t        transform-origin: center center;\n}\n.remove-trick:hover svg path {\n    \tfill: #a00;\n    \tstroke: #a00;\n}\n.remove-trick svg circle {\n\t\tstroke: #333 !important;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-trick:hover svg circle {\n    \tstroke: #a00 !important;\n}\n.remove-trick:hover svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(90deg);\n    \t        transform: rotate(90deg);\n}\n.remove-trick:hover svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-90deg);\n    \t        transform: rotate(-90deg);\n}\n.remove-trick:active svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(135deg);\n    \t        transform: rotate(135deg);\n}\n.remove-trick:active svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-135deg);\n    \t        transform: rotate(-135deg);\n}\n.remove-video {\n    \tfill: #555;\n    \twidth: 24px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.remove-video:hover {\n    \tfill: #a00;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-add-spot, .video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot {\n\t\twidth: 30px;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.video-add-spot:hover {\n    \tfill: #080;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \theight: 24px;\n}\n.map-container {\n    \tposition: fixed;\n        z-index: 1002;\n\t    width: 100vw;\n\t    height: 100vh;\n\t    left: 0px;\n\t    top: 0px;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    background-color: rgba(0, 0, 0, 0.5);\n}\n.map-wrap {\n\t\twidth: 90%;\n\t\theight: 80%;\n}\n", ""]);
+exports.push([module.i, "\n.avatar-container img {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n}\n.profile-content {\n\t\tpadding: 60px 20px 0;\n\t\twidth: 1100px;\n    \tmargin: 64px auto 0px;\n}\n.profile-info {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-bottom: 44px;\n}\n.avatar-container {\n\t\twidth: 200px;\n\t\theight: 200px;\n\t\tborder-radius: 50%;\n\t\toverflow: hidden;\n\t\tmargin: 0 auto;\n\t\tposition: relative;\n}\n.avatar-container img:hover {\n\t\tcursor: pointer;\n\t\t/*transform: scale(1.05);*/\n}\n.avatar-container img {\n\t\tposition: relative;\n\t\t/*transition: .2s;*/\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.avatar-wrap {\n\t\twidth: 400px;\n\t\tmargin-right: 30px;\n}\n.contacts-name {\n\t\tfont-size: 32px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n}\n.contacts-social {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tmargin-top: 10px;\n}\n#facebook-svg path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.svg-basic {\n\t\tfill: #555;\n}\n#facebook-svg-color {\n\t\topacity: 0;\n}\n#facebook-svg:hover #facebook-svg-color {\n\t\topacity: 1;\n}\n#facebook-svg:hover .svg-basic {\n\t\tfill: rgb(141, 108, 159);\n}\n#svg-instagram-color path {\n\t\topacity: 0;\n}\n#svg-instagram path {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n#svg-instagram:hover #svg-instagram-color path {\n\t\topacity: 1;\n}\n#svg-instagram-common path {\n\t\tfill: #555;\n}\n#svg-instagram:hover #svg-instagram-common path {\n\t\tfill: #8D6C9F;\n}\n.avatar-container .full-size-avatar {\n\t\tposition: fixed;\n\t\tz-index: 90;\n\t\ttop: 10% !important;\n\t\tcursor: pointer;\n\t\t-webkit-animation: avatarUp .4s;\n\t\t        animation: avatarUp .4s;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n}\n.avatar-container.full-size-avatar-container {\n\t\tposition: fixed;\n\t\tz-index: 89;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tleft: 0px;\n\t\ttop: 0px;\n\t\tborder-radius: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\tcursor: default;\n\t\t-webkit-animation: avatarUp .2s;\n\t\t        animation: avatarUp .2s;\n}\n.avatar-container.full-size-avatar-container .full-size-avatar:hover {\n\t\t-webkit-transform: none;\n\t\t        transform: none;\n}\n.close-map-btn {\n\t\ttop: 15px;\n\t\tright: 30px;\n\t\tposition: absolute;\n\t\tfill: #f1f1f1;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.close-map-btn:hover {\n\t\t-webkit-transform: scale(1.2) rotate(90deg);\n\t\t        transform: scale(1.2) rotate(90deg);\n\t\tfill: #c54646;\n}\n.close-map-btn:active {\n\t\t-webkit-transform: scale(0.9) rotate(90deg);\n\t\t        transform: scale(0.9) rotate(90deg);\n}\n@-webkit-keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n@keyframes avatarUp {\nfrom {\n\t\t\t-webkit-transform: scale(0.1);\n\t\t\t        transform: scale(0.1);\n\t\t\topacity: 0;\n}\nto {\n\t\t\t-webkit-transform: scale(1);\n\t\t\t        transform: scale(1);\n\t\t\topacity: 1;\n}\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n\t\twidth: 500px;\n\t\tmargin-bottom: 48px;\n}\n.custom-card-header {\n\t\tfont-size: 24px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tcursor: pointer;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.custom-card-header:hover {\n\t\tbackground-color: #eaeaec;\n}\n.custom-card-body {\n\t\tbackground-color: #efefef;\n\t\tbackground-image: url('/images/noiseImg.png');\n}\n.full-video-list {\n\t\tposition: fixed;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n}\n.full-video-list-wrap {\n\t\theight: 100%;\n\t\toverflow-y: scroll;\n}\n.over-hidden {\n\t\toverflow: hidden;\n}\n.full-video-list-container {\n\t\tmax-width: 1100px;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t    -ms-flex-wrap: wrap;\n\t        flex-wrap: wrap;\n\t    -webkit-box-pack: justify;\n\t        -ms-flex-pack: justify;\n\t            justify-content: space-between;\n\t    -webkit-box-align: start;\n\t        -ms-flex-align: start;\n\t            align-items: flex-start;\n\t    margin: 0 auto;\n}\n.custom-card {\n\t\twidth: 300px;\n}\n.custom-card-footer {\n\t\tbackground-color: #e8e8e8;\n\t\tcursor: default;\n\t    font-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tfont-size: 14px;\n}\n.custom-card-header-full-videos {\n\t\tfont-size: 20px;\n}\n.back-to-tricks {\n\t\tposition: fixed;\n\t\ttop: 60px;\n\t\tright: 37px;\n\t    z-index: 100;\n}\n.back-to-tricks svg {\n\t\twidth: 60px;\n\t\tfill: rgb(91, 157, 232);\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.back-to-tricks:hover svg {\n\t    fill: rgb(11, 157, 255);\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.back-to-tricks:active svg {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n.trick-list-enter-active {\n        -webkit-animation: trickShow .5s;\n                animation: trickShow .5s;\n}\n.trick-list-leave-active {\n        -webkit-animation: trickHide .5s;\n                animation: trickHide .5s;\n}\n.video-list-enter-active {\n        -webkit-animation: videoShow .5s;\n                animation: videoShow .5s;\n}\n.video-list-leave-active {\n        -webkit-animation: videoHide .5s;\n                animation: videoHide .5s;\n}\n@-webkit-keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes trickShow {\nfrom {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@keyframes trickHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\n}\n@-webkit-keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@keyframes videoShow {\nfrom {\n\t\t\t-webkit-transform: translateX(-120%);\n\t\t\t        transform: translateX(-120%);\n}\nto {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\n}\n@-webkit-keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n@keyframes videoHide {\nfrom {\n\t\t\t-webkit-transform: translateX(0%);\n\t\t\t        transform: translateX(0%);\n}\nto {\n\t\t\t-webkit-transform: translateX(120%);\n\t\t\t        transform: translateX(120%);\n}\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n.custom-card-header-mute:hover {\n    \tcursor: default;\n    \tbackground-color: #f2f2f4;\n}\n.image-buttons {\n    \tposition: absolute;\n    \ttop: 0;\n    \tleft: 0;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \twidth: 100%;\n    \theight: 100%;\n\t    border-radius: 50%;\n}\n.change-image, .remove-image {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-box-flex: 1;\n\t\t    -ms-flex: 1;\n\t\t        flex: 1;\n\t\tbackground-color: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\topacity: 0;\n\t\tcursor: pointer;\n}\n.change-image svg, .remove-image svg {\n\t\tfill: rgba(255, 255, 255, 0.9);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.change-image:hover svg {\n    \tfill: rgba(0, 204, 0, 0.7);\n}\n.remove-image:hover svg {\n    \tfill: rgba(204, 0, 0, 0.7);\n}\n.image-buttons:hover .change-image, .image-buttons:hover .remove-image {\n\t\topacity: 1;\n\t\t-webkit-transform: translateY(0);\n\t\t        transform: translateY(0);\n}\n.change-image {\n\t\t-webkit-transform: translateY(-100%);\n\t\t        transform: translateY(-100%);\n}\n.remove-image {\n\t\t-webkit-transform: translateY(100%);\n\t\t        transform: translateY(100%);\n}\n.hidden {\n    \tdisplay: none;\n}\n.default-avatar {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.add-image {\n    \tposition: absolute;\n    \twidth: 100%;\n    \theight: 100%;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tcursor: pointer;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tbackground-color: rgba(0, 0, 0, 0.3);\n    \tz-index: 100;\n}\n.add-image svg {\n    \tfill: rgba(0, 162, 0, 1);\n    \twidth: 64px;\n    \tcursor: pointer;\n}\n.avatar-container:hover .add-image {\n\t\topacity: 1;\n}\n.social-item {\n    \tmargin-bottom: 10px;\n}\n.social-default {\n    \tfont-size: 14px;\n}\n.custom-btn {\n    \tcursor: pointer;\n}\n.tricks-wrap {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.custom-all-tricks-button, .custom-add-video-button {\n\t\t-ms-flex-item-align: end;\n\t\t    align-self: flex-end;\n\t\tcursor: pointer;\n\t\tmargin-bottom: 20px;\n\t\tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n}\n.all-tricks-container {\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n}\n.custom-list-group {\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n}\n.custom-list-group .custom-list-group-item {\n\t\tmargin-bottom: 10px;\n\t\twidth: 33%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-transition: all .5s ease;\n\t\ttransition: all .5s ease;\n}\n.new-tricks-enter, .new-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.new-tricks-leave-active {\n\t  position: absolute;\n}\n.add-element {\n    \tcolor: #5cb85c;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.add-element:hover {\n    \tcolor: #449d44;\n}\n.custom-list-group-item:hover .add-element {\n    \topacity: 1;\n}\n.remove-trick {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n    \theight: 30px;\n}\n.remove-trick svg {\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n\t\tfill: #333;\n\t\twidth: 30px;\n}\n.remove-trick svg path {\n\t\tfill: #333;\n\t\tstroke: #333;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform-origin: center center;\n\t\t        transform-origin: center center;\n}\n.remove-trick:hover svg path {\n    \tfill: #a00;\n    \tstroke: #a00;\n}\n.remove-trick svg circle {\n\t\tstroke: #333 !important;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-trick:hover svg circle {\n    \tstroke: #a00 !important;\n}\n.remove-trick:hover svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(90deg);\n    \t        transform: rotate(90deg);\n}\n.remove-trick:hover svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-90deg);\n    \t        transform: rotate(-90deg);\n}\n.remove-trick:active svg .remove-trick-first-path {\n    \t-webkit-transform: rotate(135deg);\n    \t        transform: rotate(135deg);\n}\n.remove-trick:active svg .remove-trick-second-path {\n    \t-webkit-transform: rotate(-135deg);\n    \t        transform: rotate(-135deg);\n}\n.remove-video {\n    \tfill: #555;\n    \twidth: 24px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.remove-video:hover {\n    \tfill: #a00;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 200;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.video-date-year {\n    \tfont-size: 14px;\n}\n.video-date-dm {\n    \tfont-size: 18px;\n}\n.video-add-spot, .video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot {\n\t\twidth: 30px;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.video-add-spot:hover {\n    \tfill: #080;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \theight: 24px;\n}\n.map-container {\n    \tposition: fixed;\n        z-index: 1002;\n\t    width: 100vw;\n\t    height: 100vh;\n\t    left: 0px;\n\t    top: 0px;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n\t    -webkit-box-pack: center;\n\t        -ms-flex-pack: center;\n\t            justify-content: center;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n\t    background-color: rgba(0, 0, 0, 0.5);\n}\n.map-wrap {\n\t\twidth: 90%;\n\t\theight: 80%;\n}\n.mobile-add-element {\n    \tdisplay: none;\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 10px;\n    \tbottom: 0;\n}\n.mobile-add-element svg {\n    \twidth: 30px;\n}\n.custom-add-video-btn {\n    \tposition: relative;\n}\n.video-load-placeholder {\n\t    position: absolute;\n\t    width: 100%;\n\t    height: 100%;\n\t    left: 0;\n\t    top: 0;\n\t    background-color: #0275d8;\n}\n.video-load-placeholder path {\n    \tstroke: #fff;\n}\n.image-load-placeholder {\n    \twidth: 100%;\n    \theight: 100%;\n}\n.image-load-placeholder path {\n    \tstroke: rgb(91, 157, 232);\n}\n@media(max-width: 1160px) {\n.profile-content {\n    \t\twidth: auto;\n}\n.trick-container {\n    \t\twidth: 450px;\n}\n.custom-video-container .custom-video {\n    \t\tmin-height: 200px;\n    \t\tmax-height: 300px;\n}\n}\n@media(max-width: 1040px) {\n.trick-container {\n    \t\twidth: 350px;\n}\n.custom-video-container .custom-video {\n    \t\tmin-height: 150px;\n    \t\tmax-height: 250px;\n}\n.desktop-add-element {\n    \t\tdisplay: none;\n}\n.mobile-add-element {\n\t    \tdisplay: -webkit-box;\n\t    \tdisplay: -ms-flexbox;\n\t    \tdisplay: flex;\n\t    \t-webkit-box-align: center;\n\t    \t    -ms-flex-align: center;\n\t    \t        align-items: center;\n}\n}\n@media(max-width: 830px) {\n.tricks-container {\n    \t\t-webkit-box-pack: center;\n    \t\t    -ms-flex-pack: center;\n    \t\t        justify-content: center;\n}\n.trick-container {\n    \t\twidth: 500px;\n}\n.custom-video-container .custom-video {\n    \t\tmin-height: 250px;\n    \t\tmax-height: 400px;\n}\n.custom-list-group .custom-list-group-item {\n    \t\twidth: 49%;\n}\n.change-image, .remove-image {\n    \t\topacity: 1;\n    \t\t-webkit-transform: translateY(0);\n    \t\t        transform: translateY(0);\n}\n.avatar-container .add-image {\n    \t\topacity: 1;\n}\n.avatar-wrap {\n    \t\twidth: 200px;\n}\n.avatar-container {\n    \t\twidth: 150px;\n    \t\theight: 150px;\n}\n}\n@media(max-width: 700px) {\nmain.main-content {\n    \t\tpadding: 0px 10px 0px 10px;\n}\n.avatar-wrap {\n    \t\twidth: 150px;\n}\n.avatar-container {\n    \t\twidth: 100px;\n    \t\theight: 100px;\n}\n.image-buttons svg {\n    \t\twidth: 36px;\n    \t\theight: 36px;\n}\n}\n@media(max-width: 560px) {\n.custom-video-container .custom-video {\n    \t\tmin-height: 150px;\n    \t\tmax-height: 300px;\n}\n.profile-info {\n    \t\t-webkit-box-orient: vertical;\n    \t\t-webkit-box-direction: normal;\n    \t\t    -ms-flex-direction: column;\n    \t\t        flex-direction: column;\n}\n.avatar-wrap {\n    \t\twidth: 100%;\n\t\t    margin-bottom: 20px;\n}\n.avatar-container {\n    \t\twidth: 200px;\n    \t\theight: 200px;\n}\n.image-buttons svg {\n    \t\twidth: 64px;\n    \t\theight: 64px;\n}\n}\n@media(max-width: 480px) {\n.custom-list-group .custom-list-group-item {\n    \t\twidth: 100%;\n}\n.social-default {\n    \t\tfont-size: 11px;\n}\n.social-item .custom-btn {\n    \t\tfont-size: 12px;\n}\n.close-map-btn {\n    \t\ttop: 5px;\n    \t\tright: 10px;\n\t\t    fill: #e33;\n    \t\tz-index: 2000;\n}\n}\n", ""]);
 
 // exports
 
@@ -50691,14 +50707,162 @@ exports.push([module.i, "\n.avatar-container img {\n\t\twidth: 100%;\n\t\theight
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Video_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Alert_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Alert_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Alert_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MapAll_vue__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MapAll_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__MapAll_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Tip_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Tip_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Tip_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Tip_vue__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50951,7 +51115,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				show: false,
 				msg: ''
 			},
-			local: this.src_local
+			local: this.src_local,
+			videoLoading: false,
+			imageLoading: false
 		};
 	},
 	mounted: function mounted() {
@@ -51045,6 +51211,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		updateImage: function updateImage() {
 			var self = this;
 			var form = new FormData(document.querySelector("#upload-img"));
+			self.imageLoading = true;
 			$.ajax({
 				method: "post",
 				url: self.routes.updateAvatar,
@@ -51054,8 +51221,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				data: form,
 				success: function success(data) {
 					if (self.avatarSrc.exist) {
-						self.$refs.avatar.className = '';
-						self.$refs.avatar.removeAttribute('style');
 						self.avatarSrc.url = data.url + '?' + Date.now();
 					} else {
 						self.avatarSrc.url = data.url + '?' + Date.now();
@@ -51073,11 +51238,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 						self.responses.shift();
 					}, 5000);
 				}
+			}).always(function () {
+				self.imageLoading = false;
 			});
 		},
 		removeImage: function removeImage() {
 			var self = this;
 			var form = new FormData(document.querySelector("#remove-img"));
+			self.imageLoading = true;
 			$.ajax({
 				method: "post",
 				url: self.routes.removeAvatar,
@@ -51087,12 +51255,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				data: form,
 				success: function success(data) {
 					self.avatarSrc.exist = false;
-					console.log('image has been removed');
-					console.log(data);
 				},
 				error: function error(data) {
-					console.log(data);
+					console.log('error');
 				}
+			}).always(function () {
+				self.imageLoading = false;
 			});
 		},
 		saveSocial: function saveSocial(social) {
@@ -51145,14 +51313,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					_token: $('meta[name="csrf-token"]').attr('content')
 				},
 				success: function success(data) {
-					console.log(data);
 					var element = self.all_tricks.filter(function (trick) {
 						return trick.id == id;
 					})[0];
 					self.tricks.push(element);
 				},
 				error: function error(data) {
-					console.log(data);
+					console.log('error');
 				}
 			});
 		},
@@ -51189,6 +51356,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			var self = this;
 			var form = new FormData(document.querySelector("#add-video"));
 			form.append('move', this.fullVideoList.trick_id);
+			self.videoLoading = true;
 			$.ajax({
 				method: "post",
 				url: self.routes.addVideo,
@@ -51200,6 +51368,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					self.videos = data;
 				},
 				error: function error(data) {
+					console.log('error');
 					var response = {};
 					response.msg = data.responseJSON.errors.video[0];
 					response.error = true;
@@ -51210,6 +51379,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 						self.responses.shift();
 					}, 5000);
 				}
+			}).always(function () {
+				self.videoLoading = false;
 			});
 		},
 		removeVideo: function removeVideo(video) {
@@ -51274,7 +51445,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					}, 5000);
 				},
 				error: function error(data) {
-					console.log(data);
+					console.log('error');
 				}
 			});
 		},
@@ -51304,7 +51475,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					}, 5000);
 				},
 				error: function error(data) {
-					console.log(data);
+					console.log('error');
 				}
 			});
 		}
@@ -51434,9 +51605,6 @@ var comp = {
 			this.mymap.addLayer(markers);
 
 			this.provider = new GeoSearch.OpenStreetMapProvider();
-		},
-		checkMap: function checkMap(e) {
-			console.log(e);
 		},
 		enterSearch: function enterSearch(e) {
 			var self = this;
@@ -51612,29 +51780,139 @@ var render = function() {
     [
       _c("div", { staticClass: "profile-info" }, [
         _c("div", { staticClass: "avatar-wrap" }, [
-          _c(
-            "div",
-            {
-              staticClass: "avatar-container",
-              attrs: { id: "avatar-container" }
-            },
-            [
-              _vm.avatarSrc.exist
-                ? [
-                    _c("img", {
-                      ref: "avatar",
-                      attrs: {
-                        src: _vm.avatarSrc.url,
-                        alt: "avatar",
-                        id: "avatar"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "image-buttons" }, [
-                      _c("div", { staticClass: "change-image" }, [
+          !_vm.imageLoading
+            ? _c(
+                "div",
+                {
+                  staticClass: "avatar-container",
+                  attrs: { id: "avatar-container" }
+                },
+                [
+                  _vm.avatarSrc.exist
+                    ? [
+                        _c("img", {
+                          ref: "avatar",
+                          attrs: {
+                            src: _vm.avatarSrc.url,
+                            alt: "avatar",
+                            id: "avatar"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "image-buttons" }, [
+                          _c("div", { staticClass: "change-image" }, [
+                            _c(
+                              "form",
+                              {
+                                attrs: {
+                                  action: _vm.routes.updateAvatar,
+                                  method: "POST",
+                                  enctype: "multipart/form-data",
+                                  id: "upload-img"
+                                }
+                              },
+                              [
+                                _c("input", {
+                                  attrs: { type: "hidden", name: "_token" },
+                                  domProps: { value: _vm.token }
+                                }),
+                                _vm._v(" "),
+                                _c("label", [
+                                  _c("input", {
+                                    staticClass: "hidden",
+                                    attrs: {
+                                      type: "file",
+                                      name: "avatar",
+                                      id: "uploadAvatarInput"
+                                    },
+                                    on: { change: _vm.updateImage }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "64",
+                                        height: "64",
+                                        viewBox: "0 0 24 24"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M8 10h-5l9-10 9 10h-5v10h-8v-10zm8 12h-8v2h8v-2z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "remove-image" }, [
+                            _c(
+                              "form",
+                              {
+                                attrs: {
+                                  action: _vm.routes.removeAvatar,
+                                  method: "POST",
+                                  id: "remove-img"
+                                },
+                                on: {
+                                  submit: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.removeImage($event)
+                                  }
+                                }
+                              },
+                              [
+                                _c("input", {
+                                  attrs: { type: "hidden", name: "_token" },
+                                  domProps: { value: _vm.token }
+                                }),
+                                _vm._v(" "),
+                                _c("label", [
+                                  _c("input", {
+                                    staticClass: "hidden",
+                                    attrs: {
+                                      type: "submit",
+                                      value: "remove it"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 352 512",
+                                        width: "64px",
+                                        height: "64px"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    : [
                         _c(
                           "form",
                           {
+                            staticClass: "add-image",
                             attrs: {
                               action: _vm.routes.updateAvatar,
                               method: "POST",
@@ -51664,301 +51942,1001 @@ var render = function() {
                                 {
                                   attrs: {
                                     xmlns: "http://www.w3.org/2000/svg",
-                                    width: "64",
-                                    height: "64",
-                                    viewBox: "0 0 24 24"
+                                    viewBox: "0 0 448 512"
                                   }
                                 },
                                 [
                                   _c("path", {
                                     attrs: {
                                       d:
-                                        "M8 10h-5l9-10 9 10h-5v10h-8v-10zm8 12h-8v2h8v-2z"
+                                        "M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
                                     }
                                   })
                                 ]
                               )
                             ])
                           ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "remove-image" }, [
+                        ),
+                        _vm._v(" "),
                         _c(
-                          "form",
+                          "svg",
                           {
+                            staticClass: "default-avatar",
                             attrs: {
-                              action: _vm.routes.removeAvatar,
-                              method: "POST",
-                              id: "remove-img"
-                            },
-                            on: {
-                              submit: function($event) {
-                                $event.preventDefault()
-                                return _vm.removeImage($event)
-                              }
+                              xmlns: "http://www.w3.org/2000/svg",
+                              "data-name": "Layer 1",
+                              viewBox: "0 0 100 125",
+                              x: "0px",
+                              y: "0px"
                             }
                           },
                           [
-                            _c("input", {
-                              attrs: { type: "hidden", name: "_token" },
-                              domProps: { value: _vm.token }
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M75.89,97.66a.5.5,0,0,1-.5-.5V84.24H77.5V78.87a24.55,24.55,0,0,0-11.86-21.1,22.78,22.78,0,0,0-5.86-2.89.5.5,0,1,1,.31-1,23.28,23.28,0,0,1,6.11,3A25.51,25.51,0,0,1,78.5,78.87v6.37H76.39V97.16A.5.5,0,0,1,75.89,97.66Z"
+                              }
                             }),
                             _vm._v(" "),
-                            _c("label", [
-                              _c("input", {
-                                staticClass: "hidden",
-                                attrs: { type: "submit", value: "remove it" }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "svg",
-                                {
-                                  attrs: {
-                                    xmlns: "http://www.w3.org/2000/svg",
-                                    viewBox: "0 0 352 512",
-                                    width: "64px",
-                                    height: "64px"
-                                  }
-                                },
-                                [
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                                    }
-                                  })
-                                ]
-                              )
-                            ])
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M29,97.66a.5.5,0,0,1-.5-.5V85.24H27.1V78.87A25.78,25.78,0,0,1,35.33,60l1-.88a.5.5,0,0,1,.68.73l-1,.88A24.78,24.78,0,0,0,28.1,78.87v5.37h1.41V97.16A.5.5,0,0,1,29,97.66Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M40.16,60.37a6.07,6.07,0,0,1-.89-.07,5.94,5.94,0,0,1-4.34-3l-3.82-6.78a4.68,4.68,0,0,1-.58-1.83L28.48,29a15.39,15.39,0,0,1,1.2-6,.5.5,0,0,1,.92.39,14.36,14.36,0,0,0-1.13,5.61l2,19.68A3.69,3.69,0,0,0,32,50l3.82,6.78A5,5,0,0,0,43.6,58l.16-.1,5.41-2.22a7.05,7.05,0,0,0,4-4.33.5.5,0,0,1,.95.31,8.05,8.05,0,0,1-4.6,4.95l-5.33,2.18A5.94,5.94,0,0,1,40.16,60.37Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M40.2,45.1l-3,0a2.87,2.87,0,0,1-.51-5.69L38.67,34,38,32.08a.5.5,0,1,1,.95-.32L39.72,34l-2.28,6.28-.32,0a1.87,1.87,0,0,0,.12,3.73l2.47,0a1.54,1.54,0,0,1,1-.46A1.51,1.51,0,0,1,42,44.2l.07.08a.5.5,0,1,1-.77.64l-.07-.08a.58.58,0,0,0-.45-.2.55.55,0,0,0-.43.24Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M38.2,53.79a.5.5,0,0,1-.4-.8,3,3,0,0,1,1-.79,2.31,2.31,0,0,1,2.51.31.5.5,0,1,1-.6.8,1.31,1.31,0,0,0-1.47-.21,2,2,0,0,0-.62.5A.5.5,0,0,1,38.2,53.79Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M47.68,49.88a.5.5,0,0,1-.47-.67,1.42,1.42,0,0,0-.91-1.91.5.5,0,0,1,.34-.94,2.4,2.4,0,0,1,1.52,3.18A.5.5,0,0,1,47.68,49.88Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M57.76,46.24a3,3,0,0,1-.56-.05.5.5,0,1,1,.18-1,3.17,3.17,0,0,0,2.85-1.37,9.77,9.77,0,0,0,2-4.56,9.76,9.76,0,0,0-.27-5A3.17,3.17,0,0,0,59.83,32,3.18,3.18,0,0,0,57,33.36a.5.5,0,0,1-.76-.65A3.66,3.66,0,0,1,62.95,34a10.76,10.76,0,0,1,.31,5.51,10.77,10.77,0,0,1-2.26,5A4.4,4.4,0,0,1,57.76,46.24Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M67.32,15.6l-2.51.85-1.14-4.86L62.8,14.9,48.41,4.78l1.21,3.67L42.7,6.07l1,2-13.15,3.2,2.57.84L25.8,20.23,28,19.88l-.84,4.78h0a32.56,32.56,0,0,1,11.63-4.11q1.43-.21,2.88-.3L40.58,22l.44-.21a12.67,12.67,0,0,1,7.42-1.2l3.74.58-2.74,1.75,2.17.8-.59,1,1.65-.38,1.66,4.64L53,35.13l2.77,0L58,32c.32-.54-.7.61-.23.2a2.43,2.43,0,0,1,2.15-.69A3.16,3.16,0,0,1,62,33.14l4.64-10.73-.33-1.68,2.13-.27-2.86-2.28Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M47.86,64.63a7.81,7.81,0,0,1-5.42-2.18c-.27-.21-.77-.87-.81-2.94a.5.5,0,0,1,.49-.51h0a.5.5,0,0,1,.5.49c0,1.78.43,2.18.43,2.18a6.88,6.88,0,0,0,9.73-.12c4.8-4.94,5.69-6.15,5.84-6.43a42,42,0,0,1-.33-5.66v-.69l.52-3.45a.5.5,0,0,1,.57-.42.5.5,0,0,1,.42.57l-.51,3.37v.62a40.79,40.79,0,0,0,.34,5.63c.05.36.1.74-6.13,7.16A7.85,7.85,0,0,1,47.86,64.63Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M35.59,50.37a.5.5,0,0,1,0-1l6,0a6.55,6.55,0,0,0,3.34-.94.5.5,0,1,1,.52.86,7.55,7.55,0,0,1-3.85,1.09l-6,0Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M54.79,48.11H54.7a.5.5,0,0,1-.4-.58l.34-1.87a.5.5,0,1,1,1,.18l-.34,1.87A.5.5,0,0,1,54.79,48.11Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M58,42.71a1.84,1.84,0,0,1-.49-.07.5.5,0,0,1,.26-1,.83.83,0,0,0,1-1l-.38-1.61a.5.5,0,0,1,.24-.55L60,37.75a.83.83,0,0,0,.35-1l-.64-1.53a.51.51,0,0,0-.85-.14l-1.27,1.4a.5.5,0,1,1-.74-.67l1.27-1.41a1.51,1.51,0,0,1,2.51.43l.64,1.53a1.83,1.83,0,0,1-.78,2.3l-1,.59.3,1.25A1.83,1.83,0,0,1,58,42.71Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M40,28.05,47.82,28,52,31.21l-4.43-1.4-6.31.48A1.41,1.41,0,0,1,40,28.09Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M29,30.37l1.12-.56,4.86.4A1.41,1.41,0,0,0,36.24,28h0l-6,0-1.23.7"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M46.92,60.91a.5.5,0,0,1-.39-.19l-.71-.9a1.45,1.45,0,0,1-.19-1.47l.5-1.28a.5.5,0,0,1,.93.37l-.51,1.29a.46.46,0,0,0,.06.47l.71.9a.5.5,0,0,1-.39.81Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M32.43,97.66a.5.5,0,0,1-.5-.5V80.65a24.18,24.18,0,0,1,1.3-7.91.5.5,0,1,1,.95.33,23.17,23.17,0,0,0-1.25,7.58V97.16A.5.5,0,0,1,32.43,97.66Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M68.64,97.66a.5.5,0,0,1-.5-.5V80.65a23.33,23.33,0,0,0-1.45-8.15.5.5,0,0,1,.94-.35,24.35,24.35,0,0,1,1.52,8.5V97.16A.5.5,0,0,1,68.64,97.66Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M78,85.24H68.64a.5.5,0,0,1,0-1H78a.5.5,0,0,1,0,1Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M32.08,85.24H27.6a.5.5,0,1,1,0-1h4.48a.5.5,0,0,1,0,1Z"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("rect", {
+                              attrs: {
+                                x: "43",
+                                y: "32",
+                                width: "3",
+                                height: "4.5",
+                                rx: "1.5",
+                                ry: "1.5"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("rect", {
+                              attrs: {
+                                x: "31",
+                                y: "32",
+                                width: "3",
+                                height: "4.5",
+                                rx: "1.5",
+                                ry: "1.5"
+                              }
+                            })
                           ]
                         )
-                      ])
-                    ])
-                  ]
-                : [
-                    _c(
-                      "form",
-                      {
-                        staticClass: "add-image",
-                        attrs: {
-                          action: _vm.routes.updateAvatar,
-                          method: "POST",
-                          enctype: "multipart/form-data",
-                          id: "upload-img"
-                        }
-                      },
-                      [
-                        _c("input", {
-                          attrs: { type: "hidden", name: "_token" },
-                          domProps: { value: _vm.token }
-                        }),
-                        _vm._v(" "),
-                        _c("label", [
-                          _c("input", {
-                            staticClass: "hidden",
-                            attrs: {
-                              type: "file",
-                              name: "avatar",
-                              id: "uploadAvatarInput"
-                            },
-                            on: { change: _vm.updateImage }
+                      ]
+                ],
+                2
+              )
+            : _c("div", { staticClass: "avatar-container" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "image-load-placeholder",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 100 100",
+                      preserveAspectRatio: "xMidYMid"
+                    }
+                  },
+                  [
+                    _c("defs", [
+                      _c(
+                        "filter",
+                        {
+                          attrs: {
+                            id: "tail-0.a4db4fdd84ecd",
+                            x: "-100%",
+                            y: "-100%",
+                            width: "300%",
+                            height: "300%",
+                            "color-interpolation-filters": "sRGB"
+                          }
+                        },
+                        [
+                          _c("feGaussianBlur", {
+                            attrs: { in: "SourceGraphic", stdDeviation: "3" }
                           }),
                           _vm._v(" "),
-                          _c(
-                            "svg",
-                            {
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 448 512"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-                                }
-                              })
-                            ]
-                          )
-                        ])
-                      ]
-                    ),
+                          _c("feColorMatrix", {
+                            attrs: {
+                              mode: "matrix",
+                              values:
+                                "1 0 0 0 0   0 1 0 0 0   0 0 1 0 0   0 0 0 60 -40",
+                              result: "cm"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
                     _vm._v(" "),
                     _c(
-                      "svg",
+                      "g",
                       {
-                        staticClass: "default-avatar",
                         attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          "data-name": "Layer 1",
-                          viewBox: "0 0 100 125",
-                          x: "0px",
-                          y: "0px"
+                          filter: "url(#tail-0.a4db4fdd84ecd)",
+                          transform: "rotate(54 50 50)"
                         }
                       },
                       [
-                        _c("path", {
+                        _c("animateTransform", {
                           attrs: {
-                            d:
-                              "M75.89,97.66a.5.5,0,0,1-.5-.5V84.24H77.5V78.87a24.55,24.55,0,0,0-11.86-21.1,22.78,22.78,0,0,0-5.86-2.89.5.5,0,1,1,.31-1,23.28,23.28,0,0,1,6.11,3A25.51,25.51,0,0,1,78.5,78.87v6.37H76.39V97.16A.5.5,0,0,1,75.89,97.66Z"
+                            attributeName: "transform",
+                            type: "rotate",
+                            calcMode: "linear",
+                            values: "0 50 50;360 50 50",
+                            keyTimes: "0;1",
+                            dur: "4s",
+                            begin: "0s",
+                            repeatCount: "indefinite"
                           }
                         }),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M29,97.66a.5.5,0,0,1-.5-.5V85.24H27.1V78.87A25.78,25.78,0,0,1,35.33,60l1-.88a.5.5,0,0,1,.68.73l-1,.88A24.78,24.78,0,0,0,28.1,78.87v5.37h1.41V97.16A.5.5,0,0,1,29,97.66Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(333.474 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "19",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.13333333333333333 0 0.03333333333333333 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M40.16,60.37a6.07,6.07,0,0,1-.89-.07,5.94,5.94,0,0,1-4.34-3l-3.82-6.78a4.68,4.68,0,0,1-.58-1.83L28.48,29a15.39,15.39,0,0,1,1.2-6,.5.5,0,0,1,.92.39,14.36,14.36,0,0,0-1.13,5.61l2,19.68A3.69,3.69,0,0,0,32,50l3.82,6.78A5,5,0,0,0,43.6,58l.16-.1,5.41-2.22a7.05,7.05,0,0,0,4-4.33.5.5,0,0,1,.95.31,8.05,8.05,0,0,1-4.6,4.95l-5.33,2.18A5.94,5.94,0,0,1,40.16,60.37Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(331.178 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "18",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.16666666666666669 0 0.06666666666666667 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M40.2,45.1l-3,0a2.87,2.87,0,0,1-.51-5.69L38.67,34,38,32.08a.5.5,0,1,1,.95-.32L39.72,34l-2.28,6.28-.32,0a1.87,1.87,0,0,0,.12,3.73l2.47,0a1.54,1.54,0,0,1,1-.46A1.51,1.51,0,0,1,42,44.2l.07.08a.5.5,0,1,1-.77.64l-.07-.08a.58.58,0,0,0-.45-.2.55.55,0,0,0-.43.24Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          {
+                            attrs: { transform: "rotate(328.576 50.0001 50)" }
+                          },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "17",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines: "0.2 0 0.1 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M38.2,53.79a.5.5,0,0,1-.4-.8,3,3,0,0,1,1-.79,2.31,2.31,0,0,1,2.51.31.5.5,0,1,1-.6.8,1.31,1.31,0,0,0-1.47-.21,2,2,0,0,0-.62.5A.5.5,0,0,1,38.2,53.79Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(325.612 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "16",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.23333333333333334 0 0.13333333333333333 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M47.68,49.88a.5.5,0,0,1-.47-.67,1.42,1.42,0,0,0-.91-1.91.5.5,0,0,1,.34-.94,2.4,2.4,0,0,1,1.52,3.18A.5.5,0,0,1,47.68,49.88Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(322.212 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "15",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.26666666666666666 0 0.16666666666666666 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M57.76,46.24a3,3,0,0,1-.56-.05.5.5,0,1,1,.18-1,3.17,3.17,0,0,0,2.85-1.37,9.77,9.77,0,0,0,2-4.56,9.76,9.76,0,0,0-.27-5A3.17,3.17,0,0,0,59.83,32,3.18,3.18,0,0,0,57,33.36a.5.5,0,0,1-.76-.65A3.66,3.66,0,0,1,62.95,34a10.76,10.76,0,0,1,.31,5.51,10.77,10.77,0,0,1-2.26,5A4.4,4.4,0,0,1,57.76,46.24Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(318.287 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "14",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines: "0.30000000000000004 0 0.2 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M67.32,15.6l-2.51.85-1.14-4.86L62.8,14.9,48.41,4.78l1.21,3.67L42.7,6.07l1,2-13.15,3.2,2.57.84L25.8,20.23,28,19.88l-.84,4.78h0a32.56,32.56,0,0,1,11.63-4.11q1.43-.21,2.88-.3L40.58,22l.44-.21a12.67,12.67,0,0,1,7.42-1.2l3.74.58-2.74,1.75,2.17.8-.59,1,1.65-.38,1.66,4.64L53,35.13l2.77,0L58,32c.32-.54-.7.61-.23.2a2.43,2.43,0,0,1,2.15-.69A3.16,3.16,0,0,1,62,33.14l4.64-10.73-.33-1.68,2.13-.27-2.86-2.28Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(314.708 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "13",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.33333333333333337 0 0.23333333333333334 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M47.86,64.63a7.81,7.81,0,0,1-5.42-2.18c-.27-.21-.77-.87-.81-2.94a.5.5,0,0,1,.49-.51h0a.5.5,0,0,1,.5.49c0,1.78.43,2.18.43,2.18a6.88,6.88,0,0,0,9.73-.12c4.8-4.94,5.69-6.15,5.84-6.43a42,42,0,0,1-.33-5.66v-.69l.52-3.45a.5.5,0,0,1,.57-.42.5.5,0,0,1,.42.57l-.51,3.37v.62a40.79,40.79,0,0,0,.34,5.63c.05.36.1.74-6.13,7.16A7.85,7.85,0,0,1,47.86,64.63Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(309.018 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "12",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.3666666666666667 0 0.26666666666666666 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M35.59,50.37a.5.5,0,0,1,0-1l6,0a6.55,6.55,0,0,0,3.34-.94.5.5,0,1,1,.52.86,7.55,7.55,0,0,1-3.85,1.09l-6,0Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(302.443 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "11",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines: "0.4 0 0.3 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M54.79,48.11H54.7a.5.5,0,0,1-.4-.58l.34-1.87a.5.5,0,1,1,1,.18l-.34,1.87A.5.5,0,0,1,54.79,48.11Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(294.767 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "10",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.43333333333333335 0 0.3333333333333333 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M58,42.71a1.84,1.84,0,0,1-.49-.07.5.5,0,0,1,.26-1,.83.83,0,0,0,1-1l-.38-1.61a.5.5,0,0,1,.24-.55L60,37.75a.83.83,0,0,0,.35-1l-.64-1.53a.51.51,0,0,0-.85-.14l-1.27,1.4a.5.5,0,1,1-.74-.67l1.27-1.41a1.51,1.51,0,0,1,2.51.43l.64,1.53a1.83,1.83,0,0,1-.78,2.3l-1,.59.3,1.25A1.83,1.83,0,0,1,58,42.71Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(285.715 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "9",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.4666666666666667 0 0.36666666666666664 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M40,28.05,47.82,28,52,31.21l-4.43-1.4-6.31.48A1.41,1.41,0,0,1,40,28.09Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(274.96 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "8",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines: "0.5 0 0.4 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M29,30.37l1.12-.56,4.86.4A1.41,1.41,0,0,0,36.24,28h0l-6,0-1.23.7"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(263.29 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "7",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.5333333333333333 0 0.43333333333333335 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M46.92,60.91a.5.5,0,0,1-.39-.19l-.71-.9a1.45,1.45,0,0,1-.19-1.47l.5-1.28a.5.5,0,0,1,.93.37l-.51,1.29a.46.46,0,0,0,.06.47l.71.9a.5.5,0,0,1-.39.81Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(247.243 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "6",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.5666666666666667 0 0.4666666666666667 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M32.43,97.66a.5.5,0,0,1-.5-.5V80.65a24.18,24.18,0,0,1,1.3-7.91.5.5,0,1,1,.95.33,23.17,23.17,0,0,0-1.25,7.58V97.16A.5.5,0,0,1,32.43,97.66Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(233.28 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "5",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines: "0.6 0 0.5 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M68.64,97.66a.5.5,0,0,1-.5-.5V80.65a23.33,23.33,0,0,0-1.45-8.15.5.5,0,0,1,.94-.35,24.35,24.35,0,0,1,1.52,8.5V97.16A.5.5,0,0,1,68.64,97.66Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(210.448 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "4",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.6333333333333333 0 0.5333333333333333 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M78,85.24H68.64a.5.5,0,0,1,0-1H78a.5.5,0,0,1,0,1Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(189.723 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "3",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.6666666666666666 0 0.5666666666666667 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M32.08,85.24H27.6a.5.5,0,1,1,0-1h4.48a.5.5,0,0,1,0,1Z"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(167.547 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "2",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines: "0.7 0 0.6 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("rect", {
-                          attrs: {
-                            x: "43",
-                            y: "32",
-                            width: "3",
-                            height: "4.5",
-                            rx: "1.5",
-                            ry: "1.5"
-                          }
-                        }),
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(151.39 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "1",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.7333333333333333 0 0.6333333333333333 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
-                        _c("rect", {
-                          attrs: {
-                            x: "31",
-                            y: "32",
-                            width: "3",
-                            height: "4.5",
-                            rx: "1.5",
-                            ry: "1.5"
-                          }
-                        })
-                      ]
+                        _c(
+                          "g",
+                          { attrs: { transform: "rotate(134.242 50 50)" } },
+                          [
+                            _c(
+                              "g",
+                              { attrs: { transform: "translate(50 19.6)" } },
+                              [
+                                _c("circle", {
+                                  attrs: {
+                                    cx: "0",
+                                    cy: "0",
+                                    r: "0",
+                                    fill: "#ff7c81",
+                                    transform: "scale(0.48)"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("animateTransform", {
+                              attrs: {
+                                attributeName: "transform",
+                                calcMode: "spline",
+                                type: "rotate",
+                                values: "0 50 50;360 50 50",
+                                keyTimes: "0;1",
+                                keySplines:
+                                  "0.7666666666666666 0 0.6666666666666666 1",
+                                repeatCount: "indefinite",
+                                dur: "1"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
                     )
                   ]
-            ],
-            2
-          )
+                )
+              ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "profile-contacts" }, [
@@ -52161,7 +53139,7 @@ var render = function() {
                             _c(
                               "span",
                               {
-                                staticClass: "add-element",
+                                staticClass: "add-element desktop-add-element",
                                 on: {
                                   click: function($event) {
                                     _vm.addElement(trick.id)
@@ -52169,6 +53147,48 @@ var render = function() {
                                 }
                               },
                               [_vm._v(_vm._s(_vm.local["add move"]))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "mobile-add-element",
+                                on: {
+                                  click: function($event) {
+                                    _vm.addElement(trick.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticStyle: {
+                                      "enable-background": "new 0 0 42 42"
+                                    },
+                                    attrs: {
+                                      version: "1.1",
+                                      id: "Capa_1",
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      "xmlns:xlink":
+                                        "http://www.w3.org/1999/xlink",
+                                      x: "0px",
+                                      y: "0px",
+                                      viewBox: "0 0 42 42",
+                                      "xml:space": "preserve"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      staticStyle: { fill: "#23A24D" },
+                                      attrs: {
+                                        d:
+                                          "M37.059,16H26V4.941C26,2.224,23.718,0,21,0s-5,2.224-5,4.941V16H4.941C2.224,16,0,18.282,0,21\n\t\t\t\t\t\t\t\ts2.224,5,4.941,5H16v11.059C16,39.776,18.282,42,21,42s5-2.224,5-4.941V26h11.059C39.776,26,42,23.718,42,21S39.776,16,37.059,16z"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]
                             )
                           ]
                         )
@@ -52205,19 +53225,73 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("label", [
-                      _c("input", {
-                        staticClass: "hidden",
-                        attrs: {
-                          type: "file",
-                          name: "video",
-                          id: "add-video-input"
-                        },
-                        on: { change: _vm.addVideo }
-                      }),
+                      !_vm.videoLoading
+                        ? _c("input", {
+                            staticClass: "hidden",
+                            attrs: {
+                              type: "file",
+                              name: "video",
+                              id: "add-video-input"
+                            },
+                            on: { change: _vm.addVideo }
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c("span", { staticClass: "btn btn-primary" }, [
-                        _vm._v(_vm._s(_vm.local["add video"]))
-                      ])
+                      _c(
+                        "span",
+                        { staticClass: "btn btn-primary custom-add-video-btn" },
+                        [
+                          _c("span", [_vm._v(_vm._s(_vm.local["add video"]))]),
+                          _vm._v(" "),
+                          _vm.videoLoading
+                            ? _c(
+                                "svg",
+                                {
+                                  staticClass: "video-load-placeholder",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    viewBox: "0 0 100 100",
+                                    preserveAspectRatio: "xMidYMid"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.stopPropagation()
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "path",
+                                    {
+                                      attrs: {
+                                        fill: "none",
+                                        d:
+                                          "M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40 C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z",
+                                        stroke: "#ff7c81",
+                                        "stroke-width": "7",
+                                        "stroke-dasharray":
+                                          "159.08513549804687 97.50379272460938"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "stroke-dashoffset",
+                                          calcMode: "linear",
+                                          values: "0;256.58892822265625",
+                                          keyTimes: "0;1",
+                                          dur: "1",
+                                          begin: "0s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ]
+                      )
                     ])
                   ]
                 )
@@ -52793,7 +53867,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito', 'Arial';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 74px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item-active:not(.with-video) span {\n    \t-webkit-transform: none;\n    \t        transform: none;\n    \tfont-weight: normal;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 1005;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 1000;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tmargin-bottom: 20px;\n}\n.nav-tricks li a {\n\t\tcolor: #0275d8;\n}\n.nav-tricks li a:hover {\n\t\tcolor: #014c8c;\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 300px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 90%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-container:nth-child(1) {\n    \tborder-top: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n.no-images, .no-images svg {\n    \twidth: 100%;\n    \theight: 100%;\n}\n.no-images svg {\n    \tfill: #231F20;\n}\n.no-images {\n    \tpadding: 10px;\n}\n.no-images-background {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.no-images-background.active {\n    \topacity: 0;\n}\n.add-first-photo {\n\t    -webkit-transform: rotate(45deg);\n\t            transform: rotate(45deg);\n    \t-webkit-transform-origin: center;\n    \t        transform-origin: center;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.add-first-photo-container:hover .add-first-photo {\n    \tfill: #0a0;\n    \t-webkit-transform: rotate(45deg) scale(1.1);\n    \t        transform: rotate(45deg) scale(1.1);\n}\n.add-first-photo-container.active {\n    \tcursor: pointer;\n}\n.img-slider-item {\n    \twidth: 100%;\n    \theight: 100%;\n    \t-o-object-fit: cover;\n    \t   object-fit: cover;\n}\n.avatar-placeholder {\n    \twidth: 60px;\n    \theight: 60px;\n\t    fill: #333;\n}\n\n    \n", ""]);
+exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight: 332px;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito', 'Arial';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\t/*min-width: 850px;*/\n\t\twidth: 850px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 350px;\n\t\tpadding: 0 10px;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n}\n.images-block-container {\n\t\theight: 312px;\n\t\tmargin-bottom: 20px;\n\t\twidth: 100%;\n}\n.images-container {\n\t\twidth: 100%;\n\t\theight: 226px;\n\t\toverflow: hidden;\n}\n.images-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-webkit-transition: -webkit-transform .5s;\n\t\ttransition: -webkit-transform .5s;\n\t\ttransition: transform .5s;\n\t\ttransition: transform .5s, -webkit-transform .5s;\n}\n.image-wrap {\n\t\twidth: 330px;\n\t\theight: 100%;\n\t\toverflow: hidden;\n\t\tposition: relative;\n\t\tcursor: pointer;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.image-wrap img {\n\t\tposition: relative;\n\t    -webkit-user-select: none;\n\t       -moz-user-select: none;\n\t        -ms-user-select: none;\n\t            user-select: none;\n}\n.spot-elements {\n\t\tposition: -webkit-sticky;\n\t\tposition: sticky;\n\t\ttop: 74px;\n\t\tpadding: 20px;\n}\n.spot-elements-title {\n\t\tfont-size: 22px;\n\t\tmargin-bottom: 20px;\n}\n.spot-elements-list {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n\t\tfont-size: 18px;\n}\n.spot-elements-list li {\n\t\tcursor: pointer;\n\t\tmargin-bottom: 10px;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.spot-description {\n\t\tpadding: 30px;\n}\n.spot-description p {\n\t\tfont-size: 20px;\n\t\tword-wrap: break-word;\n}\n.spot-description-title {\n\t    color: #82889c;\n\t    font-size: 16px;\n\t    margin-bottom: 10px;\n}\n.spot-videos {\n\t\tpadding: 30px;\n\t\tborder-top: 1px solid #efefef;\n}\n.tricks-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-wrap: wrap;\n\t\t    flex-wrap: wrap;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.trick-container {\n        width: 370px;\n    \tmargin-bottom: 30px;\n}\n.custom-video {\n\t\tmax-height: 250px !important;\n\t\tmin-height: 200px !important;\n}\n.custom-card-header {\n\t\tfont-size: 16px;\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: normal;\n\t\tbackground-color: #f2f2f4;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tposition: relative;\n\t    height: 41px;\n\t    -webkit-box-align: center;\n\t        -ms-flex-align: center;\n\t            align-items: center;\n}\n.custom-card-body {\n\t    background-color: #efefef;\n\t    background-image: url(/images/noiseImg.png);\n}\n.videos-enter-active {\n        -webkit-animation: videosShow .5s;\n                animation: videosShow .5s;\n}\n.videos-leave-active {\n        -webkit-animation: videosHide .5s;\n                animation: videosHide .5s;\n}\n@-webkit-keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@keyframes videosShow {\nfrom {opacity: 0;\n}\nto {opacity: 1;\n}\n}\n@-webkit-keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n@keyframes videosHide {\nfrom {opacity: 1; position: absolute;\n}\nto {opacity: 0; position: absolute;\n}\n}\n.slider-enter, .slider-leave-to,\n    .remove-image-enter, .remove-image-leave-to {\n\t\topacity: 0;\n}\n.slider-enter-to, .slider-leave,\n    .remove-image-enter-to, .remove-image-leave {\n    \topacity: 1;\n}\n.slider-enter-active, .slider-leave-active,\n    .remove-image-enter-active, .remove-image-leave-active {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:not(.with-video) {\n    \tcursor: default;\n}\n.spot-elements-list-item-active span {\n    \t-webkit-transform: translateX(-30px);\n    \t        transform: translateX(-30px);\n    \tfont-weight: bold;\n}\n.spot-elements-list-item-active:not(.with-video) span {\n    \t-webkit-transform: none;\n    \t        transform: none;\n    \tfont-weight: normal;\n}\n.spot-elements-list-item span {\n    \t-ms-flex-item-align: center;\n    \t    align-self: center;\n\t    display: -webkit-box;\n\t    display: -ms-flexbox;\n\t    display: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover span.with-video {\n    \tfont-weight: bold;\n}\n.spot-elements-list-item svg {\n    \twidth: 30px;\n    \theight: 30px;\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.spot-elements-list-item:hover .svg-with-video {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.spot-elements-list .spot-elements-list-item-active {\n    \tcursor: default;\n}\n.svg-line {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: rotate(0deg);\n    \t        transform: rotate(0deg);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.svg-circle {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n    \t-webkit-transform: scale(1, 1);\n    \t        transform: scale(1, 1);\n    \t-webkit-transform-origin: center center;\n    \t        transform-origin: center center;\n}\n.spot-elements-list-item-active svg:hover .svg-line {\n    \t-webkit-transform: rotate(180deg);\n    \t        transform: rotate(180deg);\n}\n.spot-elements-list-item-active svg:hover .svg-circle {\n    \t-webkit-transform: scale(-1, 1);\n    \t        transform: scale(-1, 1);\n}\n.high {\n\t\twidth: 100%;\n\t\tmargin: 50% 0 0 0;\n}\n.wide {\n\t\theight: 100%;\n\t\tmargin: 0 0 0 50%;\n}\n.images-control {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n    \tpadding: 20px;\n    \theight: 86px;\n}\n.images-control-info {\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\t-webkit-transition: all .5s;\n\t\ttransition: all .5s;\n}\n.images-control-info form {\n\t\tmargin-bottom: 10px;\n}\n.images-control-buttons {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n}\n.images-control-buttons svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #777;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n}\n.button-left:hover, .button-right:hover {\n\t\tfill: #5b9de8;\n}\n.button-left {\n\t\tmargin-right: 10px;\n}\n.button-right {\n\t\t-webkit-transform: scale(-1, 1);\n\t\t        transform: scale(-1, 1);\n}\n.slider-fullsize {\n\t\tposition: fixed;\n\t\tz-index: 1005;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n}\n.images-wrap-fullsize {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\theight: 100%;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n}\n.image-wrap-fullsize {\n\t\twidth: 100vw;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.image-wrap-fullsize img {\n\t\tposition: absolute;\n\t\tmax-width: 90vw;\n\t\tmax-height: 80vh;\n\t\t-webkit-user-select: none;\n\t\t   -moz-user-select: none;\n\t\t    -ms-user-select: none;\n\t\t        user-select: none;\n}\n.fullsize-button-right, .fullsize-button-left {\n\t\twidth: 54px;\n\t\theight: 54px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .1s;\n\t\ttransition: .1s;\n\t\tcursor: pointer;\n\t\tposition: absolute;\n}\n.fullsize-button-left {\n\t\ttop: calc(50% - 27px);\n\t\tleft: 10px;\n}\n.fullsize-button-right {\n\t\ttop: calc(50% - 27px);\n\t\tright: 10px;\n}\n.settings-btn {\n\t\twidth: 24px;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 100%;\n\t\tfill: rgba(0, 0, 0, 0.3);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\t-webkit-transform: rotate(0deg);\n\t\t        transform: rotate(0deg);\n\t\tcursor: pointer;\n}\n.settings-btn:hover {\n\t\tfill: #5b9de8;\n}\n.remove-image {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tright: 0;\n\t\tbackground-color: rgba(0, 0, 0, 0.5);\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tcursor: pointer;\n}\n.remove-image svg {\n\t\twidth: 32px;\n\t\theight: 32px;\n\t\tfill: #fff;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.remove-image:hover svg {\n\t\tfill: #c00;\n}\n.hidden {\n\t\tdisplay: none;\n}\n.image-wrap {\n\t  -webkit-transition: all 1s;\n\t  transition: all 1s;\n\t  display: inline-block;\n}\n.images-slider-enter, .images-slider-leave-to {\n\t  opacity: 0 !important;\n}\n.images-slider-leave-active {\n\t  position: absolute;\n\t  right: 0;\n\t  z-index: -1;\n}\n.custom-btn-save-description {\n\t\tcursor: pointer;\n\t    border: 0;\n\t    border-left: 1px solid #ccc;\n\t    border-radius: 0;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 1000;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to,\n    .side-tricks-enter, .side-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active,\n\t.side-tricks-leave-active {\n\t  position: absolute;\n}\n.nav-tricks {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tright: 0;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-ms-flex-pack: distribute;\n\t\t    justify-content: space-around;\n}\n.nav-tricks li {\n\t\twidth: 100%;\n}\n.nav-tricks li a {\n\t\tcolor: #0275a8;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.nav-tricks li a.active {\n\t\tcolor: #444;\n}\n.nav-tricks li a:not(.active):hover {\n\t\tcolor: #014c8c;\n}\n.nav-tricks .nav-item:nth-child(1) .nav-link:not(.active) {\n\t    -webkit-box-shadow: inset -3px -3px 9px 2px #ccc;\n\t            box-shadow: inset -3px -3px 9px 2px #ccc;\n}\n.nav-tricks .nav-item:nth-child(2) .nav-link:not(.active) {\n\t    -webkit-box-shadow: inset 3px -3px 9px 2px #ccc;\n\t            box-shadow: inset 3px -3px 9px 2px #ccc;\n}\n.nav-tricks .nav-link:not(.active) {\n\t\tbackground-color: rgba(0, 0, 0, 0.1);\n}\n.spot-elements-list-item .remove-move {\n\t\tfill: #a00;\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n\t\twidth: 24px;\n\t\theight: 24px;\n}\n.spot-elements-list-item .remove-move:hover {\n\t\tfill: #d00;\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.spot-elements-list-item .add-move {\n\t\twidth: 24px;\n\t\theight: 24px;\n\t\tfill: #090;\n\t\t-webkit-transform: rotate(45deg);\n\t\t        transform: rotate(45deg);\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n\t\tcursor: pointer;\n}\n.spot-elements-list-item .add-move:hover {\n\t\tfill: #0b0;\n\t\t-webkit-transform: rotate(45deg) scale(1.1);\n\t\t        transform: rotate(45deg) scale(1.1);\n}\n.video-date {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \t-webkit-box-pack: center;\n    \t    -ms-flex-pack: center;\n    \t        justify-content: center;\n}\n.video-date-year {\n    \tfont-size: 12px;\n}\n.video-date-dm {\n    \tfont-size: 14px;\n}\n.video-edit-buttons {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \theight: 30px;\n}\n.video-remove-spot {\n    \twidth: 36px;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tcursor: pointer;\n}\n.video-remove-spot:hover {\n    \tfill: #a00;\n}\n.comments-container {\n    \tmargin-top: 20px;\n    \tmargin-bottom: 20px;\n}\n.spot-description-body {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-pack: justify;\n    \t    -ms-flex-pack: justify;\n    \t        justify-content: space-between;\n}\n.spot-description-body-active {\n    \tborder: 1px solid rgba(0, 0, 0, 0.2);\n    \tborder-radius: 3px;\n}\n.spot-description-text {\n\t\toutline: none;\n\t\twidth: 100%;\n\t\twhite-space: normal;\n\t    word-wrap: break-word;\n}\n.spot-description-body-active .spot-description-text {\n    \tpadding: 7px;\n\t    max-width: 85%;\n}\n.comments-adding-container {\n    \tpadding: 10px 20px 10px 30px;\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \t-webkit-box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t        box-shadow: 0 2px 5px rgba(144,153,162,.1);\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.comments-adding-placeholder {\n    \tposition: absolute;\n    \ttop: 7px;\n    \tleft: 0;\n    \tcolor: #b4b8c4;\n    \tfont-size: 16px;\n    \tz-index: 1;\n}\n.comments-adding-wrap {\n    \tposition: relative;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n}\n.comments-add-field {\n    \twidth: 100%;\n    \toutline: 0;\n    \tfont-size: 16px;\n    \tfont-family: 'Nunito', 'Arial';\n    \tfont-weight: normal;\n    \tcolor: #515669;\n    \tz-index: 2;\n\t    width: calc(100% - 30px);\n}\n.svg-add-comment,\n    .svg-add-comment-loading {\n    \tfill: #5b9de8;\n    \twidth: 30px;\n    \theight: 30px;\n    \t-ms-flex-item-align: end;\n    \t    align-self: flex-end;\n}\n.svg-add-comment-loading circle {\n    \tfill: #5b9de8;\n}\n.svg-add-comment:hover:not(.svg-add-comment-disabled) {\n    \tfill: #2e82e2;\n    \tcursor: pointer;\n}\n.svg-add-comment-disabled {\n    \tfill: #88b8ee;\n    \tpointer-events: none;\n}\n.comments-wrap {\n    \tbackground-color: #fafbfb;\n    \tcolor: #515669;\n\t    font-size: 14px;\n}\n.comment-container {\n\t    padding: 30px 92px;\n\t    border-bottom: 1px solid #eaeaea;\n}\n.comment-container:nth-child(1) {\n    \tborder-top: 1px solid #eaeaea;\n}\n.comment-header {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-align: center;\n    \t    -ms-flex-align: center;\n    \t        align-items: center;\n    \tmargin-bottom: 15px;\n    \tposition: relative;\n}\n.comment-header-info {\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n}\n.comment-thumbnail-container {\n    \tmargin-right: 10px;\n}\n.comment-thumbnail {\n    \tborder-radius: 50%;\n}\n.comment-user-name {\n\t\tcolor: #3d464a;\n\t\tfont-size: 14px;\n\t\tfont-weight: bold;\n\t\tmargin-bottom: 5px;\n}\n.comment-date {\n\t\tcolor: #82889c;\n\t\tfont-size: 12px;\n}\n.comment-body {\n    \tcolor: #222;\n    \tline-height: 20px;\n    \tword-wrap: break-word;\n}\n.remove-comment {\n    \tposition: absolute;\n    \ttop: 0;\n    \tright: 0;\n    \twidth: 18px;\n    \theight: 18px;\n    \topacity: 0;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n    \tfill: #aaa;\n    \tcursor: pointer;\n}\n.remove-comment:hover {\n    \tfill: #a00;\n}\n.comment-container:hover .remove-comment {\n    \topacity: 1;\n}\n.no-images, .no-images svg {\n    \twidth: 100%;\n    \theight: 100%;\n}\n.no-images svg {\n    \tfill: #231F20;\n}\n.no-images {\n    \tpadding: 10px;\n}\n.no-images-background {\n    \t-webkit-transition: .5s;\n    \ttransition: .5s;\n}\n.no-images-background.active {\n    \topacity: 0;\n}\n.add-first-photo {\n\t    -webkit-transform: rotate(45deg);\n\t            transform: rotate(45deg);\n    \t-webkit-transform-origin: center;\n    \t        transform-origin: center;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.add-first-photo-container:hover .add-first-photo {\n    \tfill: #0a0;\n    \t-webkit-transform: rotate(45deg) scale(1.1);\n    \t        transform: rotate(45deg) scale(1.1);\n}\n.add-first-photo-container.active {\n    \tcursor: pointer;\n}\n.img-slider-item {\n    \twidth: 100%;\n    \theight: 100%;\n    \t-o-object-fit: cover;\n    \t   object-fit: cover;\n}\n.avatar-placeholder {\n    \twidth: 60px;\n    \theight: 60px;\n\t    fill: #333;\n}\n.comments-not-auth h3 {\n    \tfont-family: 'Nunito', 'Arial';\n    \tcolor: #777;\n    \tfont-size: 28px;\n}\n.custom-add-images-btn {\n    \tposition: relative;\n}\n.image-load-placeholder {\n    \tposition: absolute;\n\t    width: 100%;\n\t    height: 100%;\n\t    left: 0;\n\t    top: 0;\n\t    background-color: #fff;\n}\n.image-load-placeholder path {\n    \tstroke: rgb(91, 157, 232);\n}\n@media(max-width: 1280px) {\n.content-container {\n    \t\twidth: 950px;\n\t\t    margin-left: auto;\n    \t\tmargin-right: auto;\n}\n.main-spot-content {\n    \t\tmin-width: 600px;\n    \t\twidth: 600px;\n}\n.spot-description-body-active .spot-description-text {\n    \t\tmax-width: 70%;\n}\n.trick-container {\n\t\t    width: 250px;\n}\n.custom-video {\n\t\t    max-height: 200px !important;\n    \t\tmin-height: 120px !important;\n}\n}\n@media(max-width: 1020px) {\n.content-container {\n    \t\t-webkit-box-orient: vertical;\n    \t\t-webkit-box-direction: normal;\n    \t\t    -ms-flex-direction: column;\n    \t\t        flex-direction: column;\n}\n.aside-content {\n    \t\twidth: auto;\n    \t\tdisplay: -webkit-box;\n    \t\tdisplay: -ms-flexbox;\n    \t\tdisplay: flex;\n    \t\t-webkit-box-align: start;\n    \t\t    -ms-flex-align: start;\n    \t\t        align-items: flex-start;\n    \t\t-webkit-box-ordinal-group: 2;\n    \t\t    -ms-flex-order: 1;\n    \t\t        order: 1;\n}\n.images-block-container {\n    \t\twidth: 330px;\n\t\t    margin-right: 20px;\n}\n.spot-elements {\n    \t\twidth: 300px;\n    \t\tposition: relative;\n    \t\ttop: 0;\n}\n.main-spot-content {\n\t\t    min-width: 670px;\n    \t\twidth: 670px;\n    \t\t-webkit-box-ordinal-group: 3;\n    \t\t    -ms-flex-order: 2;\n    \t\t        order: 2;\n}\n.content-container {\n    \t\twidth: 670px;\n}\n.trick-container {\n    \t\twidth: 280px;\n}\n}\n@media(max-width: 720px) {\n.aside-content {\n    \t\t-webkit-box-orient: vertical;\n    \t\t-webkit-box-direction: normal;\n    \t\t    -ms-flex-direction: column;\n    \t\t        flex-direction: column;\n    \t\t-webkit-box-align: center;\n    \t\t    -ms-flex-align: center;\n    \t\t        align-items: center;\n}\n.spot-elements {\n    \t\twidth: 330px;\n\t\t    margin-bottom: 20px;\n}\n.images-block-container {\n    \t\tmargin-right: 0px;\n}\n.main-spot-content {\n    \t\tmin-width: 500px;\n    \t\twidth: 500px;\n}\n.content-container {\n    \t\t-webkit-box-align: center;\n    \t\t    -ms-flex-align: center;\n    \t\t        align-items: center;\n}\nmain.main-content {\n\t\t    padding: 0px 10px 0px 10px;\n}\n.content-container {\n    \t\twidth: 500px;\n}\n.trick-container {\n    \t\twidth: 420px;\n}\n.custom-video {\n\t\t    max-height: 300px !important;\n    \t\tmin-height: 200px !important;\n}\n}\n@media(max-width: 570px) {\n.content-container {\n    \t\twidth: 350px;\n}\n.main-spot-content {\n\t\t    min-width: 350px;\n    \t\twidth: 350px;\n}\n.trick-container {\n    \t\twidth: 270px;\n}\n.custom-video {\n    \t\tmax-height: 220px !important;\n    \t\tmin-height: 140px !important;\n}\n.comment-container {\n    \t\tpadding: 30px;\n}\n#map {\n    \t\theight: 200px;\n}\n.spot-description-body {\n    \t\t-webkit-box-align: end;\n    \t\t    -ms-flex-align: end;\n    \t\t        align-items: flex-end;\n}\n.custom-btn-save-description {\n\t\t    font-size: 12px;\n\t\t    padding: 10px;\n\t\t    font-family: Arial;\n\t\t    border: 1px solid #ccc;\n\t\t    -webkit-box-shadow: 0px 0px 5px 2px #ccc;\n\t\t            box-shadow: 0px 0px 5px 2px #ccc;\n}\n.settings-btn:hover {\n    \t\tfill: rgba(0, 0, 0, 0.3);\n}\n.settings-btn:active {\n    \t\tfill: #5b9de8;\n}\n}\n@media(max-width: 410px) {\n.settings-btn {\n\t\t    top: -34px;\n    \t\tleft: 10px;\n}\n}\n@media(max-width: 359px) {\nmain.main-content {\n    \t\tpadding: 0px;\n}\n.content-container {\n\t\t    width: 320px;\n    \t\toverflow: hidden;\n}\n.settings-btn {\n    \t\ttop: 10px;\n}\n}\n", ""]);
 
 // exports
 
@@ -52806,12 +53880,154 @@ exports.push([module.i, "\n#app {\n\t\toverflow: visible;\n}\n#map {\n\t\theight
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Video_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Tip_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Tip_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Alert_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Alert_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Alert_vue__);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -53077,7 +54293,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'src_local'],
+	props: ['routes', 'src_images', 'src_spot', 'tricks_src', 'src_videos', 'user', 'src_new_tricks', 'src_comments', 'src_local', 'auth'],
 	data: function data() {
 		return {
 			videos: this.src_videos,
@@ -53103,13 +54319,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			owner: this.src_spot.user_id == this.user,
 			newComment: '',
 			comments: this.src_comments,
-			local: this.src_local
+			local: this.src_local,
+			imageLoading: false,
+			commentLoading: false
 		};
 	},
 
 	computed: {
 		fullsizeSliderWidth: function fullsizeSliderWidth() {
-			return this.images.length * document.documentElement.clientWidth;
+			return this.images.length * 100;
 		}
 	},
 	created: function created() {
@@ -53204,6 +54422,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			var self = this;
 			var form = new FormData(document.querySelector("#upload-img"));
 			form.append('spot_id', this.spot.id);
+			self.imageLoading = true;
 			$.ajax({
 				method: "post",
 				url: self.routes.addImages,
@@ -53215,8 +54434,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					if (self.currentImage == 0) self.currentImage = 1;
 				},
 				error: function error(data, b, c) {
-					console.log(data);
+					console.log('error');
 				}
+			}).always(function () {
+				self.imageLoading = false;
 			});
 		},
 		removeImage: function removeImage(id, event) {
@@ -53238,7 +54459,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				},
 				error: function error(data, b, c) {
 					event.currentTarget.parentNode.style.pointerEvents = "auto";
-					console.log(data);
+					console.log('error');
 				}
 			});
 		},
@@ -53312,7 +54533,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					self.new_tricks = data.new_tricks;
 				},
 				error: function error(data, b, c) {
-					console.log(data);
+					console.log('error');
 				}
 			});
 		},
@@ -53334,7 +54555,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					self.new_tricks = data.new_tricks;
 				},
 				error: function error(data, b, c) {
-					console.log(data);
+					console.log('error');
 				}
 			});
 		},
@@ -53365,7 +54586,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					}, 5000);
 				},
 				error: function error(data) {
-					console.log(data);
+					console.log('error');
 				}
 			});
 		},
@@ -53377,6 +54598,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		},
 		addComment: function addComment() {
 			var self = this;
+			self.commentLoading = true;
 			$.ajax({
 				method: "post",
 				url: self.routes.addComment,
@@ -53394,8 +54616,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					self.comments = data;
 				},
 				error: function error(data) {
-					console.log(data);
+					console.log('error');
 				}
+			}).always(function () {
+				self.commentLoading = false;
 			});
 		},
 		commentFocus: function commentFocus(e) {
@@ -53421,12 +54645,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					self.comments = data;
 				},
 				error: function error(data) {
-					console.log(data);
+					console.log('error');
 				}
 			});
-		},
-		check: function check() {
-			console.log('checked');
 		}
 	},
 	components: {
@@ -53438,7 +54659,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		currentImage: function currentImage(val) {
 			var val = val - 1;
 			this.sliderPosition = val * -330;
-			this.fullsizeSliderPosition = val * -parseInt(document.documentElement.clientWidth);
+			this.fullsizeSliderPosition = val * -100;
 		},
 		editMode: function editMode(val) {
 			if (val == false) {
@@ -53753,55 +54974,1028 @@ var render = function() {
               }
             },
             [
-              _c("div", { staticClass: "comments-adding-wrap" }, [
-                _c("div", {
-                  ref: "comment",
-                  staticClass: "comments-add-field",
-                  attrs: { contenteditable: "true" },
-                  on: {
-                    input: _vm.inputComment,
-                    keydown: function($event) {
-                      if (
-                        !("button" in $event) &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
+              _vm.auth
+                ? _c("div", { staticClass: "comments-adding-wrap" }, [
+                    _c("div", {
+                      ref: "comment",
+                      staticClass: "comments-add-field",
+                      attrs: { contenteditable: "true" },
+                      on: {
+                        input: _vm.inputComment,
+                        keydown: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          $event.preventDefault()
+                        }
                       }
-                      $event.preventDefault()
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "svg",
-                  {
-                    staticClass: "svg-add-comment",
-                    class:
-                      _vm.newComment == "" ? "svg-add-comment-disabled" : "",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      viewBox: "0 0 100 100",
-                      x: "0px",
-                      y: "0px"
-                    },
-                    on: { click: _vm.addComment }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M51.14,52.05,25,54.58l-6.88,22a3.41,3.41,0,0,0,4.75,4.09L80.16,52.93a3.26,3.26,0,0,0,0-5.86L22.91,19.31a3.41,3.41,0,0,0-4.75,4.09l6.88,22,26.09,2.53a2.06,2.06,0,0,1,0,4.1Z"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _vm.newComment == ""
-                  ? _c("span", { staticClass: "comments-adding-placeholder" }, [
-                      _vm._v(_vm._s(_vm.local["comment placeholder"]))
-                    ])
-                  : _vm._e()
-              ])
+                    }),
+                    _vm._v(" "),
+                    !_vm.commentLoading
+                      ? _c(
+                          "svg",
+                          {
+                            staticClass: "svg-add-comment",
+                            class:
+                              _vm.newComment == ""
+                                ? "svg-add-comment-disabled"
+                                : "",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 100 100",
+                              x: "0px",
+                              y: "0px"
+                            },
+                            on: { click: _vm.addComment }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M51.14,52.05,25,54.58l-6.88,22a3.41,3.41,0,0,0,4.75,4.09L80.16,52.93a3.26,3.26,0,0,0,0-5.86L22.91,19.31a3.41,3.41,0,0,0-4.75,4.09l6.88,22,26.09,2.53a2.06,2.06,0,0,1,0,4.1Z"
+                              }
+                            })
+                          ]
+                        )
+                      : _c(
+                          "svg",
+                          {
+                            staticClass: "svg-add-comment-loading",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 100 100",
+                              preserveAspectRatio: "xMidYMid"
+                            }
+                          },
+                          [
+                            _c("defs", [
+                              _c(
+                                "filter",
+                                {
+                                  attrs: {
+                                    id: "tail-0.a4db4fdd84ecd",
+                                    x: "-100%",
+                                    y: "-100%",
+                                    width: "300%",
+                                    height: "300%",
+                                    "color-interpolation-filters": "sRGB"
+                                  }
+                                },
+                                [
+                                  _c("feGaussianBlur", {
+                                    attrs: {
+                                      in: "SourceGraphic",
+                                      stdDeviation: "3"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("feColorMatrix", {
+                                    attrs: {
+                                      mode: "matrix",
+                                      values:
+                                        "1 0 0 0 0   0 1 0 0 0   0 0 1 0 0   0 0 0 60 -40",
+                                      result: "cm"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "g",
+                              {
+                                attrs: {
+                                  filter: "url(#tail-0.a4db4fdd84ecd)",
+                                  transform: "rotate(54 50 50)"
+                                }
+                              },
+                              [
+                                _c("animateTransform", {
+                                  attrs: {
+                                    attributeName: "transform",
+                                    type: "rotate",
+                                    calcMode: "linear",
+                                    values: "0 50 50;360 50 50",
+                                    keyTimes: "0;1",
+                                    dur: "4s",
+                                    begin: "0s",
+                                    repeatCount: "indefinite"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(333.474 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "19",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.13333333333333333 0 0.03333333333333333 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(331.178 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "18",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.16666666666666669 0 0.06666666666666667 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(328.576 50.0001 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "17",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines: "0.2 0 0.1 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(325.612 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "16",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.23333333333333334 0 0.13333333333333333 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(322.212 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "15",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.26666666666666666 0 0.16666666666666666 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(318.287 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "14",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.30000000000000004 0 0.2 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(314.708 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "13",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.33333333333333337 0 0.23333333333333334 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(309.018 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "12",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.3666666666666667 0 0.26666666666666666 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(302.443 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "11",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines: "0.4 0 0.3 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(294.767 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "10",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.43333333333333335 0 0.3333333333333333 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(285.715 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "9",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.4666666666666667 0 0.36666666666666664 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: { transform: "rotate(274.96 50 50)" }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "8",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines: "0.5 0 0.4 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: { transform: "rotate(263.29 50 50)" }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "7",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.5333333333333333 0 0.43333333333333335 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(247.243 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "6",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.5666666666666667 0 0.4666666666666667 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: { transform: "rotate(233.28 50 50)" }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "5",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines: "0.6 0 0.5 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(210.448 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "4",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.6333333333333333 0 0.5333333333333333 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(189.723 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "3",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.6666666666666666 0 0.5666666666666667 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(167.547 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "2",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines: "0.7 0 0.6 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: { transform: "rotate(151.39 50 50)" }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "1",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.7333333333333333 0 0.6333333333333333 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "g",
+                                  {
+                                    attrs: {
+                                      transform: "rotate(134.242 50 50)"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "g",
+                                      {
+                                        attrs: {
+                                          transform: "translate(50 19.6)"
+                                        }
+                                      },
+                                      [
+                                        _c("circle", {
+                                          attrs: {
+                                            cx: "0",
+                                            cy: "0",
+                                            r: "0",
+                                            fill: "#ff7c81",
+                                            transform: "scale(0.48)"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("animateTransform", {
+                                      attrs: {
+                                        attributeName: "transform",
+                                        calcMode: "spline",
+                                        type: "rotate",
+                                        values: "0 50 50;360 50 50",
+                                        keyTimes: "0;1",
+                                        keySplines:
+                                          "0.7666666666666666 0 0.6666666666666666 1",
+                                        repeatCount: "indefinite",
+                                        dur: "1"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        ),
+                    _vm._v(" "),
+                    _vm.newComment == ""
+                      ? _c(
+                          "span",
+                          { staticClass: "comments-adding-placeholder" },
+                          [_vm._v(_vm._s(_vm.local["comment placeholder"]))]
+                        )
+                      : _vm._e()
+                  ])
+                : _c("div", { staticClass: "comments-not-auth" }, [
+                    _c("h3", [_vm._v(_vm._s(_vm.local["comments"]))])
+                  ])
             ]
           ),
           _vm._v(" "),
@@ -54254,9 +56448,9 @@ var render = function() {
                       {
                         staticClass: "images-wrap-fullsize",
                         style: {
-                          width: _vm.fullsizeSliderWidth + "px",
+                          width: _vm.fullsizeSliderWidth + "vw",
                           transform:
-                            "translateX(" + _vm.fullsizeSliderPosition + "px)"
+                            "translateX(" + _vm.fullsizeSliderPosition + "vw)"
                         }
                       },
                       _vm._l(_vm.images, function(image) {
@@ -54400,7 +56594,8 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-secondary",
+                              staticClass:
+                                "btn btn-secondary custom-add-images-btn",
                               attrs: { type: "button" },
                               on: {
                                 click: function($event) {
@@ -54408,7 +56603,60 @@ var render = function() {
                                 }
                               }
                             },
-                            [_vm._v(_vm._s(_vm.local["add images"]))]
+                            [
+                              _c("span", [
+                                _vm._v(_vm._s(_vm.local["add images"]))
+                              ]),
+                              _vm._v(" "),
+                              _vm.imageLoading
+                                ? _c(
+                                    "svg",
+                                    {
+                                      staticClass: "image-load-placeholder",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 100 100",
+                                        preserveAspectRatio: "xMidYMid"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "path",
+                                        {
+                                          attrs: {
+                                            fill: "none",
+                                            d:
+                                              "M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40 C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z",
+                                            stroke: "#ff7c81",
+                                            "stroke-width": "7",
+                                            "stroke-dasharray":
+                                              "159.08513549804687 97.50379272460938"
+                                          }
+                                        },
+                                        [
+                                          _c("animate", {
+                                            attrs: {
+                                              attributeName:
+                                                "stroke-dashoffset",
+                                              calcMode: "linear",
+                                              values: "0;256.58892822265625",
+                                              keyTimes: "0;1",
+                                              dur: "1",
+                                              begin: "0s",
+                                              repeatCount: "indefinite"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ]
                           )
                         ]
                       )
@@ -54495,7 +56743,7 @@ var render = function() {
           { staticClass: "spot-elements spot-page-section" },
           [
             _vm.editMode
-              ? _c("ul", { staticClass: "nav nav-tabs nav-tricks" }, [
+              ? _c("ul", { staticClass: "nav-tricks" }, [
                   _c("li", { staticClass: "nav-item" }, [
                     _c(
                       "a",
@@ -54552,6 +56800,7 @@ var render = function() {
               "transition-group",
               {
                 staticClass: "spot-elements-list",
+                style: { "margin-top": _vm.editMode ? "40px" : "" },
                 attrs: { name: "side-tricks", tag: "ul" }
               },
               [
@@ -54959,7 +57208,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n#images-container {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tborder: 0;\n\t\tpadding-top: 30px;\n}\n#map {\n\t\twidth: 100%;\n\t\theight: 332px;\n}\n.images-wrap {\n\t\tborder: 2px dashed #0087F7;\n}\n.remove-image {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tfill: #a00;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: 10;\n\t\topacity: 0;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n\t\tcursor: pointer !important;\n}\n.remove-image * {\n\t\tcursor: pointer !important;\n}\n.remove-image:hover {\n\t\topacity: 1;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n\t\tposition: relative;\n}\n.custom-label {\n\t\tbackground-color: #565656;\n  \t\tcolor: transparent;\n\t\ttext-shadow: 0px 2px 3px rgba(255,255,255,0.5);\n\t\t-webkit-background-clip: text;\n        background-clip: text;\n        font-family: 'Nunito', 'Arial';\n\t    font-size: 20px;\n\t    padding: 10px;\n        -webkit-box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n                box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n        position: absolute;\n        top: 0;\n        left: 0;\n}\n.custom-label-wrap {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: #fff;\n\t\tz-index: 1000;\n}\n.custom-label-wrap .custom-label {\n\t\tposition: static;\n}\n.upload-img-title {\n\t\tfont-weight: bold;\n\t\tfont-size: 32px;\n\t\tcolor: #555;\n}\n.dropzone .dz-preview.dz-image-preview {\n\t\tbackground: transparent !important;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito', 'Arial';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 830px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 370px;\n\t\tpadding: 0 10px;\n}\n.map-wrap {\n\t\tposition: relative;\n}\n.description-wrap {\n\t\tposition: relative;\n\t\tmargin-top: 20px;\n\t\tmin-height: 150px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.description-field {\n\t    margin-top: 40px;\n}\n.tricks-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tmargin-top: 20px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.selected-tricks {\n\t\tmargin-top: 40px;\n}\n.selected-tricks-list {\n\t\tmargin-left: 20px;\n}\n.unselected-tricks-list .list-group-item {\n\t\ttext-align: right;\n}\n.unselected-tricks {\n\t\tmax-width: 300px;\n}\n.selected-tricks-title {\n\t\tcolor: #555;\n\t\tfont-weight: bold;\n\t\tfont-size: 20px;\n\t\tmargin-bottom: 10px;\n}\n.search-tricks {\n\t\tmargin-bottom: 20px;\n}\n.unselected-tricks-list {\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n}\n.selected-tricks-list {\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.unselected-tricks-list .list-group-item,\n\t.selected-tricks-list .list-group-item {\n\t  -webkit-transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  display: inline-block;\n\t  cursor: pointer;\n\t  width: 200px;\n}\n.unselected-tricks-list .list-group-item:hover {\n\t\tcolor: #155724;\n    \tbackground-color: #c3e6cb;\n    \t/*transform: translateX(-10px);*/\n}\n.selected-tricks-list .list-group-item:hover {\n\t\tcolor: #721c24;\n    \tbackground-color: #f5c6cb;\n    \t/*transform: translateX(10px);*/\n}\n.unselected-tricks-enter, .unselected-tricks-leave-to,\n\t.selected-tricks-enter, .selected-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(-30px);\n\t          transform: translateY(-30px);\n}\n.unselected-tricks-leave-active,\n\t.selected-tricks-leave-active {\n\t  position: absolute;\n}\n.custom-submit {\n\t\tmargin-top: 15px;\n\t\tmargin-bottom: 15px;\n\t\tcursor: pointer;\n}\n.disabled {\n\t\tpointer-events: none;\n}\n", ""]);
+exports.push([module.i, "\n#images-container {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tborder: 0;\n\t\tpadding-top: 30px;\n}\n#map {\n\t\twidth: 100%;\n\t\theight: 332px;\n}\n.images-wrap {\n\t\tborder: 2px dashed #0087F7;\n}\n.remove-image {\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tfill: #a00;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: 10;\n\t\topacity: 0;\n\t\t-webkit-transition: .5s;\n\t\ttransition: .5s;\n\t\tcursor: pointer !important;\n}\n.remove-image * {\n\t\tcursor: pointer !important;\n}\n.remove-image:hover {\n\t\topacity: 1;\n}\n.spot-page-section {\n\t\tborder-radius: 3px;\n\t\t-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\t        box-shadow: 0 1px 2px rgba(0,0,0,.1);\n\t\tbackground-color: #fff;\n\t\tposition: relative;\n}\n.custom-label {\n\t\tbackground-color: #565656;\n  \t\tcolor: transparent;\n\t\ttext-shadow: 0px 2px 3px rgba(255,255,255,0.5);\n\t\t-webkit-background-clip: text;\n        background-clip: text;\n        font-family: 'Nunito', 'Arial';\n\t    font-size: 20px;\n\t    padding: 10px;\n        -webkit-box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n                box-shadow: 2px 3px 10px rgba(0,0,0,0.1);\n        position: absolute;\n        top: 0;\n        left: 0;\n}\n.custom-label-wrap {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tbackground-color: #fff;\n\t\tz-index: 1000;\n}\n.custom-label-wrap .custom-label {\n\t\tposition: static;\n}\n.upload-img-title {\n\t\tfont-weight: bold;\n\t\tfont-size: 32px;\n\t\tcolor: #555;\n}\n.dropzone .dz-preview.dz-image-preview {\n\t\tbackground: transparent !important;\n}\n.content-container {\n\t\twidth: 100%;\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\tmargin-top: calc(40px + 64px);\n\t\tcolor: #515669;\n\t\tfont-family: 'Nunito', 'Arial';\n\t    font-weight: normal;\n\t    position: relative;\n}\n.main-spot-content {\n\t\twidth: 830px;\n\t\tpadding: 0 10px;\n}\n.aside-content {\n\t\twidth: 370px;\n\t\tpadding: 0 10px;\n}\n.map-wrap {\n\t\tposition: relative;\n}\n.description-wrap {\n\t\tposition: relative;\n\t\tmargin-top: 20px;\n\t\tmin-height: 150px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.description-field {\n\t    margin-top: 40px;\n}\n.tricks-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-pack: justify;\n\t\t    -ms-flex-pack: justify;\n\t\t        justify-content: space-between;\n\t\tmargin-top: 20px;\n\t\toverflow: hidden;\n\t\tpadding: 20px;\n}\n.selected-tricks {\n\t\tmargin-top: 40px;\n}\n.selected-tricks-list {\n\t\tmargin-left: 20px;\n}\n.unselected-tricks-list .list-group-item {\n\t\ttext-align: right;\n}\n.unselected-tricks {\n\t\tmax-width: 300px;\n}\n.selected-tricks-title {\n\t\tcolor: #555;\n\t\tfont-weight: bold;\n\t\tfont-size: 20px;\n\t\tmargin-bottom: 10px;\n}\n.search-tricks {\n\t\tmargin-bottom: 20px;\n}\n.unselected-tricks-list {\n\t\t-webkit-box-align: end;\n\t\t    -ms-flex-align: end;\n\t\t        align-items: flex-end;\n}\n.selected-tricks-list {\n\t\t-webkit-box-align: start;\n\t\t    -ms-flex-align: start;\n\t\t        align-items: flex-start;\n}\n.unselected-tricks-list .list-group-item,\n\t.selected-tricks-list .list-group-item {\n\t  -webkit-transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s;\n\t  transition: opacity .5s, transform .5s, color .1s, background-color .1s, -webkit-transform .5s;\n\t  display: inline-block;\n\t  cursor: pointer;\n\t  width: 200px;\n}\n.unselected-tricks-list .list-group-item:hover {\n\t\tcolor: #155724;\n    \tbackground-color: #c3e6cb;\n    \t/*transform: translateX(-10px);*/\n}\n.selected-tricks-list .list-group-item:hover {\n\t\tcolor: #721c24;\n    \tbackground-color: #f5c6cb;\n    \t/*transform: translateX(10px);*/\n}\n.unselected-tricks-enter, .unselected-tricks-leave-to,\n\t.selected-tricks-enter, .selected-tricks-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(-30px);\n\t          transform: translateY(-30px);\n}\n.unselected-tricks-leave-active,\n\t.selected-tricks-leave-active {\n\t  position: absolute;\n}\n.custom-submit {\n\t\tmargin-top: 15px;\n\t\tmargin-bottom: 15px;\n\t\tcursor: pointer;\n}\n.disabled {\n\t\tpointer-events: none;\n}\n.custom-alert-container {\n    \tposition: fixed;\n    \ttop: 70px;\n    \tdisplay: -webkit-box;\n    \tdisplay: -ms-flexbox;\n    \tdisplay: flex;\n    \t-webkit-box-orient: vertical;\n    \t-webkit-box-direction: normal;\n    \t    -ms-flex-direction: column;\n    \t        flex-direction: column;\n    \tz-index: 2000;\n    \t-webkit-transition: .2s;\n    \ttransition: .2s;\n}\n.custom-alert-container .alert {\n\t\t-webkit-transition: .2s;\n\t\ttransition: .2s;\n}\n.alerts-enter, .alerts-leave-to {\n\t  opacity: 0;\n\t  -webkit-transform: translateY(30px);\n\t          transform: translateY(30px);\n}\n.alerts-leave-active {\n\t  position: absolute;\n}\n@media(max-width: 1267px) {\n.content-container {\n\t\t\t-webkit-box-pack: center;\n\t\t\t    -ms-flex-pack: center;\n\t\t\t        justify-content: center;\n}\n.main-spot-content {\n\t\t\twidth: 630px;\n}\n.aside-content {\n\t\t\twidth: 270px;\n}\n.upload-img-title {\n\t\t\tfont-size: 23px;\n}\n}\n@media(max-width: 970px) {\n.main-spot-content {\n\t\t\twidth: 500px;\n}\n.aside-content {\n\t\t\twidth: 200px;\n}\n.images-wrap .custom-label {\n\t\t\tfont-size: 15px;\n}\n.upload-img-title {\n\t\t\tfont-size: 18px;\n}\n.selected-tricks-list {\n\t\t\tmargin-left: 0px;\n}\n}\n@media(max-width: 970px) {\n.content-container {\n\t\t\t-webkit-box-orient: vertical;\n\t\t\t-webkit-box-direction: normal;\n\t\t\t    -ms-flex-direction: column;\n\t\t\t        flex-direction: column;\n\t\t\t-webkit-box-align: center;\n\t\t\t    -ms-flex-align: center;\n\t\t\t        align-items: center;\n}\n.aside-content {\n\t\t\t-webkit-box-ordinal-group: 2;\n\t\t\t    -ms-flex-order: 1;\n\t\t\t        order: 1;\n\t\t\twidth: 500px;\n\t\t\tmargin-bottom: 20px;\n}\n.main-spot-content {\n\t\t\t-webkit-box-ordinal-group: 3;\n\t\t\t    -ms-flex-order: 2;\n\t\t\t        order: 2;\n}\n.upload-img-title {\n\t\t\tfont-size: 26px;\n}\n.images-wrap .custom-label {\n\t\t\tfont-size: 20px;\n}\nmain.main-content {\n\t\t\tpadding: 0px 10px;\n}\n}\n@media(max-width: 521px) {\n.aside-content,\n\t\t.main-spot-content {\n\t\t\twidth: 390px;\n}\n.unselected-tricks-list .list-group-item,\n\t\t.selected-tricks-list .list-group-item {\n\t\t\twidth: 140px;\n\t\t\tfont-size: 14px;\n}\n.search-tricks {\n\t\t\tfont-size: 12px;\n}\n}\n@media(max-width: 410px) {\n.aside-content,\n\t\t.main-spot-content {\n\t\t\twidth: 340px;\n}\n.unselected-tricks-list .list-group-item,\n\t\t.selected-tricks-list .list-group-item {\n\t\t    width: 130px;\n    \t\tfont-size: 13px;\n}\n}\n@media(max-width: 359px) {\nmain.main-content {\n\t\t\tpadding: 0px;\n}\n.aside-content,\n\t\t.main-spot-content {\n\t\t    width: 320px;\n}\n.unselected-tricks-list .list-group-item,\n\t\t.selected-tricks-list .list-group-item {\n\t\t    width: 120px;\n    \t\tfont-size: 13px;\n}\n}\n", ""]);
 
 // exports
 
@@ -54970,6 +57219,8 @@ exports.push([module.i, "\n#images-container {\n\t\tfont-family: 'Nunito', 'Aria
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Alert_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Alert_vue__);
 //
 //
 //
@@ -55018,6 +57269,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['routes', 'tricks', 'src_local'],
@@ -55030,7 +57288,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			description: '',
 			canSubmit: true,
 			mapMarker: null,
-			local: this.src_local
+			local: this.src_local,
+			responses: [],
+			customKey: 10
 		};
 	},
 
@@ -55069,7 +57329,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				autoProcessQueue: false,
 				url: 'random'
 			});
-			//console.log(myDropzone.files);
 		},
 		initMap: function initMap() {
 			var self = this;
@@ -55140,11 +57399,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					window.location.href = data;
 				},
 				error: function error(data, b, c) {
-					console.log(data);
+					for (var key in data.responseJSON.errors) {
+						var response = {};
+						response.msg = data.responseJSON.errors[key][0];
+						response.error = true;
+						response.show = true;
+						response.key = self.customKey++;
+						self.responses.push(response);
+						setTimeout(function () {
+							self.responses.shift();
+						}, 5000);
+					}
 					self.canSubmit = true;
 				}
 			});
 		}
+	},
+	components: {
+		Alert: __WEBPACK_IMPORTED_MODULE_0__Alert_vue___default.a
 	}
 });
 
@@ -55156,175 +57428,201 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-container" }, [
-    _c("div", { staticClass: "main-spot-content" }, [
-      _c("div", { staticClass: "spot-page-section map-wrap" }, [
-        _c("div", { attrs: { id: "map" } }),
-        _vm._v(" "),
-        _c("div", { staticClass: "custom-label-wrap" }, [
-          _c("h1", { staticClass: "custom-label" }, [
-            _vm._v(_vm._s(_vm.local["location of spot"]))
+  return _c(
+    "div",
+    { staticClass: "content-container" },
+    [
+      _c("div", { staticClass: "main-spot-content" }, [
+        _c("div", { staticClass: "spot-page-section map-wrap" }, [
+          _c("div", { attrs: { id: "map" } }),
+          _vm._v(" "),
+          _c("div", { staticClass: "custom-label-wrap" }, [
+            _c("h1", { staticClass: "custom-label" }, [
+              _vm._v(_vm._s(_vm.local["location of spot"]))
+            ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "spot-page-section description-wrap" }, [
+          _c("h1", { staticClass: "custom-label" }, [
+            _vm._v(_vm._s(_vm.local["description"]))
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.description,
+                expression: "description"
+              }
+            ],
+            staticClass: "form-control description-field",
+            attrs: { rows: "3" },
+            domProps: { value: _vm.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.description = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "spot-page-section tricks-wrap" }, [
+          _c("h1", { staticClass: "custom-label" }, [
+            _vm._v(_vm._s(_vm.local["moves"]))
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "selected-tricks" },
+            [
+              _c("h3", { staticClass: "selected-tricks-title" }, [
+                _vm._v(_vm._s(_vm.local["selected moves"]) + ":")
+              ]),
+              _vm._v(" "),
+              _c(
+                "transition-group",
+                {
+                  staticClass: "list-group selected-tricks-list",
+                  attrs: { tag: "ul", name: "selected-tricks" }
+                },
+                _vm._l(_vm.selectedTricks, function(trick, index) {
+                  return _c(
+                    "li",
+                    {
+                      key: trick.id,
+                      staticClass: "list-group-item",
+                      on: {
+                        click: function($event) {
+                          _vm.toUnselected(trick, index)
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(trick.name))]
+                  )
+                })
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "unselected-tricks" },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.search,
+                    expression: "search"
+                  }
+                ],
+                staticClass: "form-control search-tricks",
+                attrs: { type: "search", placeholder: _vm.local["search"] },
+                domProps: { value: _vm.search },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.search = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "transition-group",
+                {
+                  staticClass: "list-group unselected-tricks-list",
+                  attrs: { tag: "ul", name: "unselected-tricks" }
+                },
+                _vm._l(_vm.unselectedTricks, function(trick, index) {
+                  return _vm.isSearched(trick.name)
+                    ? _c(
+                        "li",
+                        {
+                          key: trick.id,
+                          staticClass: "list-group-item",
+                          on: {
+                            click: function($event) {
+                              _vm.toSelected(trick, index)
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(trick.name))]
+                      )
+                    : _vm._e()
+                })
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success custom-submit",
+            class: { disabled: !_vm.canSubmit },
+            on: { click: _vm.spotAdd }
+          },
+          [_vm._v(_vm._s(_vm.local["create spot"]))]
+        )
+      ]),
+      _vm._v(" "),
+      _c("aside", { staticClass: "aside-content" }, [
+        _c("div", { staticClass: "spot-page-section images-wrap" }, [
+          _c("h1", { staticClass: "custom-label" }, [
+            _vm._v(_vm._s(_vm.local["images"]))
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "dropzone", attrs: { id: "images-container" } },
+            [
+              _c(
+                "div",
+                { staticClass: "dz-message", attrs: { "data-dz-message": "" } },
+                [
+                  _c("span", { staticClass: "upload-img-title" }, [
+                    _vm._v(_vm._s(_vm.local["drop files"]))
+                  ])
+                ]
+              )
+            ]
+          )
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "spot-page-section description-wrap" }, [
-        _c("h1", { staticClass: "custom-label" }, [
-          _vm._v(_vm._s(_vm.local["description"]))
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.description,
-              expression: "description"
-            }
-          ],
-          staticClass: "form-control description-field",
-          attrs: { rows: "3" },
-          domProps: { value: _vm.description },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.description = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "spot-page-section tricks-wrap" }, [
-        _c("h1", { staticClass: "custom-label" }, [
-          _vm._v(_vm._s(_vm.local["moves"]))
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "selected-tricks" },
-          [
-            _c("h3", { staticClass: "selected-tricks-title" }, [
-              _vm._v(_vm._s(_vm.local["selected moves"]) + ":")
-            ]),
-            _vm._v(" "),
-            _c(
-              "transition-group",
-              {
-                staticClass: "list-group selected-tricks-list",
-                attrs: { tag: "ul", name: "selected-tricks" }
-              },
-              _vm._l(_vm.selectedTricks, function(trick, index) {
-                return _c(
-                  "li",
-                  {
-                    key: trick.id,
-                    staticClass: "list-group-item",
-                    on: {
-                      click: function($event) {
-                        _vm.toUnselected(trick, index)
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(trick.name))]
-                )
-              })
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "unselected-tricks" },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.search,
-                  expression: "search"
-                }
-              ],
-              staticClass: "form-control search-tricks",
-              attrs: { type: "search", placeholder: _vm.local["search"] },
-              domProps: { value: _vm.search },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.search = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "transition-group",
-              {
-                staticClass: "list-group unselected-tricks-list",
-                attrs: { tag: "ul", name: "unselected-tricks" }
-              },
-              _vm._l(_vm.unselectedTricks, function(trick, index) {
-                return _vm.isSearched(trick.name)
-                  ? _c(
-                      "li",
-                      {
-                        key: trick.id,
-                        staticClass: "list-group-item",
-                        on: {
-                          click: function($event) {
-                            _vm.toSelected(trick, index)
-                          }
-                        }
-                      },
-                      [_vm._v(_vm._s(trick.name))]
-                    )
-                  : _vm._e()
-              })
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
       _c(
-        "button",
+        "transition-group",
         {
-          staticClass: "btn btn-success custom-submit",
-          class: { disabled: !_vm.canSubmit },
-          on: { click: _vm.spotAdd }
+          staticClass: "custom-alert-container",
+          attrs: { name: "alerts", tag: "div" }
         },
-        [_vm._v(_vm._s(_vm.local["create spot"]))]
+        [
+          _vm._l(_vm.responses, function(response, key) {
+            return [
+              response.show
+                ? _c("Alert", {
+                    key: response.key,
+                    attrs: { msg: response.msg, error: response.error }
+                  })
+                : _vm._e()
+            ]
+          })
+        ],
+        2
       )
-    ]),
-    _vm._v(" "),
-    _c("aside", { staticClass: "aside-content" }, [
-      _c("div", { staticClass: "spot-page-section images-wrap" }, [
-        _c("h1", { staticClass: "custom-label" }, [
-          _vm._v(_vm._s(_vm.local["images"]))
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "dropzone", attrs: { id: "images-container" } },
-          [
-            _c(
-              "div",
-              { staticClass: "dz-message", attrs: { "data-dz-message": "" } },
-              [
-                _c("span", { staticClass: "upload-img-title" }, [
-                  _vm._v(_vm._s(_vm.local["drop files"]))
-                ])
-              ]
-            )
-          ]
-        )
-      ])
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -55422,7 +57720,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nbody {\n\t\tbackground-color: #fff;\n}\n.main-wrap {\n\t\twidth: 100%;\n\t\theight: 100%;\n}\n.first-block,\n\t.second-block {\n\t\twidth: 100%;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.first-block-bg-img {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: -1;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n\t    -webkit-filter: brightness(90%);\n\t            filter: brightness(90%);\n\t\t/*filter: blur(1px);*/\n\t\t/*margin: -5px -10px -10px -5px;*/\n}\n.first-block-title {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: bold;\n\t\tfont-size: 62px;\n\t\tcolor: #fff;\n\t    width: 80vw;\n    \ttext-align: center;\n}\n.first-block-content {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tposition: absolute;\n\t\ttop: 50%;\n\t\tleft: 50%;\n\t\t-webkit-transform: translate(-50%, -50%);\n\t\t        transform: translate(-50%, -50%);\n}\n.second-block-content {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\theight: 100%;\n}\n.first-block-content-container {\n\t\t/*background-color: rgba(255, 255, 255, 0.5);*/\n\t\twidth: 100%;\n\t\theight: 100%;\n}\n.custom-btn-find-spot {\n\t    margin: 20px auto 0px;\n\t    font-size: 24px;\n\t    cursor: pointer;\n\t    font-family: 'Nunito', 'Arial';\n\t    background-color: rgba(0, 0, 0, 0.15);\n}\n.custom-btn-find-spot:hover, \n\t.custom-btn-find-spot:focus, \n\t.custom-btn-find-spot:active {\n\t\t background-color: #17a2b8; \n\t     border-color: #17a2b8; \n\t     color: #fff;\n}\n.second-block-img {\n\t\t-webkit-box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\t\t        box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\t\tposition: relative;\n\t\tz-index: 10;\n\t\t-webkit-filter: blur(2px);\n\t\t        filter: blur(2px);\n\t\tborder-radius: 5px;\n\t\t/*animation-fill-mode: forwards;\n\t\tanimation-play-state: paused;*/\n\t\t/*transition: .5s;*/\n}\n.second-block-img-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.second-block-first-img {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n}\n.second-block-first-img.active-animation {\n\t\t-webkit-animation: firstImgShow .8s forwards ease;\n\t\t        animation: firstImgShow .8s forwards ease;\n}\n.second-block-second-img {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n}\n.second-block-second-img.active-animation {\n\t\t-webkit-animation: secondImgShow .8s forwards ease;\n\t\t        animation: secondImgShow .8s forwards ease;\n}\n@-webkit-keyframes firstImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t\t        transform: translate3d(-30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@keyframes firstImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t\t        transform: translate3d(-30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@-webkit-keyframes secondImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t\t        transform: translate3d(30px, 30px, 0);\n\t\t\tz-index: 10;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@keyframes secondImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t\t        transform: translate3d(30px, 30px, 0);\n\t\t\tz-index: 10;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n.second-block-title-container {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t    margin-left: 50px;\n\t    -webkit-box-align: end;\n\t        -ms-flex-align: end;\n\t            align-items: flex-end;\n\t    height: 100%;\n}\n.second-block-title {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-size: 34px;\n\t\tcolor: #777;\n\t\t-webkit-transition: 1s;\n\t\ttransition: 1s;\n\t\ttext-align: right;\n\t\tmax-width: 400px;\n}\n.second-block-title:nth-child(1) {\n\t\tmargin-bottom: 150px;\n}\n.second-block-title.active-title {\n\t\tcolor: #444;\n\t\t/*font-weight: bold;*/\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n", ""]);
+exports.push([module.i, "\nbody {\n\t\tbackground-color: #fff;\n}\n.main-wrap {\n\t\twidth: 100%;\n\t\theight: 100%;\n}\n.first-block,\n\t.second-block {\n\t\twidth: 100%;\n\t\theight: 100vh;\n\t\tposition: relative;\n}\n.first-block-bg-img {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tz-index: -1;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\t-o-object-fit: cover;\n\t\t   object-fit: cover;\n\t    -webkit-filter: brightness(90%);\n\t            filter: brightness(90%);\n\t\t/*filter: blur(1px);*/\n\t\t/*margin: -5px -10px -10px -5px;*/\n}\n.first-block-title {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-weight: bold;\n\t\tfont-size: 56px;\n\t\tcolor: #fff;\n\t    width: 80vw;\n    \ttext-align: center;\n}\n.first-block-content {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\tposition: absolute;\n\t\ttop: 50%;\n\t\tleft: 50%;\n\t\t-webkit-transform: translate(-50%, -50%);\n\t\t        transform: translate(-50%, -50%);\n}\n.second-block-content {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: horizontal;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: row;\n\t\t        flex-direction: row;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n\t\theight: 100%;\n}\n.first-block-content-container {\n\t\t/*background-color: rgba(255, 255, 255, 0.5);*/\n\t\twidth: 100%;\n\t\theight: 100%;\n}\n.custom-btn-find-spot {\n\t    margin: 20px auto 0px;\n\t    font-size: 24px;\n\t    cursor: pointer;\n\t    font-family: 'Nunito', 'Arial';\n\t    background-color: rgba(0, 0, 0, 0.15);\n}\n.custom-btn-find-spot:hover, \n\t.custom-btn-find-spot:focus, \n\t.custom-btn-find-spot:active {\n\t\t background-color: #17a2b8; \n\t     border-color: #17a2b8; \n\t     color: #fff;\n}\n.second-block-img {\n\t\t-webkit-box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\t\t        box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);\n\t\tposition: relative;\n\t\tz-index: 10;\n\t\t-webkit-filter: blur(2px);\n\t\t        filter: blur(2px);\n\t\tborder-radius: 5px;\n\t\t/*animation-fill-mode: forwards;\n\t\tanimation-play-state: paused;*/\n\t\t/*transition: .5s;*/\n}\n.second-block-img-wrap {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-align: center;\n\t\t    -ms-flex-align: center;\n\t\t        align-items: center;\n}\n.second-block-first-img {\n\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t        transform: translate3d(-30px, 30px, 0);\n}\n.second-block-first-img.active-animation {\n\t\t-webkit-animation: firstImgShow .8s forwards ease;\n\t\t        animation: firstImgShow .8s forwards ease;\n}\n.second-block-second-img {\n\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t        transform: translate3d(30px, -30px, 0);\n}\n.second-block-second-img.active-animation {\n\t\t-webkit-animation: secondImgShow .8s forwards ease;\n\t\t        animation: secondImgShow .8s forwards ease;\n}\n@-webkit-keyframes firstImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t\t        transform: translate3d(-30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@keyframes firstImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(-30px, -30px, 0);\n\t\t\t        transform: translate3d(-30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(-30px, 30px, 0);\n\t\t\t        transform: translate3d(-30px, 30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@-webkit-keyframes secondImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t\t        transform: translate3d(30px, 30px, 0);\n\t\t\tz-index: 10;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n@keyframes secondImgShow{\nfrom {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 9;\n}\n49% {\n\t\t\tz-index: 9;\n}\n50% {\n\t\t\t-webkit-transform: translate3d(30px, 30px, 0);\n\t\t\t        transform: translate3d(30px, 30px, 0);\n\t\t\tz-index: 10;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\nto {\n\t\t\t-webkit-transform: translate3d(30px, -30px, 0);\n\t\t\t        transform: translate3d(30px, -30px, 0);\n\t\t\tz-index: 11;\n\t\t\t-webkit-filter: blur(0px);\n\t\t\t        filter: blur(0px);\n}\n}\n.second-block-title-container {\n\t\tdisplay: -webkit-box;\n\t\tdisplay: -ms-flexbox;\n\t\tdisplay: flex;\n\t\t-webkit-box-orient: vertical;\n\t\t-webkit-box-direction: normal;\n\t\t    -ms-flex-direction: column;\n\t\t        flex-direction: column;\n\t\t-webkit-box-pack: center;\n\t\t    -ms-flex-pack: center;\n\t\t        justify-content: center;\n\t    margin-left: 50px;\n\t    -webkit-box-align: end;\n\t        -ms-flex-align: end;\n\t            align-items: flex-end;\n\t    height: 100%;\n}\n.second-block-title {\n\t\tfont-family: 'Nunito', 'Arial';\n\t\tfont-size: 34px;\n\t\tcolor: #777;\n\t\t-webkit-transition: 1s;\n\t\ttransition: 1s;\n\t\ttext-align: right;\n\t\tmax-width: 400px;\n}\n.second-block-title:nth-child(1) {\n\t\tmargin-bottom: 150px;\n}\n.second-block-title.active-title {\n\t\tcolor: #444;\n\t\t/*font-weight: bold;*/\n\t\t-webkit-transform: scale(1.1);\n\t\t        transform: scale(1.1);\n}\n.second-block-img:not(.active-animation) {\n\t\twill-change: transform;\n}\n@media(max-width: 1088px) {\n.first-block-title {\n\t\t\tfont-size: 46px;\n}\n.second-block-img-wrap {\n\t\t\twidth: 300px;\n}\n.second-block-img {\n\t\t\twidth: 100%;\n}\n.second-block-title {\n\t\t\tfont-size: 26px;\n}\n}\n@media(max-width: 866px) {\n.second-block-img-wrap {\n\t\t\twidth: 250px;\n}\n.second-block-title {\n\t\t\tfont-size: 20px;\n}\n.second-block-content {\n     \t\tpadding: 0px 40px 0px 50px;\n}\n}\n@media(max-width: 720px) {\n.first-block-title {\n\t\t\tfont-size: 36px;\n}\n.second-block-title:nth-child(1) {\n\t\t\tmargin-bottom: 50px;\n}\n.second-block-content {\n\t\t    -webkit-box-orient: vertical;\n\t\t    -webkit-box-direction: normal;\n\t\t        -ms-flex-direction: column;\n\t\t            flex-direction: column;\n\t\t    padding: 0px;\n}\n.second-block-title-container {\n\t\t\tmargin-left: 0px;\n\t\t\tpadding: 0px 30px;\n}\n.second-block-title {\n\t\t\ttext-align: center;\n}\n}\n", ""]);
 
 // exports
 
@@ -55968,7 +58266,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					}
 				},
 				error: function error(data) {
-					console.log(data);
+					console.log('error');
 				}
 			});
 		}

@@ -366,9 +366,7 @@
 	}
 
 	.avatar-container .full-size-avatar {
-		position: fixed;
 		z-index: 90;
-		top: 10% !important;
 		cursor: pointer;
 		max-width: 90vw;
 		max-height: 80vh;
@@ -599,5 +597,89 @@
 	    border-left: 1px solid #aaa;
 	    transition: .2s;
 	    background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    @media(max-width: 1160px) {
+    	.profile-content {
+    		width: auto;
+    	}
+
+    	.trick-container {
+    		width: 450px;
+    	}
+
+    	.custom-video-container .custom-video {
+    		min-height: 200px;
+    		max-height: 300px;
+    	}
+    }
+
+    @media(max-width: 1040px) {
+    	.trick-container {
+    		width: 350px;
+    	}
+
+    	.custom-video-container .custom-video {
+    		min-height: 150px;
+    		max-height: 250px;
+    	}
+    }
+
+    @media(max-width: 830px) {
+    	.tricks-container {
+    		justify-content: center;
+    	}
+
+    	.trick-container {
+    		width: 500px;
+    	}
+
+    	.custom-video-container .custom-video {
+    		min-height: 250px;
+    		max-height: 400px;
+    	}
+
+    	.avatar-wrap {
+    		width: 200px;
+    	}
+
+    	.avatar-container {
+    		width: 150px;
+    		height: 150px;
+    	}
+    }
+
+    @media(max-width: 700px) {
+    	main.main-content {
+    		padding: 0px 10px 0px 10px;
+    	}
+    }
+
+    @media(max-width: 560px) { 
+    	.custom-video-container .custom-video {
+    		min-height: 150px;
+    		max-height: 300px;
+    	}
+
+    	.profile-info {
+    		flex-direction: column;
+    	}
+
+    	.avatar-wrap {
+    		width: 100%;
+		    margin-bottom: 20px;
+    	}
+
+    	.avatar-container {
+    		width: 200px;
+    		height: 200px;
+    	}
+    }
+
+    @media(max-width: 480px) { 
+    	.downsize-btn {
+    		z-index: 2000;
+    		fill: #f33;
+    	}
     }
 </style>

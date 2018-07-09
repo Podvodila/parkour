@@ -60,9 +60,6 @@
 
 			    this.provider = new GeoSearch.OpenStreetMapProvider();
 			},
-			checkMap(e) {
-				console.log(e);
-			},
 			enterSearch(e) {
 				var self = this;
 				var val = e.currentTarget.value;

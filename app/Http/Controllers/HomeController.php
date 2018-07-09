@@ -62,6 +62,7 @@ class HomeController extends Controller
             'site.profileEdit' => 'profileEdit',
             'register' => 'register',
             'login' => 'login',
+            'password.request' => 'password',
         ];
 
         return $locale[$loc];
