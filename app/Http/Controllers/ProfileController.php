@@ -102,7 +102,7 @@ class ProfileController extends Controller
     public function addMoveVideo(Request $request)
     {
     	$this->validate($request, [
-    		'video' => 'mimes:flv,mp4,mpeg,mov,avi,wmv | max:30000',
+    		'video' => 'mimes:flv,mp4,mpeg,mov,avi,wmv,bin,3gp | max:30000',
     		'move' => 'integer',
     	]);
     	$video = $request->file('video');
@@ -125,7 +125,7 @@ class ProfileController extends Controller
     	$video = json_decode($video);
     	if($video->user_id == Auth::id()) {
     		Video::find($video->id)->delete();
-    		Storage::disk('local')->delete($video->path);
+    		Storage::disk('local')->delete(str_replace('/storage', '', $video->path));
     	}
 
     	return response()->json($this->getUserVideos(Auth::id()));

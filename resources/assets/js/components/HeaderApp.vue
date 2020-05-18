@@ -252,7 +252,7 @@
 				    'X-CSRF-TOKEN': self.token,
 				  },
     			  data: {
-    			  	locale: JSON.stringify(locale),
+    			  	lang: JSON.stringify(locale),
     			  	_token: self.token,
     			  },
     			  success: function(data) { 

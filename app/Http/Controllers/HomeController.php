@@ -32,7 +32,7 @@ class HomeController extends Controller
 
     public function changeLocale(Request $request)
     {
-        $locale = json_decode($request->locale);
+        $locale = json_decode($request->lang);
         if(!App::isLocale($locale)) {
             Route::dispatchToRoute(Request::create(url()->previous()));
             if(App::isLocale('en')) {
