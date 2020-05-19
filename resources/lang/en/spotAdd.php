@@ -8,4 +8,6 @@
 		'search' => 'Search',
 		'selected moves' => 'Selected moves',
 		'create spot' => 'Create spot',
+		'pageTitle' => 'Add spot',
+		'pageDescription' => 'Add a new spot to the map.',
 	];

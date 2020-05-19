@@ -1,5 +1,13 @@
 @extends('main')
 
+@section('title')
+@lang('register.pageTitle')
+@endsection
+
+@section('description')
+@lang('register.pageDescription')
+@endsection
+
 @section('content')
 @php
     $routes = ['register' => route('register')];

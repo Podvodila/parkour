@@ -1,5 +1,13 @@
 @extends('main')
 
+@section('title')
+{{$user->first_name}} {{$user->last_name}}
+@endsection
+
+@section('description')
+@lang('profile.pageDescription', ['tracer' => $user->first_name . ' ' . $user->last_name])
+@endsection
+
 @section('content')
 @php
 	$routes = ['getUser' => route('ajax.getUser'), 'getUserTricks' => route('ajax.getUserTricks'), 'getUserVideos' => route('ajax.getUserVideos'), 'getAvatar' => route('ajax.getAvatar')];

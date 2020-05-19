@@ -6,4 +6,6 @@
 		'Password' => 'Пароль',
 		'Confirm Password' => 'Подтвердите пароль',
 		'Do Reset Password' => 'Сбросить пароль',
+		'pageTitle' => 'Сбросить пароль',
+		'pageDescription' => 'Страница сброса пароля.',
 	];

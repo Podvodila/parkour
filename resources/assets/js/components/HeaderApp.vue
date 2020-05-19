@@ -2,7 +2,7 @@
 	<nav class="main-nav-container">
     	<div class="main-nav">
     		<a :href="routes.home" class="nav-logo-wrap">
-    			<h1 class="nav-logo">parkour</h1>
+    			<h1 class="nav-logo">Spotach</h1>
     		</a>
 	    	<ul class="custom-navbar" :class="{opened: menuOpened}">
 	    		<li class="route-list-item"><a class="nav-link" :href="routes.find">{{local['find a spot']}}</a></li>

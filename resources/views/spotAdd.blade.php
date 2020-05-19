@@ -1,5 +1,13 @@
 @extends('main')
 
+@section('title')
+@lang('spotAdd.pageTitle')
+@endsection
+
+@section('description')
+@lang('spotAdd.pageDescription')
+@endsection
+
 @section('content')
 @php
 	$routes = [

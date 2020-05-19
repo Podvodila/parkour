@@ -1,5 +1,13 @@
 @extends('main')
 
+@section('title')
+@lang('reset.pageTitle')
+@endsection
+
+@section('description')
+@lang('reset.pageDescription')
+@endsection
+
 @php
   $routesHeader = [
       'login' => route('login'), 

@@ -8,4 +8,6 @@
 		'search' => 'Поиск',
 		'selected moves' => 'Выбранные элементы',
 		'create spot' => 'Создать место',
+		'pageTitle' => 'Добавить спот',
+		'pageDescription' => 'Добавить новый спот на карту.',
 	];

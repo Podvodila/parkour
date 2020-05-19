@@ -9,4 +9,6 @@
 		'not registered yet' => 'Еще нет аккаунта?',
 		'submit' => 'Войти',
 		'email' => 'Электронная почта',
+		'pageTitle' => 'Вход',
+		'pageDescription' => 'Страница входа в аккаунт.',
 	];

@@ -12,6 +12,14 @@
     ];
 @endphp
 
+@section('title')
+@lang('find.pageTitle')
+@endsection
+
+@section('description')
+@lang('find.pageDescription')
+@endsection
+
 @section('content')
   <div id="app">
     <HeaderApp :routes="{{json_encode($routesHeader)}}" auth="{{auth()->guard()->check()}}" :src_local="{{ json_encode(__('header')) }}"></HeaderApp>

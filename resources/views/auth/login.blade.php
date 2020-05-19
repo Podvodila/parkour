@@ -1,5 +1,13 @@
 @extends('main')
 
+@section('title')
+@lang('login.pageTitle')
+@endsection
+
+@section('description')
+@lang('login.pageDescription')
+@endsection
+
 @section('content')
 @php
     $routes = ['login' => route('login'), 'forgot' => route('password.request'), 'register' => route('register')];

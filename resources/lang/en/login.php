@@ -9,4 +9,6 @@
 		'not registered yet' => 'Don\'t have an account?',
 		'submit' => 'Log in',
 		'email' => 'Email',
+		'pageTitle' => 'Login',
+		'pageDescription' => 'Sign in page.',
 	];

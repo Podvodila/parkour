@@ -6,4 +6,6 @@
 		'Password' => 'Password',
 		'Confirm Password' => 'Confirm Password',
 		'Do Reset Password' => 'Reset Password',
+		'pageTitle' => 'Reset password',
+		'pageDescription' => 'Reset password page.',
 	];

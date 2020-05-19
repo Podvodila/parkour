@@ -32,4 +32,6 @@
 		'at least one move' => 'Spot must have at least one move',
 		'successfuly detached' => 'Video successfuly detached from this spot',
 		'comments' => 'Comments',
+		'pageTitle' => 'Spot',
+		'pageDescription' => 'View information about the spot. His location on the map, photos, description and a list of elements that can be performed on this spot.',
 	];

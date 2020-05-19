@@ -16,4 +16,6 @@
 		'first delete video' => 'First you need to delete the video confirmation',
 		'video added to spot' => 'Video successfuly added to selected spot',
 		'video removed from spot' => 'Video removed from spot',
+		'pageTitle' => 'Edit profile',
+		'pageDescription' => 'A page where you can edit your profile.',
 	];

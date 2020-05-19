@@ -76,4 +76,5 @@ Route::middleware('locale.check')->group(function() {
 	Auth::routes();
 });
 
+Route::get('/sitemap', 'SiteMapController@index');
 

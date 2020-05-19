@@ -7,4 +7,6 @@
 		'password' => 'Password',
 		'confirm password' => 'Confirm Password',
 		'email' => 'Email',
+		'pageTitle' => 'Register',
+		'pageDescription' => 'Sign up page.',
 	];

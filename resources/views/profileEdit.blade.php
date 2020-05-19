@@ -1,5 +1,13 @@
 @extends('main')
 
+@section('title')
+@lang('profileEdit.pageTitle')
+@endsection
+
+@section('description')
+@lang('profileEdit.pageDescription')
+@endsection
+
 @section('content')
 @php
 	$routes = ['updateAvatar' => route('profile.uploadImg'), 'removeAvatar' => route('profile.removeImg'), 'getUserVideos' => route('ajax.getUserVideos'), 'getAvatar' => route('ajax.getAvatar'), 'setSocial' => route('ajax.setSocial'), 'addMove' => route('profile.addMove'), 'removeMove' => route('profile.removeMove'), 'addVideo' => route('profile.addMoveVideo'), 'removeVideo' => route('profile.removeMoveVideo'), 'addSpotToVideo' => route('profile.addSpotToVideo'), 
