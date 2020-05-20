@@ -35,4 +35,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'google_analytics' => [
+        'tag_code' => env('GOOGLE_TAG_CODE'),
+    ],
+
 ];
